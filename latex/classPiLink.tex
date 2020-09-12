@@ -1,0 +1,482 @@
+\hypertarget{classPiLink}{}\doxysection{Pi\+Link Class Reference}
+\label{classPiLink}\index{PiLink@{PiLink}}
+
+
+{\ttfamily \#include $<$Pi\+Link.\+h$>$}
+
+
+
+Collaboration diagram for Pi\+Link\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPiLink__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structPiLink_1_1JsonOutput}{Json\+Output}}
+\item 
+struct \mbox{\hyperlink{structPiLink_1_1JsonParserConvert}{Json\+Parser\+Convert}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{classPiLink_aa695768acc33f83dffdf648a4348c2a5}{Parse\+Json\+Callback}}) (const char $\ast$key, const char $\ast$val, void $\ast$data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPiLink_a3baa4c0e5fd63039ddeae99bc4b0fcd4}\label{classPiLink_a3baa4c0e5fd63039ddeae99bc4b0fcd4}} 
+static void {\bfseries init} (void)
+\item 
+static void \mbox{\hyperlink{classPiLink_a280d63b305a5064f6a1ed7cfc8c32f4e}{receive}} (void)
+\item 
+\mbox{\Hypertarget{classPiLink_aa028d8cccf032cf4d21bc04bd31462bd}\label{classPiLink_aa028d8cccf032cf4d21bc04bd31462bd}} 
+static void {\bfseries print\+Fridge\+Annotation} (const char $\ast$annotation,...)
+\item 
+\mbox{\Hypertarget{classPiLink_a26793989b0f0d11de0dc5a7b45338a1a}\label{classPiLink_a26793989b0f0d11de0dc5a7b45338a1a}} 
+static void {\bfseries print\+Beer\+Annotation} (const char $\ast$annotation,...)
+\item 
+static void \mbox{\hyperlink{classPiLink_a6b32a42765d42b231f36f59acf292755}{debug\+Message}} (const char $\ast$message,...)
+\item 
+\mbox{\Hypertarget{classPiLink_a5bf78d9bc746052a18f4776717488920}\label{classPiLink_a5bf78d9bc746052a18f4776717488920}} 
+static void {\bfseries print\+Temperatures} (void)
+\item 
+static void \mbox{\hyperlink{classPiLink_a4e8cbae074e19a9cb598fad967961c00}{parse\+Json}} (\mbox{\hyperlink{classPiLink_aa695768acc33f83dffdf648a4348c2a5}{Parse\+Json\+Callback}} fn, void $\ast$data=N\+U\+LL)
+\item 
+static int \mbox{\hyperlink{classPiLink_aea8171d925eec935dc2d81d83b7fba45}{read}} (void)
+\item 
+static void \mbox{\hyperlink{classPiLink_a39997d630160812eab7c2efea8bc102e}{print\+Temperatures\+J\+S\+ON}} (const char $\ast$beer\+Annotation, const char $\ast$fridge\+Annotation)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{classPiLink_a78471c1d63895aad6c81692ba9b2cf0b}{Json\+Output\+Handler}}) (const char $\ast$key, uint8\+\_\+t offset)
+\item 
+\mbox{\Hypertarget{classPiLink_aaf6214860158cc832f60b343a5450cab}\label{classPiLink_aaf6214860158cc832f60b343a5450cab}} 
+typedef void($\ast$ {\bfseries Json\+Parser\+Handler\+Fn}) (const char $\ast$val, void $\ast$target)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classPiLink_ad79fe853bdd4e930ce9ff842fa19191c}{send\+Control\+Settings}} (void)
+\item 
+\mbox{\Hypertarget{classPiLink_afd53ad965948de9d70582bc909535014}\label{classPiLink_afd53ad965948de9d70582bc909535014}} 
+static void {\bfseries receive\+Control\+Constants} (void)
+\item 
+static void \mbox{\hyperlink{classPiLink_ab263e2db1951bc0f47aaedd9f13f4c14}{send\+Control\+Constants}} (void)
+\item 
+static void \mbox{\hyperlink{classPiLink_a0a5d1d4fa3db955841ee0b5be5b66a88}{send\+Control\+Variables}} (void)
+\item 
+static void \mbox{\hyperlink{classPiLink_a8ac21f84ba419f10387840a6442beda9}{receive\+Json}} (void)
+\item 
+static void \mbox{\hyperlink{classPiLink_ab3d646f87c99d05ab40dfb0ed758b3a9}{print}} (char $\ast$fmt,...)
+\item 
+\mbox{\Hypertarget{classPiLink_a3de1220efb877f40b3c3e5e9838b7843}\label{classPiLink_a3de1220efb877f40b3c3e5e9838b7843}} 
+static void {\bfseries test\+\_\+functionality} (void)
+\item 
+static void \mbox{\hyperlink{classPiLink_adbc52df0d0a0dcaec0a1ab386d2bb749}{print\+\_\+P}} (const char $\ast$fmt,...)
+\item 
+static void \mbox{\hyperlink{classPiLink_a28e647c4f54ceeccd10a5763cf98943f}{print\+New\+Line}} (void)
+\item 
+\mbox{\Hypertarget{classPiLink_ae9f4955a2b2f166a6b026f2f42ed5e61}\label{classPiLink_ae9f4955a2b2f166a6b026f2f42ed5e61}} 
+static void {\bfseries print\+Chamber\+Count} ()
+\item 
+\mbox{\Hypertarget{classPiLink_ade7ae0aee574ca87870bc7eac04e15b2}\label{classPiLink_ade7ae0aee574ca87870bc7eac04e15b2}} 
+static void {\bfseries print\+Nibble} (uint8\+\_\+t n)
+\item 
+\mbox{\Hypertarget{classPiLink_a561638e2bbba275274e28ea558dc4704}\label{classPiLink_a561638e2bbba275274e28ea558dc4704}} 
+static void {\bfseries sound\+Alarm} (bool enabled)
+\item 
+static void \mbox{\hyperlink{classPiLink_a32ea11ac93e01bb49de68b78699342d0}{print\+Response}} (char response\+Char)
+\item 
+\mbox{\Hypertarget{classPiLink_a5e50fdb9dd9cffb7ca3b0cd6bfaf9e97}\label{classPiLink_a5e50fdb9dd9cffb7ca3b0cd6bfaf9e97}} 
+static void {\bfseries print\+Chamber\+Info} ()
+\item 
+static void \mbox{\hyperlink{classPiLink_ab3a1273c58edf2b809e230b423dec154}{send\+Json\+Pair}} (const char $\ast$name, const char $\ast$val)
+\item 
+static void \mbox{\hyperlink{classPiLink_a34e693d1b73d1760d8b212e9ef68ca1b}{send\+Json\+Pair}} (const char $\ast$name, char val)
+\item 
+static void \mbox{\hyperlink{classPiLink_affa70af0d0d4ad8e1884a9fd2be3a48a}{send\+Json\+Pair}} (const char $\ast$name, uint16\+\_\+t val)
+\item 
+static void \mbox{\hyperlink{classPiLink_aeb8aea4efcdd5a91e07d42757bec8ccf}{send\+Json\+Pair}} (const char $\ast$name, uint8\+\_\+t val)
+\item 
+static void \mbox{\hyperlink{classPiLink_a8011e5f210a2881e0b41685ea2a5a5ed}{send\+Json\+Annotation}} (const char $\ast$name, const char $\ast$annotation)
+\item 
+\mbox{\Hypertarget{classPiLink_a9fb4868e59956d516ab5463dafbfcec0}\label{classPiLink_a9fb4868e59956d516ab5463dafbfcec0}} 
+static void {\bfseries send\+Json\+Temp} (const char $\ast$name, \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} temp)
+\item 
+static void \mbox{\hyperlink{classPiLink_a80528f74da16d90315346b88a8476f03}{process\+Json\+Pair}} (const char $\ast$key, const char $\ast$val, void $\ast$pv)
+\begin{DoxyCompactList}\small\item\em Process one J\+S\+ON key/value pair. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classPiLink_a675aeef2e947ebf288e8ebd20bfb5def}{print\+Json\+Name}} (const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Prints the name part of a J\+S\+ON name/value pair The name must exist in P\+R\+O\+G\+M\+EM. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classPiLink_aa0f66dc2459d0ec99f1864bb7796d47c}{print\+Json\+Separator}} ()
+\item 
+static void \mbox{\hyperlink{classPiLink_a5ed98b55cf73274f9602f791d49d436a}{send\+Json\+Close}} ()
+\item 
+static void \mbox{\hyperlink{classPiLink_af7e99af07fd3e6b9bd78479881d0d626}{open\+List\+Response}} (char type)
+\item 
+static void \mbox{\hyperlink{classPiLink_a72ca76634d515d6d789a49c5293486f5}{close\+List\+Response}} ()
+\item 
+\mbox{\Hypertarget{classPiLink_ad69937bb41ec543f30e4d38274645933}\label{classPiLink_ad69937bb41ec543f30e4d38274645933}} 
+static void {\bfseries send\+Json\+Values} (char response\+Type, const \mbox{\hyperlink{structPiLink_1_1JsonOutput}{Json\+Output}} $\ast$json\+Output\+Map, uint8\+\_\+t map\+Count)
+\item 
+\mbox{\Hypertarget{classPiLink_ace1fb80316d33778fda02299a596b863}\label{classPiLink_ace1fb80316d33778fda02299a596b863}} 
+static void {\bfseries json\+Output\+Uint8} (const char $\ast$key, uint8\+\_\+t offset)
+\item 
+static void \mbox{\hyperlink{classPiLink_ae8363e06e6f336710a65e89b301d37de}{json\+Output\+Temp\+To\+String}} (const char $\ast$key, uint8\+\_\+t offset)
+\item 
+\mbox{\Hypertarget{classPiLink_af8782d52a75c331dad0e403923ce8ddb}\label{classPiLink_af8782d52a75c331dad0e403923ce8ddb}} 
+static void {\bfseries json\+Output\+Fixed\+Point\+To\+String} (const char $\ast$key, uint8\+\_\+t offset)
+\item 
+\mbox{\Hypertarget{classPiLink_add3cbf9d3bcc2138a3e6900a69bc1ae1}\label{classPiLink_add3cbf9d3bcc2138a3e6900a69bc1ae1}} 
+static void {\bfseries json\+Output\+Temp\+Diff\+To\+String} (const char $\ast$key, uint8\+\_\+t offset)
+\item 
+\mbox{\Hypertarget{classPiLink_a4672ea42d173c92d9b0e02ac62e47973}\label{classPiLink_a4672ea42d173c92d9b0e02ac62e47973}} 
+static void {\bfseries json\+Output\+Char} (const char $\ast$key, uint8\+\_\+t offset)
+\item 
+\mbox{\Hypertarget{classPiLink_abbd2d3a72061a55c207a10245b1282cc}\label{classPiLink_abbd2d3a72061a55c207a10245b1282cc}} 
+static void {\bfseries json\+Output\+Uint16} (const char $\ast$key, uint8\+\_\+t offset)
+\item 
+\mbox{\Hypertarget{classPiLink_a42236c432c68211749c28c6120b66cb2}\label{classPiLink_a42236c432c68211749c28c6120b66cb2}} 
+static void {\bfseries set\+Mode} (const char $\ast$val)
+\item 
+static void \mbox{\hyperlink{classPiLink_acb65130033ed899706a2ca5bd8669d21}{set\+Beer\+Setting}} (const char $\ast$val)
+\item 
+\mbox{\Hypertarget{classPiLink_acf9fcd54239811daa491a34b715d61a6}\label{classPiLink_acf9fcd54239811daa491a34b715d61a6}} 
+static void {\bfseries set\+Fridge\+Setting} (const char $\ast$val)
+\item 
+\mbox{\Hypertarget{classPiLink_a8f4361b1997284b92e2ebdf7ced2a202}\label{classPiLink_a8f4361b1997284b92e2ebdf7ced2a202}} 
+static void {\bfseries set\+Temp\+Format} (const char $\ast$val)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{classPiLink_a78471c1d63895aad6c81692ba9b2cf0b}{Json\+Output\+Handler}} \mbox{\hyperlink{classPiLink_ae4fa3203dbd06d0ff03e131a76d23e2a}{Json\+Output\+Handlers}} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{classPiLink_a113986e9514086097cef226a831a2751}\label{classPiLink_a113986e9514086097cef226a831a2751}} 
+static const \mbox{\hyperlink{structPiLink_1_1JsonOutput}{Json\+Output}} {\bfseries json\+Output\+C\+C\+Map} \mbox{[}$\,$\mbox{]}
+\item 
+static const \mbox{\hyperlink{structPiLink_1_1JsonOutput}{Json\+Output}} {\bfseries json\+Output\+C\+V\+Map} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{classPiLink_a680399c8454955edbfd07bf831613ce3}\label{classPiLink_a680399c8454955edbfd07bf831613ce3}} 
+static const \mbox{\hyperlink{structPiLink_1_1JsonParserConvert}{Json\+Parser\+Convert}} {\bfseries json\+Parser\+Converters} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{classPiLink_a348b00def6542b8868c29a964603e31e}\label{classPiLink_a348b00def6542b8868c29a964603e31e}} 
+static bool \mbox{\hyperlink{classPiLink_a348b00def6542b8868c29a964603e31e}{first\+Pair}}
+\begin{DoxyCompactList}\small\item\em Flag used to track when separating {\ttfamily ,} chars should be emitted. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPiLink_a3b98ca2a3cc7cf6ce296bd5daceb1be1}\label{classPiLink_a3b98ca2a3cc7cf6ce296bd5daceb1be1}} 
+static char {\bfseries printf\+Buff} \mbox{[}P\+R\+I\+N\+T\+F\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPiLink_aead9a9546ea765538d3f95894afea912}\label{classPiLink_aead9a9546ea765538d3f95894afea912}} 
+class {\bfseries Device\+Manager}
+\item 
+\mbox{\Hypertarget{classPiLink_a525a54595e24b1e70a2b79be5173d934}\label{classPiLink_a525a54595e24b1e70a2b79be5173d934}} 
+class {\bfseries Pi\+Link\+Test}
+\item 
+\mbox{\Hypertarget{classPiLink_aff02b76416d2846736b7ecd798921a0a}\label{classPiLink_aff02b76416d2846736b7ecd798921a0a}} 
+class {\bfseries Logger}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface between brewpi controller and the outside world (Commonly a Raspberry\+Pi, hence the name).
+
+\mbox{\hyperlink{classPiLink}{Pi\+Link}} is a singleton, so all methods are static. 
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classPiLink_a78471c1d63895aad6c81692ba9b2cf0b}\label{classPiLink_a78471c1d63895aad6c81692ba9b2cf0b}} 
+\index{PiLink@{PiLink}!JsonOutputHandler@{JsonOutputHandler}}
+\index{JsonOutputHandler@{JsonOutputHandler}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{JsonOutputHandler}{JsonOutputHandler}}
+{\footnotesize\ttfamily typedef void($\ast$ Pi\+Link\+::\+Json\+Output\+Handler) (const char $\ast$key, uint8\+\_\+t offset)\hspace{0.3cm}{\ttfamily [private]}}
+
+Function pointer to a handler used for J\+S\+ON output. \mbox{\Hypertarget{classPiLink_aa695768acc33f83dffdf648a4348c2a5}\label{classPiLink_aa695768acc33f83dffdf648a4348c2a5}} 
+\index{PiLink@{PiLink}!ParseJsonCallback@{ParseJsonCallback}}
+\index{ParseJsonCallback@{ParseJsonCallback}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{ParseJsonCallback}{ParseJsonCallback}}
+{\footnotesize\ttfamily typedef void($\ast$ Pi\+Link\+::\+Parse\+Json\+Callback) (const char $\ast$key, const char $\ast$val, void $\ast$data)}
+
+Pointer to callback function for use with Parse\+Json() 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPiLink_a72ca76634d515d6d789a49c5293486f5}\label{classPiLink_a72ca76634d515d6d789a49c5293486f5}} 
+\index{PiLink@{PiLink}!closeListResponse@{closeListResponse}}
+\index{closeListResponse@{closeListResponse}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{closeListResponse()}{closeListResponse()}}
+{\footnotesize\ttfamily void Pi\+Link\+::close\+List\+Response (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+End a J\+S\+ON list response
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classPiLink_af7e99af07fd3e6b9bd78479881d0d626}{open\+List\+Response}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classPiLink_a6b32a42765d42b231f36f59acf292755}\label{classPiLink_a6b32a42765d42b231f36f59acf292755}} 
+\index{PiLink@{PiLink}!debugMessage@{debugMessage}}
+\index{debugMessage@{debugMessage}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{debugMessage()}{debugMessage()}}
+{\footnotesize\ttfamily void Pi\+Link\+::debug\+Message (\begin{DoxyParamCaption}\item[{const char $\ast$}]{message,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Send a debug message \mbox{\Hypertarget{classPiLink_ae8363e06e6f336710a65e89b301d37de}\label{classPiLink_ae8363e06e6f336710a65e89b301d37de}} 
+\index{PiLink@{PiLink}!jsonOutputTempToString@{jsonOutputTempToString}}
+\index{jsonOutputTempToString@{jsonOutputTempToString}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{jsonOutputTempToString()}{jsonOutputTempToString()}}
+{\footnotesize\ttfamily void Pi\+Link\+::json\+Output\+Temp\+To\+String (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key,  }\item[{uint8\+\_\+t}]{offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Outputs the temperature at the given offset from \mbox{\hyperlink{classTempControl}{Temp\+Control}}. The temperature is assumed to be an internal fixed point value. \mbox{\Hypertarget{classPiLink_af7e99af07fd3e6b9bd78479881d0d626}\label{classPiLink_af7e99af07fd3e6b9bd78479881d0d626}} 
+\index{PiLink@{PiLink}!openListResponse@{openListResponse}}
+\index{openListResponse@{openListResponse}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{openListResponse()}{openListResponse()}}
+{\footnotesize\ttfamily void Pi\+Link\+::open\+List\+Response (\begin{DoxyParamCaption}\item[{char}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Begin a response that is made up of a list
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classPiLink_a32ea11ac93e01bb49de68b78699342d0}{print\+Response}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classPiLink_a4e8cbae074e19a9cb598fad967961c00}\label{classPiLink_a4e8cbae074e19a9cb598fad967961c00}} 
+\index{PiLink@{PiLink}!parseJson@{parseJson}}
+\index{parseJson@{parseJson}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{parseJson()}{parseJson()}}
+{\footnotesize\ttfamily void Pi\+Link\+::parse\+Json (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPiLink_aa695768acc33f83dffdf648a4348c2a5}{Parse\+Json\+Callback}}}]{fn,  }\item[{void $\ast$}]{data = {\ttfamily NULL} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Basic J\+S\+ON parsing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & -\/ Parse\+Json\+Callback function pointer which is called for each key/value pair. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPiLink_ab3d646f87c99d05ab40dfb0ed758b3a9}\label{classPiLink_ab3d646f87c99d05ab40dfb0ed758b3a9}} 
+\index{PiLink@{PiLink}!print@{print}}
+\index{print@{print}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Pi\+Link\+::print (\begin{DoxyParamCaption}\item[{char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+A printf like interface to the Arduino Serial function. Format string stored in R\+AM
+
+
+\begin{DoxyParams}{Parameters}
+{\em fmt} & -\/ sprintf format string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPiLink_adbc52df0d0a0dcaec0a1ab386d2bb749}\label{classPiLink_adbc52df0d0a0dcaec0a1ab386d2bb749}} 
+\index{PiLink@{PiLink}!print\_P@{print\_P}}
+\index{print\_P@{print\_P}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{print\_P()}{print\_P()}}
+{\footnotesize\ttfamily void Pi\+Link\+::print\+\_\+P (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+A printf like interface to the Arduino Serial function. Format string stored in P\+R\+O\+G\+M\+EM
+
+
+\begin{DoxyParams}{Parameters}
+{\em fmt} & -\/ P\+R\+O\+G\+M\+EM stored sprintf format string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPiLink_a675aeef2e947ebf288e8ebd20bfb5def}\label{classPiLink_a675aeef2e947ebf288e8ebd20bfb5def}} 
+\index{PiLink@{PiLink}!printJsonName@{printJsonName}}
+\index{printJsonName@{printJsonName}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{printJsonName()}{printJsonName()}}
+{\footnotesize\ttfamily void Pi\+Link\+::print\+Json\+Name (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Prints the name part of a J\+S\+ON name/value pair The name must exist in P\+R\+O\+G\+M\+EM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & -\/ Key name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPiLink_aa0f66dc2459d0ec99f1864bb7796d47c}\label{classPiLink_aa0f66dc2459d0ec99f1864bb7796d47c}} 
+\index{PiLink@{PiLink}!printJsonSeparator@{printJsonSeparator}}
+\index{printJsonSeparator@{printJsonSeparator}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{printJsonSeparator()}{printJsonSeparator()}}
+{\footnotesize\ttfamily void Pi\+Link\+::print\+Json\+Separator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+Send a J\+S\+ON seperator. The first call will emit a {\ttfamily \{}, subsequent calls will emit {\ttfamily ,}. \mbox{\Hypertarget{classPiLink_a28e647c4f54ceeccd10a5763cf98943f}\label{classPiLink_a28e647c4f54ceeccd10a5763cf98943f}} 
+\index{PiLink@{PiLink}!printNewLine@{printNewLine}}
+\index{printNewLine@{printNewLine}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{printNewLine()}{printNewLine()}}
+{\footnotesize\ttfamily void Pi\+Link\+::print\+New\+Line (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Emit a newline \mbox{\Hypertarget{classPiLink_a32ea11ac93e01bb49de68b78699342d0}\label{classPiLink_a32ea11ac93e01bb49de68b78699342d0}} 
+\index{PiLink@{PiLink}!printResponse@{printResponse}}
+\index{printResponse@{printResponse}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{printResponse()}{printResponse()}}
+{\footnotesize\ttfamily void Pi\+Link\+::print\+Response (\begin{DoxyParamCaption}\item[{char}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Print the identifier header before a response The header is used by the client end to identify the type of data it is about to receive. \mbox{\Hypertarget{classPiLink_a39997d630160812eab7c2efea8bc102e}\label{classPiLink_a39997d630160812eab7c2efea8bc102e}} 
+\index{PiLink@{PiLink}!printTemperaturesJSON@{printTemperaturesJSON}}
+\index{printTemperaturesJSON@{printTemperaturesJSON}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{printTemperaturesJSON()}{printTemperaturesJSON()}}
+{\footnotesize\ttfamily void Pi\+Link\+::print\+Temperatures\+J\+S\+ON (\begin{DoxyParamCaption}\item[{const char $\ast$}]{beer\+Annotation,  }\item[{const char $\ast$}]{fridge\+Annotation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Print the response to the request for temperature (\textquotesingle{}t\textquotesingle{}) command. \mbox{\Hypertarget{classPiLink_a80528f74da16d90315346b88a8476f03}\label{classPiLink_a80528f74da16d90315346b88a8476f03}} 
+\index{PiLink@{PiLink}!processJsonPair@{processJsonPair}}
+\index{processJsonPair@{processJsonPair}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{processJsonPair()}{processJsonPair()}}
+{\footnotesize\ttfamily void Pi\+Link\+::process\+Json\+Pair (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key,  }\item[{const char $\ast$}]{val,  }\item[{void $\ast$}]{pv }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Process one J\+S\+ON key/value pair. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & -\/ J\+S\+ON key \\
+\hline
+{\em val} & -\/ J\+S\+ON value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPiLink_aea8171d925eec935dc2d81d83b7fba45}\label{classPiLink_aea8171d925eec935dc2d81d83b7fba45}} 
+\index{PiLink@{PiLink}!read@{read}}
+\index{read@{read}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily int Pi\+Link\+::read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Proxy to Pi\+Stream\+::read()
+
+Trying to enforce that the only thing to talk to pi\+Stream is pi\+Link \begin{DoxySeeAlso}{See also}
+Pi\+Stream 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classPiLink_a280d63b305a5064f6a1ed7cfc8c32f4e}\label{classPiLink_a280d63b305a5064f6a1ed7cfc8c32f4e}} 
+\index{PiLink@{PiLink}!receive@{receive}}
+\index{receive@{receive}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{receive()}{receive()}}
+{\footnotesize\ttfamily void Pi\+Link\+::receive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Recieve incoming commands
+
+Continuously reads data from Pi\+Stream and processes the command strings. \mbox{\Hypertarget{classPiLink_a8ac21f84ba419f10387840a6442beda9}\label{classPiLink_a8ac21f84ba419f10387840a6442beda9}} 
+\index{PiLink@{PiLink}!receiveJson@{receiveJson}}
+\index{receiveJson@{receiveJson}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{receiveJson()}{receiveJson()}}
+{\footnotesize\ttfamily void Pi\+Link\+::receive\+Json (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Process incoming settings J\+S\+ON
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classPiLink_a80528f74da16d90315346b88a8476f03}{process\+Json\+Pair}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classPiLink_ab263e2db1951bc0f47aaedd9f13f4c14}\label{classPiLink_ab263e2db1951bc0f47aaedd9f13f4c14}} 
+\index{PiLink@{PiLink}!sendControlConstants@{sendControlConstants}}
+\index{sendControlConstants@{sendControlConstants}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{sendControlConstants()}{sendControlConstants()}}
+{\footnotesize\ttfamily void Pi\+Link\+::send\+Control\+Constants (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Send control constants as J\+S\+ON string. Might contain spaces between minus sign and number. Python will have to strip these \mbox{\Hypertarget{classPiLink_ad79fe853bdd4e930ce9ff842fa19191c}\label{classPiLink_ad79fe853bdd4e930ce9ff842fa19191c}} 
+\index{PiLink@{PiLink}!sendControlSettings@{sendControlSettings}}
+\index{sendControlSettings@{sendControlSettings}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{sendControlSettings()}{sendControlSettings()}}
+{\footnotesize\ttfamily void Pi\+Link\+::send\+Control\+Settings (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Send configured settings as J\+S\+ON string. \mbox{\Hypertarget{classPiLink_a0a5d1d4fa3db955841ee0b5be5b66a88}\label{classPiLink_a0a5d1d4fa3db955841ee0b5be5b66a88}} 
+\index{PiLink@{PiLink}!sendControlVariables@{sendControlVariables}}
+\index{sendControlVariables@{sendControlVariables}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{sendControlVariables()}{sendControlVariables()}}
+{\footnotesize\ttfamily void Pi\+Link\+::send\+Control\+Variables (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Send all control variables. Useful for debugging and choosing parameters \mbox{\Hypertarget{classPiLink_a8011e5f210a2881e0b41685ea2a5a5ed}\label{classPiLink_a8011e5f210a2881e0b41685ea2a5a5ed}} 
+\index{PiLink@{PiLink}!sendJsonAnnotation@{sendJsonAnnotation}}
+\index{sendJsonAnnotation@{sendJsonAnnotation}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{sendJsonAnnotation()}{sendJsonAnnotation()}}
+{\footnotesize\ttfamily void Pi\+Link\+::send\+Json\+Annotation (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{annotation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Send J\+S\+ON key/value pair. The value will be wrapped in double quotes. \mbox{\Hypertarget{classPiLink_a5ed98b55cf73274f9602f791d49d436a}\label{classPiLink_a5ed98b55cf73274f9602f791d49d436a}} 
+\index{PiLink@{PiLink}!sendJsonClose@{sendJsonClose}}
+\index{sendJsonClose@{sendJsonClose}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{sendJsonClose()}{sendJsonClose()}}
+{\footnotesize\ttfamily void Pi\+Link\+::send\+Json\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+End a J\+S\+ON dictionary response \mbox{\Hypertarget{classPiLink_a34e693d1b73d1760d8b212e9ef68ca1b}\label{classPiLink_a34e693d1b73d1760d8b212e9ef68ca1b}} 
+\index{PiLink@{PiLink}!sendJsonPair@{sendJsonPair}}
+\index{sendJsonPair@{sendJsonPair}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{sendJsonPair()}{sendJsonPair()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void Pi\+Link\+::send\+Json\+Pair (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{char}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Send a J\+S\+ON key/value pair \mbox{\Hypertarget{classPiLink_ab3a1273c58edf2b809e230b423dec154}\label{classPiLink_ab3a1273c58edf2b809e230b423dec154}} 
+\index{PiLink@{PiLink}!sendJsonPair@{sendJsonPair}}
+\index{sendJsonPair@{sendJsonPair}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{sendJsonPair()}{sendJsonPair()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void Pi\+Link\+::send\+Json\+Pair (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Send a J\+S\+ON key/value pair \mbox{\Hypertarget{classPiLink_affa70af0d0d4ad8e1884a9fd2be3a48a}\label{classPiLink_affa70af0d0d4ad8e1884a9fd2be3a48a}} 
+\index{PiLink@{PiLink}!sendJsonPair@{sendJsonPair}}
+\index{sendJsonPair@{sendJsonPair}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{sendJsonPair()}{sendJsonPair()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void Pi\+Link\+::send\+Json\+Pair (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{uint16\+\_\+t}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Send a J\+S\+ON key/value pair \mbox{\Hypertarget{classPiLink_aeb8aea4efcdd5a91e07d42757bec8ccf}\label{classPiLink_aeb8aea4efcdd5a91e07d42757bec8ccf}} 
+\index{PiLink@{PiLink}!sendJsonPair@{sendJsonPair}}
+\index{sendJsonPair@{sendJsonPair}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{sendJsonPair()}{sendJsonPair()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void Pi\+Link\+::send\+Json\+Pair (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{uint8\+\_\+t}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Send a J\+S\+ON key/value pair \mbox{\Hypertarget{classPiLink_acb65130033ed899706a2ca5bd8669d21}\label{classPiLink_acb65130033ed899706a2ca5bd8669d21}} 
+\index{PiLink@{PiLink}!setBeerSetting@{setBeerSetting}}
+\index{setBeerSetting@{setBeerSetting}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{setBeerSetting()}{setBeerSetting()}}
+{\footnotesize\ttfamily void Pi\+Link\+::set\+Beer\+Setting (\begin{DoxyParamCaption}\item[{const char $\ast$}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Set the target beer temperature 
+\begin{DoxyParams}{Parameters}
+{\em val} & -\/ New temp value \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classPiLink_a93921ac48fc17043b42b0457f6ce89d2}\label{classPiLink_a93921ac48fc17043b42b0457f6ce89d2}} 
+\index{PiLink@{PiLink}!jsonOutputCVMap@{jsonOutputCVMap}}
+\index{jsonOutputCVMap@{jsonOutputCVMap}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{jsonOutputCVMap}{jsonOutputCVMap}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structPiLink_1_1JsonOutput}{Pi\+Link\+::\+Json\+Output}} Pi\+Link\+::json\+Output\+C\+V\+Map\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    JSON\_OUTPUT\_CV\_MAP(beerDiff, JOCC\_TEMP\_DIFF),}
+\DoxyCodeLine{    JSON\_OUTPUT\_CV\_MAP(diffIntegral, JOCC\_TEMP\_DIFF),}
+\DoxyCodeLine{    JSON\_OUTPUT\_CV\_MAP(beerSlope, JOCC\_TEMP\_DIFF),}
+\DoxyCodeLine{    JSON\_OUTPUT\_CV\_MAP(p, JOCC\_FIXED\_POINT),}
+\DoxyCodeLine{    JSON\_OUTPUT\_CV\_MAP(i, JOCC\_FIXED\_POINT),}
+\DoxyCodeLine{    JSON\_OUTPUT\_CV\_MAP(d, JOCC\_FIXED\_POINT),}
+\DoxyCodeLine{    JSON\_OUTPUT\_CV\_MAP(estimatedPeak, JOCC\_TEMP\_FORMAT),}
+\DoxyCodeLine{    JSON\_OUTPUT\_CV\_MAP(negPeakEstimate, JOCC\_TEMP\_FORMAT),}
+\DoxyCodeLine{    JSON\_OUTPUT\_CV\_MAP(posPeakEstimate, JOCC\_TEMP\_FORMAT),}
+\DoxyCodeLine{    JSON\_OUTPUT\_CV\_MAP(negPeak, JOCC\_TEMP\_FORMAT),}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPiLink_ae4fa3203dbd06d0ff03e131a76d23e2a}\label{classPiLink_ae4fa3203dbd06d0ff03e131a76d23e2a}} 
+\index{PiLink@{PiLink}!JsonOutputHandlers@{JsonOutputHandlers}}
+\index{JsonOutputHandlers@{JsonOutputHandlers}!PiLink@{PiLink}}
+\doxysubsubsection{\texorpdfstring{JsonOutputHandlers}{JsonOutputHandlers}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classPiLink_a78471c1d63895aad6c81692ba9b2cf0b}{Pi\+Link\+::\+Json\+Output\+Handler}} Pi\+Link\+::\+Json\+Output\+Handlers\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    PiLink::jsonOutputUint8,}
+\DoxyCodeLine{    \mbox{\hyperlink{classPiLink_ae8363e06e6f336710a65e89b301d37de}{PiLink::jsonOutputTempToString}},}
+\DoxyCodeLine{    PiLink::jsonOutputFixedPointToString,}
+\DoxyCodeLine{    PiLink::jsonOutputTempDiffToString,}
+\DoxyCodeLine{    PiLink::jsonOutputChar,}
+\DoxyCodeLine{    PiLink::jsonOutputUint16,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+List of configured Json\+Output\+Handler functions 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Pi\+Link.\+h\item 
+src/Pi\+Link.\+cpp\end{DoxyCompactItemize}

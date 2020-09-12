@@ -1,0 +1,229 @@
+\hypertarget{classDeviceManager}{}\doxysection{Device\+Manager Class Reference}
+\label{classDeviceManager}\index{DeviceManager@{DeviceManager}}
+
+
+{\ttfamily \#include $<$Device\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classDeviceManager_ad1d017d40259c169e4737c2aea417986}{is\+Default\+Temp\+Sensor}} (\mbox{\hyperlink{classBasicTempSensor}{Basic\+Temp\+Sensor}} $\ast$sensor)
+\item 
+\mbox{\Hypertarget{classDeviceManager_a4071e0ca6471877ff3fe3f8982238d86}\label{classDeviceManager_a4071e0ca6471877ff3fe3f8982238d86}} 
+int8\+\_\+t {\bfseries enumerate\+Actuator\+Pins} (uint8\+\_\+t offset)
+\item 
+\mbox{\Hypertarget{classDeviceManager_a0d8fbf752355adbe4651ae184f4ba202}\label{classDeviceManager_a0d8fbf752355adbe4651ae184f4ba202}} 
+int8\+\_\+t {\bfseries enumerate\+Sensor\+Pins} (uint8\+\_\+t offset)
+\item 
+int8\+\_\+t \mbox{\hyperlink{classDeviceManager_a9e324eccb6b388e42b490bc7ac942708}{enum\+One\+Wire\+Pins}} (uint8\+\_\+t offset)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classDeviceManager_a1d8700c15ee55098acb21a74a09ad485}{setup\+Unconfigured\+Devices}} ()
+\item 
+static bool \mbox{\hyperlink{classDeviceManager_acddeb1446df1a22a5a07fad1b25ad77a}{first\+Undefined\+Alternative}} (\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&config, \mbox{\hyperlink{structDeviceAlternatives}{Device\+Alternatives}} \&alternatives)
+\item 
+static void \mbox{\hyperlink{classDeviceManager_ad238ecf20fde29ec5bad2b06b5355dcc}{install\+Device}} (\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&config)
+\item 
+static void \mbox{\hyperlink{classDeviceManager_a9123edd6ba8d500315cd4dd3167a2a60}{uninstall\+Device}} (\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&config)
+\item 
+static void \mbox{\hyperlink{classDeviceManager_a884947c9801c75fb4c72ebc75972306a}{parse\+Device\+Definition}} ()
+\item 
+\mbox{\Hypertarget{classDeviceManager_a617162db021d43515712f408aa95d466}\label{classDeviceManager_a617162db021d43515712f408aa95d466}} 
+static void {\bfseries print\+Device} (\mbox{\hyperlink{group__hardware_ga044bebb988cd23ea55556a6cab9ad97e}{device\+\_\+slot\+\_\+t}} slot, \mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&config, const char $\ast$value)
+\item 
+static bool \mbox{\hyperlink{classDeviceManager_a6737a48829231bcbcb6bab6c7c8f4dd5}{all\+Devices}} (\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&config, uint8\+\_\+t device\+Index)
+\item 
+static bool \mbox{\hyperlink{classDeviceManager_a566f883890b4261a1713eaef56259df4}{is\+Device\+Valid}} (\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&config, \mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&original, int8\+\_\+t device\+Index)
+\item 
+static void \mbox{\hyperlink{classDeviceManager_afe70224a2bf903c5160dd295a096b002}{enumerate\+Hardware}} ()
+\item 
+\mbox{\Hypertarget{classDeviceManager_a280f732c51c60bfc87b4216e22d83065}\label{classDeviceManager_a280f732c51c60bfc87b4216e22d83065}} 
+static bool {\bfseries enum\+Device} (\mbox{\hyperlink{structDeviceDisplay}{Device\+Display}} \&dd, \mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&dc, uint8\+\_\+t idx)
+\item 
+\mbox{\Hypertarget{classDeviceManager_a5f1701bbe22543399aa48ce108f8f11d}\label{classDeviceManager_a5f1701bbe22543399aa48ce108f8f11d}} 
+static void {\bfseries list\+Devices} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDeviceManager_ab79bbef3ec04839413bafb51b137c7cd}\label{classDeviceManager_ab79bbef3ec04839413bafb51b137c7cd}} 
+static void {\bfseries enumerate\+One\+Wire\+Devices} (\mbox{\hyperlink{structEnumerateHardware}{Enumerate\+Hardware}} \&h, \mbox{\hyperlink{group__hardware_ga6268741d3fb8910998c56f1a67c6cd09}{Enum\+Devices\+Callback}} callback, \mbox{\hyperlink{structDeviceOutput}{Device\+Output}} \&output)
+\item 
+\mbox{\Hypertarget{classDeviceManager_acf6f58a316fa4d0c94b7794d6cf66d52}\label{classDeviceManager_acf6f58a316fa4d0c94b7794d6cf66d52}} 
+static void {\bfseries enumerate\+Pin\+Devices} (\mbox{\hyperlink{structEnumerateHardware}{Enumerate\+Hardware}} \&h, \mbox{\hyperlink{group__hardware_ga6268741d3fb8910998c56f1a67c6cd09}{Enum\+Devices\+Callback}} callback, \mbox{\hyperlink{structDeviceOutput}{Device\+Output}} \&output)
+\item 
+\mbox{\Hypertarget{classDeviceManager_ad901044f98c271a5801a4dc1dc76a715}\label{classDeviceManager_ad901044f98c271a5801a4dc1dc76a715}} 
+static void {\bfseries Output\+Enumerated\+Devices} (\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} $\ast$config, void $\ast$pv)
+\item 
+\mbox{\Hypertarget{classDeviceManager_ac1d7d080e2102216509a1ac998aefa60}\label{classDeviceManager_ac1d7d080e2102216509a1ac998aefa60}} 
+static void {\bfseries handle\+Enumerated\+Device} (\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&config, \mbox{\hyperlink{structEnumerateHardware}{Enumerate\+Hardware}} \&h, \mbox{\hyperlink{group__hardware_ga6268741d3fb8910998c56f1a67c6cd09}{Enum\+Devices\+Callback}} callback, \mbox{\hyperlink{structDeviceOutput}{Device\+Output}} \&out)
+\item 
+static void \mbox{\hyperlink{classDeviceManager_afa7704f94a98211ea2790a8477b4e8a0}{read\+Temp\+Sensor\+Value}} (\mbox{\hyperlink{structDeviceConfig_1_1Hardware}{Device\+Config\+::\+Hardware}} hw, char $\ast$out)
+\item 
+static void $\ast$ \mbox{\hyperlink{classDeviceManager_aaed144036ddeda8c6c5f3b8245df1905}{create\+Device}} (\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&config, \mbox{\hyperlink{group__hardware_gad258d4c51629346fceac4679b3209ad9}{Device\+Type}} dc)
+\item 
+\mbox{\Hypertarget{classDeviceManager_a4d0f33d217c30e9f775d5c72da96b1dd}\label{classDeviceManager_a4d0f33d217c30e9f775d5c72da96b1dd}} 
+static void $\ast$ {\bfseries create\+One\+Wire\+G\+P\+IO} (\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&config, \mbox{\hyperlink{group__hardware_gad258d4c51629346fceac4679b3209ad9}{Device\+Type}} dt)
+\item 
+\mbox{\Hypertarget{classDeviceManager_af730cb89df8d4624923269c568bf7b8e}\label{classDeviceManager_af730cb89df8d4624923269c568bf7b8e}} 
+static void {\bfseries begin\+Device\+Output} ()
+\item 
+\mbox{\Hypertarget{classDeviceManager_a2ecdf81ace8b3a2b64dd43ace99658d9}\label{classDeviceManager_a2ecdf81ace8b3a2b64dd43ace99658d9}} 
+static One\+Wire $\ast$ {\bfseries one\+Wire\+Bus} (uint8\+\_\+t pin)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDeviceManager_a70d804c5527e27c5820b230a66f1235c}\label{classDeviceManager_a70d804c5527e27c5820b230a66f1235c}} 
+static bool {\bfseries first\+Device\+Output}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manage the different hardware devices that can be attached. Gives a common interface for interacting with different hardware types. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDeviceManager_a6737a48829231bcbcb6bab6c7c8f4dd5}\label{classDeviceManager_a6737a48829231bcbcb6bab6c7c8f4dd5}} 
+\index{DeviceManager@{DeviceManager}!allDevices@{allDevices}}
+\index{allDevices@{allDevices}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{allDevices()}{allDevices()}}
+{\footnotesize\ttfamily bool Device\+Manager\+::all\+Devices (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&}]{config,  }\item[{uint8\+\_\+t}]{device\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Iterate over the defined devices.
+
+Caller first calls with device\+Index 0. If the return value is true, config is filled out with the config for the device. The caller can then increment device\+Index and try again.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for} (\mbox{\hyperlink{group__hardware_ga044bebb988cd23ea55556a6cab9ad97e}{device\_slot\_t}} idx=0; \mbox{\hyperlink{group__hardware_ga9194bede2521e116fbafd7bbe97f9dc4}{deviceManager}}.\mbox{\hyperlink{classDeviceManager_a6737a48829231bcbcb6bab6c7c8f4dd5}{allDevices}}(dc, idx); idx++) \{}
+\DoxyCodeLine{ \textcolor{comment}{// The "{}current"{} device info is in dc, use it somehow}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & -\/ A reference to a \mbox{\hyperlink{structDeviceConfig}{Device\+Config}}. This is populated with the current device info. \\
+\hline
+{\em device\+Index} & -\/ The index of the current device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ true if the device\+Index is valid, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDeviceManager_aaed144036ddeda8c6c5f3b8245df1905}\label{classDeviceManager_aaed144036ddeda8c6c5f3b8245df1905}} 
+\index{DeviceManager@{DeviceManager}!createDevice@{createDevice}}
+\index{createDevice@{createDevice}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{createDevice()}{createDevice()}}
+{\footnotesize\ttfamily void $\ast$ Device\+Manager\+::create\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&}]{config,  }\item[{\mbox{\hyperlink{group__hardware_gad258d4c51629346fceac4679b3209ad9}{Device\+Type}}}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Creates a new device for the given config. \mbox{\Hypertarget{classDeviceManager_afe70224a2bf903c5160dd295a096b002}\label{classDeviceManager_afe70224a2bf903c5160dd295a096b002}} 
+\index{DeviceManager@{DeviceManager}!enumerateHardware@{enumerateHardware}}
+\index{enumerateHardware@{enumerateHardware}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{enumerateHardware()}{enumerateHardware()}}
+{\footnotesize\ttfamily void Device\+Manager\+::enumerate\+Hardware (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Read hardware spec from stream and output matching devices \mbox{\Hypertarget{classDeviceManager_a9e324eccb6b388e42b490bc7ac942708}\label{classDeviceManager_a9e324eccb6b388e42b490bc7ac942708}} 
+\index{DeviceManager@{DeviceManager}!enumOneWirePins@{enumOneWirePins}}
+\index{enumOneWirePins@{enumOneWirePins}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{enumOneWirePins()}{enumOneWirePins()}}
+{\footnotesize\ttfamily int8\+\_\+t Device\+Manager\+::enum\+One\+Wire\+Pins (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Enumerates the One\+Wire bus pins. \mbox{\Hypertarget{classDeviceManager_acddeb1446df1a22a5a07fad1b25ad77a}\label{classDeviceManager_acddeb1446df1a22a5a07fad1b25ad77a}} 
+\index{DeviceManager@{DeviceManager}!firstUndefinedAlternative@{firstUndefinedAlternative}}
+\index{firstUndefinedAlternative@{firstUndefinedAlternative}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{firstUndefinedAlternative()}{firstUndefinedAlternative()}}
+{\footnotesize\ttfamily static bool Device\+Manager\+::first\+Undefined\+Alternative (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&}]{config,  }\item[{\mbox{\hyperlink{structDeviceAlternatives}{Device\+Alternatives}} \&}]{alternatives }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Determines if the given device config is complete. \mbox{\Hypertarget{classDeviceManager_ad238ecf20fde29ec5bad2b06b5355dcc}\label{classDeviceManager_ad238ecf20fde29ec5bad2b06b5355dcc}} 
+\index{DeviceManager@{DeviceManager}!installDevice@{installDevice}}
+\index{installDevice@{installDevice}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{installDevice()}{installDevice()}}
+{\footnotesize\ttfamily void Device\+Manager\+::install\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&}]{config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Creates and installs a device in the current chamber.
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a device was installed. false if the config is not complete. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDeviceManager_ad1d017d40259c169e4737c2aea417986}\label{classDeviceManager_ad1d017d40259c169e4737c2aea417986}} 
+\index{DeviceManager@{DeviceManager}!isDefaultTempSensor@{isDefaultTempSensor}}
+\index{isDefaultTempSensor@{isDefaultTempSensor}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{isDefaultTempSensor()}{isDefaultTempSensor()}}
+{\footnotesize\ttfamily bool Device\+Manager\+::is\+Default\+Temp\+Sensor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBasicTempSensor}{Basic\+Temp\+Sensor}} $\ast$}]{sensor }\end{DoxyParamCaption})}
+
+Check if a given \mbox{\hyperlink{classBasicTempSensor}{Basic\+Temp\+Sensor}} is the default temp sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em sensor} & -\/ Pointer to the sensor to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the provided sensor is the default, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDeviceManager_a566f883890b4261a1713eaef56259df4}\label{classDeviceManager_a566f883890b4261a1713eaef56259df4}} 
+\index{DeviceManager@{DeviceManager}!isDeviceValid@{isDeviceValid}}
+\index{isDeviceValid@{isDeviceValid}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{isDeviceValid()}{isDeviceValid()}}
+{\footnotesize\ttfamily bool Device\+Manager\+::is\+Device\+Valid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&}]{config,  }\item[{\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&}]{original,  }\item[{int8\+\_\+t}]{device\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Determines if a given device definition is valid.
+
+Validity is defiend by\+:
+\begin{DoxyItemize}
+\item Chamber \& beer must be within bounds
+\item Device function must match the chamber/beer spec, and must not already be defined for the same chamber/beer combination -\/ Not Implemented
+\item Device hardware type must be applicable with the device function
+\item pin\+Nr must be unique for digital pin devices -\/ Not Implemented
+\item pin\+Nr must be a valid One\+Wire bus for one wire devices.
+\item For One\+Wire temp devices, address must be unique. -\/ Not Implemented
+\item For One\+Wire D\+S2413 devices, address+pio must be unique. -\/ Not Implemented 
+\end{DoxyItemize}\mbox{\Hypertarget{classDeviceManager_a884947c9801c75fb4c72ebc75972306a}\label{classDeviceManager_a884947c9801c75fb4c72ebc75972306a}} 
+\index{DeviceManager@{DeviceManager}!parseDeviceDefinition@{parseDeviceDefinition}}
+\index{parseDeviceDefinition@{parseDeviceDefinition}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{parseDeviceDefinition()}{parseDeviceDefinition()}}
+{\footnotesize\ttfamily void Device\+Manager\+::parse\+Device\+Definition (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Safely updates the device definition.
+
+Only changes that result in a valid device, with no conflicts with other devices are allowed. \mbox{\Hypertarget{classDeviceManager_afa7704f94a98211ea2790a8477b4e8a0}\label{classDeviceManager_afa7704f94a98211ea2790a8477b4e8a0}} 
+\index{DeviceManager@{DeviceManager}!readTempSensorValue@{readTempSensorValue}}
+\index{readTempSensorValue@{readTempSensorValue}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{readTempSensorValue()}{readTempSensorValue()}}
+{\footnotesize\ttfamily void Device\+Manager\+::read\+Temp\+Sensor\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDeviceConfig_1_1Hardware}{Device\+Config\+::\+Hardware}}}]{hw,  }\item[{char $\ast$}]{out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+Read a temp sensor device and convert the value into a string.
+
+{\bfseries{Warning\+:}} the read value does not include any calibration offset. \mbox{\Hypertarget{classDeviceManager_a1d8700c15ee55098acb21a74a09ad485}\label{classDeviceManager_a1d8700c15ee55098acb21a74a09ad485}} 
+\index{DeviceManager@{DeviceManager}!setupUnconfiguredDevices@{setupUnconfiguredDevices}}
+\index{setupUnconfiguredDevices@{setupUnconfiguredDevices}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{setupUnconfiguredDevices()}{setupUnconfiguredDevices()}}
+{\footnotesize\ttfamily void Device\+Manager\+::setup\+Unconfigured\+Devices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Sets devices to their unconfigured states. Each device is initialized to a static no-\/op instance. This method is idempotent, and is called each time the eeprom is reset. \mbox{\Hypertarget{classDeviceManager_a9123edd6ba8d500315cd4dd3167a2a60}\label{classDeviceManager_a9123edd6ba8d500315cd4dd3167a2a60}} 
+\index{DeviceManager@{DeviceManager}!uninstallDevice@{uninstallDevice}}
+\index{uninstallDevice@{uninstallDevice}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{uninstallDevice()}{uninstallDevice()}}
+{\footnotesize\ttfamily void Device\+Manager\+::uninstall\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&}]{config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Removes an installed device.
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & -\/ The device to remove. The fields that are used are chamber, beer, hardware and function. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Device\+Manager.\+h\item 
+src/Device\+Manager.\+cpp\end{DoxyCompactItemize}

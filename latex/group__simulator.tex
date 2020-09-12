@@ -1,0 +1,127 @@
+\hypertarget{group__simulator}{}\doxysection{Simulator}
+\label{group__simulator}\index{Simulator@{Simulator}}
+
+
+Software simulated sensors \& actuators for testing.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structHeatPotential}{Heat\+Potential}}
+\item 
+class \mbox{\hyperlink{classSimulator}{Simulator}}
+\item 
+struct \mbox{\hyperlink{structFermentPhases}{Ferment\+Phases}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__simulator_ga7d0e6610cc8371801dfc1d7ed328c13e}{B\+R\+E\+W\+P\+I\+\_\+\+S\+I\+M\+U\+L\+A\+TE}}~0
+\begin{DoxyCompactList}\small\item\em Enable the simulator. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__simulator_gab0c703ddd702de11b02eb4d01516b925}{V\+O\+L\+\_\+\+H\+C\+\_\+\+A\+IR}}~0.\+00121
+\item 
+\#define \mbox{\hyperlink{group__simulator_gae832bd8ae198ac54d77f8b286e121bef}{M\+A\+S\+S\+\_\+\+H\+C\+\_\+\+A\+IR}}~1.\+012
+\item 
+\#define \mbox{\hyperlink{group__simulator_gacc5fdcc2d9c3eeeea3d0d9c26b700d05}{M\+A\+S\+S\+\_\+\+H\+C\+\_\+\+W\+A\+T\+ER}}~4.\+18
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef Value\+Actuator $\ast$ \mbox{\hyperlink{group__simulator_ga4b5a7c4759734af0b329360297fb8b7f}{P\+Value\+Actuator}}
+\item 
+\mbox{\Hypertarget{group__simulator_gabb7344ddb71d71bce0641c1974396ab9}\label{group__simulator_gabb7344ddb71d71bce0641c1974396ab9}} 
+typedef \mbox{\hyperlink{classSensor}{Sensor}}$<$ bool $>$ $\ast$ {\bfseries P\+Sensor}
+\item 
+\mbox{\Hypertarget{group__simulator_gab166b25769674734a2488ac052dba291}\label{group__simulator_gab166b25769674734a2488ac052dba291}} 
+typedef \mbox{\hyperlink{classValueSensor}{Value\+Sensor}}$<$ bool $>$ $\ast$ {\bfseries P\+Value\+Sensor}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{group__simulator_ga08f6b0fcf1cdc31168523fdb850d39eb}{quantize}} (double value, double quantity)
+\item 
+void \mbox{\hyperlink{group__simulator_ga2ddb7c0a618c5272351e95d7a7229363}{set\+Run\+Factor}} (\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} factor)
+\item 
+void \mbox{\hyperlink{group__simulator_ga078011ee658f1f71c7d62d70b178ee5e}{Handle\+Simulator\+Config}} (const char $\ast$key, const char $\ast$val, void $\ast$pv)
+\item 
+\mbox{\Hypertarget{group__simulator_gafd5af5504f2acd357bdd5f74c7874402}\label{group__simulator_gafd5af5504f2acd357bdd5f74c7874402}} 
+void {\bfseries simulate\+Loop} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__simulator_ga1015df8222470d6426d5d3fd91018c09}\label{group__simulator_ga1015df8222470d6426d5d3fd91018c09}} 
+\mbox{\hyperlink{classSimulator}{Simulator}} {\bfseries simulator}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Software simulated sensors \& actuators for testing. 
+
+Enabled by setting the {\ttfamily B\+R\+E\+W\+P\+I\+\_\+\+S\+I\+M\+U\+L\+A\+TE} macro to 1 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__simulator_ga7d0e6610cc8371801dfc1d7ed328c13e}\label{group__simulator_ga7d0e6610cc8371801dfc1d7ed328c13e}} 
+\index{Simulator@{Simulator}!BREWPI\_SIMULATE@{BREWPI\_SIMULATE}}
+\index{BREWPI\_SIMULATE@{BREWPI\_SIMULATE}!Simulator@{Simulator}}
+\doxysubsubsection{\texorpdfstring{BREWPI\_SIMULATE}{BREWPI\_SIMULATE}}
+{\footnotesize\ttfamily \#define B\+R\+E\+W\+P\+I\+\_\+\+S\+I\+M\+U\+L\+A\+TE~0}
+
+
+
+Enable the simulator. 
+
+Real sensors/actuators are replaced with simulated versions. In particular, the values reported by temp sensors are based on a model of the fridge/beer. \mbox{\Hypertarget{group__simulator_gae832bd8ae198ac54d77f8b286e121bef}\label{group__simulator_gae832bd8ae198ac54d77f8b286e121bef}} 
+\index{Simulator@{Simulator}!MASS\_HC\_AIR@{MASS\_HC\_AIR}}
+\index{MASS\_HC\_AIR@{MASS\_HC\_AIR}!Simulator@{Simulator}}
+\doxysubsubsection{\texorpdfstring{MASS\_HC\_AIR}{MASS\_HC\_AIR}}
+{\footnotesize\ttfamily \#define M\+A\+S\+S\+\_\+\+H\+C\+\_\+\+A\+IR~1.\+012}
+
+Thermal mass of air, per unit mass, per degree. \mbox{\Hypertarget{group__simulator_gacc5fdcc2d9c3eeeea3d0d9c26b700d05}\label{group__simulator_gacc5fdcc2d9c3eeeea3d0d9c26b700d05}} 
+\index{Simulator@{Simulator}!MASS\_HC\_WATER@{MASS\_HC\_WATER}}
+\index{MASS\_HC\_WATER@{MASS\_HC\_WATER}!Simulator@{Simulator}}
+\doxysubsubsection{\texorpdfstring{MASS\_HC\_WATER}{MASS\_HC\_WATER}}
+{\footnotesize\ttfamily \#define M\+A\+S\+S\+\_\+\+H\+C\+\_\+\+W\+A\+T\+ER~4.\+18}
+
+Thermal mass of water, per unit mass, per degree. \mbox{\Hypertarget{group__simulator_gab0c703ddd702de11b02eb4d01516b925}\label{group__simulator_gab0c703ddd702de11b02eb4d01516b925}} 
+\index{Simulator@{Simulator}!VOL\_HC\_AIR@{VOL\_HC\_AIR}}
+\index{VOL\_HC\_AIR@{VOL\_HC\_AIR}!Simulator@{Simulator}}
+\doxysubsubsection{\texorpdfstring{VOL\_HC\_AIR}{VOL\_HC\_AIR}}
+{\footnotesize\ttfamily \#define V\+O\+L\+\_\+\+H\+C\+\_\+\+A\+IR~0.\+00121}
+
+Thermal mass of air per unit volume, per degree. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__simulator_ga4b5a7c4759734af0b329360297fb8b7f}\label{group__simulator_ga4b5a7c4759734af0b329360297fb8b7f}} 
+\index{Simulator@{Simulator}!PValueActuator@{PValueActuator}}
+\index{PValueActuator@{PValueActuator}!Simulator@{Simulator}}
+\doxysubsubsection{\texorpdfstring{PValueActuator}{PValueActuator}}
+{\footnotesize\ttfamily typedef Value\+Actuator$\ast$ \mbox{\hyperlink{group__simulator_ga4b5a7c4759734af0b329360297fb8b7f}{P\+Value\+Actuator}}}
+
+Some pointer types to make casting nicer. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__simulator_ga078011ee658f1f71c7d62d70b178ee5e}\label{group__simulator_ga078011ee658f1f71c7d62d70b178ee5e}} 
+\index{Simulator@{Simulator}!HandleSimulatorConfig@{HandleSimulatorConfig}}
+\index{HandleSimulatorConfig@{HandleSimulatorConfig}!Simulator@{Simulator}}
+\doxysubsubsection{\texorpdfstring{HandleSimulatorConfig()}{HandleSimulatorConfig()}}
+{\footnotesize\ttfamily void Handle\+Simulator\+Config (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key,  }\item[{const char $\ast$}]{val,  }\item[{void $\ast$}]{pv }\end{DoxyParamCaption})}
+
+Callback for handling the simulator J\+S\+ON config. \mbox{\Hypertarget{group__simulator_ga08f6b0fcf1cdc31168523fdb850d39eb}\label{group__simulator_ga08f6b0fcf1cdc31168523fdb850d39eb}} 
+\index{Simulator@{Simulator}!quantize@{quantize}}
+\index{quantize@{quantize}!Simulator@{Simulator}}
+\doxysubsubsection{\texorpdfstring{quantize()}{quantize()}}
+{\footnotesize\ttfamily double quantize (\begin{DoxyParamCaption}\item[{double}]{value,  }\item[{double}]{quantity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Round a value to the nearest multiple of a quantity. \mbox{\Hypertarget{group__simulator_ga2ddb7c0a618c5272351e95d7a7229363}\label{group__simulator_ga2ddb7c0a618c5272351e95d7a7229363}} 
+\index{Simulator@{Simulator}!setRunFactor@{setRunFactor}}
+\index{setRunFactor@{setRunFactor}!Simulator@{Simulator}}
+\doxysubsubsection{\texorpdfstring{setRunFactor()}{setRunFactor()}}
+{\footnotesize\ttfamily void set\+Run\+Factor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}}}]{factor }\end{DoxyParamCaption})}
+
+Set the time scale factor. A run factor of 0 pauses the simulator. 
+\begin{DoxyParams}{Parameters}
+{\em factor} & A run factor of 1 runs at real time. A run factor $>$1 runs as accelerated time. Accurate up to ca. 500. A run factor of -\/1 runs at full speed. \\
+\hline
+\end{DoxyParams}

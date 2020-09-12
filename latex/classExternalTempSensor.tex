@@ -1,0 +1,94 @@
+\hypertarget{classExternalTempSensor}{}\doxysection{External\+Temp\+Sensor Class Reference}
+\label{classExternalTempSensor}\index{ExternalTempSensor@{ExternalTempSensor}}
+
+
+{\ttfamily \#include $<$Temp\+Sensor\+External.\+h$>$}
+
+
+
+Inheritance diagram for External\+Temp\+Sensor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classExternalTempSensor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for External\+Temp\+Sensor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classExternalTempSensor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classExternalTempSensor_a4f831043cf73f39ae46c2f4ad9f9292e}\label{classExternalTempSensor_a4f831043cf73f39ae46c2f4ad9f9292e}} 
+{\bfseries External\+Temp\+Sensor} (bool connected=false)
+\item 
+\mbox{\Hypertarget{classExternalTempSensor_a706f92c29a295f2d6a53a83e18a76382}\label{classExternalTempSensor_a706f92c29a295f2d6a53a83e18a76382}} 
+void {\bfseries set\+Connected} (bool connected)
+\item 
+bool \mbox{\hyperlink{classExternalTempSensor_a7b70ba47913b071bd851a4d5032fcb50}{is\+Connected}} ()
+\item 
+bool \mbox{\hyperlink{classExternalTempSensor_ab5e0112749c1293777f96a2b85ec15ec}{init}} ()
+\item 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} \mbox{\hyperlink{classExternalTempSensor_aefb9ee48a110f263e00c6b8218be9a7d}{read}} ()
+\item 
+\mbox{\Hypertarget{classExternalTempSensor_aafc6a22ad30272d60bfec496ed442000}\label{classExternalTempSensor_aafc6a22ad30272d60bfec496ed442000}} 
+void {\bfseries set\+Value} (\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} new\+Temp)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classExternalTempSensor_add987cbe9bcc269661dbd56d4c7da4bd}\label{classExternalTempSensor_add987cbe9bcc269661dbd56d4c7da4bd}} 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} {\bfseries \+\_\+temperature}
+\item 
+\mbox{\Hypertarget{classExternalTempSensor_a5f30f0ab84ad5baafac34d3cafb31965}\label{classExternalTempSensor_a5f30f0ab84ad5baafac34d3cafb31965}} 
+bool {\bfseries \+\_\+connected}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A temp sensor whose value is not read from the device, but set in code. This is used by the simulator. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classExternalTempSensor_ab5e0112749c1293777f96a2b85ec15ec}\label{classExternalTempSensor_ab5e0112749c1293777f96a2b85ec15ec}} 
+\index{ExternalTempSensor@{ExternalTempSensor}!init@{init}}
+\index{init@{init}!ExternalTempSensor@{ExternalTempSensor}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool External\+Temp\+Sensor\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Attempt to (re-\/)initialize the sensor. 
+
+Implements \mbox{\hyperlink{classBasicTempSensor_a41fbbfbd303c077c6bba42fc0c18d268}{Basic\+Temp\+Sensor}}.
+
+\mbox{\Hypertarget{classExternalTempSensor_a7b70ba47913b071bd851a4d5032fcb50}\label{classExternalTempSensor_a7b70ba47913b071bd851a4d5032fcb50}} 
+\index{ExternalTempSensor@{ExternalTempSensor}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!ExternalTempSensor@{ExternalTempSensor}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily bool External\+Temp\+Sensor\+::is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Check if sensor is connected 
+
+Implements \mbox{\hyperlink{classBasicTempSensor_ab5608a5ec218d239b7760ca9f897c88c}{Basic\+Temp\+Sensor}}.
+
+\mbox{\Hypertarget{classExternalTempSensor_aefb9ee48a110f263e00c6b8218be9a7d}\label{classExternalTempSensor_aefb9ee48a110f263e00c6b8218be9a7d}} 
+\index{ExternalTempSensor@{ExternalTempSensor}!read@{read}}
+\index{read@{read}!ExternalTempSensor@{ExternalTempSensor}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} External\+Temp\+Sensor\+::read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Fetch a new reading from the sensor 
+
+Implements \mbox{\hyperlink{classBasicTempSensor_a1e0c56afcc461ea10c580443b6ebcae6}{Basic\+Temp\+Sensor}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Temp\+Sensor\+External.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,10 @@
+<map id="EepromFormat" name="EepromFormat">
+<area shape="rect" id="node1" title=" " alt="" coords="216,273,323,300"/>
+<area shape="rect" id="node2" href="$structChamberBlock.html" title=" " alt="" coords="153,184,260,211"/>
+<area shape="rect" id="node3" href="$structChamberSettings.html" title=" " alt="" coords="9,95,132,121"/>
+<area shape="rect" id="node4" href="$structControlConstants.html" title=" " alt="" coords="5,5,128,32"/>
+<area shape="rect" id="node5" href="$structBeerBlock.html" title=" " alt="" coords="165,95,248,121"/>
+<area shape="rect" id="node6" href="$structControlSettings.html" title=" " alt="" coords="153,5,263,32"/>
+<area shape="rect" id="node7" href="$structDeviceConfig.html" title=" " alt="" coords="293,184,392,211"/>
+<area shape="rect" id="node8" href="$structDeviceConfig_1_1Hardware.html" title=" " alt="" coords="272,95,432,121"/>
+</map>

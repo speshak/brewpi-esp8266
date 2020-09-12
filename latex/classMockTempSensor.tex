@@ -1,0 +1,111 @@
+\hypertarget{classMockTempSensor}{}\doxysection{Mock\+Temp\+Sensor Class Reference}
+\label{classMockTempSensor}\index{MockTempSensor@{MockTempSensor}}
+
+
+{\ttfamily \#include $<$Temp\+Sensor\+Mock.\+h$>$}
+
+
+
+Inheritance diagram for Mock\+Temp\+Sensor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=177pt]{classMockTempSensor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Mock\+Temp\+Sensor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=177pt]{classMockTempSensor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMockTempSensor_a776a30ee0dd35bf8403faa072ae84771}\label{classMockTempSensor_a776a30ee0dd35bf8403faa072ae84771}} 
+{\bfseries Mock\+Temp\+Sensor} (\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} initial, \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} delta)
+\item 
+\mbox{\Hypertarget{classMockTempSensor_a1f99dbc7762a79d504347c446e8ccc0f}\label{classMockTempSensor_a1f99dbc7762a79d504347c446e8ccc0f}} 
+void {\bfseries set\+Connected} (bool connected)
+\item 
+bool \mbox{\hyperlink{classMockTempSensor_addb5507c57db66489b756fb18b259d21}{is\+Connected}} ()
+\item 
+bool \mbox{\hyperlink{classMockTempSensor_a71d61f3b5d8e4e31816f066f2a6d3183}{init}} ()
+\item 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} \mbox{\hyperlink{classMockTempSensor_a0bc35b1068ee4f14ee9e7639c8536bd7}{read}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} \mbox{\hyperlink{classMockTempSensor_a38caacd79b42c1ec2c13a1ea47f16bbe}{\+\_\+temperature}}
+\item 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} \mbox{\hyperlink{classMockTempSensor_aa12519c90b3cff1db203052577dd41e3}{\+\_\+delta}}
+\item 
+\mbox{\Hypertarget{classMockTempSensor_a2c06d385c3842fb6ff6a20d8f4132941}\label{classMockTempSensor_a2c06d385c3842fb6ff6a20d8f4132941}} 
+bool {\bfseries \+\_\+connected}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A mock implementation of \mbox{\hyperlink{classBasicTempSensor}{Basic\+Temp\+Sensor}}
+
+This is a fake temp sensor that shifts it\textquotesingle{}s value on each read. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMockTempSensor_a71d61f3b5d8e4e31816f066f2a6d3183}\label{classMockTempSensor_a71d61f3b5d8e4e31816f066f2a6d3183}} 
+\index{MockTempSensor@{MockTempSensor}!init@{init}}
+\index{init@{init}!MockTempSensor@{MockTempSensor}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool Mock\+Temp\+Sensor\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Attempt to (re-\/)initialize the sensor. 
+
+Implements \mbox{\hyperlink{classBasicTempSensor_a41fbbfbd303c077c6bba42fc0c18d268}{Basic\+Temp\+Sensor}}.
+
+\mbox{\Hypertarget{classMockTempSensor_addb5507c57db66489b756fb18b259d21}\label{classMockTempSensor_addb5507c57db66489b756fb18b259d21}} 
+\index{MockTempSensor@{MockTempSensor}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!MockTempSensor@{MockTempSensor}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily bool Mock\+Temp\+Sensor\+::is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Check if sensor is connected 
+
+Implements \mbox{\hyperlink{classBasicTempSensor_ab5608a5ec218d239b7760ca9f897c88c}{Basic\+Temp\+Sensor}}.
+
+\mbox{\Hypertarget{classMockTempSensor_a0bc35b1068ee4f14ee9e7639c8536bd7}\label{classMockTempSensor_a0bc35b1068ee4f14ee9e7639c8536bd7}} 
+\index{MockTempSensor@{MockTempSensor}!read@{read}}
+\index{read@{read}!MockTempSensor@{MockTempSensor}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} Mock\+Temp\+Sensor\+::read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Return the current temperature value.
+
+Shifts the temp value up/down (depending on tempcontrol mode) by {\ttfamily \+\_\+delta} on each read. 
+
+Implements \mbox{\hyperlink{classBasicTempSensor_a1e0c56afcc461ea10c580443b6ebcae6}{Basic\+Temp\+Sensor}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMockTempSensor_aa12519c90b3cff1db203052577dd41e3}\label{classMockTempSensor_aa12519c90b3cff1db203052577dd41e3}} 
+\index{MockTempSensor@{MockTempSensor}!\_delta@{\_delta}}
+\index{\_delta@{\_delta}!MockTempSensor@{MockTempSensor}}
+\doxysubsubsection{\texorpdfstring{\_delta}{\_delta}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} Mock\+Temp\+Sensor\+::\+\_\+delta\hspace{0.3cm}{\ttfamily [private]}}
+
+Delta to shift per read \mbox{\Hypertarget{classMockTempSensor_a38caacd79b42c1ec2c13a1ea47f16bbe}\label{classMockTempSensor_a38caacd79b42c1ec2c13a1ea47f16bbe}} 
+\index{MockTempSensor@{MockTempSensor}!\_temperature@{\_temperature}}
+\index{\_temperature@{\_temperature}!MockTempSensor@{MockTempSensor}}
+\doxysubsubsection{\texorpdfstring{\_temperature}{\_temperature}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} Mock\+Temp\+Sensor\+::\+\_\+temperature\hspace{0.3cm}{\ttfamily [private]}}
+
+Current temperature value 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Temp\+Sensor\+Mock.\+h\end{DoxyCompactItemize}

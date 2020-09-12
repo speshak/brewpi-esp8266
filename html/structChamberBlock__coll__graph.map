@@ -1,0 +1,7 @@
+<map id="ChamberBlock" name="ChamberBlock">
+<area shape="rect" id="node1" title=" " alt="" coords="84,184,191,211"/>
+<area shape="rect" id="node2" href="$structChamberSettings.html" title=" " alt="" coords="9,95,132,121"/>
+<area shape="rect" id="node3" href="$structControlConstants.html" title=" " alt="" coords="5,5,128,32"/>
+<area shape="rect" id="node4" href="$structBeerBlock.html" title=" " alt="" coords="165,95,248,121"/>
+<area shape="rect" id="node5" href="$structControlSettings.html" title=" " alt="" coords="153,5,263,32"/>
+</map>

@@ -1,0 +1,195 @@
+\hypertarget{group__tempcontrol}{}\doxysection{Temperature P\+ID Control}
+\label{group__tempcontrol}\index{Temperature PID Control@{Temperature PID Control}}
+
+
+Software implementation of a P\+ID controller.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structControlVariables}{Control\+Variables}}
+\item 
+class \mbox{\hyperlink{classTempControl}{Temp\+Control}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__tempcontrol_ga95da16e1ac1e08adeb415dee9634927a}\label{group__tempcontrol_ga95da16e1ac1e08adeb415dee9634927a}} 
+\#define {\bfseries E\+E\+P\+R\+O\+M\+\_\+\+T\+C\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+B\+A\+S\+E\+\_\+\+A\+D\+D\+R\+E\+SS}~0
+\item 
+\mbox{\Hypertarget{group__tempcontrol_ga4b72b5cf639297305fe7b8bf87161457}\label{group__tempcontrol_ga4b72b5cf639297305fe7b8bf87161457}} 
+\#define {\bfseries E\+E\+P\+R\+O\+M\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+A\+D\+D\+R\+E\+SS}~(E\+E\+P\+R\+O\+M\+\_\+\+T\+C\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+B\+A\+S\+E\+\_\+\+A\+D\+D\+R\+E\+SS+sizeof(uint8\+\_\+t))
+\item 
+\mbox{\Hypertarget{group__tempcontrol_ga92451e7c34212e7659e0cae94a8574e4}\label{group__tempcontrol_ga92451e7c34212e7659e0cae94a8574e4}} 
+\#define {\bfseries E\+E\+P\+R\+O\+M\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T\+S\+\_\+\+A\+D\+D\+R\+E\+SS}~(E\+E\+P\+R\+O\+M\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+S\+E\+T\+T\+I\+N\+G\+S\+\_\+\+A\+D\+D\+R\+E\+SS+sizeof(\mbox{\hyperlink{structControlSettings}{Control\+Settings}}))
+\item 
+\mbox{\Hypertarget{group__tempcontrol_ga448501acae53f887616818caf6fb0a79}\label{group__tempcontrol_ga448501acae53f887616818caf6fb0a79}} 
+\#define {\bfseries M\+O\+D\+E\+\_\+\+F\+R\+I\+D\+G\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT}~\textquotesingle{}f\textquotesingle{}
+\item 
+\mbox{\Hypertarget{group__tempcontrol_ga779e8ce8934cbc5b97a96ad1a49ccdaa}\label{group__tempcontrol_ga779e8ce8934cbc5b97a96ad1a49ccdaa}} 
+\#define {\bfseries M\+O\+D\+E\+\_\+\+B\+E\+E\+R\+\_\+\+C\+O\+N\+S\+T\+A\+NT}~\textquotesingle{}b\textquotesingle{}
+\item 
+\mbox{\Hypertarget{group__tempcontrol_gaf0a856fec7c770dd1708f5e3e6f2d94b}\label{group__tempcontrol_gaf0a856fec7c770dd1708f5e3e6f2d94b}} 
+\#define {\bfseries M\+O\+D\+E\+\_\+\+B\+E\+E\+R\+\_\+\+P\+R\+O\+F\+I\+LE}~\textquotesingle{}p\textquotesingle{}
+\item 
+\mbox{\Hypertarget{group__tempcontrol_ga7e20383a958f627be3b77eebf0a4a467}\label{group__tempcontrol_ga7e20383a958f627be3b77eebf0a4a467}} 
+\#define {\bfseries M\+O\+D\+E\+\_\+\+O\+FF}~\textquotesingle{}o\textquotesingle{}
+\item 
+\mbox{\Hypertarget{group__tempcontrol_gaec02a439c15abc7045cc89fcfc0e17ad}\label{group__tempcontrol_gaec02a439c15abc7045cc89fcfc0e17ad}} 
+\#define {\bfseries M\+O\+D\+E\+\_\+\+T\+E\+ST}~\textquotesingle{}t\textquotesingle{}
+\item 
+\mbox{\Hypertarget{group__tempcontrol_ga64a84c45563db50f12f9256d3c5e8938}\label{group__tempcontrol_ga64a84c45563db50f12f9256d3c5e8938}} 
+\#define {\bfseries T\+C\+\_\+\+S\+T\+A\+T\+E\+\_\+\+M\+A\+SK}~0x7;
+\item 
+\#define \mbox{\hyperlink{group__tempcontrol_gaea64fae69d27bc8a925b30a415b112ba}{T\+E\+M\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+M\+E\+T\+H\+OD}}~static
+\begin{DoxyCompactList}\small\item\em Compile-\/time control of making \mbox{\hyperlink{classTempControl}{Temp\+Control}} methods static. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__tempcontrol_ga159d9c2aae75a5bbeb531df41911e378}{T\+E\+M\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+F\+I\+E\+LD}}~static
+\begin{DoxyCompactList}\small\item\em Compile-\/time control of making \mbox{\hyperlink{classTempControl}{Temp\+Control}} fields static. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__tempcontrol_ga6f5e06c60b129b973182de3dc67515fc}{T\+E\+M\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+S\+T\+A\+T\+IC}}~1
+\begin{DoxyCompactList}\small\item\em Compile-\/time control of making \mbox{\hyperlink{classTempControl}{Temp\+Control}} static. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__tempcontrol_gaa19be6305a5a4485e1e70de70ed7d677}{states}} \{ \newline
+\mbox{\hyperlink{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677afd6a0e4343048b10646dd2976cc5ad18}{I\+D\+LE}}, 
+\mbox{\hyperlink{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677a4038ca872e1ed104c16122c365bd3ca0}{S\+T\+A\+T\+E\+\_\+\+O\+FF}}, 
+\mbox{\hyperlink{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677a11915658ade106027bd75056b907539d}{D\+O\+O\+R\+\_\+\+O\+P\+EN}}, 
+\mbox{\hyperlink{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677a601577d1d4d1de53ca389f4a1bd10bd4}{H\+E\+A\+T\+I\+NG}}, 
+\newline
+\mbox{\hyperlink{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677a3b043537875f509fa630e3dfd6360696}{C\+O\+O\+L\+I\+NG}}, 
+\mbox{\hyperlink{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677a1a860728ecc24babd1957653b0d23db4}{W\+A\+I\+T\+I\+N\+G\+\_\+\+T\+O\+\_\+\+C\+O\+OL}}, 
+\mbox{\hyperlink{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677aba100f61633da2c077d3dd59dce2a300}{W\+A\+I\+T\+I\+N\+G\+\_\+\+T\+O\+\_\+\+H\+E\+AT}}, 
+\mbox{\hyperlink{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677aa91c1a0de01bddf9c2a2d10e3fa9d8e5}{W\+A\+I\+T\+I\+N\+G\+\_\+\+F\+O\+R\+\_\+\+P\+E\+A\+K\+\_\+\+D\+E\+T\+E\+CT}}, 
+\newline
+{\bfseries C\+O\+O\+L\+I\+N\+G\+\_\+\+M\+I\+N\+\_\+\+T\+I\+ME}, 
+{\bfseries H\+E\+A\+T\+I\+N\+G\+\_\+\+M\+I\+N\+\_\+\+T\+I\+ME}, 
+{\bfseries N\+U\+M\+\_\+\+S\+T\+A\+T\+ES}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__tempcontrol_ga5a7841d4e1bf3ae3a22daa5117bb713c}\label{group__tempcontrol_ga5a7841d4e1bf3ae3a22daa5117bb713c}} 
+const uint16\+\_\+t \mbox{\hyperlink{group__tempcontrol_ga5a7841d4e1bf3ae3a22daa5117bb713c}{M\+I\+N\+\_\+\+C\+O\+O\+L\+\_\+\+O\+F\+F\+\_\+\+T\+I\+ME}} = 300
+\begin{DoxyCompactList}\small\item\em Minimum cooler off time, in seconds. To prevent short cycling the compressor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__tempcontrol_ga1c4e440b40424d4f776867ee821e721e}\label{group__tempcontrol_ga1c4e440b40424d4f776867ee821e721e}} 
+const uint16\+\_\+t \mbox{\hyperlink{group__tempcontrol_ga1c4e440b40424d4f776867ee821e721e}{M\+I\+N\+\_\+\+H\+E\+A\+T\+\_\+\+O\+F\+F\+\_\+\+T\+I\+ME}} = 300
+\begin{DoxyCompactList}\small\item\em Minimum heater off time, in seconds. To heat in cycles, not lots of short bursts. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__tempcontrol_ga019541ca2db07817f6e34917c2aa812c}\label{group__tempcontrol_ga019541ca2db07817f6e34917c2aa812c}} 
+const uint16\+\_\+t \mbox{\hyperlink{group__tempcontrol_ga019541ca2db07817f6e34917c2aa812c}{M\+I\+N\+\_\+\+C\+O\+O\+L\+\_\+\+O\+N\+\_\+\+T\+I\+ME}} = 180
+\begin{DoxyCompactList}\small\item\em Minimum on time for the cooler. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__tempcontrol_ga45363e5a06941d5124e928fa5c24865a}\label{group__tempcontrol_ga45363e5a06941d5124e928fa5c24865a}} 
+const uint16\+\_\+t \mbox{\hyperlink{group__tempcontrol_ga45363e5a06941d5124e928fa5c24865a}{M\+I\+N\+\_\+\+H\+E\+A\+T\+\_\+\+O\+N\+\_\+\+T\+I\+ME}} = 180
+\begin{DoxyCompactList}\small\item\em Minimum on time for the heater. \end{DoxyCompactList}\item 
+const uint16\+\_\+t \mbox{\hyperlink{group__tempcontrol_gaa6c34aa70d344bc94927cf8b73eb656a}{M\+I\+N\+\_\+\+C\+O\+O\+L\+\_\+\+O\+F\+F\+\_\+\+T\+I\+M\+E\+\_\+\+F\+R\+I\+D\+G\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT}} = 600
+\item 
+\mbox{\Hypertarget{group__tempcontrol_gab344b43a94f2527b5e846eff27cfb52d}\label{group__tempcontrol_gab344b43a94f2527b5e846eff27cfb52d}} 
+const uint16\+\_\+t \mbox{\hyperlink{group__tempcontrol_gab344b43a94f2527b5e846eff27cfb52d}{M\+I\+N\+\_\+\+S\+W\+I\+T\+C\+H\+\_\+\+T\+I\+ME}} = 600
+\begin{DoxyCompactList}\small\item\em Minimum off time between switching between heating and cooling. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__tempcontrol_gacc0d6e2171499f1fc9f494e34de45aa0}\label{group__tempcontrol_gacc0d6e2171499f1fc9f494e34de45aa0}} 
+const uint16\+\_\+t \mbox{\hyperlink{group__tempcontrol_gacc0d6e2171499f1fc9f494e34de45aa0}{C\+O\+O\+L\+\_\+\+P\+E\+A\+K\+\_\+\+D\+E\+T\+E\+C\+T\+\_\+\+T\+I\+ME}} = 1800
+\begin{DoxyCompactList}\small\item\em Time allowed for cooling peak detection. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__tempcontrol_ga862d2aa0582dc471053e70489637eba7}\label{group__tempcontrol_ga862d2aa0582dc471053e70489637eba7}} 
+const uint16\+\_\+t \mbox{\hyperlink{group__tempcontrol_ga862d2aa0582dc471053e70489637eba7}{H\+E\+A\+T\+\_\+\+P\+E\+A\+K\+\_\+\+D\+E\+T\+E\+C\+T\+\_\+\+T\+I\+ME}} = 900
+\begin{DoxyCompactList}\small\item\em Time allowed for heating peak detection. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__tempcontrol_ga6ebf32122069bca28f24dbda16c9d570}\label{group__tempcontrol_ga6ebf32122069bca28f24dbda16c9d570}} 
+\mbox{\hyperlink{classTempControl}{Temp\+Control}} {\bfseries temp\+Control}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Software implementation of a P\+ID controller. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__tempcontrol_ga159d9c2aae75a5bbeb531df41911e378}\label{group__tempcontrol_ga159d9c2aae75a5bbeb531df41911e378}} 
+\index{Temperature PID Control@{Temperature PID Control}!TEMP\_CONTROL\_FIELD@{TEMP\_CONTROL\_FIELD}}
+\index{TEMP\_CONTROL\_FIELD@{TEMP\_CONTROL\_FIELD}!Temperature PID Control@{Temperature PID Control}}
+\doxysubsubsection{\texorpdfstring{TEMP\_CONTROL\_FIELD}{TEMP\_CONTROL\_FIELD}}
+{\footnotesize\ttfamily \#define T\+E\+M\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+F\+I\+E\+LD~static}
+
+
+
+Compile-\/time control of making \mbox{\hyperlink{classTempControl}{Temp\+Control}} fields static. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__tempcontrol_ga6f5e06c60b129b973182de3dc67515fc}{T\+E\+M\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+S\+T\+A\+T\+IC}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__tempcontrol_gaea64fae69d27bc8a925b30a415b112ba}\label{group__tempcontrol_gaea64fae69d27bc8a925b30a415b112ba}} 
+\index{Temperature PID Control@{Temperature PID Control}!TEMP\_CONTROL\_METHOD@{TEMP\_CONTROL\_METHOD}}
+\index{TEMP\_CONTROL\_METHOD@{TEMP\_CONTROL\_METHOD}!Temperature PID Control@{Temperature PID Control}}
+\doxysubsubsection{\texorpdfstring{TEMP\_CONTROL\_METHOD}{TEMP\_CONTROL\_METHOD}}
+{\footnotesize\ttfamily \#define T\+E\+M\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+M\+E\+T\+H\+OD~static}
+
+
+
+Compile-\/time control of making \mbox{\hyperlink{classTempControl}{Temp\+Control}} methods static. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__tempcontrol_ga6f5e06c60b129b973182de3dc67515fc}{T\+E\+M\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+S\+T\+A\+T\+IC}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__tempcontrol_ga6f5e06c60b129b973182de3dc67515fc}\label{group__tempcontrol_ga6f5e06c60b129b973182de3dc67515fc}} 
+\index{Temperature PID Control@{Temperature PID Control}!TEMP\_CONTROL\_STATIC@{TEMP\_CONTROL\_STATIC}}
+\index{TEMP\_CONTROL\_STATIC@{TEMP\_CONTROL\_STATIC}!Temperature PID Control@{Temperature PID Control}}
+\doxysubsubsection{\texorpdfstring{TEMP\_CONTROL\_STATIC}{TEMP\_CONTROL\_STATIC}}
+{\footnotesize\ttfamily \#define T\+E\+M\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+S\+T\+A\+T\+IC~1}
+
+
+
+Compile-\/time control of making \mbox{\hyperlink{classTempControl}{Temp\+Control}} static. 
+
+To support multi-\/chamber, I could have made \mbox{\hyperlink{classTempControl}{Temp\+Control}} non-\/static, and had a reference to the current instance. But this means each lookup of a field must be done indirectly, which adds to the code size. Instead, we swap in/out the sensors and control data so that the bulk of the code can work against compile-\/time resolvable memory references. While the design goes against the grain of typical OO practices, the reduction in code size make it worth it. 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__tempcontrol_gaa19be6305a5a4485e1e70de70ed7d677}\label{group__tempcontrol_gaa19be6305a5a4485e1e70de70ed7d677}} 
+\index{Temperature PID Control@{Temperature PID Control}!states@{states}}
+\index{states@{states}!Temperature PID Control@{Temperature PID Control}}
+\doxysubsubsection{\texorpdfstring{states}{states}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__tempcontrol_gaa19be6305a5a4485e1e70de70ed7d677}{states}}}
+
+Temperature control states \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IDLE@{IDLE}!Temperature PID Control@{Temperature PID Control}}\index{Temperature PID Control@{Temperature PID Control}!IDLE@{IDLE}}}\mbox{\Hypertarget{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677afd6a0e4343048b10646dd2976cc5ad18}\label{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677afd6a0e4343048b10646dd2976cc5ad18}} 
+I\+D\+LE&Neither heating, nor cooling. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE\_OFF@{STATE\_OFF}!Temperature PID Control@{Temperature PID Control}}\index{Temperature PID Control@{Temperature PID Control}!STATE\_OFF@{STATE\_OFF}}}\mbox{\Hypertarget{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677a4038ca872e1ed104c16122c365bd3ca0}\label{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677a4038ca872e1ed104c16122c365bd3ca0}} 
+S\+T\+A\+T\+E\+\_\+\+O\+FF&Disabled. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOOR\_OPEN@{DOOR\_OPEN}!Temperature PID Control@{Temperature PID Control}}\index{Temperature PID Control@{Temperature PID Control}!DOOR\_OPEN@{DOOR\_OPEN}}}\mbox{\Hypertarget{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677a11915658ade106027bd75056b907539d}\label{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677a11915658ade106027bd75056b907539d}} 
+D\+O\+O\+R\+\_\+\+O\+P\+EN&Fridge door open. Used by the Display only. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HEATING@{HEATING}!Temperature PID Control@{Temperature PID Control}}\index{Temperature PID Control@{Temperature PID Control}!HEATING@{HEATING}}}\mbox{\Hypertarget{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677a601577d1d4d1de53ca389f4a1bd10bd4}\label{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677a601577d1d4d1de53ca389f4a1bd10bd4}} 
+H\+E\+A\+T\+I\+NG&Calling for heat. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COOLING@{COOLING}!Temperature PID Control@{Temperature PID Control}}\index{Temperature PID Control@{Temperature PID Control}!COOLING@{COOLING}}}\mbox{\Hypertarget{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677a3b043537875f509fa630e3dfd6360696}\label{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677a3b043537875f509fa630e3dfd6360696}} 
+C\+O\+O\+L\+I\+NG&Calling for cool. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING\_TO\_COOL@{WAITING\_TO\_COOL}!Temperature PID Control@{Temperature PID Control}}\index{Temperature PID Control@{Temperature PID Control}!WAITING\_TO\_COOL@{WAITING\_TO\_COOL}}}\mbox{\Hypertarget{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677a1a860728ecc24babd1957653b0d23db4}\label{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677a1a860728ecc24babd1957653b0d23db4}} 
+W\+A\+I\+T\+I\+N\+G\+\_\+\+T\+O\+\_\+\+C\+O\+OL&Waiting to cool. (Compressor delay) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING\_TO\_HEAT@{WAITING\_TO\_HEAT}!Temperature PID Control@{Temperature PID Control}}\index{Temperature PID Control@{Temperature PID Control}!WAITING\_TO\_HEAT@{WAITING\_TO\_HEAT}}}\mbox{\Hypertarget{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677aba100f61633da2c077d3dd59dce2a300}\label{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677aba100f61633da2c077d3dd59dce2a300}} 
+W\+A\+I\+T\+I\+N\+G\+\_\+\+T\+O\+\_\+\+H\+E\+AT&Waiting to heat. (Compressor delay) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING\_FOR\_PEAK\_DETECT@{WAITING\_FOR\_PEAK\_DETECT}!Temperature PID Control@{Temperature PID Control}}\index{Temperature PID Control@{Temperature PID Control}!WAITING\_FOR\_PEAK\_DETECT@{WAITING\_FOR\_PEAK\_DETECT}}}\mbox{\Hypertarget{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677aa91c1a0de01bddf9c2a2d10e3fa9d8e5}\label{group__tempcontrol_ggaa19be6305a5a4485e1e70de70ed7d677aa91c1a0de01bddf9c2a2d10e3fa9d8e5}} 
+W\+A\+I\+T\+I\+N\+G\+\_\+\+F\+O\+R\+\_\+\+P\+E\+A\+K\+\_\+\+D\+E\+T\+E\+CT&Waiting for peak detection. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group__tempcontrol_gaa6c34aa70d344bc94927cf8b73eb656a}\label{group__tempcontrol_gaa6c34aa70d344bc94927cf8b73eb656a}} 
+\index{Temperature PID Control@{Temperature PID Control}!MIN\_COOL\_OFF\_TIME\_FRIDGE\_CONSTANT@{MIN\_COOL\_OFF\_TIME\_FRIDGE\_CONSTANT}}
+\index{MIN\_COOL\_OFF\_TIME\_FRIDGE\_CONSTANT@{MIN\_COOL\_OFF\_TIME\_FRIDGE\_CONSTANT}!Temperature PID Control@{Temperature PID Control}}
+\doxysubsubsection{\texorpdfstring{MIN\_COOL\_OFF\_TIME\_FRIDGE\_CONSTANT}{MIN\_COOL\_OFF\_TIME\_FRIDGE\_CONSTANT}}
+{\footnotesize\ttfamily const uint16\+\_\+t M\+I\+N\+\_\+\+C\+O\+O\+L\+\_\+\+O\+F\+F\+\_\+\+T\+I\+M\+E\+\_\+\+F\+R\+I\+D\+G\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT = 600}
+
+Minimum cooler off time, in seconds. Used when the controller is in Fridge Constant mode. Larger than M\+I\+N\+\_\+\+C\+O\+O\+L\+\_\+\+O\+F\+F\+\_\+\+T\+I\+ME. No need for very fast cycling. 

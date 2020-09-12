@@ -1,0 +1,120 @@
+\hypertarget{classOneWireTempSensor}{}\doxysection{One\+Wire\+Temp\+Sensor Class Reference}
+\label{classOneWireTempSensor}\index{OneWireTempSensor@{OneWireTempSensor}}
+
+
+Inheritance diagram for One\+Wire\+Temp\+Sensor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classOneWireTempSensor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for One\+Wire\+Temp\+Sensor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{classOneWireTempSensor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classOneWireTempSensor_a7d336dbb29445a072ddfe31156a7cea5}{One\+Wire\+Temp\+Sensor}} (One\+Wire $\ast$bus, Device\+Address address, \mbox{\hyperlink{group__temps_gadd1441a58e6b2962c3f2b0af55d875c4}{fixed4\+\_\+4}} calibration\+Offset)
+\item 
+bool \mbox{\hyperlink{classOneWireTempSensor_adfdd38fe32b636e93fadf03e56f1dca8}{is\+Connected}} (void)
+\item 
+bool \mbox{\hyperlink{classOneWireTempSensor_a88dd248fba3ef9f7b2afc466e3fd4e45}{init}} ()
+\item 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} \mbox{\hyperlink{classOneWireTempSensor_a4f0cd8e88e4df18445add53539affa0c}{read}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOneWireTempSensor_ad72e38d4f2234688519f135ab8dfb89d}\label{classOneWireTempSensor_ad72e38d4f2234688519f135ab8dfb89d}} 
+void {\bfseries set\+Connected} (bool connected)
+\item 
+\mbox{\Hypertarget{classOneWireTempSensor_a42271f342091d9f616e114b00bbbdbcf}\label{classOneWireTempSensor_a42271f342091d9f616e114b00bbbdbcf}} 
+bool {\bfseries request\+Conversion} ()
+\item 
+\mbox{\Hypertarget{classOneWireTempSensor_ae9520be44a4ae0d82aadd52841a8d3f0}\label{classOneWireTempSensor_ae9520be44a4ae0d82aadd52841a8d3f0}} 
+void {\bfseries wait\+For\+Conversion} ()
+\item 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} \mbox{\hyperlink{classOneWireTempSensor_a684ceb6f3aa4812ac60a77831f15f83b}{read\+And\+Constrain\+Temp}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOneWireTempSensor_a828f16c57e8c7a079bd3e465271a9199}\label{classOneWireTempSensor_a828f16c57e8c7a079bd3e465271a9199}} 
+One\+Wire $\ast$ {\bfseries one\+Wire}
+\item 
+\mbox{\Hypertarget{classOneWireTempSensor_a5fedde76feaa17c3c61f940f286f4ce8}\label{classOneWireTempSensor_a5fedde76feaa17c3c61f940f286f4ce8}} 
+\mbox{\hyperlink{classDallasTemperature}{Dallas\+Temperature}} $\ast$ {\bfseries sensor}
+\item 
+\mbox{\Hypertarget{classOneWireTempSensor_ad0c9ee4bd78d7b67ae39fe27665c1a1f}\label{classOneWireTempSensor_ad0c9ee4bd78d7b67ae39fe27665c1a1f}} 
+Device\+Address {\bfseries sensor\+Address}
+\item 
+\mbox{\Hypertarget{classOneWireTempSensor_a8c9800c22c4c49f8fa7164e68d823821}\label{classOneWireTempSensor_a8c9800c22c4c49f8fa7164e68d823821}} 
+\mbox{\hyperlink{group__temps_gadd1441a58e6b2962c3f2b0af55d875c4}{fixed4\+\_\+4}} {\bfseries calibration\+Offset}
+\item 
+\mbox{\Hypertarget{classOneWireTempSensor_a308c0fe0feee55629d5d06aab0b53c2c}\label{classOneWireTempSensor_a308c0fe0feee55629d5d06aab0b53c2c}} 
+bool {\bfseries connected}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classOneWireTempSensor_a7d336dbb29445a072ddfe31156a7cea5}\label{classOneWireTempSensor_a7d336dbb29445a072ddfe31156a7cea5}} 
+\index{OneWireTempSensor@{OneWireTempSensor}!OneWireTempSensor@{OneWireTempSensor}}
+\index{OneWireTempSensor@{OneWireTempSensor}!OneWireTempSensor@{OneWireTempSensor}}
+\doxysubsubsection{\texorpdfstring{OneWireTempSensor()}{OneWireTempSensor()}}
+{\footnotesize\ttfamily One\+Wire\+Temp\+Sensor\+::\+One\+Wire\+Temp\+Sensor (\begin{DoxyParamCaption}\item[{One\+Wire $\ast$}]{bus,  }\item[{Device\+Address}]{address,  }\item[{\mbox{\hyperlink{group__temps_gadd1441a58e6b2962c3f2b0af55d875c4}{fixed4\+\_\+4}}}]{calibration\+Offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructs a new onewire temp sensor. /param bus The onewire bus this sensor is on. /param address The onewire address for this sensor. If all bytes are 0 in the address, the first temp sensor on the bus is used. /param calibration A temperature value that is added to all readings. This can be used to calibrate the sensor. ~\newline
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOneWireTempSensor_a88dd248fba3ef9f7b2afc466e3fd4e45}\label{classOneWireTempSensor_a88dd248fba3ef9f7b2afc466e3fd4e45}} 
+\index{OneWireTempSensor@{OneWireTempSensor}!init@{init}}
+\index{init@{init}!OneWireTempSensor@{OneWireTempSensor}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool One\+Wire\+Temp\+Sensor\+::init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Initializes the temperature sensor. This method is called when the sensor is first created and also any time the sensor reports it\textquotesingle{}s disconnected. If the result is T\+E\+M\+P\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+D\+I\+S\+C\+O\+N\+N\+E\+C\+T\+ED then subsequent calls to \mbox{\hyperlink{classOneWireTempSensor_a4f0cd8e88e4df18445add53539affa0c}{read()}} will also return T\+E\+M\+P\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+D\+I\+S\+C\+O\+N\+N\+E\+C\+T\+ED. Clients should attempt to re-\/initialize the sensor by calling \mbox{\hyperlink{classOneWireTempSensor_a88dd248fba3ef9f7b2afc466e3fd4e45}{init()}} again. 
+
+Implements \mbox{\hyperlink{classBasicTempSensor_a41fbbfbd303c077c6bba42fc0c18d268}{Basic\+Temp\+Sensor}}.
+
+\mbox{\Hypertarget{classOneWireTempSensor_adfdd38fe32b636e93fadf03e56f1dca8}\label{classOneWireTempSensor_adfdd38fe32b636e93fadf03e56f1dca8}} 
+\index{OneWireTempSensor@{OneWireTempSensor}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!OneWireTempSensor@{OneWireTempSensor}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily bool One\+Wire\+Temp\+Sensor\+::is\+Connected (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Check if sensor is connected 
+
+Implements \mbox{\hyperlink{classBasicTempSensor_ab5608a5ec218d239b7760ca9f897c88c}{Basic\+Temp\+Sensor}}.
+
+\mbox{\Hypertarget{classOneWireTempSensor_a4f0cd8e88e4df18445add53539affa0c}\label{classOneWireTempSensor_a4f0cd8e88e4df18445add53539affa0c}} 
+\index{OneWireTempSensor@{OneWireTempSensor}!read@{read}}
+\index{read@{read}!OneWireTempSensor@{OneWireTempSensor}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} One\+Wire\+Temp\+Sensor\+::read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Fetch a new reading from the sensor 
+
+Implements \mbox{\hyperlink{classBasicTempSensor_a1e0c56afcc461ea10c580443b6ebcae6}{Basic\+Temp\+Sensor}}.
+
+\mbox{\Hypertarget{classOneWireTempSensor_a684ceb6f3aa4812ac60a77831f15f83b}\label{classOneWireTempSensor_a684ceb6f3aa4812ac60a77831f15f83b}} 
+\index{OneWireTempSensor@{OneWireTempSensor}!readAndConstrainTemp@{readAndConstrainTemp}}
+\index{readAndConstrainTemp@{readAndConstrainTemp}!OneWireTempSensor@{OneWireTempSensor}}
+\doxysubsubsection{\texorpdfstring{readAndConstrainTemp()}{readAndConstrainTemp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} One\+Wire\+Temp\+Sensor\+::read\+And\+Constrain\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Reads the temperature. If successful, constrains the temp to the range of the temperature type and updates last\+Request\+Time. On successful, leaves last\+Request\+Time alone and returns D\+E\+V\+I\+C\+E\+\_\+\+D\+I\+S\+C\+O\+N\+N\+E\+C\+T\+ED. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/One\+Wire\+Temp\+Sensor.\+h\item 
+src/One\+Wire\+Temp\+Sensor.\+cpp\end{DoxyCompactItemize}

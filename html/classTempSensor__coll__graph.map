@@ -1,0 +1,6 @@
+<map id="TempSensor" name="TempSensor">
+<area shape="rect" id="node1" title=" " alt="" coords="62,213,158,240"/>
+<area shape="rect" id="node2" href="$classBasicTempSensor.html" title=" " alt="" coords="5,95,135,121"/>
+<area shape="rect" id="node3" href="$classCascadedFilter.html" title=" " alt="" coords="159,95,269,121"/>
+<area shape="rect" id="node4" href="$classFixedFilter.html" title=" " alt="" coords="173,5,255,32"/>
+</map>

@@ -1,0 +1,101 @@
+\hypertarget{classAutoOffActuator}{}\doxysection{Auto\+Off\+Actuator Class Reference}
+\label{classAutoOffActuator}\index{AutoOffActuator@{AutoOffActuator}}
+
+
+{\ttfamily \#include $<$Actuator\+Auto\+Off.\+h$>$}
+
+
+
+Inheritance diagram for Auto\+Off\+Actuator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classAutoOffActuator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Auto\+Off\+Actuator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classAutoOffActuator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAutoOffActuator_a6e65bc09ea6162c32bab8f0e01a7f818}{Auto\+Off\+Actuator}} (uint16\+\_\+t \mbox{\hyperlink{classAutoOffActuator_a89f3ca20591dbbb1c6ada7ef20af40cd}{timeout}}, \mbox{\hyperlink{classActuator}{Actuator}} $\ast$\mbox{\hyperlink{classAutoOffActuator_ad5276d01c683cad536e2722109268d9d}{target}})
+\item 
+void \mbox{\hyperlink{classAutoOffActuator_ad2a4c69c4497b51e42bbf58bb7c2f494}{set\+Active}} (bool \mbox{\hyperlink{classAutoOffActuator_a500be952baf6e61a60834cb85fe02a2f}{active}})
+\begin{DoxyCompactList}\small\item\em Set the actuator state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAutoOffActuator_a73eb21b0c6e5432e2071202baabef4bf}\label{classAutoOffActuator_a73eb21b0c6e5432e2071202baabef4bf}} 
+bool \mbox{\hyperlink{classAutoOffActuator_a73eb21b0c6e5432e2071202baabef4bf}{is\+Active}} ()
+\begin{DoxyCompactList}\small\item\em Get actuator current state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAutoOffActuator_a450faa225478b05497fe79652cb40031}\label{classAutoOffActuator_a450faa225478b05497fe79652cb40031}} 
+void \mbox{\hyperlink{classAutoOffActuator_a450faa225478b05497fe79652cb40031}{update}} ()
+\begin{DoxyCompactList}\small\item\em Update the actuator state. If the timeout period has elapsed, sets the state to false. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAutoOffActuator_aec647a977029b529f9545d58d23ccc71}\label{classAutoOffActuator_aec647a977029b529f9545d58d23ccc71}} 
+uint16\+\_\+t \mbox{\hyperlink{classAutoOffActuator_aec647a977029b529f9545d58d23ccc71}{last\+Active\+Time}}
+\begin{DoxyCompactList}\small\item\em Tick count when the actuator was last made active. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAutoOffActuator_a89f3ca20591dbbb1c6ada7ef20af40cd}\label{classAutoOffActuator_a89f3ca20591dbbb1c6ada7ef20af40cd}} 
+uint16\+\_\+t \mbox{\hyperlink{classAutoOffActuator_a89f3ca20591dbbb1c6ada7ef20af40cd}{timeout}}
+\begin{DoxyCompactList}\small\item\em Length of time that the actuator should be enabled before turning off. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAutoOffActuator_ad5276d01c683cad536e2722109268d9d}\label{classAutoOffActuator_ad5276d01c683cad536e2722109268d9d}} 
+\mbox{\hyperlink{classActuator}{Actuator}} $\ast$ \mbox{\hyperlink{classAutoOffActuator_ad5276d01c683cad536e2722109268d9d}{target}}
+\begin{DoxyCompactList}\small\item\em Target \mbox{\hyperlink{classActuator}{Actuator}} that is being controlled. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAutoOffActuator_a500be952baf6e61a60834cb85fe02a2f}\label{classAutoOffActuator_a500be952baf6e61a60834cb85fe02a2f}} 
+bool \mbox{\hyperlink{classAutoOffActuator_a500be952baf6e61a60834cb85fe02a2f}{active}}
+\begin{DoxyCompactList}\small\item\em Current actuator state. This effectively duplicates the state that is in the target \mbox{\hyperlink{classActuator}{Actuator}}, but by keeping value here we avoid call overhead to get that value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An \mbox{\hyperlink{classActuator}{Actuator}} wrapper that automaically turns the wrapped \mbox{\hyperlink{classActuator}{Actuator}} off after an elapsed timeout 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAutoOffActuator_a6e65bc09ea6162c32bab8f0e01a7f818}\label{classAutoOffActuator_a6e65bc09ea6162c32bab8f0e01a7f818}} 
+\index{AutoOffActuator@{AutoOffActuator}!AutoOffActuator@{AutoOffActuator}}
+\index{AutoOffActuator@{AutoOffActuator}!AutoOffActuator@{AutoOffActuator}}
+\doxysubsubsection{\texorpdfstring{AutoOffActuator()}{AutoOffActuator()}}
+{\footnotesize\ttfamily Auto\+Off\+Actuator\+::\+Auto\+Off\+Actuator (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{timeout,  }\item[{\mbox{\hyperlink{classActuator}{Actuator}} $\ast$}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em timeout} & -\/ Number of seconds to stay on after activated \\
+\hline
+{\em target} & -\/ Acutuator to manage \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAutoOffActuator_ad2a4c69c4497b51e42bbf58bb7c2f494}\label{classAutoOffActuator_ad2a4c69c4497b51e42bbf58bb7c2f494}} 
+\index{AutoOffActuator@{AutoOffActuator}!setActive@{setActive}}
+\index{setActive@{setActive}!AutoOffActuator@{AutoOffActuator}}
+\doxysubsubsection{\texorpdfstring{setActive()}{setActive()}}
+{\footnotesize\ttfamily void Auto\+Off\+Actuator\+::set\+Active (\begin{DoxyParamCaption}\item[{bool}]{active }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the actuator state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em active} & -\/ New state \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classActuator_af0489ac4dc73e9a187c4f8ee8d000f92}{Actuator\+::set\+Active()}} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Actuator\+Auto\+Off.\+h\end{DoxyCompactItemize}

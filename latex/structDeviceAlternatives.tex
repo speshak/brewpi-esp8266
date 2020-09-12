@@ -1,0 +1,45 @@
+\hypertarget{structDeviceAlternatives}{}\doxysection{Device\+Alternatives Struct Reference}
+\label{structDeviceAlternatives}\index{DeviceAlternatives@{DeviceAlternatives}}
+
+
+{\ttfamily \#include $<$Device\+Manager.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structDeviceAlternatives_a5284a02dded130ed4a75d5b80f8e7a32}\label{structDeviceAlternatives_a5284a02dded130ed4a75d5b80f8e7a32}} 
+enum {\bfseries Alternative\+Type} \{ \newline
+{\bfseries D\+A\+\_\+\+P\+IN}, 
+{\bfseries D\+A\+\_\+\+A\+D\+D\+R\+E\+SS}, 
+{\bfseries D\+A\+\_\+\+P\+IO}, 
+{\bfseries D\+A\+\_\+\+I\+N\+V\+E\+RT}, 
+\newline
+{\bfseries D\+A\+\_\+\+B\+O\+O\+L\+V\+A\+L\+UE}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structDeviceAlternatives_a0c5b9a767f446400663a685afdc466d6}\label{structDeviceAlternatives_a0c5b9a767f446400663a685afdc466d6}} 
+Alternative\+Type {\bfseries type}
+\item 
+\mbox{\Hypertarget{structDeviceAlternatives_afae2fe993edf9363b3317867b8f90d4e}\label{structDeviceAlternatives_afae2fe993edf9363b3317867b8f90d4e}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uint8\_t {\bfseries pinNr}\\
+\>uint8\_t {\bfseries pio}\\
+\>DeviceAddress {\bfseries address}\\
+\>bool {\bfseries invert}\\
+\>bool {\bfseries boolValue}\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides a single alternative value for a given definition point in a device. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Device\+Manager.\+h\end{DoxyCompactItemize}

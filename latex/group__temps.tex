@@ -1,0 +1,277 @@
+\hypertarget{group__temps}{}\doxysection{Temperature Values}
+\label{group__temps}\index{Temperature Values@{Temperature Values}}
+
+
+Internal representation of temperature values.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__temps_ga18af4fe33519df8264baafcc5c870e91}{C\+\_\+\+O\+F\+F\+S\+ET}}~(-\/24576)
+\begin{DoxyCompactList}\small\item\em Offset used when representing C temperatures. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__temps_ga9dfbac5c85116e742d1a064203cf5b6a}{F\+\_\+\+O\+F\+F\+S\+ET}}~(-\/33678)
+\begin{DoxyCompactList}\small\item\em Offset used when representing F temperatures. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__temps_gac3f60d2997dde2465d6b7ed633dd742a}\label{group__temps_gac3f60d2997dde2465d6b7ed633dd742a}} 
+\#define \mbox{\hyperlink{group__temps_gac3f60d2997dde2465d6b7ed633dd742a}{I\+N\+V\+A\+L\+I\+D\+\_\+\+T\+E\+MP}}~-\/32768
+\begin{DoxyCompactList}\small\item\em An invalid temperature value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__temps_gaed8ea54a2630aaf2ae3f2bd5fa886959}\label{group__temps_gaed8ea54a2630aaf2ae3f2bd5fa886959}} 
+\#define \mbox{\hyperlink{group__temps_gaed8ea54a2630aaf2ae3f2bd5fa886959}{M\+A\+X\+\_\+\+T\+E\+MP}}~32767
+\begin{DoxyCompactList}\small\item\em Maximum representable temp value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__temps_ga2522d2568f63855838c3ecfb44084710}\label{group__temps_ga2522d2568f63855838c3ecfb44084710}} 
+\#define \mbox{\hyperlink{group__temps_ga2522d2568f63855838c3ecfb44084710}{M\+I\+N\+\_\+\+T\+E\+MP}}~\mbox{\hyperlink{group__temps_gac3f60d2997dde2465d6b7ed633dd742a}{I\+N\+V\+A\+L\+I\+D\+\_\+\+T\+E\+MP}}+1
+\begin{DoxyCompactList}\small\item\em Minimum representable temp value. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__temps_ga1aee0890b23035a0b96534db27b10da4}\label{group__temps_ga1aee0890b23035a0b96534db27b10da4}} 
+\#define {\bfseries T\+E\+M\+P\+\_\+\+F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+N\+T\+\_\+\+B\+I\+TS}~(9)
+\item 
+\mbox{\Hypertarget{group__temps_ga8d831a761236e0675c8ee6c060cede7e}\label{group__temps_ga8d831a761236e0675c8ee6c060cede7e}} 
+\#define {\bfseries T\+E\+M\+P\+\_\+\+F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+N\+T\+\_\+\+S\+C\+A\+LE}~(1$<$$<$T\+E\+M\+P\+\_\+\+F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+N\+T\+\_\+\+B\+I\+TS)
+\item 
+\mbox{\Hypertarget{group__temps_ga0352c84a15844f14ca922f35a1fd9199}\label{group__temps_ga0352c84a15844f14ca922f35a1fd9199}} 
+\#define {\bfseries T\+E\+M\+P\+\_\+\+F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+N\+T\+\_\+\+M\+A\+SK}~(T\+E\+M\+P\+\_\+\+F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+N\+T\+\_\+\+S\+C\+A\+LE-\/1)
+\item 
+\mbox{\Hypertarget{group__temps_ga4f00dae13ef62c962f30b2dfcd936cf9}\label{group__temps_ga4f00dae13ef62c962f30b2dfcd936cf9}} 
+\#define {\bfseries T\+E\+M\+P\+\_\+\+P\+R\+E\+C\+I\+S\+E\+\_\+\+E\+X\+T\+R\+A\+\_\+\+F\+R\+A\+C\+T\+I\+O\+N\+\_\+\+B\+I\+TS}~16
+\item 
+\mbox{\Hypertarget{group__temps_ga3034c89cf4d1da1fd67fa556ccf01c1b}\label{group__temps_ga3034c89cf4d1da1fd67fa556ccf01c1b}} 
+\#define {\bfseries temp\+To\+Int}(val)~((val -\/ \mbox{\hyperlink{group__temps_ga18af4fe33519df8264baafcc5c870e91}{C\+\_\+\+O\+F\+F\+S\+ET}})$>$$>$T\+E\+M\+P\+\_\+\+F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+N\+T\+\_\+\+B\+I\+TS)
+\item 
+\mbox{\Hypertarget{group__temps_gac88b77dcde9805ad12fe28eff914f724}\label{group__temps_gac88b77dcde9805ad12fe28eff914f724}} 
+\#define {\bfseries long\+Temp\+To\+Int}(val)~((val -\/ \mbox{\hyperlink{group__temps_ga18af4fe33519df8264baafcc5c870e91}{C\+\_\+\+O\+F\+F\+S\+ET}})$>$$>$T\+E\+M\+P\+\_\+\+F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+N\+T\+\_\+\+B\+I\+TS)
+\item 
+\mbox{\Hypertarget{group__temps_gaa1c3a138f0cc20ef2ffe6ee01dea167d}\label{group__temps_gaa1c3a138f0cc20ef2ffe6ee01dea167d}} 
+\#define {\bfseries temp\+Diff\+To\+Int}(val)~((val)$>$$>$T\+E\+M\+P\+\_\+\+F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+N\+T\+\_\+\+B\+I\+TS)
+\item 
+\mbox{\Hypertarget{group__temps_gafeed90bc07b15c03333ad69a80842b49}\label{group__temps_gafeed90bc07b15c03333ad69a80842b49}} 
+\#define {\bfseries long\+Temp\+Diff\+To\+Int}(val)~((val)$>$$>$T\+E\+M\+P\+\_\+\+F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+N\+T\+\_\+\+B\+I\+TS)
+\item 
+\mbox{\Hypertarget{group__temps_ga2e4026ea5635962e158379f2714cd627}\label{group__temps_ga2e4026ea5635962e158379f2714cd627}} 
+\#define {\bfseries int\+To\+Temp}(val)~((\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}}(val)$<$$<$T\+E\+M\+P\+\_\+\+F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+N\+T\+\_\+\+B\+I\+TS) + \mbox{\hyperlink{group__temps_ga18af4fe33519df8264baafcc5c870e91}{C\+\_\+\+O\+F\+F\+S\+ET}})
+\item 
+\mbox{\Hypertarget{group__temps_ga7cbc854e297c24385fe320b617ce1cf5}\label{group__temps_ga7cbc854e297c24385fe320b617ce1cf5}} 
+\#define {\bfseries int\+To\+Temp\+Diff}(val)~((\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}}(val)$<$$<$T\+E\+M\+P\+\_\+\+F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+N\+T\+\_\+\+B\+I\+TS))
+\item 
+\mbox{\Hypertarget{group__temps_ga9e9bd43076ff636d3db1daaa1812d477}\label{group__temps_ga9e9bd43076ff636d3db1daaa1812d477}} 
+\#define {\bfseries double\+To\+Temp}(temp)~((temp$\ast$T\+E\+M\+P\+\_\+\+F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+N\+T\+\_\+\+S\+C\+A\+LE + \mbox{\hyperlink{group__temps_ga18af4fe33519df8264baafcc5c870e91}{C\+\_\+\+O\+F\+F\+S\+ET}})$>$=\mbox{\hyperlink{group__temps_gaed8ea54a2630aaf2ae3f2bd5fa886959}{M\+A\+X\+\_\+\+T\+E\+MP}} ? \mbox{\hyperlink{group__temps_gaed8ea54a2630aaf2ae3f2bd5fa886959}{M\+A\+X\+\_\+\+T\+E\+MP}} \+: (temp$\ast$T\+E\+M\+P\+\_\+\+F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+N\+T\+\_\+\+S\+C\+A\+LE + \mbox{\hyperlink{group__temps_ga18af4fe33519df8264baafcc5c870e91}{C\+\_\+\+O\+F\+F\+S\+ET}})$<$=\mbox{\hyperlink{group__temps_ga2522d2568f63855838c3ecfb44084710}{M\+I\+N\+\_\+\+T\+E\+MP}} ? \mbox{\hyperlink{group__temps_ga2522d2568f63855838c3ecfb44084710}{M\+I\+N\+\_\+\+T\+E\+MP}} \+: \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}}(temp$\ast$T\+E\+M\+P\+\_\+\+F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+N\+T\+\_\+\+S\+C\+A\+LE + \mbox{\hyperlink{group__temps_ga18af4fe33519df8264baafcc5c870e91}{C\+\_\+\+O\+F\+F\+S\+ET}}))
+\item 
+\mbox{\Hypertarget{group__temps_ga802b9dfe1afb5ad91f02ef63d3752548}\label{group__temps_ga802b9dfe1afb5ad91f02ef63d3752548}} 
+\#define {\bfseries int\+To\+Long\+Temp}(val)~((\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}}(val)$<$$<$T\+E\+M\+P\+\_\+\+F\+I\+X\+E\+D\+\_\+\+P\+O\+I\+N\+T\+\_\+\+B\+I\+TS) + \mbox{\hyperlink{group__temps_ga18af4fe33519df8264baafcc5c870e91}{C\+\_\+\+O\+F\+F\+S\+ET}})
+\item 
+\mbox{\Hypertarget{group__temps_ga78906aa14fc874b5c7eb5bf72de63c26}\label{group__temps_ga78906aa14fc874b5c7eb5bf72de63c26}} 
+\#define {\bfseries temp\+Precise\+To\+Regular}(val)~(val$>$$>$T\+E\+M\+P\+\_\+\+P\+R\+E\+C\+I\+S\+E\+\_\+\+E\+X\+T\+R\+A\+\_\+\+F\+R\+A\+C\+T\+I\+O\+N\+\_\+\+B\+I\+TS)
+\item 
+\mbox{\Hypertarget{group__temps_gacf9456556cb15239047a452788ec21f7}\label{group__temps_gacf9456556cb15239047a452788ec21f7}} 
+\#define {\bfseries temp\+Regular\+To\+Precise}(val)~(\mbox{\hyperlink{group__temps_ga0ffefb66fc0b4d42bdd2a5df54db3680}{temperature\+\_\+precise}}(val)$<$$<$T\+E\+M\+P\+\_\+\+P\+R\+E\+C\+I\+S\+E\+\_\+\+E\+X\+T\+R\+A\+\_\+\+F\+R\+A\+C\+T\+I\+O\+N\+\_\+\+B\+I\+TS)
+\item 
+\mbox{\Hypertarget{group__temps_ga1437a85fd835825f4339353f4b4e7ab7}\label{group__temps_ga1437a85fd835825f4339353f4b4e7ab7}} 
+\#define {\bfseries O\+P\+T\+I\+M\+I\+Z\+E\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+R\+E\+\_\+\+F\+O\+R\+M\+A\+TS}~1 \&\& O\+P\+T\+I\+M\+I\+Z\+E\+\_\+\+G\+L\+O\+B\+AL
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__temps_ga94e0bc72f60e254348108341afc65666}\label{group__temps_ga94e0bc72f60e254348108341afc65666}} 
+typedef int16\+\_\+t \mbox{\hyperlink{group__temps_ga94e0bc72f60e254348108341afc65666}{fixed7\+\_\+9}}
+\begin{DoxyCompactList}\small\item\em 7 signed int bits and 9 fraction bits \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__temps_ga87bd4d59272ed7a92440dce6727fc826}\label{group__temps_ga87bd4d59272ed7a92440dce6727fc826}} 
+typedef int32\+\_\+t \mbox{\hyperlink{group__temps_ga87bd4d59272ed7a92440dce6727fc826}{fixed23\+\_\+9}}
+\begin{DoxyCompactList}\small\item\em 23 signed int bits and 9 fraction bits. Used when results can overflow \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__temps_ga35535db3e829c27b63dbd1203de07400}\label{group__temps_ga35535db3e829c27b63dbd1203de07400}} 
+typedef int32\+\_\+t \mbox{\hyperlink{group__temps_ga35535db3e829c27b63dbd1203de07400}{fixed7\+\_\+25}}
+\begin{DoxyCompactList}\small\item\em 7 signed int bits and 25 fraction bits. Used when extra precision is needed \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__temps_gacf40be9d4e2bba43c3860a36bc68db60}\label{group__temps_gacf40be9d4e2bba43c3860a36bc68db60}} 
+typedef int16\+\_\+t \mbox{\hyperlink{group__temps_gacf40be9d4e2bba43c3860a36bc68db60}{fixed12\+\_\+4}}
+\begin{DoxyCompactList}\small\item\em 1 sign bit, 11 integer bits, and 4 fraction bits -\/ encoding returned by D\+S18\+B20 sensors. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__temps_gadd1441a58e6b2962c3f2b0af55d875c4}\label{group__temps_gadd1441a58e6b2962c3f2b0af55d875c4}} 
+typedef int8\+\_\+t \mbox{\hyperlink{group__temps_gadd1441a58e6b2962c3f2b0af55d875c4}{fixed4\+\_\+4}}
+\begin{DoxyCompactList}\small\item\em 1-\/sign bit, 3 int bits and 4 fraction bits. Corresponds with precision of D\+S18\+B20 sensors \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__temps_gaef628157e9c71d62a159f8f809aea1c8}\label{group__temps_gaef628157e9c71d62a159f8f809aea1c8}} 
+typedef int8\+\_\+t \mbox{\hyperlink{group__temps_gaef628157e9c71d62a159f8f809aea1c8}{temp\+\_\+int}}
+\begin{DoxyCompactList}\small\item\em Temperature expressed as an integer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}\label{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}} 
+typedef \mbox{\hyperlink{group__temps_ga94e0bc72f60e254348108341afc65666}{fixed7\+\_\+9}} \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}}
+\begin{DoxyCompactList}\small\item\em Common temperature representation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__temps_ga87f833f6cb36e339255ef7478ded8513}\label{group__temps_ga87f833f6cb36e339255ef7478ded8513}} 
+typedef \mbox{\hyperlink{group__temps_ga87bd4d59272ed7a92440dce6727fc826}{fixed23\+\_\+9}} \mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}}
+\begin{DoxyCompactList}\small\item\em Long temperature representation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__temps_ga0ffefb66fc0b4d42bdd2a5df54db3680}\label{group__temps_ga0ffefb66fc0b4d42bdd2a5df54db3680}} 
+typedef \mbox{\hyperlink{group__temps_ga35535db3e829c27b63dbd1203de07400}{fixed7\+\_\+25}} \mbox{\hyperlink{group__temps_ga0ffefb66fc0b4d42bdd2a5df54db3680}{temperature\+\_\+precise}}
+\begin{DoxyCompactList}\small\item\em Precise temperature representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__temps_gad8885244e572cccb3e3dd89c4711e591}\label{group__temps_gad8885244e572cccb3e3dd89c4711e591}} 
+char $\ast$ {\bfseries temp\+To\+String} (char $\ast$s, \mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} raw\+Value, uint8\+\_\+t num\+Decimals, uint8\+\_\+t max\+Length)
+\item 
+\mbox{\Hypertarget{group__temps_ga2feaf46624cb86f4a0398815491ae795}\label{group__temps_ga2feaf46624cb86f4a0398815491ae795}} 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} {\bfseries string\+To\+Temp} (const char $\ast$string)
+\item 
+\mbox{\Hypertarget{group__temps_ga6119eaaf24b427ce12d15a704539b3f1}\label{group__temps_ga6119eaaf24b427ce12d15a704539b3f1}} 
+char $\ast$ {\bfseries temp\+Diff\+To\+String} (char $\ast$s, \mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} raw\+Value, uint8\+\_\+t num\+Decimals, uint8\+\_\+t max\+Length)
+\item 
+\mbox{\Hypertarget{group__temps_gaa61bb7d95fd5c17756bbd3566dcddeac}\label{group__temps_gaa61bb7d95fd5c17756bbd3566dcddeac}} 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} {\bfseries string\+To\+Temp\+Diff} (const char $\ast$string)
+\item 
+\mbox{\Hypertarget{group__temps_ga80bdccf8e394db04614ab9ea2207a915}\label{group__temps_ga80bdccf8e394db04614ab9ea2207a915}} 
+char $\ast$ {\bfseries fixed\+Point\+To\+String} (char $\ast$s, \mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} raw\+Value, uint8\+\_\+t num\+Decimals, uint8\+\_\+t max\+Length)
+\item 
+\mbox{\Hypertarget{group__temps_ga26505e05fd615c50570472f10c6eb13c}\label{group__temps_ga26505e05fd615c50570472f10c6eb13c}} 
+char $\ast$ {\bfseries fixed\+Point\+To\+String} (char $\ast$s, \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} raw\+Value, uint8\+\_\+t num\+Decimals, uint8\+\_\+t max\+Length)
+\item 
+\mbox{\Hypertarget{group__temps_gadb59123866f0dd495eaee2d70a6c5940}\label{group__temps_gadb59123866f0dd495eaee2d70a6c5940}} 
+\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} {\bfseries string\+To\+Fixed\+Point} (const char $\ast$number\+String)
+\item 
+int \mbox{\hyperlink{group__temps_ga140c4743c39efac86e232661e48caed9}{fixed\+To\+Tenths}} (\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}})
+\begin{DoxyCompactList}\small\item\em Convert a fixed point temperature to decimal value rounded to nearest tenth. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__temps_ga9b251b48839be0e7686793375309bd95}\label{group__temps_ga9b251b48839be0e7686793375309bd95}} 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} {\bfseries tenths\+To\+Fixed} (int \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}})
+\item 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} \mbox{\hyperlink{group__temps_ga66b9450deff10943e8ae596572fa6c35}{constrain\+Temp}} (\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} val, \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} lower, \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} upper)
+\begin{DoxyCompactList}\small\item\em Constrain a temp within bounds. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} \mbox{\hyperlink{group__temps_ga359ad9e444e0d3d705a4665793093c36}{constrain\+Temp16}} (\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} val)
+\begin{DoxyCompactList}\small\item\em Constrain a temp within bounds of M\+I\+N\+\_\+\+T\+E\+MP and M\+A\+X\+\_\+\+T\+E\+MP. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__temps_gaecb10af7faf5a41769a0650b7e485629}\label{group__temps_gaecb10af7faf5a41769a0650b7e485629}} 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} {\bfseries multiply\+Factor\+Temperature\+Long} (\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} factor, \mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} b)
+\item 
+\mbox{\Hypertarget{group__temps_ga3ca5a253838069659585d85ce7c57bd9}\label{group__temps_ga3ca5a253838069659585d85ce7c57bd9}} 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} {\bfseries multiply\+Factor\+Temperature\+Diff\+Long} (\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} factor, \mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} b)
+\item 
+\mbox{\Hypertarget{group__temps_gaa07ba259b81d0c1cc309f98497e5e849}\label{group__temps_gaa07ba259b81d0c1cc309f98497e5e849}} 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} {\bfseries multiply\+Factor\+Temperature} (\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} factor, \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} b)
+\item 
+\mbox{\Hypertarget{group__temps_ga768b32f046775652220f405015e277ad}\label{group__temps_ga768b32f046775652220f405015e277ad}} 
+\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} {\bfseries multiply\+Factor\+Temperature\+Diff} (\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} factor, \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} b)
+\item 
+\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} \mbox{\hyperlink{group__temps_gaff1756d19cd744296c8e22e47d3c2bda}{convert\+To\+Internal\+Temp\+Impl}} (\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} raw\+Temp, bool add\+Offset)
+\item 
+\mbox{\Hypertarget{group__temps_gacb0c36586901a9fb5141212372f5bacc}\label{group__temps_gacb0c36586901a9fb5141212372f5bacc}} 
+\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} {\bfseries convert\+From\+Internal\+Temp\+Impl} (\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} raw\+Temp, bool add\+Offset)
+\item 
+\mbox{\Hypertarget{group__temps_ga16faf56acea6c43c8d0983ceac827bb1}\label{group__temps_ga16faf56acea6c43c8d0983ceac827bb1}} 
+\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} {\bfseries convert\+To\+Internal\+Temp\+Diff} (\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} raw\+Temp\+Diff)
+\item 
+\mbox{\Hypertarget{group__temps_ga784b72901d7cc7932d76e2fd1db8ea0f}\label{group__temps_ga784b72901d7cc7932d76e2fd1db8ea0f}} 
+\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} {\bfseries convert\+From\+Internal\+Temp\+Diff} (\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} raw\+Temp\+Diff)
+\item 
+\mbox{\Hypertarget{group__temps_ga7d715416b3f02d0d48521083f7dacd45}\label{group__temps_ga7d715416b3f02d0d48521083f7dacd45}} 
+\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} {\bfseries convert\+To\+Internal\+Temp} (\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} raw\+Temp)
+\item 
+\mbox{\Hypertarget{group__temps_ga7ffbf7f019ea3ee24a9323478747d71f}\label{group__temps_ga7ffbf7f019ea3ee24a9323478747d71f}} 
+\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} {\bfseries convert\+From\+Internal\+Temp} (\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} raw\+Temp)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Internal representation of temperature values. 
+
+
+\begin{DoxyItemize}
+\item The internal fixed point format has 9 bits (512 steps) per degree. The range is -\/16 to 112C, an offset of -\/48C
+\item The communication over serial is in C or F and it is always converted to the internal fixed point format in C.
+\item The interface to the Raspberry Pi uses decimal notation, like 21.\+3.
+\item Depending on the E\+E\+P\+R\+OM setting cc.\+temp\+Format, this will be interpreted as Celsius or Fahrenheit
+\end{DoxyItemize}\hypertarget{group__temps_autotoc_md0}{}\doxysubsubsection{Conversion}\label{group__temps_autotoc_md0}
+\hypertarget{group__temps_autotoc_md1}{}\doxyparagraph{From C to fixed point temp}\label{group__temps_autotoc_md1}
+\begin{eqnarray*} T &=& (C-48) \cdot 512 \\ &=& (C-48)<<9 \\ &=& (C<<9) - (48<<9) \\ &=& (C<<9) - 24576 \\ \end{eqnarray*}\hypertarget{group__temps_autotoc_md2}{}\doxyparagraph{From F to fixed point temp}\label{group__temps_autotoc_md2}
+\begin{eqnarray*} T &=& ((F-32)\frac{9}{5}-48) \cdot 512 \\ &=& (F\frac{9}{5})<<9 - 33678 \end{eqnarray*}\hypertarget{group__temps_autotoc_md3}{}\doxyparagraph{From fixed point temp to C}\label{group__temps_autotoc_md3}
+\begin{eqnarray*} C &=& \frac{T}{512} + 48 \\ &=& \frac{T+24576}{512} \\ &=& (T+24576)>>9 \end{eqnarray*}\hypertarget{group__temps_autotoc_md4}{}\doxyparagraph{From fixed point temp to F}\label{group__temps_autotoc_md4}
+\begin{eqnarray*} F &=& (\frac{T}{512} + 48) \cdot \frac{9}{5} + 32 \\ &=& (T+24576) \cdot \frac{9}{5} \cdot 512 + 32 \\ &=& (T+33678) \cdot \frac{9}{5} \cdot 512 \end{eqnarray*} 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__temps_ga18af4fe33519df8264baafcc5c870e91}\label{group__temps_ga18af4fe33519df8264baafcc5c870e91}} 
+\index{Temperature Values@{Temperature Values}!C\_OFFSET@{C\_OFFSET}}
+\index{C\_OFFSET@{C\_OFFSET}!Temperature Values@{Temperature Values}}
+\doxysubsubsection{\texorpdfstring{C\_OFFSET}{C\_OFFSET}}
+{\footnotesize\ttfamily \#define C\+\_\+\+O\+F\+F\+S\+ET~(-\/24576)}
+
+
+
+Offset used when representing C temperatures. 
+
+See the Conversion section for an explanation on how this was derived. This is the default offset for internal representation. \mbox{\Hypertarget{group__temps_ga9dfbac5c85116e742d1a064203cf5b6a}\label{group__temps_ga9dfbac5c85116e742d1a064203cf5b6a}} 
+\index{Temperature Values@{Temperature Values}!F\_OFFSET@{F\_OFFSET}}
+\index{F\_OFFSET@{F\_OFFSET}!Temperature Values@{Temperature Values}}
+\doxysubsubsection{\texorpdfstring{F\_OFFSET}{F\_OFFSET}}
+{\footnotesize\ttfamily \#define F\+\_\+\+O\+F\+F\+S\+ET~(-\/33678)}
+
+
+
+Offset used when representing F temperatures. 
+
+See the Conversion section for an explanation on how this was derived. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__temps_ga66b9450deff10943e8ae596572fa6c35}\label{group__temps_ga66b9450deff10943e8ae596572fa6c35}} 
+\index{Temperature Values@{Temperature Values}!constrainTemp@{constrainTemp}}
+\index{constrainTemp@{constrainTemp}!Temperature Values@{Temperature Values}}
+\doxysubsubsection{\texorpdfstring{constrainTemp()}{constrainTemp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} constrain\+Temp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}}}]{val\+Long,  }\item[{\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}}}]{lower,  }\item[{\mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}}}]{upper }\end{DoxyParamCaption})}
+
+
+
+Constrain a temp within bounds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val\+Long} & -\/ Temperature to constrain \\
+\hline
+{\em lower} & -\/ Lower bound \\
+\hline
+{\em upper} & -\/ Upper bound \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of {\ttfamily val\+Long} if it is within the bounds. {\ttfamily lower} if {\ttfamily val\+Long} is below, {\ttfamily upper} if {\ttfamily val\+Long} is above. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__temps_ga359ad9e444e0d3d705a4665793093c36}\label{group__temps_ga359ad9e444e0d3d705a4665793093c36}} 
+\index{Temperature Values@{Temperature Values}!constrainTemp16@{constrainTemp16}}
+\index{constrainTemp16@{constrainTemp16}!Temperature Values@{Temperature Values}}
+\doxysubsubsection{\texorpdfstring{constrainTemp16()}{constrainTemp16()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} constrain\+Temp16 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}}}]{val }\end{DoxyParamCaption})}
+
+
+
+Constrain a temp within bounds of M\+I\+N\+\_\+\+T\+E\+MP and M\+A\+X\+\_\+\+T\+E\+MP. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & -\/ Temperature to constrain \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of {\ttfamily val} if it is within the bounds. {\ttfamily M\+I\+N\+\_\+\+T\+E\+MP} if {\ttfamily val} is below, {\ttfamily M\+A\+X\+\_\+\+T\+E\+MP} if {\ttfamily val} is above. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__temps_ga2522d2568f63855838c3ecfb44084710}{M\+I\+N\+\_\+\+T\+E\+MP}} 
+
+\mbox{\hyperlink{group__temps_gaed8ea54a2630aaf2ae3f2bd5fa886959}{M\+A\+X\+\_\+\+T\+E\+MP}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__temps_gaff1756d19cd744296c8e22e47d3c2bda}\label{group__temps_gaff1756d19cd744296c8e22e47d3c2bda}} 
+\index{Temperature Values@{Temperature Values}!convertToInternalTempImpl@{convertToInternalTempImpl}}
+\index{convertToInternalTempImpl@{convertToInternalTempImpl}!Temperature Values@{Temperature Values}}
+\doxysubsubsection{\texorpdfstring{convertToInternalTempImpl()}{convertToInternalTempImpl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}} convert\+To\+Internal\+Temp\+Impl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}}}]{raw\+Temp,  }\item[{bool}]{add\+Offset }\end{DoxyParamCaption})}
+
+Receives the external temp format in fixed point and converts it to the internal format It scales the value for Fahrenheit and adds the offset needed for absolute temperatures. For temperature differences, use no offset.
+
+
+\begin{DoxyParams}{Parameters}
+{\em raw\+Temp} & -\/ Temperature to convert \\
+\hline
+{\em add\+Offset} & -\/ Flag to control if temp offsets are added. Should be {\ttfamily true} when working with absolute temps, {\ttfamily false} when working with differences. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__temps_ga140c4743c39efac86e232661e48caed9}\label{group__temps_ga140c4743c39efac86e232661e48caed9}} 
+\index{Temperature Values@{Temperature Values}!fixedToTenths@{fixedToTenths}}
+\index{fixedToTenths@{fixedToTenths}!Temperature Values@{Temperature Values}}
+\doxysubsubsection{\texorpdfstring{fixedToTenths()}{fixedToTenths()}}
+{\footnotesize\ttfamily int fixed\+To\+Tenths (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__temps_ga87f833f6cb36e339255ef7478ded8513}{long\+\_\+temperature}}}]{temp }\end{DoxyParamCaption})}
+
+
+
+Convert a fixed point temperature to decimal value rounded to nearest tenth. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em temp} & -\/ Temperature to convert \\
+\hline
+\end{DoxyParams}

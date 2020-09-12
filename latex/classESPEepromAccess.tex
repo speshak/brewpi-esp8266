@@ -1,0 +1,49 @@
+\hypertarget{classESPEepromAccess}{}\doxysection{E\+S\+P\+Eeprom\+Access Class Reference}
+\label{classESPEepromAccess}\index{ESPEepromAccess@{ESPEepromAccess}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classESPEepromAccess_a71ddfb98a82dc8dd416162ab027be04f}\label{classESPEepromAccess_a71ddfb98a82dc8dd416162ab027be04f}} 
+static void {\bfseries clear} (uint8\+\_\+t $\ast$p, uint8\+\_\+t size)
+\item 
+\mbox{\Hypertarget{classESPEepromAccess_a187ee810f1d9523a02d163f985698933}\label{classESPEepromAccess_a187ee810f1d9523a02d163f985698933}} 
+static void {\bfseries read\+Control\+Settings} (\mbox{\hyperlink{structControlSettings}{Control\+Settings}} \&target, eptr\+\_\+t offset, uint16\+\_\+t size)
+\item 
+\mbox{\Hypertarget{classESPEepromAccess_a3161ad30bbb62c7b8f040f472ae13f0e}\label{classESPEepromAccess_a3161ad30bbb62c7b8f040f472ae13f0e}} 
+static void {\bfseries read\+Control\+Constants} (\mbox{\hyperlink{structControlConstants}{Control\+Constants}} \&target, eptr\+\_\+t offset, uint16\+\_\+t size)
+\item 
+\mbox{\Hypertarget{classESPEepromAccess_ab27314984fcb8d70a7f15f7cae089414}\label{classESPEepromAccess_ab27314984fcb8d70a7f15f7cae089414}} 
+static void {\bfseries read\+Device\+Definition} (\mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&target, int8\+\_\+t device\+ID, uint16\+\_\+t size)
+\item 
+\mbox{\Hypertarget{classESPEepromAccess_a2fc50db83bcb97751f7cdab01faeab17}\label{classESPEepromAccess_a2fc50db83bcb97751f7cdab01faeab17}} 
+static void {\bfseries write\+Control\+Settings} (eptr\+\_\+t target, \mbox{\hyperlink{structControlSettings}{Control\+Settings}} \&source, uint16\+\_\+t size)
+\item 
+\mbox{\Hypertarget{classESPEepromAccess_a7115f5dc98bfb02250a630aa9a471bf4}\label{classESPEepromAccess_a7115f5dc98bfb02250a630aa9a471bf4}} 
+static void {\bfseries write\+Control\+Constants} (eptr\+\_\+t target, \mbox{\hyperlink{structControlConstants}{Control\+Constants}} \&source, uint16\+\_\+t size)
+\item 
+\mbox{\Hypertarget{classESPEepromAccess_a92125387e26d6b905fcb7ff9ddfba1bf}\label{classESPEepromAccess_a92125387e26d6b905fcb7ff9ddfba1bf}} 
+static void {\bfseries write\+Device\+Definition} (int8\+\_\+t device\+ID, const \mbox{\hyperlink{structDeviceConfig}{Device\+Config}} \&source, uint16\+\_\+t size)
+\item 
+\mbox{\Hypertarget{classESPEepromAccess_afa249b15c26759eef18fd29e550c6a6f}\label{classESPEepromAccess_afa249b15c26759eef18fd29e550c6a6f}} 
+static bool {\bfseries has\+Settings} ()
+\item 
+\mbox{\Hypertarget{classESPEepromAccess_a1ed7c7442e6f4fefa716f982c0e81436}\label{classESPEepromAccess_a1ed7c7442e6f4fefa716f982c0e81436}} 
+static void {\bfseries zap\+Data} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classESPEepromAccess_ab6477fd1fdd1bc4c2d79b86068fe4044}\label{classESPEepromAccess_ab6477fd1fdd1bc4c2d79b86068fe4044}} 
+{\footnotesize template$<$class T $>$ }\\static bool {\bfseries write\+Block\+To\+File} (String target\+\_\+name, T \&data)
+\item 
+\mbox{\Hypertarget{classESPEepromAccess_a0c2520a6e25bd6b92e02b4575c2d5e91}\label{classESPEepromAccess_a0c2520a6e25bd6b92e02b4575c2d5e91}} 
+{\footnotesize template$<$class T $>$ }\\static bool {\bfseries read\+Block\+From\+File} (String target\+\_\+name, T \&data)
+\item 
+\mbox{\Hypertarget{classESPEepromAccess_a2aa04b5ea5df49ca9d20a0c2fb206b80}\label{classESPEepromAccess_a2aa04b5ea5df49ca9d20a0c2fb206b80}} 
+static bool {\bfseries does\+File\+Exist} (String target\+\_\+name)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/E\+S\+P\+Eeprom\+Access.\+h\end{DoxyCompactItemize}

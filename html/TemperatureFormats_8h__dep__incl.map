@@ -1,0 +1,25 @@
+<map id="src/TemperatureFormats.h" name="src/TemperatureFormats.h">
+<area shape="rect" id="node1" title=" " alt="" coords="878,5,1053,32"/>
+<area shape="rect" id="node2" href="$DallasTemperature_8h_source.html" title=" " alt="" coords="181,229,344,256"/>
+<area shape="rect" id="node4" href="$DisplayBase_8h_source.html" title=" " alt="" coords="1313,80,1439,107"/>
+<area shape="rect" id="node8" href="$FilterCascaded_8h_source.html" title=" " alt="" coords="800,155,941,181"/>
+<area shape="rect" id="node13" href="$PiLink_8h_source.html" title=" " alt="" coords="1144,379,1235,405"/>
+<area shape="rect" id="node16" href="$TempControl_8h_source.html" title=" " alt="" coords="208,304,336,331"/>
+<area shape="rect" id="node20" href="$FilterFixed_8h_source.html" title=" " alt="" coords="908,80,1023,107"/>
+<area shape="rect" id="node21" href="$Logger_8h_source.html" title=" " alt="" coords="1142,304,1237,331"/>
+<area shape="rect" id="node22" href="$Menu_8h_source.html" title=" " alt="" coords="1463,80,1550,107"/>
+<area shape="rect" id="node23" href="$TempSensorBasic_8h_source.html" title=" " alt="" coords="601,155,762,181"/>
+<area shape="rect" id="node3" href="$OneWireTempSensor_8h_source.html" title=" " alt="" coords="5,304,184,331"/>
+<area shape="rect" id="node5" href="$Display_8h_source.html" title=" " alt="" coords="1372,229,1468,256"/>
+<area shape="rect" id="node6" href="$DisplayLcd_8h_source.html" title=" " alt="" coords="1313,155,1431,181"/>
+<area shape="rect" id="node7" href="$DisplayTFT_8h_source.html" title=" " alt="" coords="1507,155,1627,181"/>
+<area shape="rect" id="node9" href="$TempSensor_8h_source.html" title=" " alt="" coords="604,229,732,256"/>
+<area shape="rect" id="node10" href="$DeviceManager_8h_source.html" title=" " alt="" coords="544,304,688,331"/>
+<area shape="rect" id="node17" href="$TempSensorDisconnected_8h_source.html" title=" " alt="" coords="713,304,919,331"/>
+<area shape="rect" id="node18" href="$TempSensorExternal_8h_source.html" title=" " alt="" coords="943,304,1118,331"/>
+<area shape="rect" id="node19" href="$TempSensorMock_8h_source.html" title=" " alt="" coords="360,304,520,331"/>
+<area shape="rect" id="node11" href="$EepromFormat_8h_source.html" title=" " alt="" coords="291,379,429,405"/>
+<area shape="rect" id="node14" href="$SettingsManager_8h_source.html" title=" " alt="" coords="540,379,692,405"/>
+<area shape="rect" id="node15" href="$Simulator_8h_source.html" title=" " alt="" coords="847,379,956,405"/>
+<area shape="rect" id="node12" href="$ESPEepromAccess_8h_source.html" title=" " alt="" coords="276,453,444,480"/>
+</map>

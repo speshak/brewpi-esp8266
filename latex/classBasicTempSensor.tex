@@ -1,0 +1,66 @@
+\hypertarget{classBasicTempSensor}{}\doxysection{Basic\+Temp\+Sensor Class Reference}
+\label{classBasicTempSensor}\index{BasicTempSensor@{BasicTempSensor}}
+
+
+{\ttfamily \#include $<$Temp\+Sensor\+Basic.\+h$>$}
+
+
+
+Inheritance diagram for Basic\+Temp\+Sensor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBasicTempSensor__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classBasicTempSensor_ab5608a5ec218d239b7760ca9f897c88c}{is\+Connected}} (void)=0
+\item 
+virtual bool \mbox{\hyperlink{classBasicTempSensor_a41fbbfbd303c077c6bba42fc0c18d268}{init}} ()=0
+\item 
+virtual \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} \mbox{\hyperlink{classBasicTempSensor_a1e0c56afcc461ea10c580443b6ebcae6}{read}} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Temperature sensor base Pure virtual class. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBasicTempSensor_a41fbbfbd303c077c6bba42fc0c18d268}\label{classBasicTempSensor_a41fbbfbd303c077c6bba42fc0c18d268}} 
+\index{BasicTempSensor@{BasicTempSensor}!init@{init}}
+\index{init@{init}!BasicTempSensor@{BasicTempSensor}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily virtual bool Basic\+Temp\+Sensor\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Attempt to (re-\/)initialize the sensor. 
+
+Implemented in \mbox{\hyperlink{classMockTempSensor_a71d61f3b5d8e4e31816f066f2a6d3183}{Mock\+Temp\+Sensor}}, \mbox{\hyperlink{classExternalTempSensor_ab5e0112749c1293777f96a2b85ec15ec}{External\+Temp\+Sensor}}, \mbox{\hyperlink{classDisconnectedTempSensor_a4c10ee2b1a63ce64650dd181e223cad0}{Disconnected\+Temp\+Sensor}}, and \mbox{\hyperlink{classOneWireTempSensor_a88dd248fba3ef9f7b2afc466e3fd4e45}{One\+Wire\+Temp\+Sensor}}.
+
+\mbox{\Hypertarget{classBasicTempSensor_ab5608a5ec218d239b7760ca9f897c88c}\label{classBasicTempSensor_ab5608a5ec218d239b7760ca9f897c88c}} 
+\index{BasicTempSensor@{BasicTempSensor}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!BasicTempSensor@{BasicTempSensor}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily virtual bool Basic\+Temp\+Sensor\+::is\+Connected (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Check if sensor is connected 
+
+Implemented in \mbox{\hyperlink{classOneWireTempSensor_adfdd38fe32b636e93fadf03e56f1dca8}{One\+Wire\+Temp\+Sensor}}, \mbox{\hyperlink{classMockTempSensor_addb5507c57db66489b756fb18b259d21}{Mock\+Temp\+Sensor}}, \mbox{\hyperlink{classExternalTempSensor_a7b70ba47913b071bd851a4d5032fcb50}{External\+Temp\+Sensor}}, and \mbox{\hyperlink{classDisconnectedTempSensor_a5f0b17fbf9a7b6a23d8d53f23c4b940a}{Disconnected\+Temp\+Sensor}}.
+
+\mbox{\Hypertarget{classBasicTempSensor_a1e0c56afcc461ea10c580443b6ebcae6}\label{classBasicTempSensor_a1e0c56afcc461ea10c580443b6ebcae6}} 
+\index{BasicTempSensor@{BasicTempSensor}!read@{read}}
+\index{read@{read}!BasicTempSensor@{BasicTempSensor}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{group__temps_ga1289740b9060cd2dfe3872bffa2e8da3}{temperature}} Basic\+Temp\+Sensor\+::read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Fetch a new reading from the sensor 
+
+Implemented in \mbox{\hyperlink{classMockTempSensor_a0bc35b1068ee4f14ee9e7639c8536bd7}{Mock\+Temp\+Sensor}}, \mbox{\hyperlink{classExternalTempSensor_aefb9ee48a110f263e00c6b8218be9a7d}{External\+Temp\+Sensor}}, \mbox{\hyperlink{classDisconnectedTempSensor_ac5b14dd0efb31a32d05f591836988b95}{Disconnected\+Temp\+Sensor}}, and \mbox{\hyperlink{classOneWireTempSensor_a4f0cd8e88e4df18445add53539affa0c}{One\+Wire\+Temp\+Sensor}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Temp\+Sensor\+Basic.\+h\end{DoxyCompactItemize}
