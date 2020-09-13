@@ -15,7 +15,7 @@ var searchData=
   ['devicedisplay_74',['DeviceDisplay',['../structDeviceDisplay.html',1,'']]],
   ['devicemanager_75',['DeviceManager',['../classDeviceManager.html',1,'DeviceManager'],['../group__hardware.html#ga9194bede2521e116fbafd7bbe97f9dc4',1,'deviceManager():&#160;DeviceManager.cpp'],['../group__hardware.html#ga9194bede2521e116fbafd7bbe97f9dc4',1,'deviceManager():&#160;DeviceManager.cpp']]],
   ['deviceoutput_76',['DeviceOutput',['../structDeviceOutput.html',1,'']]],
-  ['deviceowner_77',['deviceOwner',['../group__hardware.html#gab16ded9c13543a1cd083db4d28d7eb9f',1,'deviceOwner(DeviceFunction id):&#160;DeviceManager.h'],['../group__hardware.html#gae90f4ff1a176ab51a452df7fc6815e32',1,'DeviceOwner():&#160;DeviceManager.h']]],
+  ['deviceowner_77',['DeviceOwner',['../group__hardware.html#gae90f4ff1a176ab51a452df7fc6815e32',1,'DeviceOwner():&#160;DeviceManager.h'],['../group__hardware.html#gab16ded9c13543a1cd083db4d28d7eb9f',1,'deviceOwner(DeviceFunction id):&#160;DeviceManager.h']]],
   ['devicetype_78',['DeviceType',['../group__hardware.html#gad258d4c51629346fceac4679b3209ad9',1,'DeviceType():&#160;DeviceManager.h'],['../group__hardware.html#ga070eb3cb6a8c1424df69e548e530b057',1,'deviceType(DeviceFunction id):&#160;DeviceManager.cpp'],['../group__hardware.html#ga070eb3cb6a8c1424df69e548e530b057',1,'deviceType(DeviceFunction id):&#160;DeviceManager.cpp']]],
   ['devicetype_5fnone_79',['DEVICETYPE_NONE',['../group__hardware.html#ggad258d4c51629346fceac4679b3209ad9abee972129063c92888bc5fc70057ce52',1,'DeviceManager.h']]],
   ['devicetype_5fswitch_5factuator_80',['DEVICETYPE_SWITCH_ACTUATOR',['../group__hardware.html#ggad258d4c51629346fceac4679b3209ad9a61b9ad57ba4da74654beb7a2e7a5a7a9',1,'DeviceManager.h']]],

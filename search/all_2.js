@@ -21,7 +21,7 @@ var searchData=
   ['brewpi_5fmenu_32',['BREWPI_MENU',['../ConfigDefault_8h.html#a4831048469928b38655559f6680f4cde',1,'ConfigDefault.h']]],
   ['brewpi_5fsensor_5fpins_33',['BREWPI_SENSOR_PINS',['../group__hardware.html#ga94b72efa2335dc6c6296b8ff9125e18e',1,'ConfigDefault.h']]],
   ['brewpi_5fshift_5flcd_34',['BREWPI_SHIFT_LCD',['../group__display.html#ga87965f8b35091f178dd741aa6d810486',1,'BREWPI_SHIFT_LCD():&#160;ConfigDefault.h'],['../group__display.html#ga87965f8b35091f178dd741aa6d810486',1,'BREWPI_SHIFT_LCD():&#160;ConfigDefault.h']]],
-  ['brewpi_5fsimulate_35',['BREWPI_SIMULATE',['../group__simulator.html#ga7d0e6610cc8371801dfc1d7ed328c13e',1,'BREWPI_SIMULATE():&#160;Config.h'],['../ConfigDefault_8h.html#a7d0e6610cc8371801dfc1d7ed328c13e',1,'BREWPI_SIMULATE():&#160;ConfigDefault.h']]],
+  ['brewpi_5fsimulate_35',['BREWPI_SIMULATE',['../group__simulator.html#ga7d0e6610cc8371801dfc1d7ed328c13e',1,'ConfigDefault.h']]],
   ['brewpi_5fstatic_5fconfig_36',['BREWPI_STATIC_CONFIG',['../ConfigDefault_8h.html#aebbe9cbe845abebe65d62c1806386e41',1,'ConfigDefault.h']]],
   ['brewpiloop_37',['brewpiLoop',['../brewpi-esp8266_8cpp.html#a9e59af6ce4b56c587e37b36111ddfeb8',1,'brewpi-esp8266.cpp']]],
   ['buzzer_38',['Buzzer',['../classBuzzer.html',1,'']]]
