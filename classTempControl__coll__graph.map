@@ -2,9 +2,9 @@
 <area shape="rect" id="node1" title=" " alt="" coords="675,248,771,275"/>
 <area shape="rect" id="node2" href="$classActuator.html" title=" " alt="" coords="219,85,289,112"/>
 <area shape="rect" id="node10" href="$classAutoOffActuator.html" title=" " alt="" coords="432,113,547,140"/>
-<area shape="rect" id="node3" href="$classTempSensor.html" title=" " alt="" coords="441,227,537,253"/>
+<area shape="rect" id="node3" href="$classTempSensor.html" title="General interface for all temperature sensor devices." alt="" coords="441,227,537,253"/>
 <area shape="rect" id="node4" href="$classBasicTempSensor.html" title=" " alt="" coords="189,183,319,209"/>
-<area shape="rect" id="node5" href="$classCascadedFilter.html" title=" " alt="" coords="199,275,309,301"/>
+<area shape="rect" id="node5" href="$classCascadedFilter.html" title="Implements a filter that consists of multiple second order sections." alt="" coords="199,275,309,301"/>
 <area shape="rect" id="node6" href="$classFixedFilter.html" title=" " alt="" coords="5,275,88,301"/>
 <area shape="rect" id="node7" href="$structControlConstants.html" title=" " alt="" coords="428,277,551,304"/>
 <area shape="rect" id="node8" href="$structControlVariables.html" title=" " alt="" coords="431,328,548,355"/>

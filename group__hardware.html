@@ -86,12 +86,18 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDeviceAlternatives.html">DeviceAlternatives</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a single alternative value for a given definition point in a device.  <a href="structDeviceAlternatives.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDeviceOutput.html">DeviceOutput</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDeviceDisplay.html">DeviceDisplay</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control structure used by methods to limit/filter processed devices.  <a href="structDeviceDisplay.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDeviceManager.html">DeviceManager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manage the different hardware devices that can be attached.  <a href="classDeviceManager.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOneWireTempSensor.html">OneWireTempSensor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A OneWire attached temperature sensor.  <a href="classOneWireTempSensor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -124,6 +130,7 @@ typedef int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 <tr class="memdesc:ga044bebb988cd23ea55556a6cab9ad97e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device slot identifier. <br /></td></tr>
 <tr class="separator:ga044bebb988cd23ea55556a6cab9ad97e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6268741d3fb8910998c56f1a67c6cd09"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hardware.html#ga6268741d3fb8910998c56f1a67c6cd09">EnumDevicesCallback</a>) (<a class="el" href="structDeviceConfig.html">DeviceConfig</a> *, void *pv)</td></tr>
+<tr class="memdesc:ga6268741d3fb8910998c56f1a67c6cd09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function pointer for enumerate device callback.  <a href="group__hardware.html#ga6268741d3fb8910998c56f1a67c6cd09">More...</a><br /></td></tr>
 <tr class="separator:ga6268741d3fb8910998c56f1a67c6cd09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -148,14 +155,18 @@ Functions</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isDefinedSlot</b> (<a class="el" href="group__hardware.html#ga044bebb988cd23ea55556a6cab9ad97e">device_slot_t</a> s)</td></tr>
 <tr class="separator:ga7c04bcc03a0e551f6911838daa1ce3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga88e2abd5cc1da54d0f0dd1b2c24fc8c9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hardware.html#ga88e2abd5cc1da54d0f0dd1b2c24fc8c9">isAssignable</a> (<a class="el" href="group__hardware.html#gad258d4c51629346fceac4679b3209ad9">DeviceType</a> type, DeviceHardware hardware)</td></tr>
+<tr class="memdesc:ga88e2abd5cc1da54d0f0dd1b2c24fc8c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if device is assignable.  <a href="group__hardware.html#ga88e2abd5cc1da54d0f0dd1b2c24fc8c9">More...</a><br /></td></tr>
 <tr class="separator:ga88e2abd5cc1da54d0f0dd1b2c24fc8c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3e3dd2ccc6f6b8cec4b8c18d2bdf23db"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hardware.html#ga3e3dd2ccc6f6b8cec4b8c18d2bdf23db">isOneWire</a> (DeviceHardware hardware)</td></tr>
+<tr class="memdesc:ga3e3dd2ccc6f6b8cec4b8c18d2bdf23db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if device is a OneWire device.  <a href="group__hardware.html#ga3e3dd2ccc6f6b8cec4b8c18d2bdf23db">More...</a><br /></td></tr>
 <tr class="separator:ga3e3dd2ccc6f6b8cec4b8c18d2bdf23db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad5dc2c9e3de5862533ae006595fb7e5f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hardware.html#gad5dc2c9e3de5862533ae006595fb7e5f">isDigitalPin</a> (DeviceHardware hardware)</td></tr>
+<tr class="memdesc:gad5dc2c9e3de5862533ae006595fb7e5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if device is a Digital Pin device.  <a href="group__hardware.html#gad5dc2c9e3de5862533ae006595fb7e5f">More...</a><br /></td></tr>
 <tr class="separator:gad5dc2c9e3de5862533ae006595fb7e5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga070eb3cb6a8c1424df69e548e530b057"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__hardware.html#gad258d4c51629346fceac4679b3209ad9">DeviceType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hardware.html#ga070eb3cb6a8c1424df69e548e530b057">deviceType</a> (DeviceFunction id)</td></tr>
 <tr class="separator:ga070eb3cb6a8c1424df69e548e530b057"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab16ded9c13543a1cd083db4d28d7eb9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__hardware.html#gae90f4ff1a176ab51a452df7fc6815e32">DeviceOwner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__hardware.html#gab16ded9c13543a1cd083db4d28d7eb9f">deviceOwner</a> (DeviceFunction id)</td></tr>
+<tr class="memdesc:gab16ded9c13543a1cd083db4d28d7eb9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines where devices belongs, based on its function.  <a href="group__hardware.html#gab16ded9c13543a1cd083db4d28d7eb9f">More...</a><br /></td></tr>
 <tr class="separator:gab16ded9c13543a1cd083db4d28d7eb9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab5d0e49c3041adefbc2f2b172c63930e"><td class="memItemLeft" align="right" valign="top"><a id="gab5d0e49c3041adefbc2f2b172c63930e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>HandleDeviceDisplay</b> (const char *key, const char *value, void *pv)</td></tr>
@@ -192,7 +203,8 @@ const <a class="el" href="group__hardware.html#ga044bebb988cd23ea55556a6cab9ad97
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Function pointer for enumerate device callback</p>
+
+<p>Function pointer for enumerate device callback. </p>
 <dl class="section see"><dt>See also</dt><dd>DeviceManager::enumerateOneWireDevices </dd>
 <dd>
 DeviceManager::enumeratePinDevices </dd></dl>
@@ -274,7 +286,14 @@ DeviceManager::enumeratePinDevices </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Determines where this devices belongs. </p>
+
+<p>Determines where devices belongs, based on its function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>- Device Function </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -330,7 +349,8 @@ DeviceManager::enumeratePinDevices </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Check if device is assignable.</p>
+
+<p>Check if device is assignable. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">hardware</td><td>- Hardware device to check </td></tr>
@@ -363,14 +383,15 @@ DeviceManager::enumeratePinDevices </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Check if device is a Digitial Pin device.</p>
+
+<p>Check if device is a Digital Pin device. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">hardware</td><td>- Hardware device to check </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if device is a digitial pin, <code>false</code> otherwise </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if device is a digital pin, <code>false</code> otherwise </dd></dl>
 
 </div>
 </div>
@@ -397,7 +418,8 @@ DeviceManager::enumeratePinDevices </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Check if device is a OneWire device.</p>
+
+<p>Check if device is a OneWire device. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">hardware</td><td>- Hardware device to check </td></tr>
@@ -463,7 +485,7 @@ DeviceManager::enumeratePinDevices </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>A global instance of <a class="el" href="classDeviceManager.html">DeviceManager</a> </p>
+<p>A global instance of <a class="el" href="classDeviceManager.html" title="Manage the different hardware devices that can be attached.">DeviceManager</a> </p>
 
 </div>
 </div>

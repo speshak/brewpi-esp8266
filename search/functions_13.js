@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zapeeprom_459',['zapEeprom',['../classEepromManager.html#a574db9094719d8bc45595f40f0dff725',1,'EepromManager']]]
+  ['waitforconversion_497',['waitForConversion',['../classOneWireTempSensor.html#ae9520be44a4ae0d82aadd52841a8d3f0',1,'OneWireTempSensor']]]
 ];

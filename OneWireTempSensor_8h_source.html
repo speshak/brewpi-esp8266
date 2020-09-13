@@ -98,7 +98,7 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;Brewpi.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Brewpi_8h.html">Brewpi.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;TempSensor.h&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;FastDigitalPin.h&quot;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;DallasTemperature.h&quot;</span></div>
@@ -107,57 +107,65 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">class </span><a class="code" href="classDallasTemperature.html">DallasTemperature</a>;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">class </span>OneWire;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#define ONEWIRE_TEMP_SENSOR_PRECISION (4)</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classOneWireTempSensor.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classOneWireTempSensor.html">OneWireTempSensor</a> : <span class="keyword">public</span> <a class="code" href="classBasicTempSensor.html">BasicTempSensor</a> {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>: </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classOneWireTempSensor.html#a7d336dbb29445a072ddfe31156a7cea5">   43</a></span>&#160;    <a class="code" href="classOneWireTempSensor.html#a7d336dbb29445a072ddfe31156a7cea5">OneWireTempSensor</a>(OneWire* bus, DeviceAddress address, <a class="code" href="group__temps.html#gadd1441a58e6b2962c3f2b0af55d875c4">fixed4_4</a> calibrationOffset)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    : oneWire(bus), sensor(NULL) {      </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        connected = <span class="keyword">true</span>;  <span class="comment">// assume connected. Transition from connected to disconnected prints a message.</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        memcpy(sensorAddress, address, <span class="keyword">sizeof</span>(DeviceAddress));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        this-&gt;calibrationOffset = calibrationOffset;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    };</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    ~<a class="code" href="classOneWireTempSensor.html">OneWireTempSensor</a>();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classOneWireTempSensor.html#adfdd38fe32b636e93fadf03e56f1dca8">   52</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classOneWireTempSensor.html#adfdd38fe32b636e93fadf03e56f1dca8">isConnected</a>(<span class="keywordtype">void</span>){</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> connected;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }       </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classOneWireTempSensor.html#a88dd248fba3ef9f7b2afc466e3fd4e45">init</a>();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a> <a class="code" href="classOneWireTempSensor.html#a4f0cd8e88e4df18445add53539affa0c">read</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> setConnected(<span class="keywordtype">bool</span> connected);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> requestConversion();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> waitForConversion()</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        wait.millis(750);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a> <a class="code" href="classOneWireTempSensor.html#a684ceb6f3aa4812ac60a77831f15f83b">readAndConstrainTemp</a>();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    OneWire * oneWire;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="classDallasTemperature.html">DallasTemperature</a> * sensor;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    DeviceAddress sensorAddress;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="group__temps.html#gadd1441a58e6b2962c3f2b0af55d875c4">fixed4_4</a> calibrationOffset;     </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">bool</span> connected;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classOneWireTempSensor.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="classOneWireTempSensor.html">OneWireTempSensor</a> : <span class="keyword">public</span> <a class="code" href="classBasicTempSensor.html">BasicTempSensor</a> {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classOneWireTempSensor.html#a7d336dbb29445a072ddfe31156a7cea5">   47</a></span>&#160;    <a class="code" href="classOneWireTempSensor.html#a7d336dbb29445a072ddfe31156a7cea5">OneWireTempSensor</a>(OneWire* bus, DeviceAddress address, <a class="code" href="group__temps.html#gadd1441a58e6b2962c3f2b0af55d875c4">fixed4_4</a> <a class="code" href="classOneWireTempSensor.html#a8c9800c22c4c49f8fa7164e68d823821">calibrationOffset</a>)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    : oneWire(bus), sensor(NULL) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classOneWireTempSensor.html#a308c0fe0feee55629d5d06aab0b53c2c">connected</a> = <span class="keyword">true</span>;  <span class="comment">// assume connected. Transition from connected to disconnected prints a message.</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        memcpy(<a class="code" href="classOneWireTempSensor.html#ad0c9ee4bd78d7b67ae39fe27665c1a1f">sensorAddress</a>, address, <span class="keyword">sizeof</span>(DeviceAddress));</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        this-&gt;calibrationOffset = <a class="code" href="classOneWireTempSensor.html#a8c9800c22c4c49f8fa7164e68d823821">calibrationOffset</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    };</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    ~<a class="code" href="classOneWireTempSensor.html">OneWireTempSensor</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classOneWireTempSensor.html#adfdd38fe32b636e93fadf03e56f1dca8">   59</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classOneWireTempSensor.html#adfdd38fe32b636e93fadf03e56f1dca8">isConnected</a>(<span class="keywordtype">void</span>){</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classOneWireTempSensor.html#a308c0fe0feee55629d5d06aab0b53c2c">connected</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classOneWireTempSensor.html#a88dd248fba3ef9f7b2afc466e3fd4e45">init</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a> <a class="code" href="classOneWireTempSensor.html#a4f0cd8e88e4df18445add53539affa0c">read</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classOneWireTempSensor.html#ab4883f2080bf6e3015443d17e7f8c070">   70</a></span>&#160;  constexpr <span class="keyword">static</span> uint8_t <a class="code" href="classOneWireTempSensor.html#ab4883f2080bf6e3015443d17e7f8c070">sensorPrecision</a> = 4;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classOneWireTempSensor.html#ad72e38d4f2234688519f135ab8dfb89d">setConnected</a>(<span class="keywordtype">bool</span> <a class="code" href="classOneWireTempSensor.html#a308c0fe0feee55629d5d06aab0b53c2c">connected</a>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classOneWireTempSensor.html#a42271f342091d9f616e114b00bbbdbcf">requestConversion</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classOneWireTempSensor.html#ae9520be44a4ae0d82aadd52841a8d3f0">   79</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classOneWireTempSensor.html#ae9520be44a4ae0d82aadd52841a8d3f0">waitForConversion</a>()</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        wait.millis(750);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a> <a class="code" href="classOneWireTempSensor.html#a684ceb6f3aa4812ac60a77831f15f83b">readAndConstrainTemp</a>();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    OneWire * oneWire;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="classDallasTemperature.html">DallasTemperature</a> * sensor;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classOneWireTempSensor.html#ad0c9ee4bd78d7b67ae39fe27665c1a1f">   88</a></span>&#160;    DeviceAddress <a class="code" href="classOneWireTempSensor.html#ad0c9ee4bd78d7b67ae39fe27665c1a1f">sensorAddress</a>; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classOneWireTempSensor.html#a8c9800c22c4c49f8fa7164e68d823821">   90</a></span>&#160;    <a class="code" href="group__temps.html#gadd1441a58e6b2962c3f2b0af55d875c4">fixed4_4</a> <a class="code" href="classOneWireTempSensor.html#a8c9800c22c4c49f8fa7164e68d823821">calibrationOffset</a>; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classOneWireTempSensor.html#a308c0fe0feee55629d5d06aab0b53c2c">   91</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classOneWireTempSensor.html#a308c0fe0feee55629d5d06aab0b53c2c">connected</a>; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassBasicTempSensor_html"><div class="ttname"><a href="classBasicTempSensor.html">BasicTempSensor</a></div><div class="ttdef"><b>Definition:</b> TempSensorBasic.h:34</div></div>
-<div class="ttc" id="aclassOneWireTempSensor_html_a684ceb6f3aa4812ac60a77831f15f83b"><div class="ttname"><a href="classOneWireTempSensor.html#a684ceb6f3aa4812ac60a77831f15f83b">OneWireTempSensor::readAndConstrainTemp</a></div><div class="ttdeci">temperature readAndConstrainTemp()</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.cpp:107</div></div>
+<div class="ttc" id="aclassOneWireTempSensor_html_a684ceb6f3aa4812ac60a77831f15f83b"><div class="ttname"><a href="classOneWireTempSensor.html#a684ceb6f3aa4812ac60a77831f15f83b">OneWireTempSensor::readAndConstrainTemp</a></div><div class="ttdeci">temperature readAndConstrainTemp()</div><div class="ttdoc">Reads the temperature.</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.cpp:134</div></div>
+<div class="ttc" id="aclassOneWireTempSensor_html_ad72e38d4f2234688519f135ab8dfb89d"><div class="ttname"><a href="classOneWireTempSensor.html#ad72e38d4f2234688519f135ab8dfb89d">OneWireTempSensor::setConnected</a></div><div class="ttdeci">void setConnected(bool connected)</div><div class="ttdoc">Set sensor connection status.</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.cpp:94</div></div>
+<div class="ttc" id="aclassOneWireTempSensor_html_a42271f342091d9f616e114b00bbbdbcf"><div class="ttname"><a href="classOneWireTempSensor.html#a42271f342091d9f616e114b00bbbdbcf">OneWireTempSensor::requestConversion</a></div><div class="ttdeci">bool requestConversion()</div><div class="ttdoc">Request sensor measurement.</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.cpp:85</div></div>
 <div class="ttc" id="agroup__temps_html_ga1289740b9060cd2dfe3872bffa2e8da3"><div class="ttname"><a href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a></div><div class="ttdeci">fixed7_9 temperature</div><div class="ttdoc">Common temperature representation.</div><div class="ttdef"><b>Definition:</b> TemperatureFormats.h:116</div></div>
-<div class="ttc" id="aclassOneWireTempSensor_html_a7d336dbb29445a072ddfe31156a7cea5"><div class="ttname"><a href="classOneWireTempSensor.html#a7d336dbb29445a072ddfe31156a7cea5">OneWireTempSensor::OneWireTempSensor</a></div><div class="ttdeci">OneWireTempSensor(OneWire *bus, DeviceAddress address, fixed4_4 calibrationOffset)</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.h:43</div></div>
+<div class="ttc" id="aBrewpi_8h_html"><div class="ttname"><a href="Brewpi_8h.html">Brewpi.h</a></div><div class="ttdoc">Defines global config for the brewpi project.</div></div>
+<div class="ttc" id="aclassOneWireTempSensor_html_a7d336dbb29445a072ddfe31156a7cea5"><div class="ttname"><a href="classOneWireTempSensor.html#a7d336dbb29445a072ddfe31156a7cea5">OneWireTempSensor::OneWireTempSensor</a></div><div class="ttdeci">OneWireTempSensor(OneWire *bus, DeviceAddress address, fixed4_4 calibrationOffset)</div><div class="ttdoc">Constructs a new onewire temp sensor.</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.h:47</div></div>
 <div class="ttc" id="agroup__temps_html_gadd1441a58e6b2962c3f2b0af55d875c4"><div class="ttname"><a href="group__temps.html#gadd1441a58e6b2962c3f2b0af55d875c4">fixed4_4</a></div><div class="ttdeci">int8_t fixed4_4</div><div class="ttdoc">1-sign bit, 3 int bits and 4 fraction bits. Corresponds with precision of DS18B20 sensors</div><div class="ttdef"><b>Definition:</b> TemperatureFormats.h:95</div></div>
+<div class="ttc" id="aclassOneWireTempSensor_html_ad0c9ee4bd78d7b67ae39fe27665c1a1f"><div class="ttname"><a href="classOneWireTempSensor.html#ad0c9ee4bd78d7b67ae39fe27665c1a1f">OneWireTempSensor::sensorAddress</a></div><div class="ttdeci">DeviceAddress sensorAddress</div><div class="ttdoc">Sensor address.</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.h:88</div></div>
 <div class="ttc" id="aclassDallasTemperature_html"><div class="ttname"><a href="classDallasTemperature.html">DallasTemperature</a></div><div class="ttdef"><b>Definition:</b> DallasTemperature.h:126</div></div>
-<div class="ttc" id="aclassOneWireTempSensor_html_a4f0cd8e88e4df18445add53539affa0c"><div class="ttname"><a href="classOneWireTempSensor.html#a4f0cd8e88e4df18445add53539affa0c">OneWireTempSensor::read</a></div><div class="ttdeci">temperature read()</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.cpp:97</div></div>
-<div class="ttc" id="aclassOneWireTempSensor_html"><div class="ttname"><a href="classOneWireTempSensor.html">OneWireTempSensor</a></div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.h:34</div></div>
-<div class="ttc" id="aclassOneWireTempSensor_html_adfdd38fe32b636e93fadf03e56f1dca8"><div class="ttname"><a href="classOneWireTempSensor.html#adfdd38fe32b636e93fadf03e56f1dca8">OneWireTempSensor::isConnected</a></div><div class="ttdeci">bool isConnected(void)</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.h:52</div></div>
-<div class="ttc" id="aclassOneWireTempSensor_html_a88dd248fba3ef9f7b2afc466e3fd4e45"><div class="ttname"><a href="classOneWireTempSensor.html#a88dd248fba3ef9f7b2afc466e3fd4e45">OneWireTempSensor::init</a></div><div class="ttdeci">bool init()</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.cpp:40</div></div>
+<div class="ttc" id="aclassOneWireTempSensor_html_a4f0cd8e88e4df18445add53539affa0c"><div class="ttname"><a href="classOneWireTempSensor.html#a4f0cd8e88e4df18445add53539affa0c">OneWireTempSensor::read</a></div><div class="ttdeci">temperature read()</div><div class="ttdoc">Read the value of the sensor.</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.cpp:117</div></div>
+<div class="ttc" id="aclassOneWireTempSensor_html_ae9520be44a4ae0d82aadd52841a8d3f0"><div class="ttname"><a href="classOneWireTempSensor.html#ae9520be44a4ae0d82aadd52841a8d3f0">OneWireTempSensor::waitForConversion</a></div><div class="ttdeci">void waitForConversion()</div><div class="ttdoc">Wait for sensor to sample the environment.</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.h:79</div></div>
+<div class="ttc" id="aclassOneWireTempSensor_html"><div class="ttname"><a href="classOneWireTempSensor.html">OneWireTempSensor</a></div><div class="ttdoc">A OneWire attached temperature sensor.</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.h:37</div></div>
+<div class="ttc" id="aclassOneWireTempSensor_html_adfdd38fe32b636e93fadf03e56f1dca8"><div class="ttname"><a href="classOneWireTempSensor.html#adfdd38fe32b636e93fadf03e56f1dca8">OneWireTempSensor::isConnected</a></div><div class="ttdeci">bool isConnected(void)</div><div class="ttdoc">Check if sensor device is connected.</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.h:59</div></div>
+<div class="ttc" id="aclassOneWireTempSensor_html_a308c0fe0feee55629d5d06aab0b53c2c"><div class="ttname"><a href="classOneWireTempSensor.html#a308c0fe0feee55629d5d06aab0b53c2c">OneWireTempSensor::connected</a></div><div class="ttdeci">bool connected</div><div class="ttdoc">Probe connection state.</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.h:91</div></div>
+<div class="ttc" id="aclassOneWireTempSensor_html_a88dd248fba3ef9f7b2afc466e3fd4e45"><div class="ttname"><a href="classOneWireTempSensor.html#a88dd248fba3ef9f7b2afc466e3fd4e45">OneWireTempSensor::init</a></div><div class="ttdeci">bool init()</div><div class="ttdoc">Initializes the temperature sensor.</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.cpp:42</div></div>
+<div class="ttc" id="aclassOneWireTempSensor_html_a8c9800c22c4c49f8fa7164e68d823821"><div class="ttname"><a href="classOneWireTempSensor.html#a8c9800c22c4c49f8fa7164e68d823821">OneWireTempSensor::calibrationOffset</a></div><div class="ttdeci">fixed4_4 calibrationOffset</div><div class="ttdoc">Temperature offset needed for calibration.</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.h:90</div></div>
+<div class="ttc" id="aclassOneWireTempSensor_html_ab4883f2080bf6e3015443d17e7f8c070"><div class="ttname"><a href="classOneWireTempSensor.html#ab4883f2080bf6e3015443d17e7f8c070">OneWireTempSensor::sensorPrecision</a></div><div class="ttdeci">constexpr static uint8_t sensorPrecision</div><div class="ttdoc">The sensor precision, in bits.</div><div class="ttdef"><b>Definition:</b> OneWireTempSensor.h:70</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

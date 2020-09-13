@@ -1,6 +1,6 @@
 <map id="src/TemperatureFormats.h" name="src/TemperatureFormats.h">
 <area shape="rect" id="node1" title=" " alt="" coords="228,5,403,32"/>
-<area shape="rect" id="node2" href="$Brewpi_8h_source.html" title=" " alt="" coords="234,80,306,107"/>
+<area shape="rect" id="node2" href="$Brewpi_8h.html" title="Defines global config for the brewpi project." alt="" coords="234,80,306,107"/>
 <area shape="rect" id="node8" title=" " alt="" coords="330,80,394,107"/>
 <area shape="rect" id="node3" href="$Config_8h.html" title="Compile time configuration flags." alt="" coords="5,155,73,181"/>
 <area shape="rect" id="node4" href="$ConfigDefault_8h.html" title="Compile time configuration flags." alt="" coords="98,155,207,181"/>

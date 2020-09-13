@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['order_516',['ORDER',['../structDeviceDefinition.html#a39d63d37961447ebafeed83c5eacf012',1,'DeviceDefinition']]]
+  ['numfiltersections_561',['numFilterSections',['../classCascadedFilter.html#a53778c2e49dad9c38dd6f4119f58bd30',1,'CascadedFilter']]]
 ];

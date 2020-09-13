@@ -3,5 +3,5 @@
 <area shape="rect" id="node2" href="$classDisconnectedTempSensor.html" title=" " alt="" coords="5,80,180,107"/>
 <area shape="rect" id="node3" href="$classExternalTempSensor.html" title=" " alt="" coords="204,80,347,107"/>
 <area shape="rect" id="node4" href="$classMockTempSensor.html" title=" " alt="" coords="371,80,499,107"/>
-<area shape="rect" id="node5" href="$classOneWireTempSensor.html" title=" " alt="" coords="523,80,670,107"/>
+<area shape="rect" id="node5" href="$classOneWireTempSensor.html" title="A OneWire attached temperature sensor." alt="" coords="523,80,670,107"/>
 </map>

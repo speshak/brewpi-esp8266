@@ -77,12 +77,17 @@ $(function() {
 <div class="title">SpiLcd Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>SPI Attached LCD.  
+ <a href="classSpiLcd.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="SpiLcd_8h_source.html">SpiLcd.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SpiLcd:</div>
 <div class="dyncontent">
 <div class="center"><img src="classSpiLcd__inherit__graph.png" border="0" usemap="#aSpiLcd_inherit__map" alt="Inheritance graph"/></div>
 <map name="SpiLcd_inherit__map" id="aSpiLcd_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,80,68,107"/>
+<area shape="rect" title="SPI Attached LCD." alt="" coords="5,80,68,107"/>
 <area shape="rect" title=" " alt="" coords="12,5,61,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -91,7 +96,7 @@ Collaboration diagram for SpiLcd:</div>
 <div class="dyncontent">
 <div class="center"><img src="classSpiLcd__coll__graph.png" border="0" usemap="#aSpiLcd_coll__map" alt="Collaboration graph"/></div>
 <map name="SpiLcd_coll__map" id="aSpiLcd_coll__map">
-<area shape="rect" title=" " alt="" coords="5,80,68,107"/>
+<area shape="rect" title="SPI Attached LCD." alt="" coords="5,80,68,107"/>
 <area shape="rect" title=" " alt="" coords="12,5,61,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -246,7 +251,10 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a5a7c401a1d62e2b7f9ded286b57bbe38"><td class="mdescLeft">&#160;</td><td class="mdescRight">LCD Content buffer Always keep a copy of the display content in this variable. Allows for display refresh and for retrieveing the display content. <br /></td></tr>
 <tr class="separator:a5a7c401a1d62e2b7f9ded286b57bbe38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>SPI Attached LCD. </p>
+<p>This is an adaptation of the Arduino LiquidCrystal library for the NHD-0420DZW-AY5-ND lcd display, made by NewHaven. The display should be HD44780 compatible but isn't. Differences are some of the control commands (cursor on/off), language setting and especially initialization sequence. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1bba4f95a6b17c1b11746db251834029"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1bba4f95a6b17c1b11746db251834029">&#9670;&nbsp;</a></span>getLine()</h2>
 

@@ -75,13 +75,23 @@ $(function() {
 <div class="title">SettingsManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Manages the settings and devices for multiple carboys and multiple chambers.  
+ <a href="classSettingsManager.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="SettingsManager_8h_source.html">SettingsManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac666cd35e1136facad31de99a6c44bd3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSettingsManager.html#ac666cd35e1136facad31de99a6c44bd3">loadSettings</a> ()</td></tr>
+<tr class="memdesc:ac666cd35e1136facad31de99a6c44bd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize settings.  <a href="classSettingsManager.html#ac666cd35e1136facad31de99a6c44bd3">More...</a><br /></td></tr>
 <tr class="separator:ac666cd35e1136facad31de99a6c44bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages the settings and devices for multiple carboys and multiple chambers. </p>
+<p>This is the soul of brewpi.</p>
+<p>The manager hides the persistence of the settings, and uses the code closest to the settings to provide useful defaults. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac666cd35e1136facad31de99a6c44bd3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac666cd35e1136facad31de99a6c44bd3">&#9670;&nbsp;</a></span>loadSettings()</h2>
 
@@ -104,7 +114,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Initialize settings. This attempts to read from persisted settings and apply settings from there. If that's not possible, defaults are used. </p>
+
+<p>Initialize settings. </p>
+<p>This attempts to read from persisted settings and apply settings from there. If that's not possible, defaults are used. </p>
 
 </div>
 </div>

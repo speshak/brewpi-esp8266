@@ -71,11 +71,15 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classCascadedFilter-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">CascadedFilter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implements a filter that consists of multiple second order sections.  
+ <a href="classCascadedFilter.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="FilterCascaded_8h_source.html">FilterCascaded.h</a>&gt;</code></p>
 <div class="dynheader">
@@ -83,7 +87,7 @@ Collaboration diagram for CascadedFilter:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCascadedFilter__coll__graph.png" border="0" usemap="#aCascadedFilter_coll__map" alt="Collaboration graph"/></div>
 <map name="CascadedFilter_coll__map" id="aCascadedFilter_coll__map">
-<area shape="rect" title=" " alt="" coords="5,95,115,121"/>
+<area shape="rect" title="Implements a filter that consists of multiple second order sections." alt="" coords="5,95,115,121"/>
 <area shape="rect" href="classFixedFilter.html" title=" " alt="" coords="19,5,101,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -91,127 +95,60 @@ Collaboration diagram for CascadedFilter:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7cb56b3a7583eb465e72d2074bb6d606"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a7cb56b3a7583eb465e72d2074bb6d606">init</a> (<a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a> val)</td></tr>
+<tr class="memdesc:a7cb56b3a7583eb465e72d2074bb6d606"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize filter.  <a href="classCascadedFilter.html#a7cb56b3a7583eb465e72d2074bb6d606">More...</a><br /></td></tr>
 <tr class="separator:a7cb56b3a7583eb465e72d2074bb6d606"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e09b15a5b83e75093cc399c5d578157"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a8e09b15a5b83e75093cc399c5d578157">setCoefficients</a> (uint8_t bValue)</td></tr>
+<tr class="memdesc:a8e09b15a5b83e75093cc399c5d578157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set all secition coefficients to a given value.  <a href="classCascadedFilter.html#a8e09b15a5b83e75093cc399c5d578157">More...</a><br /></td></tr>
 <tr class="separator:a8e09b15a5b83e75093cc399c5d578157"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad442bbe0305d45be41ca06614a22e8bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#ad442bbe0305d45be41ca06614a22e8bf">add</a> (<a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a> val)</td></tr>
+<tr class="memitem:ad442bbe0305d45be41ca06614a22e8bf"><td class="memItemLeft" align="right" valign="top"><a id="ad442bbe0305d45be41ca06614a22e8bf"></a>
+<a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#ad442bbe0305d45be41ca06614a22e8bf">add</a> (<a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a> val)</td></tr>
+<tr class="memdesc:ad442bbe0305d45be41ca06614a22e8bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a value and returns the most recent filter output. <br /></td></tr>
 <tr class="separator:ad442bbe0305d45be41ca06614a22e8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7769289479444dfbd51a20af783282d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__temps.html#ga0ffefb66fc0b4d42bdd2a5df54db3680">temperature_precise</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a7769289479444dfbd51a20af783282d9">addDoublePrecision</a> (<a class="el" href="group__temps.html#ga0ffefb66fc0b4d42bdd2a5df54db3680">temperature_precise</a> val)</td></tr>
+<tr class="memitem:a7769289479444dfbd51a20af783282d9"><td class="memItemLeft" align="right" valign="top"><a id="a7769289479444dfbd51a20af783282d9"></a>
+<a class="el" href="group__temps.html#ga0ffefb66fc0b4d42bdd2a5df54db3680">temperature_precise</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a7769289479444dfbd51a20af783282d9">addDoublePrecision</a> (<a class="el" href="group__temps.html#ga0ffefb66fc0b4d42bdd2a5df54db3680">temperature_precise</a> val)</td></tr>
+<tr class="memdesc:a7769289479444dfbd51a20af783282d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a precise temperature value to the filter. <br /></td></tr>
 <tr class="separator:a7769289479444dfbd51a20af783282d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d9870d59813d2bce6187291306d9cd7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a2d9870d59813d2bce6187291306d9cd7">readInput</a> (void)</td></tr>
+<tr class="memitem:a2d9870d59813d2bce6187291306d9cd7"><td class="memItemLeft" align="right" valign="top"><a id="a2d9870d59813d2bce6187291306d9cd7"></a>
+<a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a2d9870d59813d2bce6187291306d9cd7">readInput</a> (void)</td></tr>
+<tr class="memdesc:a2d9870d59813d2bce6187291306d9cd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the most recent filter input. <br /></td></tr>
 <tr class="separator:a2d9870d59813d2bce6187291306d9cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ccdc7d20320b3c37daa4718ad17f167"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a3ccdc7d20320b3c37daa4718ad17f167">readOutput</a> (void)</td></tr>
+<tr class="memitem:a3ccdc7d20320b3c37daa4718ad17f167"><td class="memItemLeft" align="right" valign="top"><a id="a3ccdc7d20320b3c37daa4718ad17f167"></a>
+<a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a3ccdc7d20320b3c37daa4718ad17f167">readOutput</a> (void)</td></tr>
+<tr class="memdesc:a3ccdc7d20320b3c37daa4718ad17f167"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the output. <br /></td></tr>
 <tr class="separator:a3ccdc7d20320b3c37daa4718ad17f167"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a3070b136073cf054a80d18bd4097cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__temps.html#ga0ffefb66fc0b4d42bdd2a5df54db3680">temperature_precise</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a3a3070b136073cf054a80d18bd4097cb">readOutputDoublePrecision</a> (void)</td></tr>
+<tr class="memitem:a3a3070b136073cf054a80d18bd4097cb"><td class="memItemLeft" align="right" valign="top"><a id="a3a3070b136073cf054a80d18bd4097cb"></a>
+<a class="el" href="group__temps.html#ga0ffefb66fc0b4d42bdd2a5df54db3680">temperature_precise</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a3a3070b136073cf054a80d18bd4097cb">readOutputDoublePrecision</a> (void)</td></tr>
+<tr class="memdesc:a3a3070b136073cf054a80d18bd4097cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the output value. <br /></td></tr>
 <tr class="separator:a3a3070b136073cf054a80d18bd4097cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a178e9ab9a5650aa9a254b91271496d44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__temps.html#ga0ffefb66fc0b4d42bdd2a5df54db3680">temperature_precise</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a178e9ab9a5650aa9a254b91271496d44">readPrevOutputDoublePrecision</a> (void)</td></tr>
+<tr class="memitem:a178e9ab9a5650aa9a254b91271496d44"><td class="memItemLeft" align="right" valign="top"><a id="a178e9ab9a5650aa9a254b91271496d44"></a>
+<a class="el" href="group__temps.html#ga0ffefb66fc0b4d42bdd2a5df54db3680">temperature_precise</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a178e9ab9a5650aa9a254b91271496d44">readPrevOutputDoublePrecision</a> (void)</td></tr>
+<tr class="memdesc:a178e9ab9a5650aa9a254b91271496d44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the previous output value. <br /></td></tr>
 <tr class="separator:a178e9ab9a5650aa9a254b91271496d44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a145831f37a4ac92d2a01dd0b1920affd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a145831f37a4ac92d2a01dd0b1920affd">detectPosPeak</a> (void)</td></tr>
+<tr class="memitem:a145831f37a4ac92d2a01dd0b1920affd"><td class="memItemLeft" align="right" valign="top"><a id="a145831f37a4ac92d2a01dd0b1920affd"></a>
+<a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a145831f37a4ac92d2a01dd0b1920affd">detectPosPeak</a> (void)</td></tr>
+<tr class="memdesc:a145831f37a4ac92d2a01dd0b1920affd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Do positive peak detection. <br /></td></tr>
 <tr class="separator:a145831f37a4ac92d2a01dd0b1920affd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3484161cddcd71a7aec39b2273b6de9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#aa3484161cddcd71a7aec39b2273b6de9">detectNegPeak</a> (void)</td></tr>
+<tr class="memitem:aa3484161cddcd71a7aec39b2273b6de9"><td class="memItemLeft" align="right" valign="top"><a id="aa3484161cddcd71a7aec39b2273b6de9"></a>
+<a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#aa3484161cddcd71a7aec39b2273b6de9">detectNegPeak</a> (void)</td></tr>
+<tr class="memdesc:aa3484161cddcd71a7aec39b2273b6de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Do negative peak detection. <br /></td></tr>
 <tr class="separator:aa3484161cddcd71a7aec39b2273b6de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a37b3f874c73da776110ed7b036f42964"><td class="memItemLeft" align="right" valign="top"><a id="a37b3f874c73da776110ed7b036f42964"></a>
-<a class="el" href="classFixedFilter.html">FixedFilter</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sections</b> [numFilterSections]</td></tr>
+<a class="el" href="classFixedFilter.html">FixedFilter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a37b3f874c73da776110ed7b036f42964">sections</a> [<a class="el" href="classCascadedFilter.html#a53778c2e49dad9c38dd6f4119f58bd30">numFilterSections</a>]</td></tr>
+<tr class="memdesc:a37b3f874c73da776110ed7b036f42964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filter sections. <br /></td></tr>
 <tr class="separator:a37b3f874c73da776110ed7b036f42964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a53778c2e49dad9c38dd6f4119f58bd30"><td class="memItemLeft" align="right" valign="top">constexpr static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCascadedFilter.html#a53778c2e49dad9c38dd6f4119f58bd30">numFilterSections</a> = 3</td></tr>
+<tr class="memdesc:a53778c2e49dad9c38dd6f4119f58bd30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of filter sections to use.  <a href="classCascadedFilter.html#a53778c2e49dad9c38dd6f4119f58bd30">More...</a><br /></td></tr>
+<tr class="separator:a53778c2e49dad9c38dd6f4119f58bd30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements a filter that consists of multiple second order sections. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad442bbe0305d45be41ca06614a22e8bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad442bbe0305d45be41ca06614a22e8bf">&#9670;&nbsp;</a></span>add()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a> CascadedFilter::add </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a>&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Adds a value and returns the most recent filter output </p>
-
-</div>
-</div>
-<a id="a7769289479444dfbd51a20af783282d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7769289479444dfbd51a20af783282d9">&#9670;&nbsp;</a></span>addDoublePrecision()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__temps.html#ga0ffefb66fc0b4d42bdd2a5df54db3680">temperature_precise</a> CascadedFilter::addDoublePrecision </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="group__temps.html#ga0ffefb66fc0b4d42bdd2a5df54db3680">temperature_precise</a>&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Add a precise temperature value to the filter </p>
-
-</div>
-</div>
-<a id="aa3484161cddcd71a7aec39b2273b6de9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3484161cddcd71a7aec39b2273b6de9">&#9670;&nbsp;</a></span>detectNegPeak()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a> CascadedFilter::detectNegPeak </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Do negative peak detection </p>
-
-</div>
-</div>
-<a id="a145831f37a4ac92d2a01dd0b1920affd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a145831f37a4ac92d2a01dd0b1920affd">&#9670;&nbsp;</a></span>detectPosPeak()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a> CascadedFilter::detectPosPeak </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Do positive peak detection </p>
-
-</div>
-</div>
 <a id="a7cb56b3a7583eb465e72d2074bb6d606"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7cb56b3a7583eb465e72d2074bb6d606">&#9670;&nbsp;</a></span>init()</h2>
 
@@ -227,97 +164,14 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initialize filter.</p>
+
+<p>Initialize filter. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">val</td><td>- Temperature to seed the filter with. </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a2d9870d59813d2bce6187291306d9cd7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d9870d59813d2bce6187291306d9cd7">&#9670;&nbsp;</a></span>readInput()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a> CascadedFilter::readInput </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get the most recent filter input </p>
-
-</div>
-</div>
-<a id="a3ccdc7d20320b3c37daa4718ad17f167"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ccdc7d20320b3c37daa4718ad17f167">&#9670;&nbsp;</a></span>readOutput()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a> CascadedFilter::readOutput </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Read the output </p>
-
-</div>
-</div>
-<a id="a3a3070b136073cf054a80d18bd4097cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a3070b136073cf054a80d18bd4097cb">&#9670;&nbsp;</a></span>readOutputDoublePrecision()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__temps.html#ga0ffefb66fc0b4d42bdd2a5df54db3680">temperature_precise</a> CascadedFilter::readOutputDoublePrecision </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get the output value </p>
-
-</div>
-</div>
-<a id="a178e9ab9a5650aa9a254b91271496d44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a178e9ab9a5650aa9a254b91271496d44">&#9670;&nbsp;</a></span>readPrevOutputDoublePrecision()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__temps.html#ga0ffefb66fc0b4d42bdd2a5df54db3680">temperature_precise</a> CascadedFilter::readPrevOutputDoublePrecision </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get the previous output value </p>
 
 </div>
 </div>
@@ -336,13 +190,40 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set all secition coefficients to a given value</p>
+
+<p>Set all secition coefficients to a given value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bValue</td><td>new coefficient value </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a53778c2e49dad9c38dd6f4119f58bd30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53778c2e49dad9c38dd6f4119f58bd30">&#9670;&nbsp;</a></span>numFilterSections</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr static int CascadedFilter::numFilterSections = 3</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of filter sections to use. </p>
+<p>Three filter sections gives excellent filtering, without adding too much delay. For 3 sections the stop band attenuation is 3x the single section attenuation in dB. The delay is also tripled. </p>
 
 </div>
 </div>

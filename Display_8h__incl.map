@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title="To use the display, include this file." alt="" coords="275,5,371,32"/>
 <area shape="rect" id="node2" href="$DisplayBase_8h_source.html" title=" " alt="" coords="206,155,310,181"/>
 <area shape="rect" id="node11" href="$DisplayLcd_8h_source.html" title=" " alt="" coords="330,80,426,107"/>
-<area shape="rect" id="node3" href="$Brewpi_8h_source.html" title=" " alt="" coords="461,304,533,331"/>
+<area shape="rect" id="node3" href="$Brewpi_8h.html" title="Defines global config for the brewpi project." alt="" coords="461,304,533,331"/>
 <area shape="rect" id="node9" href="$TemperatureFormats_8h.html" title=" " alt="" coords="5,229,159,256"/>
 <area shape="rect" id="node4" href="$Config_8h.html" title="Compile time configuration flags." alt="" coords="232,379,300,405"/>
 <area shape="rect" id="node5" href="$ConfigDefault_8h.html" title="Compile time configuration flags." alt="" coords="325,379,434,405"/>
