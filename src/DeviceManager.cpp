@@ -29,8 +29,8 @@
 #include "PiLink.h"
 #include "EepromFormat.h"
 #include "DeviceNameManager.h"
+#include <ArduinoJson.h>
 
-#define CALIBRATION_OFFSET_PRECISION (4)
 
 #ifdef ARDUINO
 #include "OneWireTempSensor.h"
@@ -43,6 +43,7 @@
 #include "SensorArduinoPin.h"
 #endif
 
+constexpr auto calibrationOffsetPrecision = 4;
 
 /*
  * Defaults for sensors, actuators and temperature sensors when not defined in the eeprom.
@@ -368,7 +369,7 @@ void handleDeviceDefinition(const char* key, const char* val, void* pv)
 	if (key[0]==DEVICE_ATTRIB_ADDRESS)
 		parseBytes(def->address, val, 8);
 	else if (key[0]==DEVICE_ATTRIB_CALIBRATEADJUST) {
-		def->calibrationAdjust = fixed4_4(stringToTempDiff(val)>>(TEMP_FIXED_POINT_BITS-CALIBRATION_OFFSET_PRECISION));
+		def->calibrationAdjust = fixed4_4(stringToTempDiff(val)>>(TEMP_FIXED_POINT_BITS - calibrationOffsetPrecision));
 	}		
 	else if (idx>=0) 
 		((uint8_t*)def)[idx] = (uint8_t)atol(val);
@@ -397,9 +398,9 @@ void DeviceManager::parseDeviceDefinition()
 {
 	static DeviceDefinition dev;
 	fill((int8_t*)&dev, sizeof(dev));
-	
+
 	piLink.parseJson(&handleDeviceDefinition, &dev);
-	
+
 	if (!inRangeInt8(dev.id, 0, MAX_DEVICE_SLOT))			// no device id given, or it's out of range, can't do anything else.
 		return;
 
@@ -411,11 +412,11 @@ void DeviceManager::parseDeviceDefinition()
 	else
 		dev.beer = 0;
 #endif
-	
+
 	// save the original device so we can revert
 	DeviceConfig target;
 	DeviceConfig original;
-	
+
 	// todo - should ideally check if the eeprom is correctly initialized.
 	eepromManager.fetchDevice(original, dev.id);
 	memcpy(&target, &original, sizeof(target));
@@ -633,14 +634,14 @@ void DeviceManager::printDevice(device_slot_t slot, DeviceConfig& config, const 
 		printBytes(config.hw.address, 8, buf);
 		deviceString += buf;
 		deviceString += '"';
-	}	
-#if BREWPI_DS2413		
+	}
+#if BREWPI_DS2413
 	if (config.deviceHardware==DEVICE_HARDWARE_ONEWIRE_2413) {
 		appendAttrib(deviceString, DEVICE_ATTRIB_PIO, config.hw.pio);
 	}
-#endif	
+#endif
 	if (config.deviceHardware==DEVICE_HARDWARE_ONEWIRE_TEMP) {
-		tempDiffToString(buf, temperature(config.hw.calibration)<<(TEMP_FIXED_POINT_BITS-CALIBRATION_OFFSET_PRECISION), 3, 8);
+		tempDiffToString(buf, temperature(config.hw.calibration)<<(TEMP_FIXED_POINT_BITS - calibrationOffsetPrecision), 3, 8);
 		deviceString += ",\"j\":";
 		deviceString += buf;
 	}
@@ -1005,10 +1006,11 @@ void DeviceManager::listDevices() {
 
 
 /**
- * Print the raw temp readings from all temp sensors.  Allows logging temps
- * that aren't part of the control logic.
+ * \brief Print the raw temp readings from all temp sensors.
+ *
+ * Allows logging temps that aren't part of the control logic.
  */
-void DeviceManager::printRawDeviceValues() {
+void DeviceManager::rawDeviceValues() {
 	EnumerateHardware spec;
 	// set up defaults
 	spec.unused = 0;			// list all devices

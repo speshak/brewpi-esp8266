@@ -289,7 +289,7 @@ public:
 	static bool enumDevice(DeviceDisplay& dd, DeviceConfig& dc, uint8_t idx);
 
 	static void listDevices();
-  static void printRawDeviceValues();
+  static void rawDeviceValues();
 
 private:
 	static void enumerateOneWireDevices(EnumerateHardware& h, EnumDevicesCallback callback, DeviceOutput& output);
