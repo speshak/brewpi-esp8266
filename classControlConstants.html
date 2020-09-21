@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>brewpi-esp8266: ControlConstants Struct Reference</title>
+<title>brewpi-esp8266: ControlConstants Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,13 +69,52 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structControlConstants-members.html">List of all members</a>  </div>
+<a href="classControlConstants-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">ControlConstants Struct Reference</div>  </div>
+<div class="title">ControlConstants Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>PID Control constants.  
+ <a href="classControlConstants.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="EepromStructs_8h_source.html">EepromStructs.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for ControlConstants:</div>
+<div class="dyncontent">
+<div class="center"><img src="classControlConstants__inherit__graph.png" border="0" usemap="#aControlConstants_inherit__map" alt="Inheritance graph"/></div>
+<map name="ControlConstants_inherit__map" id="aControlConstants_inherit__map">
+<area shape="rect" title="PID Control constants." alt="" coords="5,80,128,107"/>
+<area shape="rect" href="classJSONSaveable.html" title="Data that can be persisted as JSON." alt="" coords="11,5,123,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for ControlConstants:</div>
+<div class="dyncontent">
+<div class="center"><img src="classControlConstants__coll__graph.png" border="0" usemap="#aControlConstants_coll__map" alt="Collaboration graph"/></div>
+<map name="ControlConstants_coll__map" id="aControlConstants_coll__map">
+<area shape="rect" title="PID Control constants." alt="" coords="5,80,128,107"/>
+<area shape="rect" href="classJSONSaveable.html" title="Data that can be persisted as JSON." alt="" coords="11,5,123,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a16ab7a2e3da61c58104c1bd812350287"><td class="memItemLeft" align="right" valign="top"><a id="a16ab7a2e3da61c58104c1bd812350287"></a>
+DynamicJsonDocument&#160;</td><td class="memItemRight" valign="bottom"><b>toJson</b> ()</td></tr>
+<tr class="separator:a16ab7a2e3da61c58104c1bd812350287"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a349f89f11ddbfccead8d3942675c347e"><td class="memItemLeft" align="right" valign="top"><a id="a349f89f11ddbfccead8d3942675c347e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>storeToSpiffs</b> ()</td></tr>
+<tr class="separator:a349f89f11ddbfccead8d3942675c347e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6cc3ecc223488896c91f505d000ddd2"><td class="memItemLeft" align="right" valign="top"><a id="ae6cc3ecc223488896c91f505d000ddd2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>loadFromSpiffs</b> ()</td></tr>
+<tr class="separator:ae6cc3ecc223488896c91f505d000ddd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7c5c9455b8c9bc2e04c86f7bd6ca483"><td class="memItemLeft" align="right" valign="top"><a id="ad7c5c9455b8c9bc2e04c86f7bd6ca483"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDefaults</b> ()</td></tr>
+<tr class="separator:ad7c5c9455b8c9bc2e04c86f7bd6ca483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a829416fd45ac81a7289cb0f2d063c6fe"><td class="memItemLeft" align="right" valign="top"><a id="a829416fd45ac81a7289cb0f2d063c6fe"></a>
@@ -115,69 +154,68 @@ Public Attributes</h2></td></tr>
 <a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a>&#160;</td><td class="memItemRight" valign="bottom"><b>coolingTargetLower</b></td></tr>
 <tr class="separator:aa07a855925bff400c14d68180b389eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b31974078c5f1f1fb709e83fd7b8e55"><td class="memItemLeft" align="right" valign="top"><a id="a2b31974078c5f1f1fb709e83fd7b8e55"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControlConstants.html#a2b31974078c5f1f1fb709e83fd7b8e55">maxHeatTimeForEstimate</a></td></tr>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlConstants.html#a2b31974078c5f1f1fb709e83fd7b8e55">maxHeatTimeForEstimate</a></td></tr>
 <tr class="memdesc:a2b31974078c5f1f1fb709e83fd7b8e55"><td class="mdescLeft">&#160;</td><td class="mdescRight">max time for heat estimate in seconds <br /></td></tr>
 <tr class="separator:a2b31974078c5f1f1fb709e83fd7b8e55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29c1cc1cf6db3b8cfc377f582dc2674b"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControlConstants.html#a29c1cc1cf6db3b8cfc377f582dc2674b">maxCoolTimeForEstimate</a></td></tr>
+<tr class="memitem:a29c1cc1cf6db3b8cfc377f582dc2674b"><td class="memItemLeft" align="right" valign="top"><a id="a29c1cc1cf6db3b8cfc377f582dc2674b"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlConstants.html#a29c1cc1cf6db3b8cfc377f582dc2674b">maxCoolTimeForEstimate</a></td></tr>
+<tr class="memdesc:a29c1cc1cf6db3b8cfc377f582dc2674b"><td class="mdescLeft">&#160;</td><td class="mdescRight">max time for heat estimate in seconds <br /></td></tr>
 <tr class="separator:a29c1cc1cf6db3b8cfc377f582dc2674b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d242d7aef5a32ab19bae74b12657b7a"><td class="memItemLeft" align="right" valign="top"><a id="a4d242d7aef5a32ab19bae74b12657b7a"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControlConstants.html#a4d242d7aef5a32ab19bae74b12657b7a">fridgeFastFilter</a></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlConstants.html#a4d242d7aef5a32ab19bae74b12657b7a">fridgeFastFilter</a></td></tr>
 <tr class="memdesc:a4d242d7aef5a32ab19bae74b12657b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">for display, logging and on-off control <br /></td></tr>
 <tr class="separator:a4d242d7aef5a32ab19bae74b12657b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e0c9dff0f8eeb1f569e31d02aa736e8"><td class="memItemLeft" align="right" valign="top"><a id="a6e0c9dff0f8eeb1f569e31d02aa736e8"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControlConstants.html#a6e0c9dff0f8eeb1f569e31d02aa736e8">fridgeSlowFilter</a></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlConstants.html#a6e0c9dff0f8eeb1f569e31d02aa736e8">fridgeSlowFilter</a></td></tr>
 <tr class="memdesc:a6e0c9dff0f8eeb1f569e31d02aa736e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">for peak detection <br /></td></tr>
 <tr class="separator:a6e0c9dff0f8eeb1f569e31d02aa736e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6db8fca7605f9ea91939e5335d61c729"><td class="memItemLeft" align="right" valign="top"><a id="a6db8fca7605f9ea91939e5335d61c729"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControlConstants.html#a6db8fca7605f9ea91939e5335d61c729">fridgeSlopeFilter</a></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlConstants.html#a6db8fca7605f9ea91939e5335d61c729">fridgeSlopeFilter</a></td></tr>
 <tr class="memdesc:a6db8fca7605f9ea91939e5335d61c729"><td class="mdescLeft">&#160;</td><td class="mdescRight">not used in current control algorithm <br /></td></tr>
 <tr class="separator:a6db8fca7605f9ea91939e5335d61c729"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a583102024517180e0b8ec7eee2840300"><td class="memItemLeft" align="right" valign="top"><a id="a583102024517180e0b8ec7eee2840300"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControlConstants.html#a583102024517180e0b8ec7eee2840300">beerFastFilter</a></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlConstants.html#a583102024517180e0b8ec7eee2840300">beerFastFilter</a></td></tr>
 <tr class="memdesc:a583102024517180e0b8ec7eee2840300"><td class="mdescLeft">&#160;</td><td class="mdescRight">for display and logging <br /></td></tr>
 <tr class="separator:a583102024517180e0b8ec7eee2840300"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9088ffd96e4bc26d39781729a1c3708"><td class="memItemLeft" align="right" valign="top"><a id="ab9088ffd96e4bc26d39781729a1c3708"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControlConstants.html#ab9088ffd96e4bc26d39781729a1c3708">beerSlowFilter</a></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlConstants.html#ab9088ffd96e4bc26d39781729a1c3708">beerSlowFilter</a></td></tr>
 <tr class="memdesc:ab9088ffd96e4bc26d39781729a1c3708"><td class="mdescLeft">&#160;</td><td class="mdescRight">for on/off control algorithm <br /></td></tr>
 <tr class="separator:ab9088ffd96e4bc26d39781729a1c3708"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8adf918c56a13c3e9e6f9cb0e5d98c33"><td class="memItemLeft" align="right" valign="top"><a id="a8adf918c56a13c3e9e6f9cb0e5d98c33"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControlConstants.html#a8adf918c56a13c3e9e6f9cb0e5d98c33">beerSlopeFilter</a></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlConstants.html#a8adf918c56a13c3e9e6f9cb0e5d98c33">beerSlopeFilter</a></td></tr>
 <tr class="memdesc:a8adf918c56a13c3e9e6f9cb0e5d98c33"><td class="mdescLeft">&#160;</td><td class="mdescRight">for PID calculation <br /></td></tr>
 <tr class="separator:a8adf918c56a13c3e9e6f9cb0e5d98c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5a7f9a801ff851179b3305097af78fe"><td class="memItemLeft" align="right" valign="top"><a id="ae5a7f9a801ff851179b3305097af78fe"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControlConstants.html#ae5a7f9a801ff851179b3305097af78fe">lightAsHeater</a></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlConstants.html#ae5a7f9a801ff851179b3305097af78fe">lightAsHeater</a></td></tr>
 <tr class="memdesc:ae5a7f9a801ff851179b3305097af78fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the light to heat rather than the configured heater device. <br /></td></tr>
 <tr class="separator:ae5a7f9a801ff851179b3305097af78fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab15eafa9cd4370a1a2649a3793ea9c76"><td class="memItemLeft" align="right" valign="top"><a id="ab15eafa9cd4370a1a2649a3793ea9c76"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControlConstants.html#ab15eafa9cd4370a1a2649a3793ea9c76">rotaryHalfSteps</a></td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlConstants.html#ab15eafa9cd4370a1a2649a3793ea9c76">rotaryHalfSteps</a></td></tr>
 <tr class="memdesc:ab15eafa9cd4370a1a2649a3793ea9c76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define whether to use full or half steps for the rotary encoder. <br /></td></tr>
 <tr class="separator:ab15eafa9cd4370a1a2649a3793ea9c76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c9b545126b76620f2e4d89d4793958f"><td class="memItemLeft" align="right" valign="top"><a id="a5c9b545126b76620f2e4d89d4793958f"></a>
 <a class="el" href="group__temps.html#ga1289740b9060cd2dfe3872bffa2e8da3">temperature</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pidMax</b></td></tr>
 <tr class="separator:a5c9b545126b76620f2e4d89d4793958f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a061f05adefd3f85d922d5ef6de6fec75"><td class="memItemLeft" align="right" valign="top"><a id="a061f05adefd3f85d922d5ef6de6fec75"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControlConstants.html#a061f05adefd3f85d922d5ef6de6fec75">tempFormat</a></td></tr>
+char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlConstants.html#a061f05adefd3f85d922d5ef6de6fec75">tempFormat</a></td></tr>
 <tr class="memdesc:a061f05adefd3f85d922d5ef6de6fec75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature format (F/C) <br /></td></tr>
 <tr class="separator:a061f05adefd3f85d922d5ef6de6fec75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_static_methods_classJSONSaveable"><td colspan="2" onclick="javascript:toggleInherit('pro_static_methods_classJSONSaveable')"><img src="closed.png" alt="-"/>&#160;Static Protected Member Functions inherited from <a class="el" href="classJSONSaveable.html">JSONSaveable</a></td></tr>
+<tr class="memitem:ae6231d0fe191537bdae81ccfc6b9fb5d inherit pro_static_methods_classJSONSaveable"><td class="memItemLeft" align="right" valign="top"><a id="ae6231d0fe191537bdae81ccfc6b9fb5d"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>writeJsonToFile</b> (const char *filename, const JsonDocument &amp;json_doc)</td></tr>
+<tr class="separator:ae6231d0fe191537bdae81ccfc6b9fb5d inherit pro_static_methods_classJSONSaveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d290a0c95212eb81a68297d0b89ed29 inherit pro_static_methods_classJSONSaveable"><td class="memItemLeft" align="right" valign="top"><a id="a9d290a0c95212eb81a68297d0b89ed29"></a>
+static DynamicJsonDocument&#160;</td><td class="memItemRight" valign="bottom"><b>readJsonFromFile</b> (const char *filename)</td></tr>
+<tr class="separator:a9d290a0c95212eb81a68297d0b89ed29 inherit pro_static_methods_classJSONSaveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a29c1cc1cf6db3b8cfc377f582dc2674b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29c1cc1cf6db3b8cfc377f582dc2674b">&#9670;&nbsp;</a></span>maxCoolTimeForEstimate</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t ControlConstants::maxCoolTimeForEstimate</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Max time for heat estimate in seconds for the filter coefficients the b value is stored. a is calculated from b. </p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>PID Control constants. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="EepromStructs_8h_source.html">EepromStructs.h</a></li>
+<li>src/EepromStructs.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

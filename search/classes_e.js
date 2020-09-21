@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rotaryencoder_357',['RotaryEncoder',['../classRotaryEncoder.html',1,'']]]
+  ['rotaryencoder_352',['RotaryEncoder',['../classRotaryEncoder.html',1,'']]]
 ];

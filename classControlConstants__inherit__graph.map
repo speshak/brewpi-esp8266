@@ -1,0 +1,4 @@
+<map id="ControlConstants" name="ControlConstants">
+<area shape="rect" id="node1" title="PID Control constants." alt="" coords="5,80,128,107"/>
+<area shape="rect" id="node2" href="$classJSONSaveable.html" title="Data that can be persisted as JSON." alt="" coords="11,5,123,32"/>
+</map>

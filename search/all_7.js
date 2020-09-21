@@ -1,16 +1,16 @@
 var searchData=
 [
-  ['getbeersetting_124',['getBeerSetting',['../classTempControl.html#ae719231db704a4f3e3a0989a46be4248',1,'TempControl']]],
-  ['getbeertemp_125',['getBeerTemp',['../classSimulator.html#afde4e6e4b6e8ec4d4aa10c185ceee826',1,'Simulator::getBeerTemp()'],['../classTempControl.html#a3b86dde78a269f99bef6476788d229ab',1,'TempControl::getBeerTemp()']]],
-  ['getbeervolume_126',['getBeerVolume',['../classSimulator.html#aa5c89f0b17200e7bc8248f9605c7264b',1,'Simulator']]],
-  ['getcurrline_127',['getCurrLine',['../classSpiLcd.html#a968241e7771d38ced553695a7623fe35',1,'SpiLcd']]],
-  ['getcurrpos_128',['getCurrPos',['../classSpiLcd.html#a82a17ddceab3e6065079827a6a7f74bf',1,'SpiLcd']]],
-  ['getdisplaystate_129',['getDisplayState',['../classTempControl.html#a4e4b659fb00e8c375aef05fa35446fe2',1,'TempControl']]],
-  ['getfridgesetting_130',['getFridgeSetting',['../classTempControl.html#ad1b78b654a44deb3660441b7bf73b216',1,'TempControl']]],
-  ['getfridgetemp_131',['getFridgeTemp',['../classTempControl.html#a4b49b8fc57d0cdd6ac01bdcf82d9a5c6',1,'TempControl']]],
-  ['getline_132',['getLine',['../classSpiLcd.html#a1bba4f95a6b17c1b11746db251834029',1,'SpiLcd']]],
-  ['getmode_133',['getMode',['../classTempControl.html#af0a5f02b1c3fcf1e459e07f133caaa62',1,'TempControl']]],
-  ['getroomtemp_134',['getRoomTemp',['../classTempControl.html#a8e27ba2433d71c505009f29eca910f3c',1,'TempControl']]],
-  ['getstate_135',['getState',['../classTempControl.html#afc2267dfe1f48cf75789d4ebc26cc6d2',1,'TempControl']]],
-  ['getwaittime_136',['getWaitTime',['../classTempControl.html#a51ad4bd475f7766367f2e465b61245c2',1,'TempControl']]]
+  ['getbeersetting_120',['getBeerSetting',['../classTempControl.html#ae719231db704a4f3e3a0989a46be4248',1,'TempControl']]],
+  ['getbeertemp_121',['getBeerTemp',['../classSimulator.html#afde4e6e4b6e8ec4d4aa10c185ceee826',1,'Simulator::getBeerTemp()'],['../classTempControl.html#a3b86dde78a269f99bef6476788d229ab',1,'TempControl::getBeerTemp()']]],
+  ['getbeervolume_122',['getBeerVolume',['../classSimulator.html#aa5c89f0b17200e7bc8248f9605c7264b',1,'Simulator']]],
+  ['getcurrline_123',['getCurrLine',['../classSpiLcd.html#a968241e7771d38ced553695a7623fe35',1,'SpiLcd']]],
+  ['getcurrpos_124',['getCurrPos',['../classSpiLcd.html#a82a17ddceab3e6065079827a6a7f74bf',1,'SpiLcd']]],
+  ['getdisplaystate_125',['getDisplayState',['../classTempControl.html#a4e4b659fb00e8c375aef05fa35446fe2',1,'TempControl']]],
+  ['getfridgesetting_126',['getFridgeSetting',['../classTempControl.html#ad1b78b654a44deb3660441b7bf73b216',1,'TempControl']]],
+  ['getfridgetemp_127',['getFridgeTemp',['../classTempControl.html#a4b49b8fc57d0cdd6ac01bdcf82d9a5c6',1,'TempControl']]],
+  ['getline_128',['getLine',['../classSpiLcd.html#a1bba4f95a6b17c1b11746db251834029',1,'SpiLcd']]],
+  ['getmode_129',['getMode',['../classTempControl.html#af0a5f02b1c3fcf1e459e07f133caaa62',1,'TempControl']]],
+  ['getroomtemp_130',['getRoomTemp',['../classTempControl.html#a8e27ba2433d71c505009f29eca910f3c',1,'TempControl']]],
+  ['getstate_131',['getState',['../classTempControl.html#afc2267dfe1f48cf75789d4ebc26cc6d2',1,'TempControl']]],
+  ['getwaittime_132',['getWaitTime',['../classTempControl.html#a51ad4bd475f7766367f2e465b61245c2',1,'TempControl']]]
 ];

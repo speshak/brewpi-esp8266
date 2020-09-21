@@ -142,47 +142,18 @@ $(function() {
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classEepromStream.html">   86</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEepromStream.html">EepromStream</a> </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    eptr_t pv;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">/*  void writeByte(uint8_t value) {</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">        eepromAccess.writeByte(pv++, value);                </span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">    }*/</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">// TODO - Clean this up</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">/*  void writeBlock(void* source, uint16_t size)</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">    {</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">        eepromAccess.writeBlock(pv, source, size);</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">        pv += size;</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">    }*/</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">// Breaking this out into three functions so that we can have better control</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> writeControlSettings(<a class="code" href="structControlSettings.html">ControlSettings</a>&amp; source, uint16_t size) {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        eepromAccess.writeControlSettings(pv, source, size);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">void</span> writeControlConstants(<a class="code" href="structControlConstants.html">ControlConstants</a>&amp; source, uint16_t size) {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        eepromAccess.writeControlConstants(pv, source, size);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">/*  void writeDeviceDefinition(const DeviceConfig&amp; source, uint16_t size) {</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">        eepromAccess.writeDeviceDefinition(pv, source, size);</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">    }*/</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">extern</span> <a class="code" href="classEepromManager.html">EepromManager</a> eepromManager;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">extern</span> <a class="code" href="classEepromManager.html">EepromManager</a> eepromManager;</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructControlSettings_html"><div class="ttname"><a href="structControlSettings.html">ControlSettings</a></div><div class="ttdef"><b>Definition:</b> EepromStructs.h:16</div></div>
 <div class="ttc" id="aclassEepromManager_html_a574db9094719d8bc45595f40f0dff725"><div class="ttname"><a href="classEepromManager.html#a574db9094719d8bc45595f40f0dff725">EepromManager::zapEeprom</a></div><div class="ttdeci">static void zapEeprom()</div><div class="ttdef"><b>Definition:</b> EepromManager.cpp:49</div></div>
 <div class="ttc" id="aclassEepromManager_html"><div class="ttname"><a href="classEepromManager.html">EepromManager</a></div><div class="ttdef"><b>Definition:</b> EepromManager.h:36</div></div>
 <div class="ttc" id="aBrewpi_8h_html"><div class="ttname"><a href="Brewpi_8h.html">Brewpi.h</a></div><div class="ttdoc">Defines global config for the brewpi project.</div></div>
 <div class="ttc" id="aclassEepromManager_html_af7014f26f856946dc085929af359878a"><div class="ttname"><a href="classEepromManager.html#af7014f26f856946dc085929af359878a">EepromManager::initializeEeprom</a></div><div class="ttdeci">static void initializeEeprom()</div><div class="ttdef"><b>Definition:</b> EepromManager.cpp:55</div></div>
-<div class="ttc" id="aclassEepromManager_html_a0b18e688207d788bdf21a61da1f452b1"><div class="ttname"><a href="classEepromManager.html#a0b18e688207d788bdf21a61da1f452b1">EepromManager::storeTempConstantsAndSettings</a></div><div class="ttdeci">static void storeTempConstantsAndSettings()</div><div class="ttdef"><b>Definition:</b> EepromManager.cpp:132</div></div>
-<div class="ttc" id="aclassEepromManager_html_a2919497af0edd5bb29ed1a863bdc09cf"><div class="ttname"><a href="classEepromManager.html#a2919497af0edd5bb29ed1a863bdc09cf">EepromManager::storeTempSettings</a></div><div class="ttdeci">static void storeTempSettings()</div><div class="ttdef"><b>Definition:</b> EepromManager.cpp:142</div></div>
+<div class="ttc" id="aclassEepromManager_html_a0b18e688207d788bdf21a61da1f452b1"><div class="ttname"><a href="classEepromManager.html#a0b18e688207d788bdf21a61da1f452b1">EepromManager::storeTempConstantsAndSettings</a></div><div class="ttdeci">static void storeTempConstantsAndSettings()</div><div class="ttdef"><b>Definition:</b> EepromManager.cpp:128</div></div>
+<div class="ttc" id="aclassEepromManager_html_a2919497af0edd5bb29ed1a863bdc09cf"><div class="ttname"><a href="classEepromManager.html#a2919497af0edd5bb29ed1a863bdc09cf">EepromManager::storeTempSettings</a></div><div class="ttdeci">static void storeTempSettings()</div><div class="ttdef"><b>Definition:</b> EepromManager.cpp:135</div></div>
 <div class="ttc" id="aclassEepromManager_html_a030087eeef08d2fbbddb8062e878933e"><div class="ttname"><a href="classEepromManager.html#a030087eeef08d2fbbddb8062e878933e">EepromManager::hasSettings</a></div><div class="ttdeci">static bool hasSettings()</div><div class="ttdef"><b>Definition:</b> EepromManager.cpp:40</div></div>
-<div class="ttc" id="astructControlConstants_html"><div class="ttname"><a href="structControlConstants.html">ControlConstants</a></div><div class="ttdef"><b>Definition:</b> EepromStructs.h:29</div></div>
-<div class="ttc" id="aclassEepromManager_html_af8e77835c86b4b859a40459230f9ceff"><div class="ttname"><a href="classEepromManager.html#af8e77835c86b4b859a40459230f9ceff">EepromManager::applySettings</a></div><div class="ttdeci">static bool applySettings()</div><div class="ttdef"><b>Definition:</b> EepromManager.cpp:100</div></div>
-<div class="ttc" id="aclassEepromStream_html"><div class="ttname"><a href="classEepromStream.html">EepromStream</a></div><div class="ttdef"><b>Definition:</b> EepromManager.h:87</div></div>
-<div class="ttc" id="astructDeviceConfig_html"><div class="ttname"><a href="structDeviceConfig.html">DeviceConfig</a></div><div class="ttdef"><b>Definition:</b> EepromStructs.h:112</div></div>
+<div class="ttc" id="aclassEepromManager_html_af8e77835c86b4b859a40459230f9ceff"><div class="ttname"><a href="classEepromManager.html#af8e77835c86b4b859a40459230f9ceff">EepromManager::applySettings</a></div><div class="ttdeci">static bool applySettings()</div><div class="ttdef"><b>Definition:</b> EepromManager.cpp:97</div></div>
+<div class="ttc" id="astructDeviceConfig_html"><div class="ttname"><a href="structDeviceConfig.html">DeviceConfig</a></div><div class="ttdef"><b>Definition:</b> EepromStructs.h:143</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
