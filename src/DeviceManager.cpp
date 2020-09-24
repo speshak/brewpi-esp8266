@@ -741,11 +741,11 @@ inline bool matchAddress(uint8_t* detected, uint8_t* configured, uint8_t count) 
 }
 
 /**
- * Find a device based on it's location.
+ * \brief Find a device based on it's location.
  * A device's location is:
- *   pinNr  for simple digital pin devices
- *   pinNr+address for one-wire devices
- *   pinNr+address+pio for 2413
+ *   - pinNr  for simple digital pin devices
+ *   - pinNr+address for one-wire devices
+ *   - pinNr+address+pio for 2413
  */
 device_slot_t findHardwareDevice(DeviceConfig& find)
 {
@@ -776,7 +776,7 @@ device_slot_t findHardwareDevice(DeviceConfig& find)
 
 
 /**
- * Read a temp sensor device and convert the value into a string.
+ * \brief Read a temp sensor device and convert the value into a string.
  *
  * **Warning:** the read value does not include any calibration offset.
  */
@@ -794,6 +794,12 @@ inline void DeviceManager::readTempSensorValue(DeviceConfig::Hardware hw, char* 
 #endif
 }
 
+
+/**
+ * \brief Process a found hardware device
+ *
+ * Used from the various enumerate* methods.
+ */
 void DeviceManager::handleEnumeratedDevice(DeviceConfig& config, EnumerateHardware& h, EnumDevicesCallback callback, DeviceOutput& out)
 {
 	if (h.function && !isAssignable(deviceType(DeviceFunction(h.function)), config.deviceHardware)) 
@@ -851,8 +857,16 @@ void DeviceManager::enumeratePinDevices(EnumerateHardware& h, EnumDevicesCallbac
 	}	
 }
 
+
+/**
+ * \brief Enumerate all OneWire devices
+ *
+ * \param h - Hardware spec, used to filter sensors
+ * \param callback - Callback function, called for every found hardware device
+ * \param output - 
+ */
 void DeviceManager::enumerateOneWireDevices(EnumerateHardware& h, EnumDevicesCallback callback, DeviceOutput& output)
-{		
+{
 #if !BREWPI_SIMULATE
 	int8_t pin;	
 	for (uint8_t count=0; (pin=deviceManager.enumOneWirePins(count))>=0; count++) {
@@ -913,6 +927,10 @@ void DeviceManager::enumerateOneWireDevices(EnumerateHardware& h, EnumDevicesCal
 #endif	
 }
 
+
+/**
+ * \brief Read hardware spec from stream and output matching devices
+ */
 void DeviceManager::enumerateHardware()
 {
 	EnumerateHardware spec;

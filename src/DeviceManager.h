@@ -281,9 +281,6 @@ public:
 
 	static bool isDeviceValid(DeviceConfig& config, DeviceConfig& original, int8_t deviceIndex);
 
-	/**
-	 * Read hardware spec from stream and output matching devices
-	 */
 	static void enumerateHardware();
 
 	static bool enumDevice(DeviceDisplay& dd, DeviceConfig& dc, uint8_t idx);
