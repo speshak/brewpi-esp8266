@@ -236,10 +236,6 @@
 #define BUILD_NUMBER 0
 #endif
 
-#ifndef BUILD_NAME
-#define BUILD_NAME "00000000"
-#endif
-
 #ifndef DISPLAY_TIME_HMS
 #define DISPLAY_TIME_HMS 1
 #endif
