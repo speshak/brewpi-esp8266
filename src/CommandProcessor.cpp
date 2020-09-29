@@ -179,6 +179,7 @@ void CommandProcessor::versionInfo() {
   doc["y"] = BREWPI_SIMULATE;
   doc["b"] = String(BREWPI_BOARD);
   doc["l"] = BREWPI_LOG_MESSAGES_VERSION;
+  doc["f"] = Config::Feature::flagString;
 
   piLink.sendJsonMessage('N', doc);
 }

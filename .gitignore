@@ -33,3 +33,4 @@ apidocs/
 *.sw?
 
 src/Version.h
+src/Features.h

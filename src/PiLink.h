@@ -120,5 +120,5 @@ public:
 
 // This will become a PiLink when everything has been migrated
 extern CompatiblePiLink<
-    std::conditional<Config::PiLink::useWifi, WiFiClient, HardwareSerial>::type>
+    std::conditional<Config::Feature::hasFeature("wifi"), WiFiClient, HardwareSerial>::type>
     piLink;

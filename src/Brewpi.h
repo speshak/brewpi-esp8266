@@ -51,6 +51,7 @@
 #define BREWPI_BOARD_ESP8266 'e'
 #define BREWPI_BOARD_ESP32 '3'
 
+#include "Features.h"
 
 #ifdef ARDUINO
 #include "Config.h"

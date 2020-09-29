@@ -338,13 +338,6 @@ namespace Config {
      * \brief Size of buffer used for printf
      */
     constexpr auto printfBufferSize = 128;
-
-
-#ifdef ESP8266_WiFi
-    constexpr bool useWifi = true;
-#else
-    constexpr bool useWifi = false;
-#endif
   };
 
 
