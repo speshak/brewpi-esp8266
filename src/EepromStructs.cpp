@@ -8,7 +8,6 @@
 
 #include "EepromStructs.h"
 #include "TemperatureFormats.h"
-#include "TempControl.h" // For Modes definition
 #include "JsonKeys.h"
 
 
@@ -223,7 +222,7 @@ void ControlSettings::setDefaults() {
     fridgeSetting = intToTemp(20);
     heatEstimator = intToTempDiff(2)/10; // 0.2
     coolEstimator=intToTempDiff(5);
-    mode = Modes::off;  // We do NOT do call set_mode here - that is handled in TempControl::loadDefaultSettings()
+    mode = ControlMode::off;  // We do NOT do call set_mode here - that is handled in TempControl::loadDefaultSettings()
 }
 
 
@@ -235,8 +234,7 @@ DynamicJsonDocument ControlSettings::toJson() {
     doc[ControlSettingsKeys::fridge] = tempToInt(fridgeSetting);
     doc[ControlSettingsKeys::heatEst] = tempDiffToInt(heatEstimator);
     doc[ControlSettingsKeys::coolEst] = tempDiffToInt(coolEstimator);
-    doc[ControlSettingsKeys::mode] = mode;
-    doc[ControlSettingsKeys::mode].is<char>();
+    doc[ControlSettingsKeys::mode] = static_cast<std::underlying_type<ControlMode>::type>(mode);
 
     // Return the JSON document
     return doc;
@@ -269,6 +267,11 @@ void ControlSettings::loadFromSpiffs() {
     if(json_doc.containsKey(ControlSettingsKeys::coolEst))
         coolEstimator = intToTempDiff(json_doc[ControlSettingsKeys::coolEst]);
 
-    mode = json_doc[ControlSettingsKeys::mode] | mode;
+    // This casting is a little confusing, so:
+    // Get the mode value from the JSON doc, if it isn't set, default to the
+    // current value of mode (static_cast to its underlying type to make
+    // ArduionJson happy)
+    // Cast that final result to a ControlMode
+    mode = (ControlMode)(json_doc[ControlSettingsKeys::mode] | static_cast<std::underlying_type<ControlMode>::type>(mode));
 }
 

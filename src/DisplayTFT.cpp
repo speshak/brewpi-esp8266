@@ -244,19 +244,19 @@ void LcdDisplay::printMode(){
     tft.print("Mode: ");
 
     switch(tempControl.getMode()){
-        case Modes::fridgeConstant:
+        case ControlMode::fridgeConstant:
             tft.print("Fridge Constant");
             break;
-        case Modes::beerConstant:
+        case ControlMode::beerConstant:
             tft.print("Beer Constant");
             break;
-        case Modes::beerProfile:
+        case ControlMode::beerProfile:
             tft.print("Beer Profile");
             break;
-        case Modes::off:
+        case ControlMode::off:
             tft.print("Off");
             break;
-        case Modes::test:
+        case ControlMode::test:
             tft.print("** Testing **");
             break;
         default:

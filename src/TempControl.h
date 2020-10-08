@@ -80,15 +80,6 @@ struct ControlVariables{
 
 // struct ControlConstants was moved to EepromStructs.h
 
-namespace Modes {
-  constexpr auto fridgeConstant = 'f';
-  constexpr auto beerConstant = 'b';
-  constexpr auto beerProfile = 'p';
-  constexpr auto off = 'o';
-  constexpr auto test = 't';
-};
-
-
 
 /**
  * \brief Temperature control states
@@ -105,7 +96,7 @@ enum class ControlState : uint8_t {
 	COOLING_MIN_TIME,			// 8
 	HEATING_MIN_TIME,			// 9
 	NUM_STATES,
-  UNKNOWN  = UINT8_MAX,
+  UNKNOWN  = UINT8_MAX, //!< An unknown state.
 };
 
 #define TC_STATE_MASK 0x7;	// 3 bits
@@ -198,12 +189,12 @@ public:
 		return ambientSensor->read();
 	}
 
-	TEMP_CONTROL_METHOD void setMode(char newMode, bool force=false);
+	TEMP_CONTROL_METHOD void setMode(ControlMode newMode, bool force=false);
 
   /**
    * Get current temp control mode
    */
-	TEMP_CONTROL_METHOD char getMode() {
+	TEMP_CONTROL_METHOD ControlMode getMode() {
 		return cs.mode;
 	}
 
@@ -245,7 +236,7 @@ public:
    * Check if the current configured mode is Beer
    */
 	TEMP_CONTROL_METHOD bool modeIsBeer(){
-		return (cs.mode == Modes::beerConstant || cs.mode == Modes::beerProfile);
+		return (cs.mode == ControlMode::beerConstant || cs.mode == ControlMode::beerProfile);
 	}
 
 	TEMP_CONTROL_METHOD void initFilters();

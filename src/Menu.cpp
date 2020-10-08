@@ -97,13 +97,13 @@ void settingSelected() {
 			return;
 		case 1:
 			// switch to beer constant, because beer setting will be set through display
-			tempControl.setMode(Modes::beerConstant);
+			tempControl.setMode(ControlMode::beerConstant);
 			display.printMode();
 			menu.pickBeerSetting();
 			return;
 		case 2:
 			// switch to fridge constant, because fridge setting will be set through display
-			tempControl.setMode(Modes::fridgeConstant);
+			tempControl.setMode(ControlMode::fridgeConstant);
 			display.printMode();
 			menu.pickFridgeSetting();
 			return;
@@ -122,7 +122,7 @@ void Menu::pickSettingToChangeLoop() {
 
 void changedMode() {
 	const char lookup[] = {'b', 'f', 'p', 'o'};
-	tempControl.setMode(lookup[rotaryEncoder.read()]);
+	tempControl.setMode((ControlMode)lookup[rotaryEncoder.read()]);
 }
 
 void clearMode() {
@@ -132,21 +132,21 @@ void clearMode() {
 }
 
 void selectMode() {
-	char mode = tempControl.getMode();
-	if(mode ==  Modes::beerConstant){
+	ControlMode mode = tempControl.getMode();
+	if(mode ==  ControlMode::beerConstant){
 		menu.pickBeerSetting();
 	}
-	else if(mode == Modes::fridgeConstant){
+	else if(mode == ControlMode::fridgeConstant){
 		menu.pickFridgeSetting();
 	}
-	else if(mode == Modes::beerProfile){
+	else if(mode == ControlMode::beerProfile){
 #if defined(ESP8266) || defined(ESP32)
 		piLink.printTemperatures("Changed to profile mode in menu.", 0);
 #else
 		piLink.printBeerAnnotation(PSTR("Changed to profile mode in menu."));
 #endif
 	}
-	else if(mode == Modes::off){
+	else if(mode == ControlMode::off){
 #if defined(ESP8266) || defined(ESP32)
 		piLink.printTemperatures("Temp control turned off in menu.", 0);
 #else
@@ -156,10 +156,10 @@ void selectMode() {
 }
 
 void Menu::pickMode() {	
-	char oldSetting = tempControl.getMode();
+	ControlMode oldSetting = tempControl.getMode();
 	uint8_t startValue=0;
 	const char* LOOKUP = "bfpo";
-	startValue = indexOf(LOOKUP, oldSetting);
+	startValue = indexOf(LOOKUP, (char)oldSetting);
 	rotaryEncoder.setRange(startValue, 0, 3); // toggle between beer constant, beer profile, fridge constant
 	
 	if (!blinkLoop(changedMode, display.printMode, clearMode, selectMode)) 

@@ -21,6 +21,7 @@
 
 #include "SettingLoader.h"
 #include "Display.h"
+#include "EnumHelpers.h"
 #include "PiLink.h"
 #include "TempControl.h"
 
@@ -29,7 +30,7 @@
  *
  * \param kv - The parsed JsonPair of the setting
  */
-void SettingLoader::processSettingKeypair(JsonPair kv) {
+void SettingLoader::processSettingKeypair(const JsonPair &kv) {
   // A good chunk of the conversions want a string representation of the value,
   // but the brewpi script presents the data as a number.  Prep a string
   // version in case we need it for this value.
@@ -41,10 +42,12 @@ void SettingLoader::processSettingKeypair(JsonPair kv) {
   }
 
   if (kv.key() == "mode") {
-    char mode = kv.value().as<char *>()[0];
+    ControlMode mode;
+    EnumHelpers::readEnumValue(kv, mode);
 
-    if (mode == Modes::fridgeConstant || mode == Modes::beerConstant || mode == Modes::beerProfile ||
-        mode == Modes::off || mode == Modes::test) {
+    if (mode == ControlMode::fridgeConstant || mode == ControlMode::fridgeProfile ||
+        mode == ControlMode::beerConstant || mode == ControlMode::beerProfile || mode == ControlMode::off ||
+        mode == ControlMode::test) {
       tempControl.setMode(mode);
     } else {
       piLink.print_fmt("Invalid mode \"%c\" (0x%02X)", mode, mode);
@@ -184,7 +187,7 @@ void SettingLoader::setBeerSetting(const char *val) {
 
   temperature newTemp = stringToTemp(val);
 
-  if (tempControl.cs.mode == 'p') {
+  if (tempControl.cs.mode == ControlMode::beerProfile) {
     // this excludes gradual updates under 0.2 degrees
     if (abs(newTemp - tempControl.cs.beerSetting) > 100) {
       annotation += " by temperature profile";
@@ -205,7 +208,7 @@ void SettingLoader::setBeerSetting(const char *val) {
  */
 void SettingLoader::setFridgeSetting(const char *val) {
   temperature newTemp = stringToTemp(val);
-  if (tempControl.cs.mode == 'f') {
+  if (tempControl.cs.mode == ControlMode::fridgeConstant) {
     String annotation = "Fridge temp set to ";
     annotation += val;
     annotation += " in web interface";

@@ -71,6 +71,16 @@ private:
 
 /** @} */
 
+enum class ControlMode : char {
+  fridgeConstant = 'f',
+  fridgeProfile = 'F',
+  beerConstant = 'b',
+  beerProfile = 'p',
+  off = 'o',
+  test = 't',
+};
+
+
 struct ControlSettings : public JSONSaveable {
 public:
     ControlSettings();
@@ -79,7 +89,7 @@ public:
     temperature fridgeSetting;
     temperature heatEstimator; // updated automatically by self learning algorithm
     temperature coolEstimator; // updated automatically by self learning algorithm
-    char mode;
+    ControlMode mode;
 
     DynamicJsonDocument toJson();
     void storeToSpiffs();
