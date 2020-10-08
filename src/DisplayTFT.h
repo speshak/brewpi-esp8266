@@ -8,6 +8,7 @@
 
 #include "Brewpi.h"
 #include "DisplayBase.h"
+#include "TempControl.h"
 
 #ifdef BREWPI_TFT
 
@@ -158,7 +159,7 @@ class LcdDisplay DISPLAY_SUPERCLASS
 
 
         private:
-        DISPLAY_FIELD uint8_t stateOnDisplay;
+        DISPLAY_FIELD ControlState stateOnDisplay;
         DISPLAY_FIELD uint8_t flags;
 };
 

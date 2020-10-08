@@ -45,7 +45,7 @@
 //#include <XPT2046_Touchscreen.h>
 
 
-uint8_t LcdDisplay::stateOnDisplay;
+ControlState LcdDisplay::stateOnDisplay;
 uint8_t LcdDisplay::flags;
 
 Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RST);
@@ -116,7 +116,7 @@ void LcdDisplay::init(){
 #if defined(ESP8266) || defined(ESP32)
     toggleBacklight = false;
 #endif
-    stateOnDisplay = 0xFF; // set to unknown state to force update
+    stateOnDisplay = ControlState::UNKNOWN; // set to unknown state to force update
     flags = LCD_FLAG_ALTERNATE_ROOM;  // TODO - Test with a room sensor to see what happens
 //    lcd.init(); // initialize LCD
 //    lcd.begin(20, 4);
@@ -269,7 +269,7 @@ void LcdDisplay::printMode(){
 // print the current state on the last line of the lcd
 void LcdDisplay::printState(){
     uint16_t time = UINT16_MAX; // init to max
-    uint8_t state = tempControl.getDisplayState();
+    ControlState state = tempControl.getDisplayState();
     uint8_t printed_chars = 8;
 
     tft.setTextColor(ILI9341_WHITE, ILI9341_BLACK);
@@ -280,43 +280,43 @@ void LcdDisplay::printState(){
 
     // For the TFT, always reprint the state text
     switch (state){
-        case IDLE:
+        case ControlState::IDLE:
             tft.print("Idling");
             printed_chars += 6;
             break;
-        case WAITING_TO_COOL:
+        case ControlState::WAITING_TO_COOL:
             tft.print("Waiting to cool");
             printed_chars += 15;
             break;
-        case WAITING_TO_HEAT:
+        case ControlState::WAITING_TO_HEAT:
             tft.print("Waiting to heat");
             printed_chars += 15;
             break;
-        case WAITING_FOR_PEAK_DETECT:
+        case ControlState::WAITING_FOR_PEAK_DETECT:
             tft.print("Waiting for peak");
             printed_chars += 16;
             break;
-        case COOLING:
+        case ControlState::COOLING:
             tft.print("Cooling");
             printed_chars += 7;
             break;
-        case HEATING:
+        case ControlState::HEATING:
             tft.print("Heating");
             printed_chars += 7;
             break;
-        case COOLING_MIN_TIME:
+        case ControlState::COOLING_MIN_TIME:
             tft.print("Cooling");
             printed_chars += 7;
             break;
-        case HEATING_MIN_TIME:
+        case ControlState::HEATING_MIN_TIME:
             tft.print("Heating");
             printed_chars += 7;
             break;
-        case DOOR_OPEN:
+        case ControlState::DOOR_OPEN:
             tft.print("Door open");
             printed_chars += 9;
             break;
-        case STATE_OFF:
+        case ControlState::OFF:
             tft.print("Off");
             printed_chars += 3;
             break;
@@ -327,28 +327,28 @@ void LcdDisplay::printState(){
     }
 
     uint16_t sinceIdleTime = tempControl.timeSinceIdle();
-    if(state==IDLE){
+    if(state==ControlState::IDLE){
         tft.print(" for ");
         printed_chars += 15;
         time = 	min(tempControl.timeSinceCooling(), tempControl.timeSinceHeating());
     }
-    else if(state==COOLING || state==HEATING){
+    else if(state==ControlState::COOLING || state==ControlState::HEATING){
         tft.print(" for ");
         printed_chars += 5;
         time = sinceIdleTime;
     }
-    else if(state==COOLING_MIN_TIME){
+    else if(state==ControlState::COOLING_MIN_TIME){
         tft.print(" time left ");
         printed_chars += 5;
         time = MIN_COOL_ON_TIME-sinceIdleTime;
     }
 
-    else if(state==HEATING_MIN_TIME){
+    else if(state==ControlState::HEATING_MIN_TIME){
         tft.print(" time left ");
         printed_chars += 11;
         time = MIN_HEAT_ON_TIME-sinceIdleTime;
     }
-    else if(state == WAITING_TO_COOL || state == WAITING_TO_HEAT){
+    else if(state == ControlState::WAITING_TO_COOL || state == ControlState::WAITING_TO_HEAT){
         tft.print(" ");
         printed_chars += 1;
         time = tempControl.getWaitTime();
@@ -502,38 +502,38 @@ void LcdDisplay::getLine(uint8_t lineNumber, char * buffer) {
         line = "";
 
         uint16_t time = UINT16_MAX; // init to max
-        uint8_t state = tempControl.getDisplayState();
+        ControlState state = tempControl.getDisplayState();
 
 
         switch (state){
-            case IDLE:
+            case ControlState::IDLE:
                 line = "Idling";
                 break;
-            case WAITING_TO_COOL:
+            case ControlState::WAITING_TO_COOL:
                 line = "Wait to cool";
                 break;
-            case WAITING_TO_HEAT:
+            case ControlState::WAITING_TO_HEAT:
                 line = "Wait to heat";
                 break;
-            case WAITING_FOR_PEAK_DETECT:
+            case ControlState::WAITING_FOR_PEAK_DETECT:
                 line = "Wait for peak";
                 break;
-            case COOLING:
+            case ControlState::COOLING:
                 line = "Cooling";
                 break;
-            case HEATING:
+            case ControlState::HEATING:
                 line = "Heating";
                 break;
-            case COOLING_MIN_TIME:
+            case ControlState::COOLING_MIN_TIME:
                 line = "Cooling";
                 break;
-            case HEATING_MIN_TIME:
+            case ControlState::HEATING_MIN_TIME:
                 line = "Heating";
                 break;
-            case DOOR_OPEN:
+            case ControlState::DOOR_OPEN:
                 line = "Door open";
                 break;
-            case STATE_OFF:
+            case ControlState::OFF:
                 line = "Temp control OFF";
                 break;
             default:
@@ -542,24 +542,24 @@ void LcdDisplay::getLine(uint8_t lineNumber, char * buffer) {
         }
 
         uint16_t sinceIdleTime = tempControl.timeSinceIdle();
-        if(state==IDLE){
+        if(state==ControlState::IDLE){
             line += " for ";
             time = 	min(tempControl.timeSinceCooling(), tempControl.timeSinceHeating());
         }
-        else if(state==COOLING || state==HEATING){
+        else if(state==ControlState::COOLING || state==ControlState::HEATING){
             line += " for ";
             time = sinceIdleTime;
         }
-        else if(state==COOLING_MIN_TIME){
+        else if(state==ControlState::COOLING_MIN_TIME){
             line += " time left ";
             time = MIN_COOL_ON_TIME-sinceIdleTime;
         }
 
-        else if(state==HEATING_MIN_TIME){
+        else if(state==ControlState::HEATING_MIN_TIME){
             line += " time left ";
             time = MIN_HEAT_ON_TIME-sinceIdleTime;
         }
-        else if(state == WAITING_TO_COOL || state == WAITING_TO_HEAT){
+        else if(state == ControlState::WAITING_TO_COOL || state == ControlState::WAITING_TO_HEAT){
             line += " ";
             time = tempControl.getWaitTime();
         }

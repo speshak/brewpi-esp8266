@@ -21,6 +21,7 @@
 
 #include "Brewpi.h"
 #include "DisplayBase.h"
+#include "TempControl.h"
 //#include "SpiLcd.h"
 //#include "NullLcdDriver.h"
 
@@ -132,7 +133,7 @@ class LcdDisplay DISPLAY_SUPERCLASS
 
   private:
 	DISPLAY_FIELD LcdDriver lcd;
-	DISPLAY_FIELD uint8_t stateOnDisplay;
+	DISPLAY_FIELD ControlState stateOnDisplay;
 	DISPLAY_FIELD uint8_t flags;
 };
 

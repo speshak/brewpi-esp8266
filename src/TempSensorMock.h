@@ -22,9 +22,10 @@
 
 #include "Brewpi.h"
 #include "TempSensor.h"
+#include "TempControl.h"
 
 /**
- * A mock implementation of BasicTempSensor
+ * \brief A mock implementation of BasicTempSensor
  *
  * This is a fake temp sensor that shifts it's value on each read.
  */
@@ -54,13 +55,17 @@ public:
 		if (!isConnected())
 			return TEMP_SENSOR_DISCONNECTED;
 
-		switch (tempControl.getMode()) {
-			case COOLING:
+		switch (tempControl.getState()) {
+			case ControlState::COOLING:
 				_temperature -= _delta;
 				break;
-			case HEATING:
+			case ControlState::HEATING:
 				_temperature += _delta;
 				break;
+      default:
+        ;
+        //no-op.  This is here to silence a gcc warning when a switch doesn't
+        //have a case for every possible enum value
 		}
 		
 		return _temperature;

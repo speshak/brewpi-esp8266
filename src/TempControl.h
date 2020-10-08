@@ -49,8 +49,10 @@ const uint16_t MIN_COOL_ON_TIME = 180;
 const uint16_t MIN_HEAT_ON_TIME = 180;
 
 /**
- * Minimum cooler off time, in seconds.  Used when the controller is in Fridge Constant mode.
- * Larger than MIN_COOL_OFF_TIME. No need for very fast cycling.
+ * \brief Minimum cooler off time, in seconds.
+ *
+ * Used when the controller is in Fridge Constant mode.  Larger than
+ * MIN_COOL_OFF_TIME. No need for very fast cycling.
  */
 const uint16_t MIN_COOL_OFF_TIME_FRIDGE_CONSTANT = 600;
 //! Minimum off time between switching between heating and cooling
@@ -78,10 +80,6 @@ struct ControlVariables{
 
 // struct ControlConstants was moved to EepromStructs.h
 
-#define EEPROM_TC_SETTINGS_BASE_ADDRESS 0
-#define EEPROM_CONTROL_SETTINGS_ADDRESS (EEPROM_TC_SETTINGS_BASE_ADDRESS+sizeof(uint8_t))
-#define EEPROM_CONTROL_CONSTANTS_ADDRESS (EEPROM_CONTROL_SETTINGS_ADDRESS+sizeof(ControlSettings))
-
 namespace Modes {
   constexpr auto fridgeConstant = 'f';
   constexpr auto beerConstant = 'b';
@@ -93,11 +91,11 @@ namespace Modes {
 
 
 /**
- * Temperature control states
+ * \brief Temperature control states
  */
-enum states {
+enum class ControlState : uint8_t {
 	IDLE,           //!< Neither heating, nor cooling
-	STATE_OFF,      //!< Disabled
+	OFF,      //!< Disabled
 	DOOR_OPEN,			//!< Fridge door open. Used by the Display only
 	HEATING,				//!< Calling for heat
 	COOLING,				//!< Calling for cool
@@ -106,7 +104,8 @@ enum states {
 	WAITING_FOR_PEAK_DETECT,	//!< Waiting for peak detection
 	COOLING_MIN_TIME,			// 8
 	HEATING_MIN_TIME,			// 9
-	NUM_STATES
+	NUM_STATES,
+  UNKNOWN  = UINT8_MAX,
 };
 
 #define TC_STATE_MASK 0x7;	// 3 bits
@@ -211,7 +210,7 @@ public:
   /**
    * Get the current state of the control system.
    */
-	TEMP_CONTROL_METHOD unsigned char getState(){
+	TEMP_CONTROL_METHOD ControlState getState(){
 		return state;
 	}
 
@@ -262,8 +261,8 @@ public:
    * If the chamber door is closed, this returns the value of getState().
    * If the door is open, the `DOOR_OPEN` state is returned instead.
    */
-	TEMP_CONTROL_METHOD unsigned char getDisplayState() {
-		return isDoorOpen() ? DOOR_OPEN : getState();
+	TEMP_CONTROL_METHOD ControlState getDisplayState() {
+		return isDoorOpen() ? ControlState::DOOR_OPEN : getState();
 	}
 
   TEMP_CONTROL_METHOD void getControlVariablesDoc(JsonDocument& doc);
@@ -311,7 +310,7 @@ private:
 
 
 	// State variables
-	TEMP_CONTROL_FIELD uint8_t state; //!< Current controller state
+	TEMP_CONTROL_FIELD ControlState state; //!< Current controller state
 	TEMP_CONTROL_FIELD bool doPosPeakDetect; //!< True if the controller is doing positive peak detection
 	TEMP_CONTROL_FIELD bool doNegPeakDetect; //!< True if the controller is doing negative peak detection
 	TEMP_CONTROL_FIELD bool doorOpen; //!< True if the chamber door is open

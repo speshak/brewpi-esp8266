@@ -88,7 +88,8 @@ public:
       doc["RoomTemp"] = "";
     }
 
-    doc["State"] = tempControl.getState();
+    // ArduinoJson doesn't like being handed a enum class, so we cast to the underlying type
+    doc["State"] = static_cast<std::underlying_type<ControlState>::type>(tempControl.getState());
 
 #if BREWPI_SIMULATE
     doc["Time"] = ticks.millis() / 1000;

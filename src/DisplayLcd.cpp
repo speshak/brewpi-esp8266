@@ -45,7 +45,7 @@
 #endif
 
 
-uint8_t LcdDisplay::stateOnDisplay;
+ControlState LcdDisplay::stateOnDisplay;
 uint8_t LcdDisplay::flags;
 #if defined(BREWPI_IIC)
 LcdDriver LcdDisplay::lcd(0x27, Config::Lcd::columns, Config::Lcd::lines);  // NOTE - The address here doesn't get used. Address is autodetected at startup.
@@ -86,7 +86,7 @@ void LcdDisplay::init(){
 #if defined(ESP8266) || defined(ESP32)
 	toggleBacklight = false;
 #endif
-	stateOnDisplay = 0xFF; // set to unknown state to force update
+	stateOnDisplay = ControlState::UNKNOWN; // set to unknown state to force update
 	flags = LCD_FLAG_ALTERNATE_ROOM;
 	lcd.init(); // initialize LCD
 	lcd.begin(Config::Lcd::columns, Config::Lcd::lines);
@@ -267,48 +267,48 @@ void LcdDisplay::printMode(){
 // print the current state on the last line of the lcd
 void LcdDisplay::printState(){
 	uint16_t time = invalidTime;
-	uint8_t state = tempControl.getDisplayState();
+	ControlState state = tempControl.getDisplayState();
 	if(state != stateOnDisplay){ //only print static text when state has changed
 		stateOnDisplay = state;
 		// Reprint state and clear rest of the line
 		const char * part1 = STR_empty_string;
 		const char * part2 = STR_empty_string;
 		switch (state){
-			case IDLE:
+			case ControlState::IDLE:
 				part1 = PSTR("Idl");
 				part2 = STR_ing_for;
 				break;
-			case WAITING_TO_COOL:
+			case ControlState::WAITING_TO_COOL:
 				part1 = STR_Wait_to_;
 				part2 = STR_Cool;
 				break;
-			case WAITING_TO_HEAT:
+			case ControlState::WAITING_TO_HEAT:
 				part1 = STR_Wait_to_;
 				part2 = STR_Heat;
 				break;
-			case WAITING_FOR_PEAK_DETECT:
+			case ControlState::WAITING_FOR_PEAK_DETECT:
 				part1 = PSTR("Waiting for peak");
 				break;
-			case COOLING:
+			case ControlState::COOLING:
 				part1 = STR_Cool;
 				part2 = STR_ing_for;
 				break;
-			case HEATING:
+			case ControlState::HEATING:
 				part1 = STR_Heat;
 				part2 = STR_ing_for;
 				break;
-			case COOLING_MIN_TIME:
+			case ControlState::COOLING_MIN_TIME:
 				part1 = STR_Cool;
 				part2 = STR__time_left;
 				break;
-			case HEATING_MIN_TIME:
+			case ControlState::HEATING_MIN_TIME:
 				part1 = STR_Heat;
 				part2 = STR__time_left;
 				break;
-			case DOOR_OPEN:
+			case ControlState::DOOR_OPEN:
 				part1 = PSTR("Door open");
 				break;
-			case STATE_OFF:
+			case ControlState::OFF:
 				part1 = PSTR("Temp. control OFF");
 				break;
 			default:
@@ -320,20 +320,20 @@ void LcdDisplay::printState(){
 		lcd.printSpacesToRestOfLine();
 	}
 	uint16_t sinceIdleTime = tempControl.timeSinceIdle();
-	if(state==IDLE){
+	if(state==ControlState::IDLE){
 		time = 	min(tempControl.timeSinceCooling(), tempControl.timeSinceHeating());
 	}
-	else if(state==COOLING || state==HEATING){
+	else if(state==ControlState::COOLING || state==ControlState::HEATING){
 		time = sinceIdleTime;
 	}
-	else if(state==COOLING_MIN_TIME){
+	else if(state==ControlState::COOLING_MIN_TIME){
 		time = MIN_COOL_ON_TIME-sinceIdleTime;
 	}
 	
-	else if(state==HEATING_MIN_TIME){
+	else if(state==ControlState::HEATING_MIN_TIME){
 		time = MIN_HEAT_ON_TIME-sinceIdleTime;
 	}
-	else if(state == WAITING_TO_COOL || state == WAITING_TO_HEAT){
+	else if(state == ControlState::WAITING_TO_COOL || state == ControlState::WAITING_TO_HEAT){
 		time = tempControl.getWaitTime();
 	}
 	if(time != invalidTime){
