@@ -172,9 +172,9 @@ public:
 	TEMP_CONTROL_METHOD void storeConstants();
 	TEMP_CONTROL_METHOD void loadDefaultConstants();
 
-	TEMP_CONTROL_METHOD uint16_t timeSinceCooling();
- 	TEMP_CONTROL_METHOD uint16_t timeSinceHeating();
- 	TEMP_CONTROL_METHOD uint16_t timeSinceIdle();
+	TEMP_CONTROL_METHOD ticks_seconds_t timeSinceCooling();
+ 	TEMP_CONTROL_METHOD ticks_seconds_t timeSinceHeating();
+ 	TEMP_CONTROL_METHOD ticks_seconds_t timeSinceIdle();
 
 	TEMP_CONTROL_METHOD temperature getBeerTemp();
 	TEMP_CONTROL_METHOD temperature getBeerSetting();
@@ -245,8 +245,15 @@ public:
 private:
 	TEMP_CONTROL_METHOD void increaseEstimator(temperature * estimator, temperature error);
 	TEMP_CONTROL_METHOD void decreaseEstimator(temperature * estimator, temperature error);
-	
 	TEMP_CONTROL_METHOD void updateEstimatedPeak(uint16_t estimate, temperature estimator, uint16_t sinceIdle);
+
+  TEMP_CONTROL_METHOD bool sensorsAreValid();
+  TEMP_CONTROL_METHOD void alertDoorStateChange();
+  TEMP_CONTROL_METHOD void updateStateWhileCooling();
+  TEMP_CONTROL_METHOD void updateStateWhileHeating();
+  TEMP_CONTROL_METHOD void updateStateWhileIdle();
+
+
 public:
 	TEMP_CONTROL_FIELD TempSensor* beerSensor; //!< Temp sensor monitoring beer
 	TEMP_CONTROL_FIELD TempSensor* fridgeSensor; //!< Temp sensor monitoring fridge
@@ -276,10 +283,10 @@ private:
 	TEMP_CONTROL_FIELD temperature storedBeerSetting;
 
 	// Timers
-	TEMP_CONTROL_FIELD uint16_t lastIdleTime; //!< Last time the controller was idle
-	TEMP_CONTROL_FIELD uint16_t lastHeatTime; //!< Last time that the controller was heating
-	TEMP_CONTROL_FIELD uint16_t lastCoolTime; //!< Last time that the controller was cooling
-	TEMP_CONTROL_FIELD uint16_t waitTime; //!< Amount of time to continue waiting, when in a wait state
+	TEMP_CONTROL_FIELD ticks_seconds_t lastIdleTime; //!< Last time the controller was idle
+	TEMP_CONTROL_FIELD ticks_seconds_t lastHeatTime; //!< Last time that the controller was heating
+	TEMP_CONTROL_FIELD ticks_seconds_t lastCoolTime; //!< Last time that the controller was cooling
+	TEMP_CONTROL_FIELD ticks_seconds_t waitTime; //!< Amount of time to continue waiting, when in a wait state
 
 
 	// State variables

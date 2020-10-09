@@ -68,12 +68,12 @@ bool TempControl::doorOpen;
 	
 	// keep track of beer setting stored in EEPROM
 temperature TempControl::storedBeerSetting;
-	
-	// Timers
-uint16_t TempControl::lastIdleTime;
-uint16_t TempControl::lastHeatTime;
-uint16_t TempControl::lastCoolTime;
-uint16_t TempControl::waitTime;
+
+// Timers
+ticks_seconds_t TempControl::lastIdleTime;
+ticks_seconds_t TempControl::lastHeatTime;
+ticks_seconds_t TempControl::lastCoolTime;
+ticks_seconds_t TempControl::waitTime;
 #endif
 
 
@@ -237,41 +237,27 @@ void TempControl::updatePID(){
 	}
 }
 
-void TempControl::updateState(){
-	//update state
-	bool stayIdle = false;
-	bool newDoorOpen = door->sense();
-		
-	if(newDoorOpen!=doorOpen) {
-		doorOpen = newDoorOpen;
-#if defined(ESP8266) || defined(ESP32)  // ESP8266 Doesn't support %S
-		String annotation = "";
-		annotation += "Fridge door ";
-		annotation += doorOpen ? "opened" : "closed";
-		piLink.printTemperatures(0, annotation.c_str());
-#else
-		piLink.printFridgeAnnotation(PSTR("Fridge door %S"), doorOpen ? PSTR("opened") : PSTR("closed"));
-#endif
-	}
+
+/**
+ * \brief Update control state
+ *
+ * Evaluates the status of sensors & configuration, and then sets the appropriate control state.
+ */
+void TempControl::updateState() {
+  alertDoorStateChange();
 
 	if(cs.mode == ControlMode::off){
 		state = ControlState::OFF;
-		stayIdle = true;
-	}
-	// stay idle when one of the required sensors is disconnected, or the fridge setting is INVALID_TEMP
-	if( cs.fridgeSetting == INVALID_TEMP ||
-		!fridgeSensor->isConnected() ||
-		(!beerSensor->isConnected() && tempControl.modeIsBeer())){
-		state = ControlState::IDLE;
-		stayIdle = true;
+    return;
 	}
 
-	uint16_t sinceIdle = timeSinceIdle();
-	uint16_t sinceCooling = timeSinceCooling();
-	uint16_t sinceHeating = timeSinceHeating();
-	temperature fridgeFast = fridgeSensor->readFastFiltered();
-	temperature beerFast = beerSensor->readFastFiltered();
-	ticks_seconds_t secs = ticks.seconds();
+  // If sensors aren't valid, we can't move forward,
+  // force state to IDLE
+	if(!sensorsAreValid()){
+		state = ControlState::IDLE;
+    return;
+	}
+
 	switch(state)
 	{
     case ControlState::IDLE:
@@ -279,113 +265,34 @@ void TempControl::updateState(){
 		case ControlState::WAITING_TO_COOL:
 		case ControlState::WAITING_TO_HEAT:
 		case ControlState::WAITING_FOR_PEAK_DETECT:
-		{
-			lastIdleTime=secs;
-			// set waitTime to zero. It will be set to the maximum required waitTime below when wait is in effect.
-			if(stayIdle){
-				break;
-			}
-			resetWaitTime();
-			if(fridgeFast > (cs.fridgeSetting+cc.idleRangeHigh) ){  // fridge temperature is too high
-				tempControl.updateWaitTime(MIN_SWITCH_TIME, sinceHeating);
-				if(cs.mode==ControlMode::fridgeConstant){
-					tempControl.updateWaitTime(MIN_COOL_OFF_TIME_FRIDGE_CONSTANT, sinceCooling);
-				}
-				else{
-					if(beerFast < (cs.beerSetting + 16) ){ // If beer is already under target, stay/go to idle. 1/2 sensor bit idle zone
-						state = ControlState::IDLE; // beer is already colder than setting, stay in or go to idle
-						break;
-					}
-					tempControl.updateWaitTime(MIN_COOL_OFF_TIME, sinceCooling);
-				}
-				if(tempControl.cooler != &defaultActuator){
-					if(getWaitTime() > 0){
-						state = ControlState::WAITING_TO_COOL;
-					}
-					else{
-						state = ControlState::COOLING;
-					}
-				}
-			}
-			else if(fridgeFast < (cs.fridgeSetting+cc.idleRangeLow)){  // fridge temperature is too low
-				tempControl.updateWaitTime(MIN_SWITCH_TIME, sinceCooling);
-				tempControl.updateWaitTime(MIN_HEAT_OFF_TIME, sinceHeating);
-				if(cs.mode!=ControlMode::fridgeConstant){
-					if(beerFast > (cs.beerSetting - 16)){ // If beer is already over target, stay/go to idle. 1/2 sensor bit idle zone
-						state = ControlState::IDLE;  // beer is already warmer than setting, stay in or go to idle
-						break;
-					}
-				}
-				if(tempControl.heater != &defaultActuator || (cc.lightAsHeater && (tempControl.light != &defaultActuator))){
-					if(getWaitTime() > 0){
-						state = ControlState::WAITING_TO_HEAT;
-					}
-					else{
-						state = ControlState::HEATING;
-					}
-				}
-			}
-			else{
-				state = ControlState::IDLE; // within IDLE range, always go to IDLE
-				break;
-			}
-			if(state == ControlState::HEATING || state == ControlState::COOLING){
-				if(doNegPeakDetect == true || doPosPeakDetect == true){
-					// If peak detect is not finished, but the fridge wants to switch to heat/cool
-					// Wait for peak detection and display 'Await peak detect' on display
-					state = ControlState::WAITING_FOR_PEAK_DETECT;
-					break;
-				}
-			}
-		}
-		break;
+      updateStateWhileIdle();
+      break;
+
 		case ControlState::COOLING:
 		case ControlState::COOLING_MIN_TIME:
-		{
-			doNegPeakDetect=true;
-			lastCoolTime = secs;
-			updateEstimatedPeak(cc.maxCoolTimeForEstimate, cs.coolEstimator, sinceIdle);
-			state = ControlState::COOLING; // set to cooling here, so the display of COOLING/COOLING_MIN_TIME is correct
-			
-			// stop cooling when estimated fridge temp peak lands on target or if beer is already too cold (1/2 sensor bit idle zone)
-			if(cv.estimatedPeak <= cs.fridgeSetting || (cs.mode != ControlMode::fridgeConstant && beerFast < (cs.beerSetting - 16))){
-				if(sinceIdle > MIN_COOL_ON_TIME){
-					cv.negPeakEstimate = cv.estimatedPeak; // remember estimated peak when I switch to IDLE, to adjust estimator later
-					state=ControlState::IDLE;
-					break;
-				}
-				else{
-					state = ControlState::COOLING_MIN_TIME;
-					break;
-				}				
-			}
-		}
-		break;
+      updateStateWhileCooling();
+      break;
+
 		case ControlState::HEATING:
 		case ControlState::HEATING_MIN_TIME:
-		{
-			doPosPeakDetect=true;
-			lastHeatTime=secs;
-			updateEstimatedPeak(cc.maxHeatTimeForEstimate, cs.heatEstimator, sinceIdle);
-			state = ControlState::HEATING; // reset to heating here, so the display of HEATING/HEATING_MIN_TIME is correct
-			
-			// stop heating when estimated fridge temp peak lands on target or if beer is already too warm (1/2 sensor bit idle zone)
-			if(cv.estimatedPeak >= cs.fridgeSetting || (cs.mode != ControlMode::fridgeConstant && beerFast > (cs.beerSetting + 16))){
-				if(sinceIdle > MIN_HEAT_ON_TIME){
-					cv.posPeakEstimate=cv.estimatedPeak; // remember estimated peak when I switch to IDLE, to adjust estimator later
-					state=ControlState::IDLE;
-					break;
-				}
-				else{
-					state = ControlState::HEATING_MIN_TIME;
-					break;
-				}
-			}
-		}
-		break;
-	}			
+      updateStateWhileHeating();
+      break;
+
+    case ControlState::UNKNOWN:
+    case ControlState::DOOR_OPEN:
+      ; // No-op - These states don't have an effect on control.
+      // Including them to silence compiler warning.
+	}
 }
 
+
+/**
+ * \brief Recalculate the peak estimates
+ *
+ * \param timeLimit - Look back period
+ * \param estimator - Value being estimated
+ * \param sinceIdle - 
+ */
 void TempControl::updateEstimatedPeak(uint16_t timeLimit, temperature estimator, uint16_t sinceIdle)
 {
 	uint16_t activeTime = min(timeLimit, sinceIdle); // heat or cool time in seconds
@@ -532,21 +439,21 @@ void TempControl::decreaseEstimator(temperature * estimator, temperature error){
 /**
  * \brief Get time since the cooler was last ran
  */
-uint16_t TempControl::timeSinceCooling(){
+ticks_seconds_t TempControl::timeSinceCooling(){
 	return ticks.timeSince(lastCoolTime);
 }
 
 /**
  * \brief Get time since the heater was last ran
  */
-uint16_t TempControl::timeSinceHeating(){
+ticks_seconds_t TempControl::timeSinceHeating(){
 	return ticks.timeSince(lastHeatTime);
 }
 
 /**
  * \brief Get time that the controller has been neither cooling nor heating
  */
-uint16_t TempControl::timeSinceIdle(){
+ticks_seconds_t TempControl::timeSinceIdle(){
 	return ticks.timeSince(lastIdleTime);
 }
 
@@ -833,4 +740,164 @@ void TempControl::getControlSettingsDoc(JsonDocument& doc) {
   doc["fridgeSet"] = tempToDouble(cs.fridgeSetting, Config::TempFormat::fixedPointDecimals);
   doc["heatEst"] = tempToDouble(cs.heatEstimator, Config::TempFormat::fixedPointDecimals);
   doc["coolEst"] = tempToDouble(cs.coolEstimator, Config::TempFormat::fixedPointDecimals);
+}
+
+
+/**
+ * \brief Check if we have sensors required to do control
+ *
+ * This ensures that based on our configured control mode, we have all of the
+ * data needed to do the control loop.
+ */
+bool TempControl::sensorsAreValid() {
+  return cs.fridgeSetting != INVALID_TEMP &&
+		fridgeSensor->isConnected() &&
+		!(!beerSensor->isConnected() && modeIsBeer());
+}
+
+
+/**
+ * \brief Send a notification if the state of the door has changed
+ *
+ * If the door state is unchanged, no alert is sent.
+ */
+void TempControl::alertDoorStateChange() {
+  const bool newDoorOpen = door->sense();
+
+	if(newDoorOpen!=doorOpen) {
+		doorOpen = newDoorOpen;
+		String annotation = "Fridge door ";
+		annotation += doorOpen ? "opened" : "closed";
+		piLink.printTemperatures(0, annotation.c_str());
+	}
+}
+
+
+/**
+ * \brief Update the control state while we are cooling
+ *
+ * Called by updateState() when we are in the appropriate state
+ */
+void TempControl::updateStateWhileCooling() {
+  doNegPeakDetect = true;
+  lastCoolTime = ticks.seconds();
+	auto sinceIdle = timeSinceIdle();
+
+  updateEstimatedPeak(cc.maxCoolTimeForEstimate, cs.coolEstimator, sinceIdle);
+  state = ControlState::COOLING; // set to cooling here, so the display of COOLING/COOLING_MIN_TIME is correct
+
+	temperature beerFast = beerSensor->readFastFiltered();
+
+  // stop cooling when estimated fridge temp peak lands on target or if beer is already too cold (1/2 sensor bit idle zone)
+  if(cv.estimatedPeak <= cs.fridgeSetting || (cs.mode != ControlMode::fridgeConstant && beerFast < (cs.beerSetting - 16))){
+    if(sinceIdle > MIN_COOL_ON_TIME){
+      cv.negPeakEstimate = cv.estimatedPeak; // remember estimated peak when I switch to IDLE, to adjust estimator later
+      state=ControlState::IDLE;
+    }
+    else{
+      state = ControlState::COOLING_MIN_TIME;
+    }
+  }
+}
+
+
+/**
+ * \brief Update the control state while we are heating
+ *
+ * Called by updateState() when we are in the appropriate state
+ */
+void TempControl::updateStateWhileHeating() {
+  doPosPeakDetect = true;
+  lastHeatTime = ticks.seconds();
+	auto sinceIdle = timeSinceIdle();
+
+  updateEstimatedPeak(cc.maxHeatTimeForEstimate, cs.heatEstimator, sinceIdle);
+  state = ControlState::HEATING; // reset to heating here, so the display of HEATING/HEATING_MIN_TIME is correct
+
+	temperature beerFast = beerSensor->readFastFiltered();
+
+  // stop heating when estimated fridge temp peak lands on target or if beer is already too warm (1/2 sensor bit idle zone)
+  if(cv.estimatedPeak >= cs.fridgeSetting || (cs.mode != ControlMode::fridgeConstant && beerFast > (cs.beerSetting + 16))){
+    if(sinceIdle > MIN_HEAT_ON_TIME){
+      cv.posPeakEstimate=cv.estimatedPeak; // remember estimated peak when I switch to IDLE, to adjust estimator later
+      state=ControlState::IDLE;
+    }
+    else{
+      state = ControlState::HEATING_MIN_TIME;
+    }
+  }
+}
+
+
+/**
+ * \brief Update the control state while we are idle.
+ *
+ * Idle in this context does not only mean ControlState::IDLE, but any state
+ * that is not heating nor cooling.
+ *
+ * Called by updateState() when we are in the appropriate state
+ */
+void TempControl::updateStateWhileIdle() {
+  lastIdleTime = ticks.seconds();
+  // set waitTime to zero. It will be set to the maximum required waitTime below when wait is in effect.
+  resetWaitTime();
+
+	auto sinceCooling = timeSinceCooling();
+	auto sinceHeating = timeSinceHeating();
+
+	temperature fridgeFast = fridgeSensor->readFastFiltered();
+	temperature beerFast = beerSensor->readFastFiltered();
+
+  if(fridgeFast > (cs.fridgeSetting+cc.idleRangeHigh) ){  // fridge temperature is too high
+    tempControl.updateWaitTime(MIN_SWITCH_TIME, sinceHeating);
+    if(cs.mode==ControlMode::fridgeConstant){
+      tempControl.updateWaitTime(MIN_COOL_OFF_TIME_FRIDGE_CONSTANT, sinceCooling);
+    }
+    else{
+      if(beerFast < (cs.beerSetting + 16) ){ // If beer is already under target, stay/go to idle. 1/2 sensor bit idle zone
+        state = ControlState::IDLE; // beer is already colder than setting, stay in or go to idle
+        return;
+      }
+      tempControl.updateWaitTime(MIN_COOL_OFF_TIME, sinceCooling);
+    }
+
+    if(tempControl.cooler != &defaultActuator){
+      if(getWaitTime() > 0){
+        state = ControlState::WAITING_TO_COOL;
+      }
+      else{
+        state = ControlState::COOLING;
+      }
+    }
+  }
+  else if(fridgeFast < (cs.fridgeSetting+cc.idleRangeLow)){  // fridge temperature is too low
+    tempControl.updateWaitTime(MIN_SWITCH_TIME, sinceCooling);
+    tempControl.updateWaitTime(MIN_HEAT_OFF_TIME, sinceHeating);
+    if(cs.mode!=ControlMode::fridgeConstant){
+      if(beerFast > (cs.beerSetting - 16)){ // If beer is already over target, stay/go to idle. 1/2 sensor bit idle zone
+        state = ControlState::IDLE;  // beer is already warmer than setting, stay in or go to idle
+        return;
+      }
+    }
+    if(tempControl.heater != &defaultActuator || (cc.lightAsHeater && (tempControl.light != &defaultActuator))){
+      if(getWaitTime() > 0){
+        state = ControlState::WAITING_TO_HEAT;
+      }
+      else{
+        state = ControlState::HEATING;
+      }
+    }
+  }
+  else {
+    state = ControlState::IDLE; // within IDLE range, always go to IDLE
+    return;
+  }
+
+  if(state == ControlState::HEATING || state == ControlState::COOLING){
+    if(doNegPeakDetect == true || doPosPeakDetect == true){
+      // If peak detect is not finished, but the fridge wants to switch to heat/cool
+      // Wait for peak detection and display 'Await peak detect' on display
+      state = ControlState::WAITING_FOR_PEAK_DETECT;
+    }
+  }
 }
