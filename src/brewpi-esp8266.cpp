@@ -71,6 +71,7 @@ void handleReset()
     ESP.restart();
 }
 
+#ifndef UNIT_TEST
 /**
  * \brief Startup configuration
  *
@@ -149,6 +150,7 @@ void setup()
 
 	logDebug("init complete");
 }
+#endif //UNIT_TEST
 
 
 
@@ -213,6 +215,7 @@ void brewpiLoop()
 }
 
 
+#ifndef UNIT_TEST
 /**
  * \brief Main execution loop
  *
@@ -225,4 +228,4 @@ void loop() {
 	brewpiLoop();
 #endif
 }
-
+#endif //UNIT_TEST
