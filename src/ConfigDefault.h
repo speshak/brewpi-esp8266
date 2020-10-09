@@ -217,9 +217,6 @@
 
 #endif // ifndef BREWPI_BOARD
 
-#ifndef OPTIMIZE_GLOBAL
-#define OPTIMIZE_GLOBAL 1
-#endif
 
 /**
  * \def ONEWIRE_CRC8_TABLE

@@ -99,7 +99,6 @@ enum class ControlState : uint8_t {
   UNKNOWN  = UINT8_MAX, //!< An unknown state.
 };
 
-#define TC_STATE_MASK 0x7;	// 3 bits
 
 #if TEMP_CONTROL_STATIC
 #define TEMP_CONTROL_METHOD static
@@ -167,8 +166,6 @@ public:
 	TEMP_CONTROL_METHOD void loadConstants();
 	TEMP_CONTROL_METHOD void storeConstants();
 	TEMP_CONTROL_METHOD void loadDefaultConstants();
-
-	//TEMP_CONTROL_METHOD void loadSettingsAndConstants(void);
 
 	TEMP_CONTROL_METHOD uint16_t timeSinceCooling();
  	TEMP_CONTROL_METHOD uint16_t timeSinceHeating();
@@ -305,8 +302,6 @@ private:
 	TEMP_CONTROL_FIELD bool doPosPeakDetect; //!< True if the controller is doing positive peak detection
 	TEMP_CONTROL_FIELD bool doNegPeakDetect; //!< True if the controller is doing negative peak detection
 	TEMP_CONTROL_FIELD bool doorOpen; //!< True if the chamber door is open
-
-	friend class TempControlState;
 };
 
 extern TempControl tempControl;
