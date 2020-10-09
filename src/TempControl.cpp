@@ -726,6 +726,32 @@ void TempControl::setFridgeTemp(temperature newTemp){
 	eepromManager.storeTempSettings();
 }
 
+void TempControl::updateWaitTime(uint16_t newTimeLimit, uint16_t newTimeSince){
+  if(newTimeSince < newTimeLimit){
+    uint16_t newWaitTime = newTimeLimit - newTimeSince;
+    if(newWaitTime > waitTime){
+      waitTime = newWaitTime;
+    }
+  }
+}
+
+/**
+ * \brief Check if the current configured mode is Beer
+ */
+bool TempControl::modeIsBeer() {
+  return (cs.mode == ControlMode::beerConstant || cs.mode == ControlMode::beerProfile);
+}
+
+/**
+ * \brief Get the state to display on the LCD.
+ *
+ * If the chamber door is closed, this returns the value of getState().
+ * If the door is open, the `DOOR_OPEN` state is returned instead.
+ */
+ControlState TempControl::getDisplayState() {
+  return isDoorOpen() ? ControlState::DOOR_OPEN : getState();
+}
+
 /**
  * \brief Check if current state is cooling (or waiting to cool)
  */
