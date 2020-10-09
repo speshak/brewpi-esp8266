@@ -62,9 +62,15 @@ const uint16_t COOL_PEAK_DETECT_TIME = 1800;
 //! Time allowed for heating peak detection
 const uint16_t HEAT_PEAK_DETECT_TIME = 900;
 
-// These two structs are stored in and loaded from EEPROM
-// struct ControlSettings was moved to EepromStructs.h
-struct ControlVariables{
+/**
+ * \brief Variables used for temp control
+ *
+ * These values are stored in & loaded from EEPROM.
+ *
+ * @see ControlSettings
+ * @see ControlConstants
+ */
+struct ControlVariables {
 	temperature beerDiff;
 	long_temperature diffIntegral; // also uses 9 fraction bits, but more integer bits to prevent overflow
 	temperature beerSlope;
@@ -72,30 +78,29 @@ struct ControlVariables{
 	temperature i;
 	temperature d;
 	temperature estimatedPeak;
-	temperature negPeakEstimate; // last estimate
+	temperature negPeakEstimate; //!< Last estimate
 	temperature posPeakEstimate;
-	temperature negPeak; // last detected peak
+	temperature negPeak; //!< Last detected peak
 	temperature posPeak;
 };
 
-// struct ControlConstants was moved to EepromStructs.h
-
 
 /**
+ * \enum ControlState
  * \brief Temperature control states
+ * \ingroup tempcontrol
  */
 enum class ControlState : uint8_t {
 	IDLE,           //!< Neither heating, nor cooling
-	OFF,      //!< Disabled
+	OFF,            //!< Disabled
 	DOOR_OPEN,			//!< Fridge door open. Used by the Display only
 	HEATING,				//!< Calling for heat
 	COOLING,				//!< Calling for cool
-	WAITING_TO_COOL,	//!< Waiting to cool. (Compressor delay)
-	WAITING_TO_HEAT,			//!< Waiting to heat. (Compressor delay)
+	WAITING_TO_COOL,//!< Waiting to cool. (Compressor delay)
+	WAITING_TO_HEAT,//!< Waiting to heat. (Compressor delay)
 	WAITING_FOR_PEAK_DETECT,	//!< Waiting for peak detection
-	COOLING_MIN_TIME,			// 8
-	HEATING_MIN_TIME,			// 9
-	NUM_STATES,
+	COOLING_MIN_TIME,			//!< Waiting for the minimum cooling time to elapse, before returning to Idle
+	HEATING_MIN_TIME,			//!< Waiting for the minimum heating time to elapse, before returning to Idle
   UNKNOWN  = UINT8_MAX, //!< An unknown state.
 };
 
@@ -134,7 +139,7 @@ enum class ControlState : uint8_t {
 
 
 /**
- * Temperature control PID implmentation
+ * \brief Temperature control PID implementation
  *
  * This is the heart of the brewpi system.  It handles turning on and off heat
  * & cool to track a target temperature.
@@ -180,7 +185,7 @@ public:
 	TEMP_CONTROL_METHOD void setFridgeTemp(temperature newTemp);
 
   /**
-   * Get the current temperature of the room probe.
+   * \brief Get the current temperature of the room probe.
    */
 	TEMP_CONTROL_METHOD temperature getRoomTemp() {
 		return ambientSensor->read();
@@ -189,28 +194,28 @@ public:
 	TEMP_CONTROL_METHOD void setMode(ControlMode newMode, bool force=false);
 
   /**
-   * Get current temp control mode
+   * \brief Get current temp control mode
    */
 	TEMP_CONTROL_METHOD ControlMode getMode() {
 		return cs.mode;
 	}
 
   /**
-   * Get the current state of the control system.
+   * \brief Get the current state of the control system.
    */
 	TEMP_CONTROL_METHOD ControlState getState(){
 		return state;
 	}
 
   /**
-   * Get the current value of the elapsed wait time couter.
+   * \brief Get the current value of the elapsed wait time counter.
    */
 	TEMP_CONTROL_METHOD uint16_t getWaitTime(){
 		return waitTime;
 	}
 
   /**
-   * Reset the elapsed wait time counter back to 0.
+   * \brief Reset the elapsed wait time counter back to 0.
    */
 	TEMP_CONTROL_METHOD void resetWaitTime(){
 		waitTime = 0;
@@ -230,7 +235,7 @@ public:
 	TEMP_CONTROL_METHOD bool stateIsHeating();
 
   /**
-   * Check if the current configured mode is Beer
+   * \brief Check if the current configured mode is Beer
    */
 	TEMP_CONTROL_METHOD bool modeIsBeer(){
 		return (cs.mode == ControlMode::beerConstant || cs.mode == ControlMode::beerProfile);
@@ -239,7 +244,7 @@ public:
 	TEMP_CONTROL_METHOD void initFilters();
 
   /**
-   * Check if the door is currently open
+   * \brief Check if the door is currently open
    */
 	TEMP_CONTROL_METHOD bool isDoorOpen() { return doorOpen; }
 
@@ -274,12 +279,12 @@ public:
 	TEMP_CONTROL_FIELD Sensor<bool>* door; //!< Chamber door sensor
 
 	// Control parameters
-	TEMP_CONTROL_FIELD ControlConstants cc;
-	TEMP_CONTROL_FIELD ControlSettings cs;
-	TEMP_CONTROL_FIELD ControlVariables cv;
+	TEMP_CONTROL_FIELD ControlConstants cc; //!< PID control constants
+	TEMP_CONTROL_FIELD ControlSettings cs; //!< Control settings
+	TEMP_CONTROL_FIELD ControlVariables cv; //!< PID control variables
 
 	/**
-   * Defaults for control constants.
+   * \brief Defaults for control constants.
    * Defined in cpp file, copied with memcpy_p
    */
 	static const ControlConstants ccDefaults;
@@ -294,7 +299,7 @@ private:
 	TEMP_CONTROL_FIELD uint16_t lastIdleTime; //!< Last time the controller was idle
 	TEMP_CONTROL_FIELD uint16_t lastHeatTime; //!< Last time that the controller was heating
 	TEMP_CONTROL_FIELD uint16_t lastCoolTime; //!< Last time that the controller was cooling
-	TEMP_CONTROL_FIELD uint16_t waitTime;
+	TEMP_CONTROL_FIELD uint16_t waitTime; //!< Amount of time to continue waiting, when in a wait state
 
 
 	// State variables

@@ -71,13 +71,19 @@ private:
 
 /** @} */
 
+
+/**
+ * \enum ControlMode
+ * \brief Modes of operation
+ * \ingroup tempcontrol
+ */
 enum class ControlMode : char {
-  fridgeConstant = 'f',
-  fridgeProfile = 'F',
-  beerConstant = 'b',
-  beerProfile = 'p',
-  off = 'o',
-  test = 't',
+  fridgeConstant = 'f', //!< Hold fridge at temperature
+  fridgeProfile = 'F', //!< Hold fridge at temperature according to profile
+  beerConstant = 'b', //!< Hold beer at temperature
+  beerProfile = 'p', //!< Hold beer at temperature according to profile
+  off = 'o', //!< Disable temp control
+  test = 't', //!< Enable test mode
 };
 
 

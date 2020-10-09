@@ -24,7 +24,7 @@
 #include "Ticks.h"
 
 /**
- * An Actuator wrapper that automaically turns the wrapped Actuator off after
+ * \brief An Actuator wrapper that automaically turns the wrapped Actuator off after
  * an elapsed timeout
  */
 class AutoOffActuator : public Actuator {

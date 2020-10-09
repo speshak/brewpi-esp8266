@@ -87,7 +87,9 @@ uint16_t TempControl::waitTime;
 
 
 /**
- * Initialize the temp control system.  Done at startup.
+ * \brief Initialize the temp control system.
+ *
+ * Done at startup.
  */
 void TempControl::init(){
 	state=ControlState::IDLE;
@@ -118,7 +120,7 @@ void TempControl::init(){
 
 
 /**
- * Reset the peak detect flags
+ * \brief Reset the peak detect flags
  */
 void TempControl::reset(){
 	doPosPeakDetect=false;
@@ -127,9 +129,9 @@ void TempControl::reset(){
 
 
 /**
- * Get an update from a sensor.
+ * \brief Get an update from a sensor.
  *
- * @param sensor - Sensor to check
+ * \param sensor - Sensor to check
  */
 void updateSensor(TempSensor* sensor) {
 	sensor->update();
@@ -139,7 +141,7 @@ void updateSensor(TempSensor* sensor) {
 }
 
 /**
- * Update all installed temp sensors.
+ * \brief Update all installed temp sensors.
  *
  * This updates beer, fridge & room sensors.
  */
@@ -503,7 +505,7 @@ void TempControl::detectPeaks(){
 }
 
 /**
- * Increase the estimator value.
+ * \brief Increase the estimator value.
  *
  * Increase estimator at least 20%, max 50%s
  */
@@ -517,7 +519,7 @@ void TempControl::increaseEstimator(temperature * estimator, temperature error){
 }
 
 /**
- * Decrease the esimator value.
+ * \brief Decrease the esimator value.
  *
  * Decrease estimator at least 16.7% (1/1.2), max 33.3% (1/1.5)
  */
@@ -528,28 +530,28 @@ void TempControl::decreaseEstimator(temperature * estimator, temperature error){
 }
 
 /**
- * Get time since the cooler was last ran
+ * \brief Get time since the cooler was last ran
  */
 uint16_t TempControl::timeSinceCooling(){
 	return ticks.timeSince(lastCoolTime);
 }
 
 /**
- * Get time since the heater was last ran
+ * \brief Get time since the heater was last ran
  */
 uint16_t TempControl::timeSinceHeating(){
 	return ticks.timeSince(lastHeatTime);
 }
 
 /**
- * Get time that the controller has been neither cooling nor heating
+ * \brief Get time that the controller has been neither cooling nor heating
  */
 uint16_t TempControl::timeSinceIdle(){
 	return ticks.timeSince(lastIdleTime);
 }
 
 /**
- * Load default settings
+ * \brief Load default settings
  */
 void TempControl::loadDefaultSettings(){
     cs.setDefaults();
@@ -561,7 +563,7 @@ void TempControl::loadDefaultSettings(){
 }
 
 /**
- * Store control constants to EEPROM.
+ * \brief Store control constants to EEPROM.
  */
 void TempControl::storeConstants() {
     // Now that control constants are an object, use that for loading/saving
@@ -569,7 +571,7 @@ void TempControl::storeConstants() {
 }
 
 /**
- * Load control constants from EEPROM
+ * \brief Load control constants from EEPROM
  */
 void TempControl::loadConstants(){
   // Now that control constants are an object, use that for loading/saving
@@ -579,7 +581,8 @@ void TempControl::loadConstants(){
 
 
 /**
- * Write new settings to EEPROM to be able to reload them after a reset
+ * \brief Write new settings to EEPROM to be able to reload them after a reset
+ *
  * The update functions only write to EEPROM if the value has changed
  */
 void TempControl::storeSettings(){
@@ -588,7 +591,7 @@ void TempControl::storeSettings(){
 }
 
 /**
- * Read settings from EEPROM
+ * \brief Read settings from EEPROM
  */
 void TempControl::loadSettings(){
   cs.loadFromSpiffs();
@@ -598,7 +601,7 @@ void TempControl::loadSettings(){
 }
 
 /**
- * Load default control constants
+ * \brief Load default control constants
  */
 void TempControl::loadDefaultConstants(){
   // Rather than using memcpy to copy over a default struct of settings, use the class method
@@ -608,7 +611,7 @@ void TempControl::loadDefaultConstants(){
 }
 
 /**
- * Initialize the fridge & beer sensor filter coefficients
+ * \brief Initialize the fridge & beer sensor filter coefficients
  *
  * @see CascadedFilter
  */
@@ -624,7 +627,7 @@ void TempControl::initFilters()
 
 
 /**
- * Set control mode
+ * \brief Set control mode
  *
  * @param newMode - New control mode
  * @param force - Set the mode & reset control state, even if controler is already in the requested mode
@@ -649,7 +652,7 @@ void TempControl::setMode(ControlMode newMode, bool force){
 
 
 /**
- * Get current beer temperature
+ * \brief Get current beer temperature
  */
 temperature TempControl::getBeerTemp(){
 	if(beerSensor->isConnected()){
@@ -661,7 +664,7 @@ temperature TempControl::getBeerTemp(){
 }
 
 /**
- * Get current beer target temperature
+ * \brief Get current beer target temperature
  */
 temperature TempControl::getBeerSetting(){
 	return cs.beerSetting;
@@ -669,7 +672,7 @@ temperature TempControl::getBeerSetting(){
 
 
 /**
- * Get current fridge temperature
+ * \brief Get current fridge temperature
  */
 temperature TempControl::getFridgeTemp(){
 	if(fridgeSensor->isConnected()){
@@ -681,7 +684,7 @@ temperature TempControl::getFridgeTemp(){
 }
 
 /**
- * Get current fridge target temperature
+ * \brief Get current fridge target temperature
  */
 temperature TempControl::getFridgeSetting(){
 	return cs.fridgeSetting;
@@ -689,7 +692,7 @@ temperature TempControl::getFridgeSetting(){
 
 
 /**
- * Set desired beer temperature
+ * \brief Set desired beer temperature
  *
  * @param newTemp - new target temperature
  */
@@ -711,9 +714,9 @@ void TempControl::setBeerTemp(temperature newTemp){
 }
 
 /**
- * Set desired fridge temperature
+ * \brief Set desired fridge temperature
  *
- * @param newTemp - New target temperature
+ * \param newTemp - New target temperature
  */
 void TempControl::setFridgeTemp(temperature newTemp){
 	cs.fridgeSetting = newTemp;
@@ -724,14 +727,14 @@ void TempControl::setFridgeTemp(temperature newTemp){
 }
 
 /**
- * Check if current state is cooling (or waiting to cool)
+ * \brief Check if current state is cooling (or waiting to cool)
  */
 bool TempControl::stateIsCooling(){
 	return (state==ControlState::COOLING || state==ControlState::COOLING_MIN_TIME);
 }
 
 /**
- * Check if current state is heating (or waiting to heat)
+ * \brief Check if current state is heating (or waiting to heat)
  */
 bool TempControl::stateIsHeating(){
 	return (state==ControlState::HEATING || state==ControlState::HEATING_MIN_TIME);

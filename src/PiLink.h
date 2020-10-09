@@ -37,6 +37,8 @@ class DeviceConfig;
 /**
  * \brief Interface between brewpi controller and the outside world (Commonly a
  * RaspberryPi, hence the name).
+ *
+ * \tparam StreamType - A Stream implementation that is used to communicate with the controlling system.
  */
 template <typename StreamType> class PiLink : public PiStream<StreamType> {
   static_assert(std::is_base_of<Stream, StreamType>::value, "StreamType must be a Stream");

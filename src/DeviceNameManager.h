@@ -28,9 +28,14 @@
  */
 struct DeviceName
 {
-  String name; //!< Human readable name
-  String device; //!< Device ID
+  String name; //!< Human readble name of the device
+  String device; //!< Device ID (for OneWire, the bus address)
 
+  /**
+   * \brief Constructor
+   * \param device - Device ID
+   * \param name - Human readable name
+   */
   DeviceName(String device, String name): name(name), device(device){}
 };
 

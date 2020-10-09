@@ -22,22 +22,31 @@
 
 #include "Brewpi.h"
 
-typedef uint32_t ticks_millis_t;
-typedef uint32_t ticks_micros_t;
-typedef uint16_t ticks_seconds_t;
-typedef uint8_t ticks_seconds_tiny_t;
-
 /**
- * Ticks - interface to a millisecond timer
+ * \file Ticks.h
+ * \defgroup ticks Ticks
  *
- * With more code space, Ticks would have been a virtual base class, so all implementations can easily provide the same interface.
- * Here, the different implementations have no common (virtual) base class to save code space. 
+ * \brief Interface to a millisecond timer
+ *
+ * With more code space, Ticks would have been a virtual base class, so all
+ * implementations can easily provide the same interface.  Here, the different
+ * implementations have no common (virtual) base class to save code space.
  * Instead, a typedef is used to compile-time select the implementation to use.
  * If that implementation doesn't implement the Ticks interface as expected, it will fail to compile.
+ *
+ * \addtogroup ticks
+ * @{
  */
 
+typedef uint32_t ticks_millis_t; //!< Time in milliseconds
+typedef uint32_t ticks_micros_t; //!< Time in microseconds
+typedef uint16_t ticks_seconds_t; //!< Time in seconds
+typedef uint8_t ticks_seconds_tiny_t; //!< A small time span, in seconds
+
+
 /**
- * A Ticks implementation that increments the millis count each time it is called.
+ * \brief A Ticks implementation that increments the millis count each time it is called.
+ *
  * This is used for testing.
  */
 class MockTicks {
@@ -55,8 +64,11 @@ private:
 };
 
 /**
- * Externally provided millis timer. The calling code takes care of advancing the timer by calling setMillis or incMillis.
- * This is used for testing and also by the simulator to provide simulated time.
+ * \brief Externally provided millis timer.
+ *
+ * The calling code takes care of advancing the timer by calling setMillis or
+ * incMillis.  This is used for testing and also by the simulator to provide
+ * simulated time.
  */
 class ExternalTicks {
 	public:
@@ -75,8 +87,10 @@ private:
 
 
 /**
- * A delay class that does nothing.
- * In the AVR simulator, delays using millis() take a very long time. Using this class makes it possible to step through the code.
+ * \brief A delay class that does nothing.
+ *
+ * In the AVR simulator, delays using millis() take a very long time. Using
+ * this class makes it possible to step through the code.
  */
 class NoOpDelay {
 public:	
@@ -121,3 +135,5 @@ typedef HardwareDelay DelayImpl;
 #endif
 
 extern DelayImpl wait;
+
+/** @} */

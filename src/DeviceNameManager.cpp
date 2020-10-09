@@ -70,6 +70,7 @@ String DeviceNameManager::getDeviceName(const char* device) {
 
 /**
  * \brief Get the Filename that contains the device human name metadata for a given device.
+ * \param filename - Buffer to write filename into
  * \param device - The identifier for the device, most commonly the OneWire device address (in hex)
  */
 inline void DeviceNameManager::deviceNameFilename(char* filename, const char* device) {

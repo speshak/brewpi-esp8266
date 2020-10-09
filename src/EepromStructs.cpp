@@ -11,7 +11,12 @@
 #include "JsonKeys.h"
 
 
-
+/**
+ * \brief Write JSON data to EEPROM
+ *
+ * \param filename - EEPROM filename to write data to
+ * \param json_doc - JsonDocument to write
+ */
 void JSONSaveable::writeJsonToFile(const char *filename, const ArduinoJson::JsonDocument& json_doc) {
     File file_out = SPIFFS.open(filename, "w");
     if (!file_out) {
@@ -27,6 +32,11 @@ void JSONSaveable::writeJsonToFile(const char *filename, const ArduinoJson::Json
 }
 
 
+/**
+ * \brief Read JSON data from EEPROM
+ *
+ * \param filename - EEPROM filename to read data from
+ */
 ArduinoJson::DynamicJsonDocument JSONSaveable::readJsonFromFile(const char *filename) {
     DynamicJsonDocument json_doc(2048);
 
