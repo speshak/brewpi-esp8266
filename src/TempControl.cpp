@@ -65,9 +65,10 @@ ControlState TempControl::state;
 bool TempControl::doPosPeakDetect;
 bool TempControl::doNegPeakDetect;
 bool TempControl::doorOpen;
-	
-	// keep track of beer setting stored in EEPROM
+
+// keep track of temp settings stored in EEPROM
 temperature TempControl::storedBeerSetting;
+temperature TempControl::storedFridgeSetting;
 
 // Timers
 ticks_seconds_t TempControl::lastIdleTime;
@@ -539,14 +540,15 @@ void TempControl::initFilters()
  * @param newMode - New control mode
  * @param force - Set the mode & reset control state, even if controler is already in the requested mode
  */
-void TempControl::setMode(ControlMode newMode, bool force){
+void TempControl::setMode(const ControlMode newMode, bool force){
 	logDebug("TempControl::setMode from %c to %c", cs.mode, newMode);
-	
+
 	if(newMode != cs.mode || state == ControlState::WAITING_TO_HEAT ||
-      state == ControlState::WAITING_TO_COOL || state == ControlState::WAITING_FOR_PEAK_DETECT){
+    state == ControlState::WAITING_TO_COOL || state == ControlState::WAITING_FOR_PEAK_DETECT){
 		state = ControlState::IDLE;
 		force = true;
 	}
+
 	if (force) {
 		cs.mode = newMode;
 		if(newMode == ControlMode::off){
@@ -603,14 +605,17 @@ temperature TempControl::getFridgeSetting(){
  *
  * @param newTemp - new target temperature
  */
-void TempControl::setBeerTemp(temperature newTemp){
-	temperature oldBeerSetting = cs.beerSetting;
-	cs.beerSetting= newTemp;
+void TempControl::setBeerTemp(const temperature newTemp){
+	const temperature oldBeerSetting = cs.beerSetting;
+	cs.beerSetting = newTemp;
+
 	if(abs(oldBeerSetting - newTemp) > intToTempDiff(1)/2){ // more than half degree C difference with old setting
 		reset(); // reset controller
 	}
+
 	updatePID();
 	updateState();
+
 	if(cs.mode != ControlMode::beerProfile || abs(storedBeerSetting - newTemp) > intToTempDiff(1)/4){
 		// more than 1/4 degree C difference with EEPROM
 		// Do not store settings every time in profile mode, because EEPROM has limited number of write cycles.
@@ -625,17 +630,29 @@ void TempControl::setBeerTemp(temperature newTemp){
  *
  * \param newTemp - New target temperature
  */
-void TempControl::setFridgeTemp(temperature newTemp){
+void TempControl::setFridgeTemp(const temperature newTemp){
+	const temperature oldFridgeSetting = cs.fridgeSetting;
 	cs.fridgeSetting = newTemp;
-	reset(); // reset peak detection and PID
+
+	if(abs(oldFridgeSetting - newTemp) > intToTempDiff(1)/2){ // more than half degree C difference with old setting
+    reset(); // reset peak detection and PID
+  }
+
 	updatePID();
 	updateState();
-	eepromManager.storeTempSettings();
+
+	if(cs.mode != ControlMode::fridgeProfile || abs(storedFridgeSetting - newTemp) > intToTempDiff(1)/4){
+		// more than 1/4 degree C difference with EEPROM
+		// Do not store settings every time in profile mode, because EEPROM has limited number of write cycles.
+		// A temperature ramp would cause a lot of writes
+		// If Raspberry Pi is connected, it will update the settings anyway. This is just a safety feature.
+		eepromManager.storeTempSettings();
+	}
 }
 
-void TempControl::updateWaitTime(uint16_t newTimeLimit, uint16_t newTimeSince){
+void TempControl::updateWaitTime(const ticks_seconds_t newTimeLimit, const ticks_seconds_t newTimeSince){
   if(newTimeSince < newTimeLimit){
-    uint16_t newWaitTime = newTimeLimit - newTimeSince;
+    const ticks_seconds_t newWaitTime = newTimeLimit - newTimeSince;
     if(newWaitTime > waitTime){
       waitTime = newWaitTime;
     }

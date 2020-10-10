@@ -243,6 +243,10 @@ void LcdDisplay::printMode(){
 			lcd.print_P(STR_Fridge_);
 			lcd.print_P(STR_Const_);
 			break;
+    case ControlMode::fridgeProfile:
+			lcd.print_P(STR_Fridge_);
+			lcd.print_P(PSTR("Profile"));
+			break;
     case ControlMode::beerConstant:
 			lcd.print_P(STR_Beer_);
 			lcd.print_P(STR_Const_);

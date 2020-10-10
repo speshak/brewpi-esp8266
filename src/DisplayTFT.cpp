@@ -247,6 +247,9 @@ void LcdDisplay::printMode(){
         case ControlMode::fridgeConstant:
             tft.print("Fridge Constant");
             break;
+        case ControlMode::fridgeProfile:
+            tft.print("Fridge Profile");
+            break;
         case ControlMode::beerConstant:
             tft.print("Beer Constant");
             break;

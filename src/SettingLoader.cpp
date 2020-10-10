@@ -185,7 +185,7 @@ void SettingLoader::setBeerSetting(const char *val) {
   String annotation = "Beer temp set to ";
   annotation += val;
 
-  temperature newTemp = stringToTemp(val);
+  const temperature newTemp = stringToTemp(val);
 
   if (tempControl.cs.mode == ControlMode::beerProfile) {
     // this excludes gradual updates under 0.2 degrees
@@ -196,9 +196,7 @@ void SettingLoader::setBeerSetting(const char *val) {
     annotation += " in web interface";
   }
 
-  if (annotation.length() > 0)
-    piLink.sendStateNotification(annotation.c_str());
-
+  piLink.sendStateNotification(annotation.c_str());
   tempControl.setBeerTemp(newTemp);
 }
 
@@ -207,14 +205,20 @@ void SettingLoader::setBeerSetting(const char *val) {
  * @param val - New temp value
  */
 void SettingLoader::setFridgeSetting(const char *val) {
-  temperature newTemp = stringToTemp(val);
-  if (tempControl.cs.mode == ControlMode::fridgeConstant) {
-    String annotation = "Fridge temp set to ";
-    annotation += val;
-    annotation += " in web interface";
+  String annotation = "Fridge temp set to ";
+  annotation += val;
 
-    piLink.sendStateNotification(nullptr, annotation.c_str());
+  const temperature newTemp = stringToTemp(val);
+
+  if (tempControl.cs.mode == ControlMode::fridgeProfile) {
+    // this excludes gradual updates under 0.2 degrees
+    if (abs(newTemp - tempControl.cs.fridgeSetting) > 100) {
+      annotation += " by temperature profile";
+    }
+  } else {
+    annotation += " in web interface";
   }
 
+  piLink.sendStateNotification(annotation.c_str());
   tempControl.setFridgeTemp(newTemp);
 }

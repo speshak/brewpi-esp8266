@@ -178,11 +178,11 @@ public:
 
 	TEMP_CONTROL_METHOD temperature getBeerTemp();
 	TEMP_CONTROL_METHOD temperature getBeerSetting();
-	TEMP_CONTROL_METHOD void setBeerTemp(temperature newTemp);
+	TEMP_CONTROL_METHOD void setBeerTemp(const temperature newTemp);
 
 	TEMP_CONTROL_METHOD temperature getFridgeTemp();
 	TEMP_CONTROL_METHOD temperature getFridgeSetting();
-	TEMP_CONTROL_METHOD void setFridgeTemp(temperature newTemp);
+	TEMP_CONTROL_METHOD void setFridgeTemp(const temperature newTemp);
 
   /**
    * \brief Get the current temperature of the room probe.
@@ -191,7 +191,7 @@ public:
 		return ambientSensor->read();
 	}
 
-	TEMP_CONTROL_METHOD void setMode(ControlMode newMode, bool force=false);
+	TEMP_CONTROL_METHOD void setMode(const ControlMode newMode, bool force=false);
 
   /**
    * \brief Get current temp control mode
@@ -210,7 +210,7 @@ public:
   /**
    * \brief Get the current value of the elapsed wait time counter.
    */
-	TEMP_CONTROL_METHOD uint16_t getWaitTime(){
+	TEMP_CONTROL_METHOD ticks_seconds_t getWaitTime(){
 		return waitTime;
 	}
 
@@ -221,7 +221,7 @@ public:
 		waitTime = 0;
 	}
 
-	TEMP_CONTROL_METHOD void updateWaitTime(uint16_t newTimeLimit, uint16_t newTimeSince);
+	TEMP_CONTROL_METHOD void updateWaitTime(const ticks_seconds_t newTimeLimit, const ticks_seconds_t newTimeSince);
 
 
 	TEMP_CONTROL_METHOD bool stateIsCooling();
@@ -277,10 +277,8 @@ public:
 	static const ControlConstants ccDefaults;
 
 private:
-	/**
-   * Keep track of beer setting stored in EEPROM
-   */
-	TEMP_CONTROL_FIELD temperature storedBeerSetting;
+	TEMP_CONTROL_FIELD temperature storedBeerSetting; //!< Beer setting stored in EEPROM
+	TEMP_CONTROL_FIELD temperature storedFridgeSetting; //!< Fridge setting stored in EEPROM
 
 	// Timers
 	TEMP_CONTROL_FIELD ticks_seconds_t lastIdleTime; //!< Last time the controller was idle
