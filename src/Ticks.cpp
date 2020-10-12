@@ -22,7 +22,7 @@
 #include "Ticks.h"
 
 // return time that has passed since timeStamp, take overflow into account
-inline ticks_seconds_t timeSince(ticks_seconds_t currentTime, ticks_seconds_t previousTime){
+inline ticks_seconds_t timeSince(const ticks_seconds_t currentTime, const ticks_seconds_t previousTime){
 	if(currentTime>=previousTime){
 		return currentTime - previousTime;
 	}
@@ -33,7 +33,7 @@ inline ticks_seconds_t timeSince(ticks_seconds_t currentTime, ticks_seconds_t pr
 }
 
 // return time that has passed since timeStamp, take overflow into account
-ticks_seconds_t ExternalTicks::timeSince(ticks_seconds_t previousTime){
+ticks_seconds_t ExternalTicks::timeSince(const ticks_seconds_t previousTime){
 	ticks_seconds_t currentTime = ticks.seconds();
 	return ::timeSince(currentTime, previousTime);
 }
@@ -42,7 +42,7 @@ ticks_seconds_t ExternalTicks::timeSince(ticks_seconds_t previousTime){
 #ifdef ARDUINO
 
 // return time that has passed since timeStamp, take overflow into account
-ticks_seconds_t HardwareTicks::timeSince(ticks_seconds_t previousTime){
+ticks_seconds_t HardwareTicks::timeSince(const ticks_seconds_t previousTime){
 	ticks_seconds_t currentTime = ticks.seconds();
 	return ::timeSince(currentTime, previousTime);
 }

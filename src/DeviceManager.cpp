@@ -69,7 +69,7 @@ OneWire DeviceManager::fridgeSensorBus(fridgeSensorPin);
  */
 constexpr auto deviceDefinitionJsonSize = 256;
 
-OneWire* DeviceManager::oneWireBus(uint8_t pin) {
+OneWire* DeviceManager::oneWireBus(const uint8_t pin) {
 #if !BREWPI_SIMULATE
 #ifdef oneWirePin
 	if (pin == oneWirePin)

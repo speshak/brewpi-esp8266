@@ -180,32 +180,32 @@ inline temperature_precise tempRegularToPrecise(temperature val) {
 
 #endif
 
-char * tempToString(char * s, long_temperature rawValue, uint8_t numDecimals, uint8_t maxLength);
+char * tempToString(char * s, long_temperature rawValue, const uint8_t numDecimals, const uint8_t maxLength);
 temperature stringToTemp(const char * string);
 
-char * tempDiffToString(char * s, long_temperature rawValue, uint8_t numDecimals, uint8_t maxLength);
+char * tempDiffToString(char * s, long_temperature rawValue, const uint8_t numDecimals, const uint8_t maxLength);
 temperature stringToTempDiff(const char * string);
 
-char * fixedPointToString(char * s, long_temperature rawValue, uint8_t numDecimals, uint8_t maxLength);
-char * fixedPointToString(char * s, temperature rawValue, uint8_t numDecimals, uint8_t maxLength);
+char * fixedPointToString(char * s, long_temperature rawValue, const uint8_t numDecimals, const uint8_t maxLength);
+char * fixedPointToString(char * s, temperature rawValue, const uint8_t numDecimals, const uint8_t maxLength);
 long_temperature stringToFixedPoint(const char * numberString);
 
 int fixedToTenths(long_temperature temperature);
-temperature tenthsToFixed(int temperature);
+temperature tenthsToFixed(const int temperature);
 
-temperature constrainTemp(long_temperature val, temperature lower, temperature upper);
+temperature constrainTemp(long_temperature val, const temperature lower, const temperature upper);
 
 temperature constrainTemp16(long_temperature val);
 
 
-temperature multiplyFactorTemperatureLong(temperature factor, long_temperature b);
-temperature multiplyFactorTemperatureDiffLong(temperature factor, long_temperature b);
-temperature multiplyFactorTemperature(temperature factor, temperature b);
-temperature multiplyFactorTemperatureDiff(temperature factor, temperature b);
+temperature multiplyFactorTemperatureLong(const temperature factor, const long_temperature b);
+temperature multiplyFactorTemperatureDiffLong(const temperature factor, const long_temperature b);
+temperature multiplyFactorTemperature(const temperature factor, const temperature b);
+temperature multiplyFactorTemperatureDiff(const temperature factor, const temperature b);
 
 
-long_temperature convertToInternalTempImpl(long_temperature rawTemp, bool addOffset);
-long_temperature convertFromInternalTempImpl(long_temperature rawTemp, bool addOffset);
+long_temperature convertToInternalTempImpl(long_temperature rawTemp, const bool addOffset);
+long_temperature convertFromInternalTempImpl(long_temperature rawTemp, const bool addOffset);
 
 inline long_temperature convertToInternalTempDiff(long_temperature rawTempDiff) {
     return convertToInternalTempImpl(rawTempDiff, false);
@@ -224,6 +224,6 @@ inline long_temperature convertFromInternalTemp(long_temperature rawTemp) {
 }
 
 
-double tempToDouble(long_temperature rawTemp, uint8_t numDecimals);
+double tempToDouble(long_temperature rawTemp, const uint8_t numDecimals);
 
 /** @} */

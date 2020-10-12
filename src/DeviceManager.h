@@ -346,7 +346,7 @@ private:
 	static void* createDevice(DeviceConfig& config, DeviceType dc);
 	static void* createOneWireGPIO(DeviceConfig& config, DeviceType dt);
 
-	static OneWire* oneWireBus(uint8_t pin);
+	static OneWire* oneWireBus(const uint8_t pin);
 
 #ifdef ARDUINO
 

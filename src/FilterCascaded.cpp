@@ -34,7 +34,7 @@ CascadedFilter::CascadedFilter() {
  *
  * @param bValue new coefficient value
  */
-void CascadedFilter::setCoefficients(uint8_t bValue){
+void CascadedFilter::setCoefficients(const uint8_t bValue){
 	for(uint8_t i=0; i<numFilterSections; i++){
 		sections[i].setCoefficients(bValue);
 	}
@@ -44,7 +44,7 @@ void CascadedFilter::setCoefficients(uint8_t bValue){
 /**
  * \brief Adds a value and returns the most recent filter output
  */
-temperature CascadedFilter::add(temperature val){
+temperature CascadedFilter::add(const temperature val){
 	temperature_precise valDoublePrecision = tempRegularToPrecise(val);
 	valDoublePrecision = addDoublePrecision(valDoublePrecision);
 	// return output, shifted back to single precision
@@ -55,7 +55,7 @@ temperature CascadedFilter::add(temperature val){
 /**
  * \brief Add a precise temperature value to the filter
  */
-temperature_precise CascadedFilter::addDoublePrecision(temperature_precise val){
+temperature_precise CascadedFilter::addDoublePrecision(const temperature_precise val){
 	temperature_precise input = val;
 	// input is input for next section, which is the output of the previous section
 	for(uint8_t i=0; i<numFilterSections; i++){
@@ -92,7 +92,7 @@ temperature_precise CascadedFilter::readPrevOutputDoublePrecision(){
  *
  * @param val - Temperature to seed the filter with.
  */
-void CascadedFilter::init(temperature val){
+void CascadedFilter::init(const temperature val){
 	for(uint8_t i=0; i<numFilterSections; i++){
 		sections[i].init(val);
 	}

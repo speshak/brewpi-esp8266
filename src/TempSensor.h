@@ -106,11 +106,11 @@ class TempSensor {
 
 	temperature detectNegPeak();
 
-	void setFastFilterCoefficients(uint8_t b);
+	void setFastFilterCoefficients(const uint8_t b);
 
-	void setSlowFilterCoefficients(uint8_t b);
+	void setSlowFilterCoefficients(const uint8_t b);
 
-	void setSlopeFilterCoefficients(uint8_t b);
+	void setSlopeFilterCoefficients(const uint8_t b);
 
 	BasicTempSensor& sensor();
 

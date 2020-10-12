@@ -47,10 +47,10 @@ class CascadedFilter {
 	public:
 	CascadedFilter();
 	~CascadedFilter() {}
-	void init(temperature val);
-	void setCoefficients(uint8_t bValue);
-	temperature add(temperature val);
-	temperature_precise addDoublePrecision(temperature_precise val);
+	void init(const temperature val);
+	void setCoefficients(const uint8_t bValue);
+	temperature add(const temperature val);
+	temperature_precise addDoublePrecision(const temperature_precise val);
 	temperature readInput();
 
   /**

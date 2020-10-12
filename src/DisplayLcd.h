@@ -82,7 +82,7 @@ class LcdDisplay DISPLAY_SUPERCLASS
 	// print mode on the right location on the first line, after Mode:
 	DISPLAY_METHOD void printMode();
 
-	DISPLAY_METHOD void setDisplayFlags(uint8_t newFlags);
+	DISPLAY_METHOD void setDisplayFlags(const uint8_t newFlags);
 	DISPLAY_METHOD uint8_t getDisplayFlags() { return flags; };
 
 	// print beer temperature at the right place on the display
@@ -100,11 +100,11 @@ class LcdDisplay DISPLAY_SUPERCLASS
 	// print the current state on the last line of the LCD
 	DISPLAY_METHOD void printState();
 
-	DISPLAY_METHOD void getLine(uint8_t lineNumber, char *buffer) { lcd.getLine(lineNumber, buffer); }
+	DISPLAY_METHOD void getLine(const uint8_t lineNumber, char *buffer) { lcd.getLine(lineNumber, buffer); }
 
-	DISPLAY_METHOD void printAt_P(uint8_t x, uint8_t y, const char *text);
+	DISPLAY_METHOD void printAt_P(const uint8_t x, const uint8_t y, const char *text);
 
-	DISPLAY_METHOD void setBufferOnly(bool bufferOnly)
+	DISPLAY_METHOD void setBufferOnly(const bool bufferOnly)
 	{
 		lcd.setBufferOnly(bufferOnly);
 	}
@@ -114,12 +114,12 @@ class LcdDisplay DISPLAY_SUPERCLASS
 
 	// print a temperature
 	DISPLAY_METHOD void printTemperature(temperature temp);
-	DISPLAY_METHOD void printTemperatureAt(uint8_t x, uint8_t y, temperature temp);
+	DISPLAY_METHOD void printTemperatureAt(const uint8_t x, const uint8_t y, temperature temp);
 
 	// print degree sign + C/F
-	DISPLAY_METHOD void printDegreeUnit(uint8_t x, uint8_t y);
+	DISPLAY_METHOD void printDegreeUnit(const uint8_t x, const uint8_t y);
 
-	DISPLAY_METHOD void printAt(uint8_t x, uint8_t y, char *text);
+	DISPLAY_METHOD void printAt(const uint8_t x, const uint8_t y, char *text);
 
 #ifdef ESP8266_WiFi
 	DISPLAY_METHOD void printWiFiStartup();

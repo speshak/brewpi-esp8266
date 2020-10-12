@@ -56,7 +56,7 @@ public:
 	ticks_millis_t millis() { return _ticks+=_increment; }
 	ticks_micros_t micros() { return _ticks+=_increment; }	
 	ticks_seconds_t seconds() { return millis()>>10; }	
-	ticks_seconds_t timeSince(ticks_seconds_t timeStamp) { return timeStamp-seconds(); }
+	ticks_seconds_t timeSince(const ticks_seconds_t timeStamp) { return timeStamp-seconds(); }
 private:
 
 	uint32_t _increment;
@@ -77,7 +77,7 @@ class ExternalTicks {
 	ticks_millis_t millis() { return _ticks; }
 	ticks_micros_t micros() { return _ticks*1000; }	
 	ticks_seconds_t seconds() { return millis()/1000; }	
-	ticks_seconds_t timeSince(ticks_seconds_t timeStamp);
+	ticks_seconds_t timeSince(const ticks_seconds_t timeStamp);
 			
 	void setMillis(ticks_millis_t now)	{ _ticks = now; }
 	void incMillis(ticks_millis_t advance)	{ _ticks += advance; }

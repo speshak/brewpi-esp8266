@@ -379,7 +379,7 @@ void CommandProcessor::processSettingsJson() {
 
   // Process
   JsonObject root = doc.as<JsonObject>();
-  for (JsonPair kv : root) {
+  for (JsonPair const & kv : root) {
     SettingLoader::processSettingKeypair(kv);
   }
 

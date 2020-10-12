@@ -304,13 +304,20 @@ void TempControl::updateEstimatedPeak(uint16_t timeLimit, temperature estimator,
 	cv.estimatedPeak = fridgeSensor->readFastFiltered() + estimatedOvershoot;		
 }
 
+
+/**
+ * \brief Update control outputs.
+ *
+ * Based on current conditions, set the outputs approprately.  This is called
+ * after running updateState() to cause the calculated effect.
+ */
 void TempControl::updateOutputs() {
 	if (cs.mode==ControlMode::test)
 		return;
-		
+
 	cameraLight.update();
-	bool heating = stateIsHeating();
-	bool cooling = stateIsCooling();
+	const bool heating = stateIsHeating();
+	const bool cooling = stateIsCooling();
 	cooler->setActive(cooling);		
 	heater->setActive(!cc.lightAsHeater && heating);	
 	light->setActive(isDoorOpen() || (cc.lightAsHeater && heating) || cameraLightState.isActive());	
@@ -417,8 +424,8 @@ void TempControl::detectPeaks(){
  *
  * Increase estimator at least 20%, max 50%s
  */
-void TempControl::increaseEstimator(temperature * estimator, temperature error){
-	temperature factor = 614 + constrainTemp((temperature) abs(error)>>5, 0, 154); // 1.2 + 3.1% of error, limit between 1.2 and 1.5
+void TempControl::increaseEstimator(temperature * estimator, const temperature error){
+	const temperature factor = 614 + constrainTemp((temperature) abs(error)>>5, 0, 154); // 1.2 + 3.1% of error, limit between 1.2 and 1.5
 	*estimator = multiplyFactorTemperatureDiff(factor, *estimator);
 	if(*estimator < 25){
 		*estimator = intToTempDiff(5)/100; // make estimator at least 0.05
@@ -431,8 +438,8 @@ void TempControl::increaseEstimator(temperature * estimator, temperature error){
  *
  * Decrease estimator at least 16.7% (1/1.2), max 33.3% (1/1.5)
  */
-void TempControl::decreaseEstimator(temperature * estimator, temperature error){
-	temperature factor = 426 - constrainTemp((temperature) abs(error)>>5, 0, 85); // 0.833 - 3.1% of error, limit between 0.667 and 0.833
+void TempControl::decreaseEstimator(temperature * estimator, const temperature error){
+	const temperature factor = 426 - constrainTemp((temperature) abs(error)>>5, 0, 85); // 0.833 - 3.1% of error, limit between 0.667 and 0.833
 	*estimator = multiplyFactorTemperatureDiff(factor, *estimator);
 	eepromManager.storeTempSettings();
 }

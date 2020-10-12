@@ -69,7 +69,7 @@ public:
    */
   constexpr static uint8_t sensorPrecision = 4;
 
-	void setConnected(bool connected);
+	void setConnected(const bool connected);
 	bool requestConversion();
 
 

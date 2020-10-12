@@ -129,7 +129,7 @@ temperature TempSensor::detectNegPeak(){
  *
  * @param b - New coefficient value
  */
-void TempSensor::setFastFilterCoefficients(uint8_t b){
+void TempSensor::setFastFilterCoefficients(const uint8_t b){
 	fastFilter.setCoefficients(b);
 }
 
@@ -139,7 +139,7 @@ void TempSensor::setFastFilterCoefficients(uint8_t b){
  *
  * @param b - New coefficient value
  */
-void TempSensor::setSlowFilterCoefficients(uint8_t b){
+void TempSensor::setSlowFilterCoefficients(const uint8_t b){
 	slowFilter.setCoefficients(b);
 }
 
@@ -149,7 +149,7 @@ void TempSensor::setSlowFilterCoefficients(uint8_t b){
  *
  * @param b - New coefficient value
  */
-void TempSensor::setSlopeFilterCoefficients(uint8_t b){
+void TempSensor::setSlopeFilterCoefficients(const uint8_t b){
 	slopeFilter.setCoefficients(b);
 }
 

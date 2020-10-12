@@ -243,9 +243,9 @@ public:
   TEMP_CONTROL_METHOD void getControlSettingsDoc(JsonDocument& doc);
 
 private:
-	TEMP_CONTROL_METHOD void increaseEstimator(temperature * estimator, temperature error);
-	TEMP_CONTROL_METHOD void decreaseEstimator(temperature * estimator, temperature error);
-	TEMP_CONTROL_METHOD void updateEstimatedPeak(uint16_t estimate, temperature estimator, uint16_t sinceIdle);
+	TEMP_CONTROL_METHOD void increaseEstimator(temperature * estimator, const temperature error);
+	TEMP_CONTROL_METHOD void decreaseEstimator(temperature * estimator, const temperature error);
+	TEMP_CONTROL_METHOD void updateEstimatedPeak(const ticks_seconds_t estimate, temperature estimator, const ticks_seconds_t sinceIdle);
 
   TEMP_CONTROL_METHOD bool sensorsAreValid();
   TEMP_CONTROL_METHOD void alertDoorStateChange();

@@ -155,7 +155,7 @@ void LcdDisplay::printAllTemperatures(){
     printFridgeSet();
 }
 
-void LcdDisplay::setDisplayFlags(uint8_t newFlags) {
+void LcdDisplay::setDisplayFlags(const uint8_t newFlags) {
     flags = newFlags;
     printStationaryText();
     printAllTemperatures();
@@ -185,7 +185,7 @@ void LcdDisplay::printFridgeSet(){
     printTemperatureAt(FRIDGE_SET_START_X, SET_TEMP_START_Y, SET_TEMP_FONT_SIZE, fridgeSet);
 }
 
-void LcdDisplay::printTemperatureAt(uint8_t x, uint8_t y, uint8_t font_size, temperature temp){
+void LcdDisplay::printTemperatureAt(const uint8_t x, const uint8_t y, const uint8_t font_size, const temperature temp){
     tft.setTextColor(ILI9341_WHITE, ILI9341_BLACK);
     //tft.setTextSize(font_size);
     //clearForText(x, y, ILI9341_BLACK, font_size, 4);  // TODO - Determine if I want this to be 4 or 5 characters
@@ -195,7 +195,7 @@ void LcdDisplay::printTemperatureAt(uint8_t x, uint8_t y, uint8_t font_size, tem
 }
 
 
-void LcdDisplay::printTemperature(temperature temp, uint8_t font_size){
+void LcdDisplay::printTemperature(const temperature temp, const uint8_t font_size){
     tft.setTextSize(font_size);
 
     if (temp==INVALID_TEMP) {
@@ -227,7 +227,7 @@ void LcdDisplay::printStationaryText(){
 }
 
 //print degree sign + temp unit
-void LcdDisplay::printDegreeUnit(uint8_t x, uint8_t y){
+void LcdDisplay::printDegreeUnit(const uint8_t x, const uint8_t y){
 //    lcd.setCursor(x,y);
 //    lcd.write(0b11011111);
 //    lcd.write(tempControl.cc.tempFormat);
@@ -359,8 +359,8 @@ void LcdDisplay::printState(){
     if(time != UINT_MAX){
         char timeString[10];
 #if DISPLAY_TIME_HMS  // 96 bytes more space required.
-        unsigned int minutes = time/60;
-        unsigned int hours = minutes/60;
+        const unsigned int minutes = time/60;
+        const unsigned int hours = minutes/60;
         int stringLength = sprintf_P(timeString, PSTR("%dh%02dm%02d"), hours, minutes%60, time%60);
         char * printString = timeString;
         if(!hours){
@@ -372,7 +372,7 @@ void LcdDisplay::printState(){
         printed_chars += stringLength;
 
 #else
-        int stringLength = sprintf_P(timeString, STR_FMT_U, (unsigned int)time);
+        const int stringLength = sprintf_P(timeString, STR_FMT_U, (unsigned int)time);
 		printAt(20-stringLength, 3, timeString);
         tft.print(timeString);
 #endif
@@ -471,7 +471,7 @@ void LcdDisplay::clear() {
     tft.fillScreen(ILI9341_BLACK);
 }
 
-void LcdDisplay::clearForText(uint8_t start_x, uint8_t start_y, uint16_t color, uint8_t font_size, uint8_t characters) {
+void LcdDisplay::clearForText(const uint8_t start_x, const uint8_t start_y, const uint16_t color, const uint8_t font_size, const uint8_t characters) {
 //    uint8_t width = (font_size * characters * 5) + (font_size * (characters-1) * 4);
 //    uint8_t height = font_size * 7;
 
@@ -480,10 +480,7 @@ void LcdDisplay::clearForText(uint8_t start_x, uint8_t start_y, uint16_t color, 
 
 
 
-#define FAKE_DISPLAY_COLS 20
-#define FAKE_DISPLAY_ROWS 4
-
-void LcdDisplay::getLine(uint8_t lineNumber, char * buffer) {
+void LcdDisplay::getLine(const uint8_t lineNumber, char * buffer) {
 
     std::string line;
 
@@ -586,13 +583,13 @@ void LcdDisplay::getLine(uint8_t lineNumber, char * buffer) {
     }
 
     const char* src = line.c_str();;
-    for (uint8_t i = 0; i < FAKE_DISPLAY_COLS; i++) {
+    for (uint8_t i = 0; i < Config::Lcd::columns; i++) {
         char c = ' ';
         if(i < line.length())
             c = src[i];
         buffer[i] = (c == 0b11011111) ? 0xB0 : c;
     }
-    buffer[FAKE_DISPLAY_COLS] = '\0'; // NULL terminate string
+    buffer[Config::Lcd::columns] = '\0'; // NULL terminate string
 
 
 }

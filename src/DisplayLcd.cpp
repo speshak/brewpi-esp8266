@@ -122,7 +122,7 @@ void LcdDisplay::printAllTemperatures(){
  * Updates the display configuration and then forces a redraw.
  * @param newFlags - New flag values
  */
-void LcdDisplay::setDisplayFlags(uint8_t newFlags) {
+void LcdDisplay::setDisplayFlags(const uint8_t newFlags) {
 	flags = newFlags;
 	printStationaryText();
 	printAllTemperatures();
@@ -172,7 +172,7 @@ void LcdDisplay::printFridgeSet(){
  *
  * @see printTemperature
  */
-void LcdDisplay::printTemperatureAt(uint8_t x, uint8_t y, temperature temp){
+void LcdDisplay::printTemperatureAt(const uint8_t x, const uint8_t y, temperature temp){
 	lcd.setCursor(x,y);
 	printTemperature(temp);
 }
@@ -217,19 +217,19 @@ void LcdDisplay::printStationaryText(){
  * @param x - LCD column
  * @param y - LCD row
  */
-void LcdDisplay::printDegreeUnit(uint8_t x, uint8_t y){
+void LcdDisplay::printDegreeUnit(const uint8_t x, const uint8_t y){
 	lcd.setCursor(x,y);
 	lcd.write(0b11011111);
 	lcd.write(tempControl.cc.tempFormat);
 }
 
-void LcdDisplay::printAt_P(uint8_t x, uint8_t y, const char* text){
+void LcdDisplay::printAt_P(const uint8_t x, const uint8_t y, const char* text){
 	lcd.setCursor(x, y);
 	lcd.print_P(text);
 }
 
 
-void LcdDisplay::printAt(uint8_t x, uint8_t y, char* text){
+void LcdDisplay::printAt(const uint8_t x, const uint8_t y, char* text){
 	lcd.setCursor(x, y);
 	lcd.print(text);
 }
