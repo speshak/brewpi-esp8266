@@ -468,7 +468,7 @@ void DeviceManager::parseDeviceDefinition()
 		clear((uint8_t*)&target, sizeof(target));
 	}
 
-	bool valid = isDeviceValid(target, original, dev.id);
+	const bool valid = isDeviceValid(target, original, dev.id);
 	DeviceConfig* print = &original;
 	if (valid) {
 		print = &target;
@@ -526,10 +526,10 @@ bool DeviceManager::isDeviceValid(DeviceConfig& config, DeviceConfig& original, 
 	}
 
 	DeviceOwner owner = deviceOwner(config.deviceFunction);
-	if (!((owner==DEVICE_OWNER_BEER && config.beer) || (owner==DEVICE_OWNER_CHAMBER && config.chamber)
-		|| (owner==DEVICE_OWNER_NONE && !config.beer && !config.chamber)))
+	if (!((owner==DeviceOwner::beer && config.beer) || (owner==DeviceOwner::chamber && config.chamber)
+		|| (owner==DeviceOwner::none && !config.beer && !config.chamber)))
 	{
-		logErrorIntIntInt(ERROR_INVALID_DEVICE_CONFIG_OWNER, owner, config.beer, config.chamber);
+		logErrorIntIntInt(ERROR_INVALID_DEVICE_CONFIG_OWNER, (int)owner, config.beer, config.chamber);
 		return false;
 	}
 
@@ -1112,6 +1112,20 @@ void DeviceManager::outputRawDeviceValue(DeviceConfig* config, void* pv, JsonDoc
   }
 }
 
+/**
+ * \brief Determines where devices belongs, based on its function.
+ *
+ * @param id - Device Function
+ */
+DeviceOwner deviceOwner(const DeviceFunction id) {
+  if(id == 0)
+    return DeviceOwner::none;
+
+  if(id >= DEVICE_BEER_FIRST)
+    return DeviceOwner::beer;
+
+  return DeviceOwner::chamber;
+}
 
 /**
  * Determines the class of device for the given DeviceID.

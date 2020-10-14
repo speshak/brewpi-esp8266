@@ -78,10 +78,10 @@ const device_slot_t INVALID_SLOT = -1;
 /**
  * \brief Describes where the device is most closely associated.
  */
-enum DeviceOwner {
-	DEVICE_OWNER_NONE=0, //!< No owner
-	DEVICE_OWNER_CHAMBER=1, //!< Chamber/Fridge
-	DEVICE_OWNER_BEER=2 //!< Beer
+enum class DeviceOwner {
+	none=0, //!< No owner
+	chamber=1, //!< Chamber/Fridge
+	beer=2 //!< Beer
 };
 
 /**
@@ -138,14 +138,8 @@ inline bool isDigitalPin(DeviceHardware hardware) {
 extern DeviceType deviceType(DeviceFunction id);
 
 
-/**
- * \brief Determines where devices belongs, based on its function.
- *
- * @param id - Device Function
- */
-inline DeviceOwner deviceOwner(DeviceFunction id) {
-	return id==0 ? DEVICE_OWNER_NONE : id>=DEVICE_BEER_FIRST ? DEVICE_OWNER_BEER : DEVICE_OWNER_CHAMBER;
-}
+DeviceOwner deviceOwner(const DeviceFunction id);
+
 
 
 /**
