@@ -757,17 +757,34 @@ device_slot_t findHardwareDevice(DeviceConfig& find)
  *
  * **Warning:** the read value does not include any calibration offset.
  */
-inline void DeviceManager::readTempSensorValue(DeviceConfig::Hardware hw, char* out)
+inline void DeviceManager::formatTempSensorValue(const DeviceConfig::Hardware hw, char* out)
+{
+#if !BREWPI_SIMULATE
+  const temperature temp = readTempSensorValue(hw);
+	tempToString(out, temp, 3, 9);
+#else
+	strcpy_P(out, PSTR("0.00"));
+#endif
+}
+
+/**
+ * \brief Read a temp sensor device.
+ *
+ * **Warning:** the read value does not include any calibration offset.
+ */
+temperature DeviceManager::readTempSensorValue(const DeviceConfig::Hardware hw)
 {
 #if !BREWPI_SIMULATE
 	OneWire* bus = oneWireBus(hw.pinNr);
 	OneWireTempSensor sensor(bus, hw.address, 0);		// NB: this value is uncalibrated, since we don't have the calibration offset until the device is configured
 	temperature temp = INVALID_TEMP;
+
 	if (sensor.init())
 		temp = sensor.read();
-	tempToString(out, temp, 3, 9);
+
+  return temp;
 #else
-	strcpy_P(out, PSTR("0.00"));
+	return 0;
 #endif
 }
 
@@ -796,7 +813,7 @@ void DeviceManager::handleEnumeratedDevice(DeviceConfig& config, EnumerateHardwa
 	if (h.values) {
 		switch (config.deviceHardware) {
 			case DEVICE_HARDWARE_ONEWIRE_TEMP:
-				readTempSensorValue(config.hw, out.value);
+				formatTempSensorValue(config.hw, out.value);
 				break;
       // unassigned pins could be input or output so we can't determine any
       // other details from here.  values can be read once the pin has been
@@ -1080,8 +1097,7 @@ void DeviceManager::outputRawDeviceValue(DeviceConfig* config, void* pv, JsonDoc
 {
   if(config->deviceHardware == DeviceHardware::DEVICE_HARDWARE_ONEWIRE_TEMP) {
     // Read the temp
-    char str_temp[10];
-    DeviceManager::readTempSensorValue(config->hw, str_temp);
+    const temperature temp = DeviceManager::readTempSensorValue(config->hw);
 
     // Pretty-print the address
     char devName[17];
@@ -1091,7 +1107,7 @@ void DeviceManager::outputRawDeviceValue(DeviceConfig* config, void* pv, JsonDoc
 
     JsonObject deviceObj = doc->createNestedObject();
     deviceObj["device"] = devName;
-    deviceObj["value"] = str_temp;
+    deviceObj["value"] = tempToDouble(temp, Config::TempFormat::fixedPointDecimals);
     deviceObj["name"] = humanName;
   }
 }

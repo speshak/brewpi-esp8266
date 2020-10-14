@@ -336,7 +336,8 @@ private:
 	static void enumeratePinDevices(EnumerateHardware& h, EnumDevicesCallback callback, DeviceOutput& output, JsonDocument* doc);
 	static void outputEnumeratedDevices(DeviceConfig* config, void* pv, JsonDocument* doc);
 	static void handleEnumeratedDevice(DeviceConfig& config, EnumerateHardware& h, EnumDevicesCallback callback, DeviceOutput& out, JsonDocument* doc);
-	static void readTempSensorValue(DeviceConfig::Hardware hw, char* out);
+	static void formatTempSensorValue(const DeviceConfig::Hardware hw, char* out);
+	static temperature readTempSensorValue(const DeviceConfig::Hardware hw);
 	static void outputRawDeviceValue(DeviceConfig* config, void* pv, JsonDocument* doc);
 
   static void readJsonIntoDeviceDef(DeviceDefinition&);
