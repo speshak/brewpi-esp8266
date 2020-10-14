@@ -180,6 +180,10 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>soundAlarm</b>
 <tr class="memitem:a5e50fdb9dd9cffb7ca3b0cd6bfaf9e97"><td class="memItemLeft" align="right" valign="top"><a id="a5e50fdb9dd9cffb7ca3b0cd6bfaf9e97"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>printChamberInfo</b> ()</td></tr>
 <tr class="separator:a5e50fdb9dd9cffb7ca3b0cd6bfaf9e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac86ca8c376048f35cde01f80a5c89d6e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPiLink.html#ac86ca8c376048f35cde01f80a5c89d6e">printDeviceNames</a> ()</td></tr>
+<tr class="separator:ac86ca8c376048f35cde01f80a5c89d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7247bce1a315b743fc327ec801d31260"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPiLink.html#a7247bce1a315b743fc327ec801d31260">printDeviceName</a> (<a class="el" href="structDeviceName.html">DeviceName</a> devName)</td></tr>
+<tr class="separator:a7247bce1a315b743fc327ec801d31260"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3a1273c58edf2b809e230b423dec154"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPiLink.html#ab3a1273c58edf2b809e230b423dec154">sendJsonPair</a> (const char *name, const char *val)</td></tr>
 <tr class="separator:ab3a1273c58edf2b809e230b423dec154"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34e693d1b73d1760d8b212e9ef68ca1b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPiLink.html#a34e693d1b73d1760d8b212e9ef68ca1b">sendJsonPair</a> (const char *name, char val)</td></tr>
@@ -196,6 +200,8 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>sendJsonTemp</
 <tr class="memitem:a80528f74da16d90315346b88a8476f03"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPiLink.html#a80528f74da16d90315346b88a8476f03">processJsonPair</a> (const char *key, const char *val, void *pv)</td></tr>
 <tr class="memdesc:a80528f74da16d90315346b88a8476f03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process one JSON key/value pair.  <a href="classPiLink.html#a80528f74da16d90315346b88a8476f03">More...</a><br /></td></tr>
 <tr class="separator:a80528f74da16d90315346b88a8476f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a103c7d4787055d2c2fb3c1774a6b7420"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPiLink.html#a103c7d4787055d2c2fb3c1774a6b7420">handleDeviceName</a> (const char *key, const char *val, void *pv)</td></tr>
+<tr class="separator:a103c7d4787055d2c2fb3c1774a6b7420"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a675aeef2e947ebf288e8ebd20bfb5def"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPiLink.html#a675aeef2e947ebf288e8ebd20bfb5def">printJsonName</a> (const char *name)</td></tr>
 <tr class="memdesc:a675aeef2e947ebf288e8ebd20bfb5def"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the name part of a JSON name/value pair The name must exist in PROGMEM.  <a href="classPiLink.html#a675aeef2e947ebf288e8ebd20bfb5def">More...</a><br /></td></tr>
 <tr class="separator:a675aeef2e947ebf288e8ebd20bfb5def"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -375,6 +381,49 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Logger</b></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Send a debug message </p>
+
+</div>
+</div>
+<a id="a103c7d4787055d2c2fb3c1774a6b7420"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a103c7d4787055d2c2fb3c1774a6b7420">&#9670;&nbsp;</a></span>handleDeviceName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PiLink::handleDeviceName </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>pv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Handle a request to set a device name </p>
 
 </div>
 </div>
@@ -569,6 +618,59 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Logger</b></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a7247bce1a315b743fc327ec801d31260"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7247bce1a315b743fc327ec801d31260">&#9670;&nbsp;</a></span>printDeviceName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PiLink::printDeviceName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDeviceName.html">DeviceName</a>&#160;</td>
+          <td class="paramname"><em>devName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Callback handler for <a class="el" href="classDeviceNameManager.html#af43e2f485d1dac0e78b1c4ccee5768b6">DeviceNameManager::enumerateDeviceNames</a>. Used by <a class="el" href="classPiLink.html#ac86ca8c376048f35cde01f80a5c89d6e">PiLink::printDeviceNames()</a> </p>
+
+</div>
+</div>
+<a id="ac86ca8c376048f35cde01f80a5c89d6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac86ca8c376048f35cde01f80a5c89d6e">&#9670;&nbsp;</a></span>printDeviceNames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PiLink::printDeviceNames </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Print out the configured device names </p>
 
 </div>
 </div>
@@ -1227,7 +1329,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Logger</b></td></tr>
 <li>src/PiLink.cpp</li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclassPiLink_html_ae8363e06e6f336710a65e89b301d37de"><div class="ttname"><a href="classPiLink.html#ae8363e06e6f336710a65e89b301d37de">PiLink::jsonOutputTempToString</a></div><div class="ttdeci">static void jsonOutputTempToString(const char *key, uint8_t offset)</div><div class="ttdef"><b>Definition:</b> PiLink.cpp:640</div></div>
+<div class="ttc" id="aclassPiLink_html_ae8363e06e6f336710a65e89b301d37de"><div class="ttname"><a href="classPiLink.html#ae8363e06e6f336710a65e89b301d37de">PiLink::jsonOutputTempToString</a></div><div class="ttdeci">static void jsonOutputTempToString(const char *key, uint8_t offset)</div><div class="ttdef"><b>Definition:</b> PiLink.cpp:661</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

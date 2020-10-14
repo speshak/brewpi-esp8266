@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['brewpi_2desp8266_2ecpp_362',['brewpi-esp8266.cpp',['../brewpi-esp8266_8cpp.html',1,'']]],
-  ['brewpi_2eh_363',['Brewpi.h',['../Brewpi_8h.html',1,'']]]
+  ['brewpi_2desp8266_2ecpp_380',['brewpi-esp8266.cpp',['../brewpi-esp8266_8cpp.html',1,'']]],
+  ['brewpi_2eh_381',['Brewpi.h',['../Brewpi_8h.html',1,'']]]
 ];

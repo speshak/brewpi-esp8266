@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['debugmessage_381',['debugMessage',['../classPiLink.html#a6b32a42765d42b231f36f59acf292755',1,'PiLink']]],
-  ['decreaseestimator_382',['decreaseEstimator',['../classTempControl.html#ae14b0a545356d3988ac91c303ea1e11b',1,'TempControl']]],
-  ['detectnegpeak_383',['detectNegPeak',['../classCascadedFilter.html#aa3484161cddcd71a7aec39b2273b6de9',1,'CascadedFilter::detectNegPeak()'],['../classFixedFilter.html#a9f3fb220884212e66759adfa358dc5e4',1,'FixedFilter::detectNegPeak()']]],
-  ['detectpospeak_384',['detectPosPeak',['../classCascadedFilter.html#a145831f37a4ac92d2a01dd0b1920affd',1,'CascadedFilter::detectPosPeak()'],['../classFixedFilter.html#af7d62c305825fd2a5671793ea6f9a03a',1,'FixedFilter::detectPosPeak()']]],
-  ['deviceowner_385',['deviceOwner',['../group__hardware.html#gab16ded9c13543a1cd083db4d28d7eb9f',1,'DeviceManager.h']]],
-  ['devicetype_386',['deviceType',['../group__hardware.html#ga070eb3cb6a8c1424df69e548e530b057',1,'deviceType(DeviceFunction id):&#160;DeviceManager.cpp'],['../group__hardware.html#ga070eb3cb6a8c1424df69e548e530b057',1,'deviceType(DeviceFunction id):&#160;DeviceManager.cpp']]]
+  ['debugmessage_399',['debugMessage',['../classPiLink.html#a6b32a42765d42b231f36f59acf292755',1,'PiLink']]],
+  ['decreaseestimator_400',['decreaseEstimator',['../classTempControl.html#ae14b0a545356d3988ac91c303ea1e11b',1,'TempControl']]],
+  ['deletedevicename_401',['deleteDeviceName',['../classDeviceNameManager.html#ae2b25b8fc991ea4f57dd5f2eb8441578',1,'DeviceNameManager']]],
+  ['detectnegpeak_402',['detectNegPeak',['../classCascadedFilter.html#aa3484161cddcd71a7aec39b2273b6de9',1,'CascadedFilter::detectNegPeak()'],['../classFixedFilter.html#a9f3fb220884212e66759adfa358dc5e4',1,'FixedFilter::detectNegPeak()']]],
+  ['detectpospeak_403',['detectPosPeak',['../classCascadedFilter.html#a145831f37a4ac92d2a01dd0b1920affd',1,'CascadedFilter::detectPosPeak()'],['../classFixedFilter.html#af7d62c305825fd2a5671793ea6f9a03a',1,'FixedFilter::detectPosPeak()']]],
+  ['devicenamefilename_404',['deviceNameFilename',['../classDeviceNameManager.html#aa3343382b47653aff6037e89e604ce3b',1,'DeviceNameManager']]],
+  ['deviceowner_405',['deviceOwner',['../group__hardware.html#gab16ded9c13543a1cd083db4d28d7eb9f',1,'DeviceManager.h']]],
+  ['devicetype_406',['deviceType',['../group__hardware.html#ga070eb3cb6a8c1424df69e548e530b057',1,'deviceType(DeviceFunction id):&#160;DeviceManager.cpp'],['../group__hardware.html#ga070eb3cb6a8c1424df69e548e530b057',1,'deviceType(DeviceFunction id):&#160;DeviceManager.cpp']]]
 ];
