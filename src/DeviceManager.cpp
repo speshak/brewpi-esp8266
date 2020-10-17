@@ -634,7 +634,7 @@ void DeviceManager::serializeJsonDevice(JsonDocument& doc, device_slot_t slot, D
 
 
 	if (value && *value) {
-    deviceObj[DeviceDefinitionKeys::value] = value;
+    deviceObj[DeviceDefinitionKeys::value] = String(value);
 	}
 
 	if (hasInvert(config.deviceHardware))
@@ -874,10 +874,12 @@ void DeviceManager::enumerateOneWireDevices(EnumerateHardware& h, EnumDevicesCal
 		clear((uint8_t*)&config, sizeof(config));
 		if (h.pin!=-1 && h.pin!=pin)
 			continue;
+
 		config.hw.pinNr = pin;
 		config.chamber = 1; // chamber 1 is default
 		OneWire* wire = oneWireBus(pin);
-		if (wire!=NULL) {
+
+		if (wire != nullptr) {
 			wire->reset_search();
 			while (wire->search(config.hw.address)) {
 				// hardware device type from OneWire family ID
@@ -1063,7 +1065,7 @@ void DeviceManager::listDevices(JsonDocument& doc) {
 			char val[10];
 			val[0] = 0;
 			UpdateDeviceState(dd, dc, val);
-			deviceManager.serializeJsonDevice(doc, idx, dc, val);
+			serializeJsonDevice(doc, idx, dc, val);
 		}
 	}
 }
