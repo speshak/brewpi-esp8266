@@ -23,11 +23,12 @@
 #include "TemperatureFormats.h"
 
 
-#define TEMP_SENSOR_DISCONNECTED INVALID_TEMP
+constexpr auto TEMP_SENSOR_DISCONNECTED = INVALID_TEMP;
 
 
 /**
- * Temperature sensor base
+ * \brief Temperature sensor base
+ *
  * Pure virtual class.
  */
 class BasicTempSensor
@@ -38,7 +39,7 @@ public:
   /**
    * Check if sensor is connected
    */
-	virtual bool isConnected() = 0;
+	virtual bool isConnected() const = 0;
 
 	/**
 	 * Attempt to (re-)initialize the sensor.

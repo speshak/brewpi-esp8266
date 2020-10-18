@@ -44,8 +44,8 @@ public:
 	 *    on the bus is used.
 	 * /param calibration	A temperature value that is added to all readings. This can be used to calibrate the sensor.
 	 */
-	OneWireTempSensor(OneWire* bus, const DeviceAddress address, fixed4_4 calibrationOffset)
-	: oneWire(bus), sensor(NULL) {
+	OneWireTempSensor(OneWire* bus, const DeviceAddress address, const fixed4_4 calibrationOffset)
+	: oneWire(bus), sensor(nullptr) {
 		connected = true;  // assume connected. Transition from connected to disconnected prints a message.
 		memcpy(sensorAddress, address, sizeof(DeviceAddress));
 		this->calibrationOffset = calibrationOffset;
@@ -56,7 +56,7 @@ public:
   /**
    * \brief Check if sensor device is connected
    */
-	bool isConnected(){
+	bool isConnected() const {
 		return connected;
 	}
 
@@ -76,7 +76,7 @@ public:
   /**
    * \brief Wait for sensor to sample the environment
    */
-	void waitForConversion()
+	void waitForConversion() const
 	{
 		wait.millis(750);
 	}

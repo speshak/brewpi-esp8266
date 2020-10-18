@@ -23,14 +23,14 @@
 #include "TempSensor.h"
 
 /**
- * A BasicTempSensor that is always disconnected.
+ * \brief A BasicTempSensor that is always disconnected.
  *
  * This is used as a default sensor to placehold until real sensors are installed.
  */
 class DisconnectedTempSensor : public BasicTempSensor {
 	
 public:
-	bool isConnected() { return false; }
+	bool isConnected() const { return false; }
 
 	bool init() {
 		return read()!=TEMP_SENSOR_DISCONNECTED;

@@ -40,13 +40,13 @@
  */
 
 //! Minimum cooler off time, in seconds. To prevent short cycling the compressor
-const uint16_t MIN_COOL_OFF_TIME = 300;
+const ticks_seconds_t MIN_COOL_OFF_TIME = 300;
 //! Minimum heater off time, in seconds. To heat in cycles, not lots of short bursts
-const uint16_t MIN_HEAT_OFF_TIME = 300;
+const ticks_seconds_t MIN_HEAT_OFF_TIME = 300;
 //! Minimum on time for the cooler.
-const uint16_t MIN_COOL_ON_TIME = 180;
+const ticks_seconds_t MIN_COOL_ON_TIME = 180;
 //! Minimum on time for the heater.
-const uint16_t MIN_HEAT_ON_TIME = 180;
+const ticks_seconds_t MIN_HEAT_ON_TIME = 180;
 
 /**
  * \brief Minimum cooler off time, in seconds.
@@ -54,13 +54,13 @@ const uint16_t MIN_HEAT_ON_TIME = 180;
  * Used when the controller is in Fridge Constant mode.  Larger than
  * MIN_COOL_OFF_TIME. No need for very fast cycling.
  */
-const uint16_t MIN_COOL_OFF_TIME_FRIDGE_CONSTANT = 600;
+const ticks_seconds_t MIN_COOL_OFF_TIME_FRIDGE_CONSTANT = 600;
 //! Minimum off time between switching between heating and cooling
-const uint16_t MIN_SWITCH_TIME = 600;
+const ticks_seconds_t MIN_SWITCH_TIME = 600;
 //! Time allowed for cooling peak detection
-const uint16_t COOL_PEAK_DETECT_TIME = 1800;
+const ticks_seconds_t COOL_PEAK_DETECT_TIME = 1800;
 //! Time allowed for heating peak detection
-const uint16_t HEAT_PEAK_DETECT_TIME = 900;
+const ticks_seconds_t HEAT_PEAK_DETECT_TIME = 900;
 
 /**
  * \brief Variables used for temp control

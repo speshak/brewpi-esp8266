@@ -70,21 +70,19 @@
  */
 
 /**
- * \def C_OFFSET
  * \brief Offset used when representing C temperatures.
  *
  * See the Conversion section for an explanation on how this was derived.  This
  * is the default offset for internal representation.
  */
-#define C_OFFSET (-24576)
+constexpr auto C_OFFSET = -24576;
 
 /**
- * \def F_OFFSET
  * \brief Offset used when representing F temperatures.
  *
  * See the Conversion section for an explanation on how this was derived.
  */
-#define F_OFFSET (-33678)
+constexpr auto F_OFFSET = -33678;
 
 
 // just for clarity, typedefs are used instead of normal integers.
@@ -96,32 +94,29 @@ typedef int16_t fixed12_4; //!< 1 sign bit, 11 integer bits, and 4 fraction bits
 typedef int8_t fixed4_4; //!< 1-sign bit, 3 int bits and 4 fraction bits. Corresponds with precision of DS18B20 sensors
 
 /**
- * \def INVALID_TEMP
  * \brief An invalid temperature value
  */
-#define INVALID_TEMP -32768
+constexpr auto INVALID_TEMP = -32768;
 
 /**
- * \def MAX_TEMP
  * \brief Maximum representable temp value
  */
-#define MAX_TEMP 32767
+constexpr auto MAX_TEMP = 32767;
 
 /**
- * \def MIN_TEMP
  * \brief Minimum representable temp value
  */
-#define MIN_TEMP INVALID_TEMP+1
+constexpr auto MIN_TEMP = INVALID_TEMP + 1;
 
 typedef int8_t temp_int; //!< Temperature expressed as an integer.
 typedef fixed7_9 temperature; //!< Common temperature representation
 typedef fixed23_9 long_temperature; //!< Long temperature representation
 typedef fixed7_25 temperature_precise; //!< Precise temperature representation
 
-#define TEMP_FIXED_POINT_BITS (9)
-#define TEMP_FIXED_POINT_SCALE (1<<TEMP_FIXED_POINT_BITS)
-#define TEMP_FIXED_POINT_MASK (TEMP_FIXED_POINT_SCALE-1)
-#define TEMP_PRECISE_EXTRA_FRACTION_BITS 16
+constexpr auto TEMP_FIXED_POINT_BITS = 9;
+constexpr auto TEMP_FIXED_POINT_SCALE = (1<<TEMP_FIXED_POINT_BITS);
+constexpr auto TEMP_FIXED_POINT_MASK = (TEMP_FIXED_POINT_SCALE-1);
+constexpr auto TEMP_PRECISE_EXTRA_FRACTION_BITS = 16;
 
 #if 0
 

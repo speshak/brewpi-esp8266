@@ -25,7 +25,6 @@
 #include "TempSensorBasic.h"
 #include <stdlib.h>
 
-#define TEMP_SENSOR_DISCONNECTED INVALID_TEMP
 
 #ifndef TEMP_SENSOR_CASCADED_FILTER
 #define TEMP_SENSOR_CASCADED_FILTER 1
@@ -58,7 +57,7 @@ enum class TempSensorType {
  */
 class TempSensor {
 	public:
-	TempSensor(TempSensorType sensorType, BasicTempSensor* sensor =NULL)  {
+	TempSensor(TempSensorType sensorType, BasicTempSensor* sensor = nullptr)  {
 		updateCounter = 255; // first update for slope filter after (255-4s)
 		setSensor(sensor);
 	 }
@@ -76,24 +75,24 @@ class TempSensor {
   /**
    * \brief Check if the sensor has a slow filter.
    */
-	bool hasSlowFilter() { return true; }
+	bool hasSlowFilter() const { return true; }
 
   /**
    * \brief Check if the sensor has a fast filter.
    */
-	bool hasFastFilter() { return true; }
+	bool hasFastFilter() const { return true; }
 
   /**
    * \brief Check if the sensor has a slope filter.
    */
-	bool hasSlopeFilter() { return true; }
+	bool hasSlopeFilter() const { return true; }
 
 	void init();
 
   /**
    * \brief Check if the sensor is connected.
    */
-	bool isConnected() { return _sensor->isConnected(); }
+	bool isConnected() const { return _sensor->isConnected(); }
 
 	void update();
 

@@ -71,7 +71,7 @@ void Buzzer::init(){
 #endif
 }
 
-void Buzzer::setActive(bool active)
+void Buzzer::setActive(const bool active)
 {
 	if (active!=this->isActive()) {
 		ValueActuator::setActive(active);
@@ -84,7 +84,7 @@ void Buzzer::setActive(bool active)
 	}
 }
 
-void Buzzer::beep(uint8_t numBeeps, uint16_t duration){
+void Buzzer::beep(const uint8_t numBeeps, const ticks_millis_t duration){
 	for(uint8_t beepCount = 0; beepCount<numBeeps; beepCount++){
 		BEEP_ON();
 		wait.millis(duration);

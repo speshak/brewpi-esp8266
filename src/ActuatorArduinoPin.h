@@ -14,20 +14,20 @@ class DigitalConstantPinActuator ACTUATOR_BASE_CLASS_DECL
 {
 	private:
 	bool active;
-	
+
 	public:
 	DigitalConstantPinActuator() : active(false)
 	{
 		setActive(false);
 		fastPinMode(pin, OUTPUT);
 	}
-	
-	inline ACTUATOR_METHOD void setActive(bool active) {
+
+	inline ACTUATOR_METHOD void setActive(const bool active) {
 		this->active = active;
 		fastDigitalWrite(pin, active^invert ? HIGH : LOW);
 	}
-	
-	bool isActive() { return active; }
+
+	bool isActive() const { return active; }
 
 };
 
@@ -38,17 +38,17 @@ class DigitalPinActuator ACTUATOR_BASE_CLASS_DECL
 	uint8_t pin;
 	bool active;
 	public:
-	DigitalPinActuator(uint8_t pin, bool invert) {
+	DigitalPinActuator(const uint8_t pin, const bool invert) {
 		this->invert = invert;
 		this->pin = pin;
 		setActive(false);
 		pinMode(pin, OUTPUT);
 	}
-	
-	inline ACTUATOR_METHOD void setActive(bool active) {
+
+	inline ACTUATOR_METHOD void setActive(const bool active) {
 		this->active = active;
 		digitalWrite(pin, active^invert ? HIGH : LOW);
 	}
-	
-	bool isActive() { return active; }
+
+	bool isActive() const { return active; }
 };

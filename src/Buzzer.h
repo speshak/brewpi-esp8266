@@ -21,6 +21,7 @@
 
 #include "Brewpi.h"
 #include "Actuator.h"
+#include "Ticks.h"
 
 #if BREWPI_BUZZER
 class Buzzer : public ValueActuator
@@ -34,11 +35,11 @@ class Buzzer : public ValueActuator
 	/**
 	 * Performs a number of beeps synchronously.
 	 * @param numBeeps The number of beeps to emit
-	 * @param duration the duration of each beep
+	 * @param duration the duration of each beep, in milliseconds
 	 */
-	void beep(uint8_t numBeeps, uint16_t duration);
+	void beep(const uint8_t numBeeps, const ticks_millis_t duration);
 	
-	void setActive(bool active);
+	void setActive(const bool active);
 	
 };
 

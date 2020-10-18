@@ -99,12 +99,12 @@ void TempControl::init(){
 	cameraLight.setActive(false);
 
 	// this is for cases where the device manager hasn't configured beer/fridge sensor.	
-	if (beerSensor==NULL) {
+	if (beerSensor == nullptr) {
 		beerSensor = new TempSensor(TempSensorType::beer, &defaultTempSensor);
 		beerSensor->init();
 	}
 		
-	if (fridgeSensor==NULL) {
+	if (fridgeSensor == nullptr) {
 		fridgeSensor = new TempSensor(TempSensorType::fridge, &defaultTempSensor);
 		fridgeSensor->init();
 	}
@@ -294,9 +294,9 @@ void TempControl::updateState() {
  * \param estimator - Value being estimated
  * \param sinceIdle - 
  */
-void TempControl::updateEstimatedPeak(uint16_t timeLimit, temperature estimator, uint16_t sinceIdle)
+void TempControl::updateEstimatedPeak(const ticks_seconds_t timeLimit, temperature estimator, const ticks_seconds_t sinceIdle)
 {
-	uint16_t activeTime = min(timeLimit, sinceIdle); // heat or cool time in seconds
+	const uint16_t activeTime = min(timeLimit, sinceIdle); // heat or cool time in seconds
 	temperature estimatedOvershoot = ((long_temperature) estimator * activeTime)/3600; // overshoot estimator is in overshoot per hour
 	if(stateIsCooling()){
 		estimatedOvershoot = -estimatedOvershoot; // when cooling subtract overshoot from fridge temperature

@@ -47,12 +47,12 @@ class Actuator
      *
      * @param active - New state
      */
-    ACTUATOR_METHOD void setActive(bool active) ACTUATOR_METHOD_IMPL;
+    ACTUATOR_METHOD void setActive(const bool active) ACTUATOR_METHOD_IMPL;
 
     /**
      * Check if current actuator state is active
      */
-    ACTUATOR_METHOD bool isActive() ACTUATOR_METHOD_IMPL;
+    ACTUATOR_METHOD bool isActive() const ACTUATOR_METHOD_IMPL;
 #if ACTUATOR_VIRTUAL
 	virtual ~Actuator() {}
 #endif		
@@ -67,10 +67,10 @@ class ValueActuator ACTUATOR_BASE_CLASS_DECL
 {
 public:
 	ValueActuator() : state(false) {}
-	ValueActuator(bool initial) : state(initial) {}
+	ValueActuator(const bool initial) : state(initial) {}
 
-	ACTUATOR_METHOD void setActive(bool active) { state = active; }
-	ACTUATOR_METHOD bool isActive() { return state; }
+	ACTUATOR_METHOD void setActive(const bool active) { state = active; }
+	ACTUATOR_METHOD bool isActive() const { return state; }
 
 private:
 	bool state;

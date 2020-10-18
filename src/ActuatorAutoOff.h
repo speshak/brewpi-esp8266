@@ -36,7 +36,7 @@ public:
    * @param timeout - Number of seconds to stay on after activated
    * @param target - Acutuator to manage
    */
-	AutoOffActuator(uint16_t timeout, Actuator* target) {
+	AutoOffActuator(const ticks_seconds_t timeout, Actuator* target) {
 		this->timeout = timeout;
 		this->target = target;
 	}
@@ -47,7 +47,7 @@ public:
    * @param active - New state
    * @see Actuator::setActive()
    */
-	void setActive(bool active)
+	void setActive(const bool active)
 	{
 		this->active = active;
 		target->setActive(active);
@@ -58,7 +58,7 @@ public:
   /**
    * \brief Get actuator current state
    */
-	bool isActive() {
+	bool isActive() const {
 		return active; //target->isActive(); - this takes 20 bytes more
 	}
 
@@ -72,8 +72,8 @@ public:
 	}
 
 private:
-	uint16_t lastActiveTime; //!< Tick count when the actuator was last made active.
-	uint16_t timeout; //!< Length of time that the actuator should be enabled before turning off.
+	ticks_seconds_t lastActiveTime; //!< Tick count when the actuator was last made active.
+	ticks_seconds_t timeout; //!< Length of time that the actuator should be enabled before turning off.
 	Actuator* target; //!< Target Actuator that is being controlled.
 
   /**
