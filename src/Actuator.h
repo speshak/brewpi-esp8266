@@ -3,17 +3,17 @@
  * Copyright 2013 BrewPi/Elco Jacobs.
  *
  * This file is part of BrewPi.
- * 
+ *
  * BrewPi is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * BrewPi is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with BrewPi.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -23,56 +23,38 @@
 #include "Brewpi.h"
 #include "FastDigitalPin.h"
 
-#define ACTUATOR_VIRTUAL 1
-
-#if ACTUATOR_VIRTUAL
-	#define ACTUATOR_METHOD virtual
-	#define ACTUATOR_METHOD_IMPL =0
-	#define ACTUATOR_BASE_CLASS_DECL : public Actuator
-#else
-	#define ACTUATOR_METHOD inline
-	#define ACTUATOR_METHOD_IMPL {}
-	#define ACTUATOR_BASE_CLASS_DECL
-#endif
-
-
 /**
- * An actuator simply turns something on or off.
+ * \brief An actuator simply turns something on or off.
  */
-class Actuator
-{
-	public:
-    /**
-     * Set the state of the actuator
-     *
-     * @param active - New state
-     */
-    ACTUATOR_METHOD void setActive(const bool active) ACTUATOR_METHOD_IMPL;
+class Actuator {
+public:
+  /**
+   * \brief Set the state of the actuator
+   *
+   * @param active - New state
+   */
+  virtual void setActive(const bool active) = 0;
 
-    /**
-     * Check if current actuator state is active
-     */
-    ACTUATOR_METHOD bool isActive() const ACTUATOR_METHOD_IMPL;
-#if ACTUATOR_VIRTUAL
-	virtual ~Actuator() {}
-#endif		
-		
+  /**
+   * \brief Check if current actuator state is active
+   */
+  virtual bool isActive() const = 0;
+  virtual ~Actuator() {}
 };
 
 /**
- * An actuator that simply remembers the set value.
+ * \brief An actuator that simply remembers the set value.
+ *
  * This is primary used for testing.
  */
-class ValueActuator ACTUATOR_BASE_CLASS_DECL
-{
+class ValueActuator : public Actuator {
 public:
-	ValueActuator() : state(false) {}
-	ValueActuator(const bool initial) : state(initial) {}
+  ValueActuator() : state(false) {}
+  ValueActuator(const bool initial) : state(initial) {}
 
-	ACTUATOR_METHOD void setActive(const bool active) { state = active; }
-	ACTUATOR_METHOD bool isActive() const { return state; }
+  virtual void setActive(const bool active) { state = active; }
+  virtual bool isActive() const { return state; }
 
 private:
-	bool state;
+  bool state;
 };
-
