@@ -39,11 +39,12 @@ typedef FixedFilter TempSensorFilter;
 
 
 /**
+ * \enum TempSensorType
  * \brief Types of temp sensors, defined by their use.
  */
-enum TempSensorType {
-	TEMP_SENSOR_TYPE_FRIDGE=1,
-	TEMP_SENSOR_TYPE_BEER
+enum class TempSensorType {
+	fridge=1, //!< Sensor is for a fridge chamber
+	beer //!< Sensor is for a beer vessel
 };
 
 
