@@ -69,4 +69,16 @@ template <class T> T readEnumValue(const JsonVariant &value) {
   return static_cast<T>(value.as<typename std::underlying_type<T>::type>());
 }
 
+/**
+ * \brief Get an enum class value cast to its underlying type
+ *
+ * Used to pass enum class values into places where ints are expected.
+ *
+ * \param value - value to cast
+ * \return enum value cast to the underlying type
+ */
+template <class T> typename std::underlying_type<T>::type underlyingEnumValue(const T value) {
+  return static_cast<typename std::underlying_type<T>::type>(value);
+}
+
 }; // namespace EnumHelpers

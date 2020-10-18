@@ -32,6 +32,9 @@
 #include <ArduinoJson.h>
 #include "JsonKeys.h"
 #include "NumberFormats.h"
+#include <type_traits>
+#include "SmartAssignment.h"
+#include "EnumHelpers.h"
 
 
 #ifdef ARDUINO
@@ -104,8 +107,10 @@ void DeviceManager::setupUnconfiguredDevices()
 	// right now, uninstall doesn't care about chamber/beer distinction.
 	// but this will need to match beer/function when multiferment is available
 	DeviceConfig cfg;
-	cfg.chamber = 1; cfg.beer = 1;
-	for (uint8_t i=0; i<DEVICE_MAX; i++) {
+	cfg.chamber = 1;
+  cfg.beer = 1;
+
+	for (uint8_t i=0; i< EnumHelpers::underlyingEnumValue(DeviceFunction::max); i++) {
 		cfg.deviceFunction = DeviceFunction(i);
 		uninstallDevice(cfg);
 	}
@@ -174,42 +179,42 @@ inline void** deviceTarget(DeviceConfig& config)
 
 	void** ppv;
 	switch (config.deviceFunction) {
-	case DEVICE_CHAMBER_ROOM_TEMP:
-		ppv = (void**)&tempControl.ambientSensor;
-		break;
-	case DEVICE_CHAMBER_DOOR:
-		ppv = (void**)&tempControl.door;
-		break;
-	case DEVICE_CHAMBER_LIGHT:
-		ppv = (void**)&tempControl.light;
-		break;
-	case DEVICE_CHAMBER_HEAT:
-		ppv = (void**)&tempControl.heater;
-		break;
-	case DEVICE_CHAMBER_COOL:
-		ppv = (void**)&tempControl.cooler;
-		break;
-	case DEVICE_CHAMBER_TEMP:
-		ppv = (void**)&tempControl.fridgeSensor;
-		break;
-	case DEVICE_CHAMBER_FAN:
-		ppv = (void**)&tempControl.fan;
-		break;
+    case DeviceFunction::chamberRoomTemp:
+      ppv = (void**)&tempControl.ambientSensor;
+      break;
+    case DeviceFunction::chamberDoor:
+      ppv = (void**)&tempControl.door;
+      break;
+    case DeviceFunction::chamberLight:
+      ppv = (void**)&tempControl.light;
+      break;
+    case DeviceFunction::chamberHeat:
+      ppv = (void**)&tempControl.heater;
+      break;
+    case DeviceFunction::chamberCool:
+      ppv = (void**)&tempControl.cooler;
+      break;
+    case DeviceFunction::chamberTemp:
+      ppv = (void**)&tempControl.fridgeSensor;
+      break;
+    case DeviceFunction::chamberFan:
+      ppv = (void**)&tempControl.fan;
+      break;
 
-	case DEVICE_BEER_TEMP:
-		ppv = (void**)&tempControl.beerSensor;
-		break;
-	default:
-		ppv = nullptr;
+    case DeviceFunction::beerTemp:
+      ppv = (void**)&tempControl.beerSensor;
+      break;
+    default:
+      ppv = nullptr;
 	}
 	return ppv;
 }
 
 // A pointer to a "temp sensor" may be a TempSensor* or a BasicTempSensor* .
 // These functions allow uniform treatment.
-inline bool isBasicSensor(DeviceFunction function) {
+inline bool isBasicSensor(const DeviceFunction function) {
 	// currently only ambient sensor is basic. The others are wrapped in a TempSensor.
-	return function==DEVICE_CHAMBER_ROOM_TEMP;
+	return function == DeviceFunction::chamberRoomTemp;
 }
 
 inline BasicTempSensor& unwrapSensor(DeviceFunction f, void* pv) {
@@ -291,7 +296,7 @@ void DeviceManager::installDevice(DeviceConfig& config)
 			// sensor may be wrapped in a TempSensor class, or may stand alone.
 			s = (BasicTempSensor*)createDevice(config, dt);
 			if (*ppv==nullptr){
-				logErrorInt(ERROR_OUT_OF_MEMORY_FOR_DEVICE, config.deviceFunction);
+				logErrorInt(ERROR_OUT_OF_MEMORY_FOR_DEVICE, (int)config.deviceFunction);
 			}
 			if (isBasicSensor(config.deviceFunction)) {
 				s->init();
@@ -308,19 +313,16 @@ void DeviceManager::installDevice(DeviceConfig& config)
 			break;
 		case DEVICETYPE_SWITCH_ACTUATOR:
 		case DEVICETYPE_SWITCH_SENSOR:
-			DEBUG_ONLY(logInfoInt(INFO_INSTALL_DEVICE, config.deviceFunction));
+			DEBUG_ONLY(logInfoInt(INFO_INSTALL_DEVICE, (int)config.deviceFunction));
 			*ppv = createDevice(config, dt);
 #if (BREWPI_DEBUG > 0)
 			if (*ppv==nullptr)
-				logErrorInt(ERROR_OUT_OF_MEMORY_FOR_DEVICE, config.deviceFunction);
+				logErrorInt(ERROR_OUT_OF_MEMORY_FOR_DEVICE, (int)config.deviceFunction);
 #endif
 			break;
 	}
 }
 
-
-// the special cases are placed at the end. All others should map directly to an int8_t via atoi().
-const char DeviceDefinition::ORDER[12] = "icbfhpxndja";
 
 
 /**
@@ -355,11 +357,11 @@ void DeviceManager::readJsonIntoDeviceDef(DeviceDefinition& dev) {
 
   JsonVariant function = doc[DeviceDefinitionKeys::function];
   if(!function.isNull())
-    dev.deviceFunction = function.as<uint8_t>();
+    dev.deviceFunction = EnumHelpers::readEnumValue<DeviceFunction>(function);
 
   JsonVariant hardware = doc[DeviceDefinitionKeys::hardware];
   if(!hardware.isNull())
-    dev.deviceHardware = hardware.as<uint8_t>();
+    dev.deviceHardware = EnumHelpers::readEnumValue<DeviceHardware>(hardware);
 
   JsonVariant pin = doc[DeviceDefinitionKeys::pin];
   if(!pin.isNull())
@@ -376,7 +378,7 @@ void DeviceManager::readJsonIntoDeviceDef(DeviceDefinition& dev) {
  * \param min - Lower bound
  * \param max - Upper bound
  */
-bool inRangeUInt8(uint8_t val, uint8_t min, int8_t max) {
+bool inRangeUInt8(const uint8_t val, const uint8_t min, const int8_t max) {
 	return min<=val && val<=max;
 }
 
@@ -386,20 +388,11 @@ bool inRangeUInt8(uint8_t val, uint8_t min, int8_t max) {
  * \param min - Lower bound
  * \param max - Upper bound
  */
-bool inRangeInt8(int8_t val, int8_t min, int8_t max) {
+bool inRangeInt8(const int8_t val, const int8_t min, const int8_t max) {
 	return min<=val && val<=max;
 }
 
 
-/**
- * \brief Set target to value if value is set
- * \param value - Source value
- * \param target - Variable to set, if value is set
- */
-void assignIfSet(int8_t value, uint8_t* target) {
-	if (value>=0)
-		*target = (uint8_t)value;
-}
 
 /**
  * \brief Safely updates the device definition.
@@ -426,7 +419,7 @@ void DeviceManager::parseDeviceDefinition()
     dev.chamber = 1;
 
     // Check if device function is beer specific
-    if (dev.deviceFunction >= DEVICE_BEER_FIRST && dev.deviceFunction < DEVICE_MAX)
+    if (dev.deviceFunction >= DeviceFunction::beerFirst && dev.deviceFunction < DeviceFunction::max)
       dev.beer = 1;
     else
       dev.beer = 0;
@@ -443,8 +436,8 @@ void DeviceManager::parseDeviceDefinition()
 
 	assignIfSet(dev.chamber, &target.chamber);
 	assignIfSet(dev.beer, &target.beer);
-	assignIfSet(dev.deviceFunction, (uint8_t*)&target.deviceFunction);
-	assignIfSet(dev.deviceHardware, (uint8_t*)&target.deviceHardware);
+	assignIfSet(dev.deviceFunction, &target.deviceFunction);
+	assignIfSet(dev.deviceHardware, &target.deviceHardware);
 	assignIfSet(dev.pinNr, &target.hw.pinNr);
 
 
@@ -455,15 +448,15 @@ void DeviceManager::parseDeviceDefinition()
 	if (dev.calibrationAdjust!=-1)		// since this is a union, it also handles pio for 2413 sensors
 		target.hw.calibration = dev.calibrationAdjust;
 
-	assignIfSet(dev.invert, (uint8_t*)&target.hw.invert);
+	assignIfSet(dev.invert, &target.hw.invert);
 
 	if (dev.address[0] != 0xFF) {// first byte is family identifier. I don't have a complete list, but so far 0xFF is not used.
 		memcpy(target.hw.address, dev.address, 8);
 	}
-	assignIfSet(dev.deactivate, (uint8_t*)&target.hw.deactivate);
+	assignIfSet(dev.deactivate, &target.hw.deactivate);
 
 	// setting function to none clears all other fields.
-	if (target.deviceFunction==DEVICE_NONE) {
+	if (target.deviceFunction == DeviceFunction::none) {
 		piLink.print("Function set to NONE\r\n");
 		clear((uint8_t*)&target, sizeof(target));
 	}
@@ -519,9 +512,9 @@ bool DeviceManager::isDeviceValid(DeviceConfig& config, DeviceConfig& original, 
 		return false;
 	}
 
-	if (!inRangeUInt8(config.deviceFunction, 0, DEVICE_MAX-1))
+	if (!inRangeUInt8((int)config.deviceFunction, 0, (int)DeviceFunction::max-1))
 	{
-		logErrorInt(ERROR_INVALID_DEVICE_FUNCTION, config.deviceFunction);
+		logErrorInt(ERROR_INVALID_DEVICE_FUNCTION, (int)config.deviceFunction);
 		return false;
 	}
 
@@ -627,7 +620,7 @@ void DeviceManager::serializeJsonDevice(JsonDocument& doc, device_slot_t slot, D
 
   deviceObj[DeviceDefinitionKeys::chamber] = config.chamber;
   deviceObj[DeviceDefinitionKeys::beer] = config.beer;
-  deviceObj[DeviceDefinitionKeys::function] = config.deviceFunction;
+  deviceObj[DeviceDefinitionKeys::function] = EnumHelpers::underlyingEnumValue(config.deviceFunction);
   deviceObj[DeviceDefinitionKeys::hardware] = config.deviceHardware;
   deviceObj[DeviceDefinitionKeys::deactivated] = config.hw.deactivate;
   deviceObj[DeviceDefinitionKeys::pin] = config.hw.pinNr;
@@ -698,7 +691,7 @@ void DeviceManager::outputEnumeratedDevices(DeviceConfig* config, void* pv, Json
 bool DeviceManager::enumDevice(DeviceDisplay& dd, DeviceConfig& dc, uint8_t idx)
 {
 	if (dd.id==-1)
-		return (dd.empty || dc.deviceFunction);	// if enumerating all devices, honor the unused request param
+		return (dd.empty || EnumHelpers::underlyingEnumValue(dc.deviceFunction));	// if enumerating all devices, honor the unused request param
 	else
 		return (dd.id==idx);						// enumerate only the specific device requested
 }
@@ -1120,10 +1113,10 @@ void DeviceManager::outputRawDeviceValue(DeviceConfig* config, void* pv, JsonDoc
  * @param id - Device Function
  */
 DeviceOwner deviceOwner(const DeviceFunction id) {
-  if(id == 0)
+  if(id == DeviceFunction::none)
     return DeviceOwner::none;
 
-  if(id >= DEVICE_BEER_FIRST)
+  if(id >= DeviceFunction::beerFirst)
     return DeviceOwner::beer;
 
   return DeviceOwner::chamber;
@@ -1132,23 +1125,23 @@ DeviceOwner deviceOwner(const DeviceFunction id) {
 /**
  * Determines the class of device for the given DeviceID.
  */
-DeviceType deviceType(DeviceFunction id) {
+DeviceType deviceType(const DeviceFunction id) {
 	switch (id) {
-	case DEVICE_CHAMBER_DOOR:
+	case DeviceFunction::chamberDoor:
 		return DEVICETYPE_SWITCH_SENSOR;
 
-	case DEVICE_CHAMBER_HEAT:
-	case DEVICE_CHAMBER_COOL:
-	case DEVICE_CHAMBER_LIGHT:
-	case DEVICE_CHAMBER_FAN:
-	case DEVICE_BEER_HEAT:
-	case DEVICE_BEER_COOL:
+	case DeviceFunction::chamberHeat:
+	case DeviceFunction::chamberCool:
+	case DeviceFunction::chamberLight:
+	case DeviceFunction::chamberFan:
+	case DeviceFunction::beerHeat:
+	case DeviceFunction::beerCool:
 		return DEVICETYPE_SWITCH_ACTUATOR;
 
-	case DEVICE_CHAMBER_TEMP:
-	case DEVICE_CHAMBER_ROOM_TEMP:
-	case DEVICE_BEER_TEMP:
-	case DEVICE_BEER_TEMP2:
+	case DeviceFunction::chamberTemp:
+	case DeviceFunction::chamberRoomTemp:
+	case DeviceFunction::beerTemp:
+	case DeviceFunction::beerTemp2:
 		return DEVICETYPE_TEMP_SENSOR;
 
 	default:

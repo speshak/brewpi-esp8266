@@ -118,27 +118,29 @@ public:
 /**
  * \brief Describes the logical function of a device.
  */
-enum DeviceFunction {
-	DEVICE_NONE = 0, //!< Used as a sentry to mark end of list
+enum class DeviceFunction : int8_t {
+	none = 0, //!< Used as a sentry to mark end of list
 	// chamber devices
-	DEVICE_CHAMBER_DOOR = 1,	//!< Chamber door switch sensor
-	DEVICE_CHAMBER_HEAT = 2,  //!< Chamber heater actuator
-	DEVICE_CHAMBER_COOL = 3,  //!< Chamber cooler actuator
-	DEVICE_CHAMBER_LIGHT = 4,	//!< Chamber light actuator
-	DEVICE_CHAMBER_TEMP = 5,  //!< Chamber temp sensor
-	DEVICE_CHAMBER_ROOM_TEMP = 6,	//!< Ambient room temp sensor
-	DEVICE_CHAMBER_FAN = 7,			//!< A fan in the chamber
-	DEVICE_CHAMBER_RESERVED1 = 8,	//!< Reserved for future use
+	chamberDoor = 1,	//!< Chamber door switch sensor
+	chamberHeat = 2,  //!< Chamber heater actuator
+	chamberCool = 3,  //!< Chamber cooler actuator
+	chamberLight = 4,	//!< Chamber light actuator
+	chamberTemp = 5,  //!< Chamber temp sensor
+	chamberRoomTemp = 6,	//!< Ambient room temp sensor
+	chamberFan = 7,			//!< A fan in the chamber
+	chamberReserved1 = 8,	//!< Reserved for future use
+
 	// carboy devices
-	DEVICE_BEER_FIRST = 9,                //!< First beer temp sensor
-	DEVICE_BEER_TEMP = DEVICE_BEER_FIRST,	//!< Primary beer temp sensor
-	DEVICE_BEER_TEMP2 = 10,								//!< Secondary beer temp sensor
-	DEVICE_BEER_HEAT = 11,                //!< Individual beer heater actuator
-  DEVICE_BEER_COOL = 12,				        //!< Individual beer cooler actuator
-	DEVICE_BEER_SG = 13,									//!< Beer SG sensor
-	DEVICE_BEER_RESERVED1 = 14, //!< Reserved for future use
-  DEVICE_BEER_RESERVED2 = 15,	//!< Reserved for future use
-	DEVICE_MAX = 16
+	beerFirst = 9,                //!< First beer temp sensor
+	beerTemp = DeviceFunction::beerFirst,	//!< Primary beer temp sensor
+	beerTemp2 = 10,								//!< Secondary beer temp sensor
+	beerHeat = 11,                //!< Individual beer heater actuator
+  beerCool = 12,				        //!< Individual beer cooler actuator
+	beerSG = 13,									//!< Beer SG sensor
+	beerReserved1 = 14, //!< Reserved for future use
+  beerReserved2 = 15,	//!< Reserved for future use
+
+	max = 16
 };
 
 

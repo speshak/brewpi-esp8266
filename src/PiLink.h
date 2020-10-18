@@ -26,6 +26,7 @@
 #include "Brewpi.h"
 #include "DeviceManager.h"
 #include "DeviceNameManager.h"
+#include "EnumHelpers.h"
 #include "Logger.h"
 #include "PiStream.h"
 #include "TempControl.h"
@@ -90,8 +91,7 @@ public:
       doc["RoomTemp"] = "";
     }
 
-    // ArduinoJson doesn't like being handed a enum class, so we cast to the underlying type
-    doc["State"] = static_cast<std::underlying_type<ControlState>::type>(tempControl.getState());
+    doc["State"] = EnumHelpers::underlyingEnumValue(tempControl.getState());
 
 #if BREWPI_SIMULATE
     doc["Time"] = ticks.millis() / 1000;

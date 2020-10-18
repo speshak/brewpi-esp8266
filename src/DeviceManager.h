@@ -199,21 +199,16 @@ struct DeviceDisplay {
  */
 struct DeviceDefinition {
 	int8_t id;
-	int8_t chamber;
-	int8_t beer;
-	int8_t deviceFunction;
-	int8_t deviceHardware;
-	int8_t pinNr;
-	int8_t invert;
-	int8_t pio;
-	int8_t deactivate;
+	uint8_t chamber;
+	uint8_t beer;
+	DeviceFunction deviceFunction;
+	DeviceHardware deviceHardware;
+	uint8_t pinNr;
+	bool invert;
+	uint8_t pio;
+	bool deactivate;
 	int8_t calibrationAdjust;
 	DeviceAddress address;
-
-	/**
-	 * Lists the first letter of the key name for each attribute.
-	 */
-	static const char ORDER[12];
 };
 
 
