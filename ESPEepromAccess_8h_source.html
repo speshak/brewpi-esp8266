@@ -183,15 +183,15 @@ $(function() {
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> hasSettings() {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">return</span> doesFileExist(SPIFFS_controlSettings_fname);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">return</span> doesFileExist(<a class="code" href="structControlSettings.html#a34bff965cafb3c1c4f58d32d73fc3b8e">ControlSettings::filename</a>);</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> zapData() {</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="comment">// This gets a bit tricky -- we can&#39;t just do SPIFFS.format because that would wipe out the mDNS name</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordtype">int</span> i;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">if</span>(doesFileExist(SPIFFS_controlConstants_fname)) SPIFFS.remove(SPIFFS_controlConstants_fname);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">if</span>(doesFileExist(SPIFFS_controlSettings_fname)) SPIFFS.remove(SPIFFS_controlSettings_fname);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">if</span>(doesFileExist(<a class="code" href="classControlConstants.html#afe94b92fa916e6d14b7e90ab6a704d99">ControlConstants::filename</a>)) SPIFFS.remove(<a class="code" href="classControlConstants.html#afe94b92fa916e6d14b7e90ab6a704d99">ControlConstants::filename</a>);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">if</span>(doesFileExist(<a class="code" href="structControlSettings.html#a34bff965cafb3c1c4f58d32d73fc3b8e">ControlSettings::filename</a>)) SPIFFS.remove(<a class="code" href="structControlSettings.html#a34bff965cafb3c1c4f58d32d73fc3b8e">ControlSettings::filename</a>);</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordtype">char</span> buf[20];</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">for</span>(i=0;i&lt;MAX_SPIFFS_DEVICES;i++) {</div>
@@ -201,8 +201,10 @@ $(function() {
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    }</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassControlConstants_html_afe94b92fa916e6d14b7e90ab6a704d99"><div class="ttname"><a href="classControlConstants.html#afe94b92fa916e6d14b7e90ab6a704d99">ControlConstants::filename</a></div><div class="ttdeci">static constexpr auto filename</div><div class="ttdoc">Filename used when reading/writing data to flash.</div><div class="ttdef"><b>Definition:</b> EepromStructs.h:68</div></div>
 <div class="ttc" id="aclassESPEepromAccess_html"><div class="ttname"><a href="classESPEepromAccess.html">ESPEepromAccess</a></div><div class="ttdef"><b>Definition:</b> ESPEepromAccess.h:41</div></div>
-<div class="ttc" id="astructDeviceConfig_html"><div class="ttname"><a href="structDeviceConfig.html">DeviceConfig</a></div><div class="ttdef"><b>Definition:</b> EepromStructs.h:143</div></div>
+<div class="ttc" id="astructControlSettings_html_a34bff965cafb3c1c4f58d32d73fc3b8e"><div class="ttname"><a href="structControlSettings.html#a34bff965cafb3c1c4f58d32d73fc3b8e">ControlSettings::filename</a></div><div class="ttdeci">static constexpr auto filename</div><div class="ttdoc">Filename used when reading/writing data to flash.</div><div class="ttdef"><b>Definition:</b> EepromStructs.h:92</div></div>
+<div class="ttc" id="astructDeviceConfig_html"><div class="ttname"><a href="structDeviceConfig.html">DeviceConfig</a></div><div class="ttdef"><b>Definition:</b> EepromStructs.h:146</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

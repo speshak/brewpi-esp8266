@@ -1,10 +1,21 @@
 var searchData=
 [
-  ['handledevicename_427',['handleDeviceName',['../classPiLink.html#a103c7d4787055d2c2fb3c1774a6b7420',1,'PiLink']]],
-  ['handlereset_428',['handleReset',['../brewpi-esp8266_8cpp.html#a28576d900afa7ce8f3f4177cb38f61b9',1,'brewpi-esp8266.cpp']]],
-  ['handlesimulatorconfig_429',['HandleSimulatorConfig',['../group__simulator.html#ga078011ee658f1f71c7d62d70b178ee5e',1,'Simulator.h']]],
-  ['hasfastfilter_430',['hasFastFilter',['../classTempSensor.html#a7aeac497965c4f02aec31e64fa8e92be',1,'TempSensor']]],
-  ['hassettings_431',['hasSettings',['../classEepromManager.html#a030087eeef08d2fbbddb8062e878933e',1,'EepromManager']]],
-  ['hasslopefilter_432',['hasSlopeFilter',['../classTempSensor.html#a2ae1fbebf7548aba6754283dd1d82c70',1,'TempSensor']]],
-  ['hasslowfilter_433',['hasSlowFilter',['../classTempSensor.html#a1600cfb61630a62cb3f2db3201c76cc7',1,'TempSensor']]]
+  ['getbeersetting_498',['getBeerSetting',['../classTempControl.html#a58d36bf0769ed11db4674049a27fca4b',1,'TempControl']]],
+  ['getbeertemp_499',['getBeerTemp',['../classSimulator.html#afde4e6e4b6e8ec4d4aa10c185ceee826',1,'Simulator::getBeerTemp()'],['../classTempControl.html#af3975234ea3a9214e9e8fb5511ed8c59',1,'TempControl::getBeerTemp()']]],
+  ['getbeervolume_500',['getBeerVolume',['../classSimulator.html#aa5c89f0b17200e7bc8248f9605c7264b',1,'Simulator']]],
+  ['getcontrolconstantsdoc_501',['getControlConstantsDoc',['../classTempControl.html#a6830d7c72f8182e34866354d8e5abd39',1,'TempControl']]],
+  ['getcontrolsettingsdoc_502',['getControlSettingsDoc',['../classTempControl.html#ae4bb3571373e90b9add7ea55b64b19ee',1,'TempControl']]],
+  ['getcontrolvariablesdoc_503',['getControlVariablesDoc',['../classTempControl.html#a726bd11cbdb071edd8fc6c2b725a487c',1,'TempControl']]],
+  ['getcurrline_504',['getCurrLine',['../classSpiLcd.html#ae9fa6c6bee0fee4dfce4966e579b455f',1,'SpiLcd']]],
+  ['getcurrpos_505',['getCurrPos',['../classSpiLcd.html#aaf3186a30c95f09766a5e78158ff2142',1,'SpiLcd']]],
+  ['getdevicename_506',['getDeviceName',['../classDeviceNameManager.html#a6942a25e3ed8d3836ddd93a8b1443327',1,'DeviceNameManager']]],
+  ['getdisplaystate_507',['getDisplayState',['../classTempControl.html#a4e4b659fb00e8c375aef05fa35446fe2',1,'TempControl']]],
+  ['getfridgesetting_508',['getFridgeSetting',['../classTempControl.html#ae32e114a4303540d18094d1c83e07eb8',1,'TempControl']]],
+  ['getfridgetemp_509',['getFridgeTemp',['../classTempControl.html#ae66ada8f34ec08a24f158cecab4c12ba',1,'TempControl']]],
+  ['getlcdcontent_510',['getLcdContent',['../structCommandProcessor.html#a8b376a4d8dfdeb25073848ec06df0db9',1,'CommandProcessor']]],
+  ['getline_511',['getLine',['../classSpiLcd.html#a1bba4f95a6b17c1b11746db251834029',1,'SpiLcd']]],
+  ['getmode_512',['getMode',['../classTempControl.html#a49f8e0821311bbf01478ac3e3bd7cde2',1,'TempControl']]],
+  ['getroomtemp_513',['getRoomTemp',['../classTempControl.html#aaababb4d8cfc37b6a3c2131be2914885',1,'TempControl']]],
+  ['getstate_514',['getState',['../classTempControl.html#add47a4cfc381e0d0cd47e111c0078d9e',1,'TempControl']]],
+  ['getwaittime_515',['getWaitTime',['../classTempControl.html#a245bf36c4b0859f41e84b9781d5a01aa',1,'TempControl']]]
 ];

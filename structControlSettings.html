@@ -71,6 +71,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="structControlSettings-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ControlSettings Struct Reference</div>  </div>
@@ -97,6 +98,9 @@ Collaboration diagram for ControlSettings:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:abe2c4e02c1393e9157d941cd839ee949"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControlSettings.html#abe2c4e02c1393e9157d941cd839ee949">ControlSettings</a> ()</td></tr>
+<tr class="memdesc:abe2c4e02c1393e9157d941cd839ee949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="structControlSettings.html#abe2c4e02c1393e9157d941cd839ee949">More...</a><br /></td></tr>
+<tr class="separator:abe2c4e02c1393e9157d941cd839ee949"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d5867ff4bab24e0a9cb4f139de28a4b"><td class="memItemLeft" align="right" valign="top"><a id="a6d5867ff4bab24e0a9cb4f139de28a4b"></a>
 DynamicJsonDocument&#160;</td><td class="memItemRight" valign="bottom"><b>toJson</b> ()</td></tr>
 <tr class="separator:a6d5867ff4bab24e0a9cb4f139de28a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,7 +111,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>storeToSpiffs</b> ()<
 void&#160;</td><td class="memItemRight" valign="bottom"><b>loadFromSpiffs</b> ()</td></tr>
 <tr class="separator:a60010f8100bd3738dc54202a016f28c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b73ef10679b533be483f2deb26d8e7c"><td class="memItemLeft" align="right" valign="top"><a id="a6b73ef10679b533be483f2deb26d8e7c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDefaults</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControlSettings.html#a6b73ef10679b533be483f2deb26d8e7c">setDefaults</a> ()</td></tr>
+<tr class="memdesc:a6b73ef10679b533be483f2deb26d8e7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set reasonable defaults for the control settings. <br /></td></tr>
 <tr class="separator:a6b73ef10679b533be483f2deb26d8e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -128,6 +133,13 @@ Public Attributes</h2></td></tr>
 char&#160;</td><td class="memItemRight" valign="bottom"><b>mode</b></td></tr>
 <tr class="separator:a018f896a78707d0773800bcf1a16e1cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a34bff965cafb3c1c4f58d32d73fc3b8e"><td class="memItemLeft" align="right" valign="top"><a id="a34bff965cafb3c1c4f58d32d73fc3b8e"></a>
+static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structControlSettings.html#a34bff965cafb3c1c4f58d32d73fc3b8e">filename</a> = &quot;/controlSettings.json&quot;</td></tr>
+<tr class="memdesc:a34bff965cafb3c1c4f58d32d73fc3b8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filename used when reading/writing data to flash. <br /></td></tr>
+<tr class="separator:a34bff965cafb3c1c4f58d32d73fc3b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_static_methods_classJSONSaveable"><td colspan="2" onclick="javascript:toggleInherit('pro_static_methods_classJSONSaveable')"><img src="closed.png" alt="-"/>&#160;Static Protected Member Functions inherited from <a class="el" href="classJSONSaveable.html">JSONSaveable</a></td></tr>
@@ -138,6 +150,27 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>writeJsonToFil
 static DynamicJsonDocument&#160;</td><td class="memItemRight" valign="bottom"><b>readJsonFromFile</b> (const char *filename)</td></tr>
 <tr class="separator:a9d290a0c95212eb81a68297d0b89ed29 inherit pro_static_methods_classJSONSaveable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="abe2c4e02c1393e9157d941cd839ee949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe2c4e02c1393e9157d941cd839ee949">&#9670;&nbsp;</a></span>ControlSettings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ControlSettings::ControlSettings </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structControlSettings.html#a6b73ef10679b533be483f2deb26d8e7c" title="Set reasonable defaults for the control settings.">setDefaults</a> </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following files:<ul>
 <li>src/<a class="el" href="EepromStructs_8h_source.html">EepromStructs.h</a></li>
 <li>src/EepromStructs.cpp</li>

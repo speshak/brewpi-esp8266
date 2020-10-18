@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structPiLink_1_1JsonParserConvert.html" title=" " alt="" coords="5,5,181,32"/>
+<area shape="rect" id="node1" href="$classPiStream.html" title="Template for abstracting low level Stream interaction details." alt="" coords="5,13,173,39"/>
+<area shape="rect" id="node2" href="$classPiLink.html" title="Interface between brewpi controller and the outside world (Commonly a RaspberryPi,..." alt="" coords="221,13,372,39"/>
+<area shape="rect" id="node3" href="$classCompatiblePiLink.html" title="Provide a PiLink interface compatible with the previous API." alt="" coords="420,5,597,47"/>
 </map>

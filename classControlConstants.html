@@ -71,6 +71,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classControlConstants-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ControlConstants Class Reference</div>  </div>
@@ -102,8 +103,12 @@ Collaboration diagram for ControlConstants:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ae84161e428f320dadf3a9991e2148dad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlConstants.html#ae84161e428f320dadf3a9991e2148dad">ControlConstants</a> ()</td></tr>
+<tr class="memdesc:ae84161e428f320dadf3a9991e2148dad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classControlConstants.html#ae84161e428f320dadf3a9991e2148dad">More...</a><br /></td></tr>
+<tr class="separator:ae84161e428f320dadf3a9991e2148dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16ab7a2e3da61c58104c1bd812350287"><td class="memItemLeft" align="right" valign="top"><a id="a16ab7a2e3da61c58104c1bd812350287"></a>
-DynamicJsonDocument&#160;</td><td class="memItemRight" valign="bottom"><b>toJson</b> ()</td></tr>
+DynamicJsonDocument&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlConstants.html#a16ab7a2e3da61c58104c1bd812350287">toJson</a> ()</td></tr>
+<tr class="memdesc:a16ab7a2e3da61c58104c1bd812350287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize control constants to JSON. <br /></td></tr>
 <tr class="separator:a16ab7a2e3da61c58104c1bd812350287"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a349f89f11ddbfccead8d3942675c347e"><td class="memItemLeft" align="right" valign="top"><a id="a349f89f11ddbfccead8d3942675c347e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>storeToSpiffs</b> ()</td></tr>
@@ -112,7 +117,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>storeToSpiffs</b> ()<
 void&#160;</td><td class="memItemRight" valign="bottom"><b>loadFromSpiffs</b> ()</td></tr>
 <tr class="separator:ae6cc3ecc223488896c91f505d000ddd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7c5c9455b8c9bc2e04c86f7bd6ca483"><td class="memItemLeft" align="right" valign="top"><a id="ad7c5c9455b8c9bc2e04c86f7bd6ca483"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDefaults</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlConstants.html#ad7c5c9455b8c9bc2e04c86f7bd6ca483">setDefaults</a> ()</td></tr>
+<tr class="memdesc:ad7c5c9455b8c9bc2e04c86f7bd6ca483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set reasonable default values for control constants. <br /></td></tr>
 <tr class="separator:ad7c5c9455b8c9bc2e04c86f7bd6ca483"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -201,6 +207,13 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a061f05adefd3f85d922d5ef6de6fec75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature format (F/C) <br /></td></tr>
 <tr class="separator:a061f05adefd3f85d922d5ef6de6fec75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:afe94b92fa916e6d14b7e90ab6a704d99"><td class="memItemLeft" align="right" valign="top"><a id="afe94b92fa916e6d14b7e90ab6a704d99"></a>
+static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlConstants.html#afe94b92fa916e6d14b7e90ab6a704d99">filename</a> = &quot;/controlConstants.json&quot;</td></tr>
+<tr class="memdesc:afe94b92fa916e6d14b7e90ab6a704d99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filename used when reading/writing data to flash. <br /></td></tr>
+<tr class="separator:afe94b92fa916e6d14b7e90ab6a704d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_static_methods_classJSONSaveable"><td colspan="2" onclick="javascript:toggleInherit('pro_static_methods_classJSONSaveable')"><img src="closed.png" alt="-"/>&#160;Static Protected Member Functions inherited from <a class="el" href="classJSONSaveable.html">JSONSaveable</a></td></tr>
@@ -213,7 +226,28 @@ static DynamicJsonDocument&#160;</td><td class="memItemRight" valign="bottom"><b
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>PID Control constants. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae84161e428f320dadf3a9991e2148dad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae84161e428f320dadf3a9991e2148dad">&#9670;&nbsp;</a></span>ControlConstants()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ControlConstants::ControlConstants </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classControlConstants.html#ad7c5c9455b8c9bc2e04c86f7bd6ca483" title="Set reasonable default values for control constants.">setDefaults</a> </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="EepromStructs_8h_source.html">EepromStructs.h</a></li>
 <li>src/EepromStructs.cpp</li>
 </ul>

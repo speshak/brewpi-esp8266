@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['debugmessage_399',['debugMessage',['../classPiLink.html#a6b32a42765d42b231f36f59acf292755',1,'PiLink']]],
-  ['decreaseestimator_400',['decreaseEstimator',['../classTempControl.html#ae14b0a545356d3988ac91c303ea1e11b',1,'TempControl']]],
-  ['deletedevicename_401',['deleteDeviceName',['../classDeviceNameManager.html#ae2b25b8fc991ea4f57dd5f2eb8441578',1,'DeviceNameManager']]],
-  ['detectnegpeak_402',['detectNegPeak',['../classCascadedFilter.html#aa3484161cddcd71a7aec39b2273b6de9',1,'CascadedFilter::detectNegPeak()'],['../classFixedFilter.html#a9f3fb220884212e66759adfa358dc5e4',1,'FixedFilter::detectNegPeak()']]],
-  ['detectpospeak_403',['detectPosPeak',['../classCascadedFilter.html#a145831f37a4ac92d2a01dd0b1920affd',1,'CascadedFilter::detectPosPeak()'],['../classFixedFilter.html#af7d62c305825fd2a5671793ea6f9a03a',1,'FixedFilter::detectPosPeak()']]],
-  ['devicenamefilename_404',['deviceNameFilename',['../classDeviceNameManager.html#aa3343382b47653aff6037e89e604ce3b',1,'DeviceNameManager']]],
-  ['deviceowner_405',['deviceOwner',['../group__hardware.html#gab16ded9c13543a1cd083db4d28d7eb9f',1,'DeviceManager.h']]],
-  ['devicetype_406',['deviceType',['../group__hardware.html#ga070eb3cb6a8c1424df69e548e530b057',1,'deviceType(DeviceFunction id):&#160;DeviceManager.cpp'],['../group__hardware.html#ga070eb3cb6a8c1424df69e548e530b057',1,'deviceType(DeviceFunction id):&#160;DeviceManager.cpp']]]
+  ['closelistresponse_474',['closeListResponse',['../classCompatiblePiLink.html#a031035c1154b0dd3a0d00cf44699540b',1,'CompatiblePiLink']]],
+  ['connected_475',['connected',['../classPiStream.html#aa1ca843b7fb2464bf20bafaf0e439333',1,'PiStream']]],
+  ['constraintemp_476',['constrainTemp',['../group__temps.html#ga66b9450deff10943e8ae596572fa6c35',1,'constrainTemp(long_temperature valLong, temperature lower, temperature upper):&#160;TemperatureFormats.cpp'],['../group__temps.html#ga66b9450deff10943e8ae596572fa6c35',1,'constrainTemp(long_temperature val, temperature lower, temperature upper):&#160;TemperatureFormats.cpp']]],
+  ['constraintemp16_477',['constrainTemp16',['../group__temps.html#ga359ad9e444e0d3d705a4665793093c36',1,'constrainTemp16(long_temperature val):&#160;TemperatureFormats.cpp'],['../group__temps.html#ga359ad9e444e0d3d705a4665793093c36',1,'constrainTemp16(long_temperature val):&#160;TemperatureFormats.cpp']]],
+  ['controlconstants_478',['ControlConstants',['../classControlConstants.html#ae84161e428f320dadf3a9991e2148dad',1,'ControlConstants']]],
+  ['controlsettings_479',['ControlSettings',['../structControlSettings.html#abe2c4e02c1393e9157d941cd839ee949',1,'ControlSettings']]],
+  ['converttointernaltempimpl_480',['convertToInternalTempImpl',['../group__temps.html#gaff1756d19cd744296c8e22e47d3c2bda',1,'convertToInternalTempImpl(long_temperature rawTemp, bool addOffset):&#160;TemperatureFormats.cpp'],['../group__temps.html#gaff1756d19cd744296c8e22e47d3c2bda',1,'convertToInternalTempImpl(long_temperature rawTemp, bool addOffset):&#160;TemperatureFormats.cpp']]],
+  ['createdevice_481',['createDevice',['../classDeviceManager.html#aaed144036ddeda8c6c5f3b8245df1905',1,'DeviceManager']]]
 ];

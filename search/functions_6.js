@@ -1,17 +1,7 @@
 var searchData=
 [
-  ['getbeersetting_413',['getBeerSetting',['../classTempControl.html#ae719231db704a4f3e3a0989a46be4248',1,'TempControl']]],
-  ['getbeertemp_414',['getBeerTemp',['../classSimulator.html#afde4e6e4b6e8ec4d4aa10c185ceee826',1,'Simulator::getBeerTemp()'],['../classTempControl.html#a3b86dde78a269f99bef6476788d229ab',1,'TempControl::getBeerTemp()']]],
-  ['getbeervolume_415',['getBeerVolume',['../classSimulator.html#aa5c89f0b17200e7bc8248f9605c7264b',1,'Simulator']]],
-  ['getcurrline_416',['getCurrLine',['../classSpiLcd.html#a968241e7771d38ced553695a7623fe35',1,'SpiLcd']]],
-  ['getcurrpos_417',['getCurrPos',['../classSpiLcd.html#a82a17ddceab3e6065079827a6a7f74bf',1,'SpiLcd']]],
-  ['getdevicename_418',['getDeviceName',['../classDeviceNameManager.html#a6942a25e3ed8d3836ddd93a8b1443327',1,'DeviceNameManager']]],
-  ['getdisplaystate_419',['getDisplayState',['../classTempControl.html#a4e4b659fb00e8c375aef05fa35446fe2',1,'TempControl']]],
-  ['getfridgesetting_420',['getFridgeSetting',['../classTempControl.html#ad1b78b654a44deb3660441b7bf73b216',1,'TempControl']]],
-  ['getfridgetemp_421',['getFridgeTemp',['../classTempControl.html#a4b49b8fc57d0cdd6ac01bdcf82d9a5c6',1,'TempControl']]],
-  ['getline_422',['getLine',['../classSpiLcd.html#a1bba4f95a6b17c1b11746db251834029',1,'SpiLcd']]],
-  ['getmode_423',['getMode',['../classTempControl.html#af0a5f02b1c3fcf1e459e07f133caaa62',1,'TempControl']]],
-  ['getroomtemp_424',['getRoomTemp',['../classTempControl.html#a8e27ba2433d71c505009f29eca910f3c',1,'TempControl']]],
-  ['getstate_425',['getState',['../classTempControl.html#afc2267dfe1f48cf75789d4ebc26cc6d2',1,'TempControl']]],
-  ['getwaittime_426',['getWaitTime',['../classTempControl.html#a51ad4bd475f7766367f2e465b61245c2',1,'TempControl']]]
+  ['filenametodevicename_494',['filenameToDeviceName',['../classDeviceNameManager.html#a47285f20d8f71822e3f6b0fe72223994',1,'DeviceNameManager']]],
+  ['firstundefinedalternative_495',['firstUndefinedAlternative',['../classDeviceManager.html#acddeb1446df1a22a5a07fad1b25ad77a',1,'DeviceManager']]],
+  ['fixedpointtostring_496',['fixedPointToString',['../group__temps.html#ga26505e05fd615c50570472f10c6eb13c',1,'fixedPointToString(char *s, temperature rawValue, uint8_t numDecimals, uint8_t maxLength):&#160;TemperatureFormats.cpp'],['../group__temps.html#ga80bdccf8e394db04614ab9ea2207a915',1,'fixedPointToString(char *s, long_temperature rawValue, uint8_t numDecimals, uint8_t maxLength):&#160;TemperatureFormats.cpp'],['../group__temps.html#ga80bdccf8e394db04614ab9ea2207a915',1,'fixedPointToString(char *s, long_temperature rawValue, uint8_t numDecimals, uint8_t maxLength):&#160;TemperatureFormats.cpp'],['../group__temps.html#ga26505e05fd615c50570472f10c6eb13c',1,'fixedPointToString(char *s, temperature rawValue, uint8_t numDecimals, uint8_t maxLength):&#160;TemperatureFormats.cpp']]],
+  ['fixedtotenths_497',['fixedToTenths',['../group__temps.html#ga140c4743c39efac86e232661e48caed9',1,'fixedToTenths(long_temperature temp):&#160;TemperatureFormats.cpp'],['../group__temps.html#ga140c4743c39efac86e232661e48caed9',1,'fixedToTenths(long_temperature temperature):&#160;TemperatureFormats.cpp']]]
 ];

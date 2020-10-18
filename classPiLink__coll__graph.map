@@ -1,5 +1,4 @@
-<map id="PiLink" name="PiLink">
-<area shape="rect" id="node1" title=" " alt="" coords="131,109,190,136"/>
-<area shape="rect" id="node2" href="$structPiLink_1_1JsonOutput.html" title=" " alt="" coords="5,5,137,32"/>
-<area shape="rect" id="node3" href="$structPiLink_1_1JsonParserConvert.html" title=" " alt="" coords="162,5,338,32"/>
+<map id="PiLink&lt; StreamType &gt;" name="PiLink&lt; StreamType &gt;">
+<area shape="rect" id="node1" title="Interface between brewpi controller and the outside world (Commonly a RaspberryPi,..." alt="" coords="14,80,165,107"/>
+<area shape="rect" id="node2" href="$classPiStream.html" title="Template for abstracting low level Stream interaction details." alt="" coords="5,5,173,32"/>
 </map>
