@@ -188,7 +188,7 @@ class SpiLcd : public Print {
    * Always keep a copy of the display content in this variable.  Allows for
    * display refresh and for retrieveing the display content.
    */
-	char content[4][21];
+	char content[Config::Lcd::lines][Config::Lcd::columns + 1];
 };
 
 #endif

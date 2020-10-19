@@ -164,9 +164,9 @@ public:
 	DISPLAY_METHOD void printAt_P(uint8_t x, uint8_t y, const char* text) {}
 		
 	DISPLAY_METHOD void getLine(uint8_t lineNumber, char * buffer) {
-		for (int i=0; i<20; i++)
+		for (int i=0; i<Config::Lcd::columns; i++)
 			buffer[i] = ' ';
-		buffer[20] = 0;
+		buffer[Config::Lcd::columns] = 0;
 	}
 		
 	DISPLAY_METHOD void setBufferOnly(bool bufferOnly) { }

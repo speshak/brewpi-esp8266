@@ -97,7 +97,7 @@ class NullLcdDriver : public Print {
 	
 	bool	_bufferOnly;
 
-	char content[4][21]; // always keep a copy of the display content in this variable
+	char content[Config::Lcd::lines][Config::Lcd::columns + 1]; // always keep a copy of the display content in this variable
 	
 };
 

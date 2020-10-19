@@ -86,11 +86,11 @@ void SpiLcd::clear()
 {
 	command(LCD_CLEARDISPLAY);  // clear display, set cursor position to zero
 	
-	for(uint8_t i = 0; i<4; i++){
-		for(uint8_t j = 0; j<20; j++){
+	for(uint8_t i = 0; i<Config::Lcd::lines; i++){
+		for(uint8_t j = 0; j<Config::Lcd::columns; j++){
 			content[i][j]=' '; // initialize on all spaces
 		}
-		content[i][20]='\0'; // NULL terminate string
+		content[i][Config::Lcd::columns]='\0'; // NULL terminate string
 	}
 }
 
@@ -199,11 +199,11 @@ void SpiLcd::updateBacklight(){
 // Puts the content of one LCD line into the provided buffer.
 void SpiLcd::getLine(uint8_t lineNumber, char * buffer){
 	const char* src = content[lineNumber];
-	for(uint8_t i =0;i<20;i++){
+	for(uint8_t i =0;i<Config::Lcd::columns;i++){
 		char c = src[i];
 		buffer[i] = (c == 0b11011111) ? 0xB0 : c;
 	}
-	buffer[20] = '\0'; // NULL terminate string
+	buffer[Config::Lcd::columns] = '\0'; // NULL terminate string
 }
 
 /*********** mid level commands, for sending data/cmds */
@@ -297,14 +297,14 @@ void SpiLcd::waitBusy() {
 }
 
 void SpiLcd::printSpacesToRestOfLine(){
-	while(_currpos < 20){
+	while(_currpos < Config::Lcd::columns){
 		print(' ');
 	}
 }
 
 #ifndef print_P_inline
 void SpiLcd::print_P(const char * str){ // print a string stored in PROGMEM
-	char buf[21]; // create buffer in RAM
+	char buf[Config::Lcd::columns + 1]; // create buffer in RAM
 	strcpy_P(buf, str); // copy string to RAM
 	print(buf); // print from RAM
 }

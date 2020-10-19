@@ -95,7 +95,7 @@ public:
 #ifdef print_P_inline
 	// print a string stored in PROGMEM
 	void print_P(const char * str) {
-		char buf[21]; // create buffer in RAM
+		char buf[Config::Lcd::columns + 1]; // create buffer in RAM
 		strcpy_P(buf, str); // copy string to RAM
 		print(buf); // print from RAM
 	}
@@ -147,7 +147,7 @@ private:
 	uint16_t _backlightTime;
 	bool _bufferOnly;
 
-	char content[4][21]; // always keep a copy of the display content in this variable
+	char content[Config::Lcd::lines][Config::Lcd::columns + 1]; // always keep a copy of the display content in this variable
 };
 
 #endif

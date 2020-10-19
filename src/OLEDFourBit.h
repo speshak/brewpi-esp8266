@@ -151,7 +151,7 @@ class OLEDFourBit : public Print {
 	uint8_t _currpos;
 	uint8_t _numlines;
 	
-	char content[4][21]; // always keep a copy of the display content in this variable
+	char content[Config::Lcd::lines][Config::Lcd::columns + 1]; // always keep a copy of the display content in this variable
 	
 	bool	_bufferOnly;
 

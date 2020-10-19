@@ -107,11 +107,11 @@ void OLEDFourBit::clear()
 {
 	command(LCD_CLEARDISPLAY);  // clear display, set cursor position to zero
 	
-	for(uint8_t i = 0; i<4; i++){
-		for(uint8_t j = 0; j<20; j++){
+	for(uint8_t i = 0; i<Config::Lcd::lines; i++){
+		for(uint8_t j = 0; j<Config::Lcd::columns; j++){
 			content[i][j]=' '; // initialize on all spaces
 		}
-		content[i][20]='\0'; // NULL terminate string
+		content[i][Config::Lcd::columns]='\0'; // NULL terminate string
 	}	
 }
 
@@ -292,34 +292,34 @@ char OLEDFourBit::readChar(){
 
 void OLEDFourBit::getLine(uint8_t lineNumber, char * buffer){
 	const char* src = content[lineNumber];
-	for(uint8_t i =0;i<20;i++){
+	for(uint8_t i =0;i<Config::Lcd::columns;i++){
 		char c = src[i];
 		buffer[i] = (c == 0b11011111) ? 0xB0 : c;
 	}
-	buffer[20] = '\0'; // NULL terminate string
+	buffer[Config::Lcd::columns] = '\0'; // NULL terminate string
 }	
 
 // Read the content from the display and store it in the local string buffer.
 // Buffer should always stay up to date, so this function is not really needed.
 void OLEDFourBit::readContent(){
 	setCursor(0,0);
-	for(uint8_t i =0;i<20;i++){
+	for(uint8_t i =0;i<Config::Lcd::columns;i++){
 		content[0][i] = readChar();
 	}
-	for(uint8_t i =0;i<20;i++){
+	for(uint8_t i =0;i<Config::Lcd::columns;i++){
 		content[2][i] = readChar();
 	}
 	setCursor(0,1);
-	for(uint8_t i =0;i<20;i++){
+	for(uint8_t i =0;i<Config::Lcd::columns;i++){
 		content[1][i] = readChar();
 	}
-	for(uint8_t i =0;i<20;i++){
+	for(uint8_t i =0;i<Config::Lcd::columns;i++){
 		content[3][i] = readChar();
 	}
 }
 
 void OLEDFourBit::printSpacesToRestOfLine(){
-	while(_currpos < 20){
+	while(_currpos < Config::Lcd::columns){
 		print(' ');
 	}
 }

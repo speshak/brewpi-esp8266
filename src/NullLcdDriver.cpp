@@ -42,11 +42,11 @@ void NullLcdDriver::begin(uint8_t cols, uint8_t lines) {
 /********** high level commands, for the user! */
 void NullLcdDriver::clear()
 {
-	for(uint8_t i = 0; i<4; i++){
-		for(uint8_t j = 0; j<20; j++){
+	for(uint8_t i = 0; i<Config::Lcd::lines; i++){
+		for(uint8_t j = 0; j<Config::Lcd::columns; j++){
 			content[i][j]=' '; // initialize on all spaces
 		}
-		content[i][20]='\0'; // NULL terminate string
+		content[i][Config::Lcd::columns]='\0'; // NULL terminate string
 	}
 }
 
@@ -124,11 +124,11 @@ void NullLcdDriver::updateBacklight(){
 // Puts the content of one LCD line into the provided buffer.
 void NullLcdDriver::getLine(uint8_t lineNumber, char * buffer){
 	const char* src = content[lineNumber];
-	for(uint8_t i =0;i<20;i++){
+	for(uint8_t i =0;i<Config::Lcd::columns;i++){
 		char c = src[i];
 		buffer[i] = (c == 0b11011111) ? 0xB0 : c;
 	}
-	buffer[20] = '\0'; // NULL terminate string
+	buffer[Config::Lcd::columns] = '\0'; // NULL terminate string
 }
 
 /*********** mid level commands, for sending data/cmds */
@@ -143,7 +143,7 @@ inline size_t NullLcdDriver::write(uint8_t value) {
 }
 
 void NullLcdDriver::printSpacesToRestOfLine(){
-	while(_currpos < 20){
-		print(' ')                                             ;
+	while(_currpos < Config::Lcd::columns){
+		print(' ');
 	}
 }
