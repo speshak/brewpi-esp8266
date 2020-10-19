@@ -102,12 +102,12 @@ enum DeviceType {
  */
 inline bool isAssignable(DeviceType type, DeviceHardware hardware)
 {
-	return (hardware==DEVICE_HARDWARE_PIN && (type==DEVICETYPE_SWITCH_ACTUATOR || type==DEVICETYPE_SWITCH_SENSOR))
+	return (hardware==DeviceHardware::pin && (type==DEVICETYPE_SWITCH_ACTUATOR || type==DEVICETYPE_SWITCH_SENSOR))
 #if BREWPI_DS2413
-	|| (hardware==DEVICE_HARDWARE_ONEWIRE_2413 && (type==DEVICETYPE_SWITCH_ACTUATOR || (DS2413_SUPPORT_SENSE && type==DEVICETYPE_SWITCH_SENSOR)))
+	|| (hardware==DeviceHardware::onewire2413 && (type==DEVICETYPE_SWITCH_ACTUATOR || (DS2413_SUPPORT_SENSE && type==DEVICETYPE_SWITCH_SENSOR)))
 #endif
-	|| (hardware==DEVICE_HARDWARE_ONEWIRE_TEMP && type==DEVICETYPE_TEMP_SENSOR)
-	|| (hardware==DEVICE_HARDWARE_NONE && type==DEVICETYPE_NONE);
+	|| (hardware==DeviceHardware::onewireTemp && type==DEVICETYPE_TEMP_SENSOR)
+	|| (hardware==DeviceHardware::none && type==DEVICETYPE_NONE);
 }
 
 
@@ -120,9 +120,9 @@ inline bool isAssignable(DeviceType type, DeviceHardware hardware)
 inline bool isOneWire(DeviceHardware hardware) {
 	return
 #if BREWPI_DS2413
-	hardware==DEVICE_HARDWARE_ONEWIRE_2413 ||
+	hardware==DeviceHardware::onewire2413 ||
 #endif
-	hardware==DEVICE_HARDWARE_ONEWIRE_TEMP;
+	hardware==DeviceHardware::onewireTemp;
 }
 
 /**
@@ -131,8 +131,8 @@ inline bool isOneWire(DeviceHardware hardware) {
  * @param hardware - Hardware device to check
  * @returns `true` if device is a digital pin, `false` otherwise
  */
-inline bool isDigitalPin(DeviceHardware hardware) {
-	return hardware==DEVICE_HARDWARE_PIN;
+inline bool isDigitalPin(const DeviceHardware hardware) {
+	return hardware==DeviceHardware::pin;
 }
 
 extern DeviceType deviceType(DeviceFunction id);
