@@ -80,26 +80,39 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by John Beeler on 1/12/20.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// This library always needs to get loaded, as we&#39;re going to need to interact with the radio regardless of whether</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// we&#39;re using WiFi or not. If neither ESP8266 or ESP32 is defined, (properly) do nothing (though this shouldn&#39;t</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// actually compile for Arduino)</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#if defined(ESP8266)</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;ESP8266WiFi.h&gt;</span>  <span class="comment">// For printing the IP address</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#elif defined(ESP32)</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;WiFi.h&gt;</span> <span class="comment">// For printing the IP address</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> initialize_wifi();  <span class="comment">// If WiFi is enabled, this sets it up. Otherwise, it disconnects the radio.</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> display_connect_info_and_create_callback(); <span class="comment">// Display the WiFi splash screen &amp; trigger reconnection callback</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> wifi_connect_clients();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> initWifiServer();</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;ArduinoJson.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// This library always needs to get loaded, as we&#39;re going to need to interact with the radio regardless of whether</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// we&#39;re using WiFi or not. If neither ESP8266 or ESP32 is defined, (properly) do nothing (though this shouldn&#39;t</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// actually compile for Arduino)</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#if defined(ESP8266)</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;ESP8266WiFi.h&gt;</span>  <span class="comment">// For printing the IP address</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#elif defined(ESP32)</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;WiFi.h&gt;</span> <span class="comment">// For printing the IP address</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">extern</span> WiFiServer server;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">extern</span> WiFiClient serverClient;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__wifi.html#ga38d44e2e1dc4cebb09dec960185019c5">initialize_wifi</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__wifi.html#ga255de38f7385505db2d2a1eebe0b6052">display_connect_info_and_create_callback</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__wifi.html#ga61bcb51f7742ba9eff66afe837f6b593">wifi_connect_clients</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="group__wifi.html#ga1e96c7f1b935af54670cafb599329ebd">   52</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__wifi.html#ga1e96c7f1b935af54670cafb599329ebd">initWifiServer</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="group__wifi.html#ga1569e7843d22b3f1baf6dc780a615675">   60</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__wifi.html#ga1569e7843d22b3f1baf6dc780a615675">wifi_connection_info</a>(JsonDocument&amp; doc);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">extern</span> WiFiServer server;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">extern</span> WiFiClient serverClient;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="agroup__wifi_html_ga38d44e2e1dc4cebb09dec960185019c5"><div class="ttname"><a href="group__wifi.html#ga38d44e2e1dc4cebb09dec960185019c5">initialize_wifi</a></div><div class="ttdeci">void initialize_wifi()</div><div class="ttdoc">Initialize the WiFi client.</div><div class="ttdef"><b>Definition:</b> ESP_WiFi.cpp:208</div></div>
+<div class="ttc" id="agroup__wifi_html_ga1569e7843d22b3f1baf6dc780a615675"><div class="ttname"><a href="group__wifi.html#ga1569e7843d22b3f1baf6dc780a615675">wifi_connection_info</a></div><div class="ttdeci">void wifi_connection_info(JsonDocument &amp;doc)</div><div class="ttdoc">Get current WiFi connection information, in JsonDocument format.</div></div>
+<div class="ttc" id="agroup__wifi_html_ga1e96c7f1b935af54670cafb599329ebd"><div class="ttname"><a href="group__wifi.html#ga1e96c7f1b935af54670cafb599329ebd">initWifiServer</a></div><div class="ttdeci">void initWifiServer()</div><div class="ttdoc">Initialize the telnet server.</div></div>
+<div class="ttc" id="agroup__wifi_html_ga61bcb51f7742ba9eff66afe837f6b593"><div class="ttname"><a href="group__wifi.html#ga61bcb51f7742ba9eff66afe837f6b593">wifi_connect_clients</a></div><div class="ttdeci">void wifi_connect_clients()</div><div class="ttdoc">Handle incoming WiFi client connections.</div><div class="ttdef"><b>Definition:</b> ESP_WiFi.cpp:218</div></div>
+<div class="ttc" id="agroup__wifi_html_ga255de38f7385505db2d2a1eebe0b6052"><div class="ttname"><a href="group__wifi.html#ga255de38f7385505db2d2a1eebe0b6052">display_connect_info_and_create_callback</a></div><div class="ttdeci">void display_connect_info_and_create_callback()</div><div class="ttdoc">Display the WiFi splash screen &amp; trigger reconnection callback.</div><div class="ttdef"><b>Definition:</b> ESP_WiFi.cpp:215</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

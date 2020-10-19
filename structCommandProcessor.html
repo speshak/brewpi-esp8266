@@ -90,9 +90,12 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
-<tr class="memitem:a43e326b767d2fedbb6e3bd1778a62c1d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommandProcessor.html#a43e326b767d2fedbb6e3bd1778a62c1d">invalidCommand</a> (char inByte)</td></tr>
-<tr class="memdesc:a43e326b767d2fedbb6e3bd1778a62c1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display a warning about unknown commands.  <a href="structCommandProcessor.html#a43e326b767d2fedbb6e3bd1778a62c1d">More...</a><br /></td></tr>
-<tr class="separator:a43e326b767d2fedbb6e3bd1778a62c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a278975db9bca6fd6413c6bcb610d8825"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommandProcessor.html#a278975db9bca6fd6413c6bcb610d8825">invalidCommand</a> (const char inByte)</td></tr>
+<tr class="memdesc:a278975db9bca6fd6413c6bcb610d8825"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display a warning about unknown commands.  <a href="structCommandProcessor.html#a278975db9bca6fd6413c6bcb610d8825">More...</a><br /></td></tr>
+<tr class="separator:a278975db9bca6fd6413c6bcb610d8825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02f155d5e8f8880f49279b7b3426f192"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommandProcessor.html#a02f155d5e8f8880f49279b7b3426f192">commandNotImplemented</a> (const char command, const String message)</td></tr>
+<tr class="memdesc:a02f155d5e8f8880f49279b7b3426f192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inform user that the requested command isn't implemented.  <a href="structCommandProcessor.html#a02f155d5e8f8880f49279b7b3426f192">More...</a><br /></td></tr>
+<tr class="separator:a02f155d5e8f8880f49279b7b3426f192"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fda22faa193732623f264005bb156d6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommandProcessor.html#a7fda22faa193732623f264005bb156d6">versionInfo</a> ()</td></tr>
 <tr class="memdesc:a7fda22faa193732623f264005bb156d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version information.  <a href="structCommandProcessor.html#a7fda22faa193732623f264005bb156d6">More...</a><br /></td></tr>
 <tr class="separator:a7fda22faa193732623f264005bb156d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,6 +145,10 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommandProcessor.html#aafe2992abe9f49280b68698c8ce3b302">resetWiFi</a> ()</td></tr>
 <tr class="memdesc:aafe2992abe9f49280b68698c8ce3b302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the WiFi configuration. <br /></td></tr>
 <tr class="separator:aafe2992abe9f49280b68698c8ce3b302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f9a3270a8b28d65614764c629dccbe5"><td class="memItemLeft" align="right" valign="top"><a id="a1f9a3270a8b28d65614764c629dccbe5"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommandProcessor.html#a1f9a3270a8b28d65614764c629dccbe5">wifiInfo</a> ()</td></tr>
+<tr class="memdesc:a1f9a3270a8b28d65614764c629dccbe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get info about the WiFi connection. <br /></td></tr>
+<tr class="separator:a1f9a3270a8b28d65614764c629dccbe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a487f9caf3b424e105123c1ec72903743"><td class="memItemLeft" align="right" valign="top"><a id="a487f9caf3b424e105123c1ec72903743"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommandProcessor.html#a487f9caf3b424e105123c1ec72903743">toggleBacklight</a> ()</td></tr>
 <tr class="memdesc:a487f9caf3b424e105123c1ec72903743"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggle the state of the LCD backlight. <br /></td></tr>
@@ -170,6 +177,52 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>processSetting
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Functions that implement protocol commands. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a02f155d5e8f8880f49279b7b3426f192"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02f155d5e8f8880f49279b7b3426f192">&#9670;&nbsp;</a></span>commandNotImplemented()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandProcessor::commandNotImplemented </td>
+          <td>(</td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const String&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inform user that the requested command isn't implemented. </p>
+<p>This differs from an invalid command because an invalid command is not ever valid in the command set. Not-implemented commands are valid, it's just that the code doesn't currently support the command. The lack of support could be due to configuration or just a yet to be finished feature.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>- Command requested. </td></tr>
+    <tr><td class="paramname">message</td><td>- An message explaining why the command isn't implemented. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aacdf76a0d08cf1a5493d082c265fe3cc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aacdf76a0d08cf1a5493d082c265fe3cc">&#9670;&nbsp;</a></span>initEeprom()</h2>
 
@@ -198,8 +251,8 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>processSetting
 
 </div>
 </div>
-<a id="a43e326b767d2fedbb6e3bd1778a62c1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43e326b767d2fedbb6e3bd1778a62c1d">&#9670;&nbsp;</a></span>invalidCommand()</h2>
+<a id="a278975db9bca6fd6413c6bcb610d8825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a278975db9bca6fd6413c6bcb610d8825">&#9670;&nbsp;</a></span>invalidCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,7 +263,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>processSetting
         <tr>
           <td class="memname">void CommandProcessor::invalidCommand </td>
           <td>(</td>
-          <td class="paramtype">char&#160;</td>
+          <td class="paramtype">const char&#160;</td>
           <td class="paramname"><em>inByte</em></td><td>)</td>
           <td></td>
         </tr>
@@ -225,7 +278,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>processSetting
 <p>Display a warning about unknown commands. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">inByte</td><td>- The recieved command </td></tr>
+    <tr><td class="paramname">inByte</td><td>- The received command </td></tr>
   </table>
   </dd>
 </dl>
