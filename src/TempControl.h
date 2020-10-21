@@ -228,6 +228,7 @@ public:
 	TEMP_CONTROL_METHOD bool stateIsHeating();
 
 	TEMP_CONTROL_METHOD bool modeIsBeer();
+	TEMP_CONTROL_METHOD bool modeIsFridge();
 
 	TEMP_CONTROL_METHOD void initFilters();
 

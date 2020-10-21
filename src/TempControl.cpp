@@ -147,17 +147,25 @@ void updateSensor(TempSensor* sensor) {
  * This updates beer, fridge & room sensors.
  */
 void TempControl::updateTemperatures(){
-	
 	updateSensor(beerSensor);
 	updateSensor(fridgeSensor);
-	
-	// Read ambient sensor to keep the value up to date. If no sensor is connected, this does nothing.
-	// This prevents a delay in serial response because the value is not up to date.
+
+  // Read ambient sensor to keep the value up to date. If no sensor is
+  // connected, this does nothing.  This prevents a delay in serial response
+  // because the value is not up to date.
 	if(ambientSensor->read() == TEMP_SENSOR_DISCONNECTED){
 		ambientSensor->init(); // try to reconnect a disconnected, but installed sensor
 	}
 }
 
+
+/**
+ * \brief Run the PID routine.
+ *
+ * Does the PID math to determine what control action should be taken to reach
+ * the beer set point.
+ * Only has an effect when in a Beer control mode.
+ */
 void TempControl::updatePID(){
 	static unsigned char integralUpdateCounter = 0;
 	if(tempControl.modeIsBeer()){
@@ -167,17 +175,17 @@ void TempControl::updatePID(){
 			cs.fridgeSetting = INVALID_TEMP;
 			return;
 		}
-		
+
 		// fridge setting is calculated with PID algorithm. Beer temperature error is input to PID
 		cv.beerDiff =  cs.beerSetting - beerSensor->readSlowFiltered();
 		cv.beerSlope = beerSensor->readSlope();
 		temperature fridgeFastFiltered = fridgeSensor->readFastFiltered();
-			
+
 		if(integralUpdateCounter++ == 60){
 			integralUpdateCounter = 0;
-			
+
 			temperature integratorUpdate = cv.beerDiff;
-			
+
 			// Only update integrator in IDLE, because thats when the fridge temp has reached the fridge setting.
 			// If the beer temp is still not correct, the fridge setting is too low/high and integrator action is needed.
 			if(state != ControlState::IDLE){
@@ -186,8 +194,8 @@ void TempControl::updatePID(){
 			else if(abs(integratorUpdate) < cc.iMaxError){
 				// difference is smaller than iMaxError				
 				// check additional conditions to see if integrator should be active to prevent windup
-				bool updateSign = (integratorUpdate > 0); // 1 = positive, 0 = negative
-				bool integratorSign = (cv.diffIntegral > 0);		
+				const bool updateSign = (integratorUpdate > 0); // 1 = positive, 0 = negative
+				const bool integratorSign = (cv.diffIntegral > 0);
 				
 				if(updateSign == integratorSign){
 					// beerDiff and integrator have same sign. Integrator would be increased.
@@ -242,7 +250,13 @@ void TempControl::updatePID(){
 /**
  * \brief Update control state
  *
- * Evaluates the status of sensors & configuration, and then sets the appropriate control state.
+ * Evaluates the status of sensors & configuration, and then sets the
+ * appropriate control state.  This dispatches to the various
+ * updateStateWhile*() methods as appropriate.
+ *
+ * \see updateStateWhileIdle()
+ * \see updateStateWhileCooling()
+ * \see updateStateWhileHeating()
  */
 void TempControl::updateState() {
   alertDoorStateChange();
@@ -434,7 +448,7 @@ void TempControl::increaseEstimator(temperature * estimator, const temperature e
 }
 
 /**
- * \brief Decrease the esimator value.
+ * \brief Decrease the estimator value.
  *
  * Decrease estimator at least 16.7% (1/1.2), max 33.3% (1/1.5)
  */
@@ -537,7 +551,7 @@ void TempControl::initFilters()
 	fridgeSensor->setSlopeFilterCoefficients(cc.fridgeSlopeFilter);
 	beerSensor->setFastFilterCoefficients(cc.beerFastFilter);
 	beerSensor->setSlowFilterCoefficients(cc.beerSlowFilter);
-	beerSensor->setSlopeFilterCoefficients(cc.beerSlopeFilter);		
+	beerSensor->setSlopeFilterCoefficients(cc.beerSlopeFilter);
 }
 
 
@@ -671,6 +685,13 @@ void TempControl::updateWaitTime(const ticks_seconds_t newTimeLimit, const ticks
  */
 bool TempControl::modeIsBeer() {
   return (cs.mode == ControlMode::beerConstant || cs.mode == ControlMode::beerProfile);
+}
+
+/**
+ * \brief Check if the current configured mode is Fridge
+ */
+bool TempControl::modeIsFridge() {
+  return (cs.mode == ControlMode::fridgeConstant || cs.mode == ControlMode::fridgeProfile);
 }
 
 /**
