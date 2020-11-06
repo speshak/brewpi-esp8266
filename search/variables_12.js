@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value_745',['value',['../structDeviceDisplay.html#afec296da6918120161ef4ce002db1441',1,'DeviceDisplay']]]
+  ['value_783',['value',['../structDeviceDisplay.html#afec296da6918120161ef4ce002db1441',1,'DeviceDisplay']]]
 ];
